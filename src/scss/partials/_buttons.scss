@@ -1,0 +1,80 @@
+%dgwltd-button,
+.dgwltd-button, 
+.wp-block-button__link {
+  appearance: none;
+  display: inline-block;
+  font-weight: bold;
+  font-size: var(--wp--preset--font-size--normal);
+  line-height: var(--wp--custom--typography--line-height--medium);
+  color: var(--button-text-color);
+  padding: 1rem 1.6rem;
+  margin: var(--gap-15) 0;
+  text-decoration: none;
+  border: 2px solid var(--button-background);
+  background-color: var(--button-background);
+  box-shadow: none;
+  border-radius: 4px;
+  cursor: pointer;
+  @include mq($from: md) {
+    margin: 0 0 var(--gap-30);
+    line-height: 1;
+  }
+  &:hover {
+    border-color: var(--button-hover);
+    background-color: var(--button-hover);
+  }
+  &:link,
+  &:visited,
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
+  &:focus,
+  &:focus:not(:active):not(:hover) {
+    color: var(--button-text-color);
+    border-color: var(--button-focus);
+    background-color: var(--button-background);
+  }
+  &[disabled] {
+    background-color: var(--button-disabled);
+    color: black;
+    border-color: var(--button-disabled);
+    cursor: not-allowed;
+  }
+  &.has-primary-background-color {
+    border-color: var(--primary);
+    &:hover {
+      border-color: var(--primary);
+    }
+  }
+}
+
+//Remove default outline
+.govuk-button {
+  box-shadow: none;
+}
+
+.dgwltd-button > a {
+  color: var(--light);
+  text-decoration: none;
+  &:hover {
+    color: white;
+  }
+}
+
+%dgwltd-button--small, 
+.dgwltd-button--small {
+  padding: var(--gap-5) var(--gap-small);
+}
+
+%dgwltd-button--ghost, 
+.dgwltd-button--ghost {
+  border-color: var(--light);
+  color: var(--button-background);
+  background-color: transparent;
+  &:hover {
+    border-color: var(--button-background);
+    background-color: var(--button-background);
+    color: white;
+  }
+}

@@ -1,0 +1,74 @@
+//Box sizing
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+//Links
+a {
+  color: var(--text-color);
+  text-decoration: underline;
+  text-decoration-thickness: unquote("max(0.0875em, .0625rem)");
+  text-underline-offset: 0.1em;
+  &:visited {
+    color: var(--text-color);
+  }
+  &:hover {
+    text-decoration-color: var(--highlight);
+  }
+  &:active {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+  &:focus {
+    color: var(--text-color);
+    background-color: var(--focus);
+    outline: 3px solid transparent;
+    box-shadow: 0 -2px var(--focus), 0 4px #0b0c0c;
+    text-decoration: none;
+  }
+  &.dgwltd-button {
+    color: white;
+  }
+}
+
+hr {
+  margin: var(--gap-medium) 0;
+  height: 1px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+//Themes
+$color-map: (
+  "black": black,
+  "white": white,
+  "orange": #f8864c,
+  "blue": #00466e,
+);
+@each $key, $value in $color-map {
+  .bg--#{$key} {
+    background-color: $value;
+    @include text-contrast($value);
+    a,
+    a:hover {
+      color: inherit;
+    }
+  }
+}
+
+/* Remove all animations and transitions
+for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
