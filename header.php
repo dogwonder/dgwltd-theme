@@ -15,7 +15,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title><?php bloginfo( 'name' ); ?> &ndash; <?php is_front_page() ? bloginfo( 'description' ) : wp_title( '' ); ?></title>
-<?php endif; ?>
 <link rel="preconnect" href="<?php echo esc_url( site_url() ); ?>" crossorigin>
 <link rel="preconnect" href="//plausible.io" crossorigin>
 <link rel="preload" href="<?php echo get_template_directory_uri() ?>/dist/fonts/soehne/soehne-extrafett.woff2" as="font" type="font/woff2" crossorigin>
