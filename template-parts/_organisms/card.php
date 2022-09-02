@@ -13,7 +13,7 @@
 		<?php if ( has_post_thumbnail() ) { ?>
 			<?php
 			the_post_thumbnail(
-				'dgwltd-medium',
+				'dgwltd-medium-crop',
 				array(
 					'alt'   => the_title_attribute(
 						array(
