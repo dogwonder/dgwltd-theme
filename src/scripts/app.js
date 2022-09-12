@@ -344,7 +344,7 @@
         toggleNav('#nav-toggle', '#nav-primary', '#masthead');
         subMenu('#nav-primary', '#masthead');
         cardClick('.dgwltd-card');
-        blockElements('.wp-block-post-content');
+        // blockElements('.wp-block-post-content');
         // yoastSchema();
      });
     

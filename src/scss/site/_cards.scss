@@ -1,12 +1,12 @@
 //Add margin to top 
 h2 ~ .dgwltd-block--cards_inner {
-  margin-top:var(--gap-medium);
+  margin-top:var( --wp--custom--spacing--medium );
 }
 
 .dgwltd-block--cards_inner {
   display: grid;
   -ms-display: grid;
-  grid-column-gap: var(--gap-medium);
+  grid-column-gap: var( --wp--custom--spacing--medium );
   grid-template-columns: repeat(1, 1fr);
   @include mq($from: md) {
     grid-template-columns: 1fr 1fr 1fr;
@@ -28,7 +28,7 @@ h2 ~ .dgwltd-block--cards_inner {
 
 //Single card
 .dgwltd-card {
-  margin-bottom: var(--gap-medium);
+  margin-bottom: var( --wp--custom--spacing--medium );
   width: 100%;
 
   .dgwltd-card__inner {
@@ -90,14 +90,14 @@ h2 ~ .dgwltd-block--cards_inner {
   .dgwltd-card__caption {
     @extend %dgwltd-body-s; 
     display: block;
-    margin-bottom: var(--gap-5);
+    margin-bottom: var( --wp--custom--spacing--tiny );
   }
 
   .dgwltd-card__heading {
     @extend %dgwltd-heading-m;
     display: inline-block;
     width: 100%;
-    margin: 0 0 var(--gap-small);
+    margin: 0 0 var( --wp--custom--spacing--small );
     text-decoration: none;
     > a {
       color:inherit;
@@ -113,7 +113,7 @@ h2 ~ .dgwltd-block--cards_inner {
   }
 
   .dgwltd-card__content {
-    padding: var(--gap-medium) 0;
+    padding: var( --wp--custom--spacing--medium ) 0;
     p {
       @include mq($from: md) {
         max-width: 100%;
@@ -121,12 +121,12 @@ h2 ~ .dgwltd-block--cards_inner {
     }
 
     .govuk-summary-list {
-      margin: var(--gap-small) 0 0;
+      margin: var( --wp--custom--spacing--small ) 0 0;
       .govuk-summary-list__key, 
       .govuk-summary-list__value {
-        padding:var(--gap-5);
+        padding:var( --wp--custom--spacing--tiny );
         padding-left: 0;
-        margin: 0 0 var(--gap-5);
+        margin: 0 0 var( --wp--custom--spacing--tiny );
         @extend %dgwltd-body-s;
       }
     }

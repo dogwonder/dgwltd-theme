@@ -1,9 +1,9 @@
 //404
 .error404 {
   .dgwltd-menu-404 {
-    margin-left: var(--gap-medium);
+    margin-left: var( --wp--custom--spacing--medium );
     ul {
-      margin-left: var(--gap-medium);
+      margin-left: var( --wp--custom--spacing--medium );
     }
   }
 }
@@ -35,6 +35,6 @@
 
 .no-results {
   ul {
-    margin-left: var(--gap-medium);
+    margin-left: var( --wp--custom--spacing--medium );
   }
 }

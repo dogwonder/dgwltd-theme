@@ -15,7 +15,7 @@ textarea {
   height: 54px;
   line-height: 54px;
   margin: 0;
-  padding: var(--gap-5) var(--gap-small);
+  padding: var( --wp--custom--spacing--tiny ) var( --wp--custom--spacing--small );
   border: 2px solid black;
   border-radius: 0.25rem;
   appearance: none;
@@ -53,7 +53,7 @@ select {
   letter-spacing: inherit;
   word-spacing: inherit;
   margin: 0;
-  padding: var(--gap-5) var(--gap-small);
+  padding: var( --wp--custom--spacing--tiny ) var( --wp--custom--spacing--small );
   -moz-appearance: menulist;
   -webkit-appearance: menulist;
   appearance: menulist;
@@ -89,16 +89,16 @@ input[type="submit"] {
   .gfield_checkbox,
   .gfield_radio {
     width: 100%;
-    margin: 0 0 var(--gap-15);
+    margin: 0 0 var( --wp--custom--spacing--small );
     padding: 0;
     list-style-type: none;
     .gfield {
       padding: 0;
-      margin-bottom: var(--gap-medium);
+      margin-bottom: var( --wp--custom--spacing--medium );
       //Field container with error
       &.gfield_error {
-        margin-left: var(--gap-5);
-        padding-left: var(--gap-15);
+        margin-left: var( --wp--custom--spacing--tiny );
+        padding-left: var( --wp--custom--spacing--small );
         border-left: 3px solid var(--error);
       }
     }
@@ -114,8 +114,8 @@ input[type="submit"] {
   .gfield_radio {
     li {
       position: relative;
-      padding: 0 0 0 var(--gap-large);
-      margin: 0 0 var(--gap-small);
+      padding: 0 0 0 var( --wp--custom--spacing--large );
+      margin: 0 0 var( --wp--custom--spacing--small );
       line-height: 1.7;
     }
     label {
@@ -151,7 +151,7 @@ input[type="submit"] {
   .gfield_checkbox {
     .gchoice {
       position: relative;
-      margin-bottom: var(--gap-5);
+      margin-bottom: var( --wp--custom--spacing--tiny );
     }
     input[type="checkbox"] {
       cursor: pointer;
@@ -225,12 +225,12 @@ input[type="submit"] {
   //Labels
   .gfield_label {
     display: inline-block;
-    margin-bottom: var(--gap-5);
+    margin-bottom: var( --wp--custom--spacing--tiny );
   }
 
   //Input description - placed above input
   .gfield_description {
-    margin-bottom: var(--gap-small);
+    margin-bottom: var( --wp--custom--spacing--small );
   }
 
   //Order of fields
@@ -242,7 +242,7 @@ input[type="submit"] {
     }
     .gfield_description {
       order: 2;
-      margin-bottom: var(--gap-15);
+      margin-bottom: var( --wp--custom--spacing--small );
     }
     .ginput_container {
       order: 3;
@@ -251,15 +251,15 @@ input[type="submit"] {
 
   //Error Summary
   .validation_error {
-    padding: var(--gap-15);
+    padding: var( --wp--custom--spacing--small );
     border: 5px solid var(--error);
-    margin-bottom: var(--gap-30);
+    margin-bottom: var( --wp--custom--spacing--large );
     font-weight: $bold;
   }
   .validation_message {
     color: var(--error);
     font-weight: $bold;
-    margin-bottom: var(--gap-15);
+    margin-bottom: var( --wp--custom--spacing--small );
   }
   .govuk-error-summary__title {
     font-weight: $bold;

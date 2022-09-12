@@ -25,11 +25,11 @@
     grid-template-columns: 1fr minmax(min-content, var(--containerWidth)) 1fr;
     > * {
       grid-column: 2 / span 1;
-      padding: 0 var(--gap-medium);
+      padding: 0 var( --wp--custom--spacing--medium );
     }
   }
   .entry-content {
-    padding-bottom: var(--gap-large);
+    // padding-bottom: var( --wp--custom--spacing--large );
     //Alignment
     .alignfull {
       max-width: 100%;
@@ -45,9 +45,9 @@
       max-width: var(--containerWidth);
       margin: 0 auto;
     }
-    &.has-block-as-last-item {
-      padding-bottom: 0;
-    }
+    // &.has-block-as-last-item {
+    //   padding-bottom: 0;
+    // }
   }
 }
 
@@ -55,7 +55,15 @@
 .dgwltd-post {
   .entry-header:has(.entry-meta) {
     .wp-block-post-title {
-      margin-bottom: var(--gap-small);
+      margin-bottom: var( --wp--custom--spacing--small );
     }
+  }
+}
+
+//Buffer the margin slayer - add margin to the last block unless it has the .flush class
+.wp-block-post-content {
+  //By default .buffer get's a margin spacing > blockGap in theme.json
+  .flush + .buffer {
+    margin-top: 0;
   }
 }

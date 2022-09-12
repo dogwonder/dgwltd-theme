@@ -84,7 +84,7 @@
   max-width: var(--containerWidth);
   position: relative;
   margin: 0;
-  padding: var(--gap-medium);
+  padding: var( --wp--custom--spacing--medium );
 }
 
 
@@ -118,14 +118,14 @@
 
 .stack > * + * {
   /* ↓ Top margin is only applied to successive elements */
-  margin-top: var(--gap-medium) !important;
+  margin-top: var( --wp--custom--spacing--medium ) !important;
 }
 
 .stack-large > * + * {
-  margin-top: var(--gap-large) !important;
+  margin-top: var( --wp--custom--spacing--large ) !important;
 }
 .stack-small > * + * {
-  margin-top: var(--gap-small) !important;
+  margin-top: var( --wp--custom--spacing--small ) !important;
 }
 
 
@@ -145,7 +145,7 @@
 %list, 
 .list {
   padding: 0 !important;
-  margin: 0 0 var(--gap-medium) !important;
+  margin: 0 0 var( --wp--custom--spacing--medium ) !important;
   margin-inline-start: 0;
   list-style-type: none;
   list-style-position: inside;
@@ -215,7 +215,7 @@
   }
   .alert__message {
     flex: 1;
-    padding-left: var(--gap-small);
+    padding-left: var( --wp--custom--spacing--small );
     > * {
       color:inherit;
     }

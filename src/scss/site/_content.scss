@@ -7,9 +7,9 @@
   //Lists
   ul,
   ol {
-    padding: 0 0 0 var(--gap-medium) !important;
-    margin: var(--gap-medium) 0 0 0 !important;
-    margin-inline-start: var(--gap-medium);
+    padding: 0 0 0 var( --wp--custom--spacing--medium ) !important;
+    margin: var( --wp--custom--spacing--medium ) 0 0 0 !important;
+    margin-inline-start: var( --wp--custom--spacing--medium );
     list-style-type: disc;
     list-style-position: inside;
     li {
@@ -33,7 +33,7 @@
   .wp-block-image {
     width: 100%;
     height: auto;
-    margin: 0 0 var(--gap-medium);
+    margin: 0 0 var( --wp--custom--spacing--medium );
     figure {
       width: 100%;
       margin: 0;
@@ -46,7 +46,7 @@
       font-size: 1rem;
       text-align: left;
       margin: 0;
-      padding: var(--gap-medium);
+      padding: var( --wp--custom--spacing--medium );
       color: var(--text-color);
     }
     .alignright,
@@ -61,7 +61,7 @@
   }
   // Embed
   .wp-block-embed {
-    margin: var(--gap-medium) 0;
+    margin: var( --wp--custom--spacing--medium ) 0;
     width: 100%;
     .wp-block-embed__wrapper {
       max-width: 100%;
@@ -75,9 +75,9 @@
   }
   //Seperator
   .wp-block-separator {
-    margin: var(--gap-medium) 0;
+    margin: var( --wp--custom--spacing--medium ) 0;
     @include mq($from: md) {
-      margin: var(--gap-30) 0;
+      margin: var( --wp--custom--spacing--large ) 0;
     }
     height: 1px;
     border: 0;
@@ -86,7 +86,7 @@
   //Blockquote
   .wp-block-quote {
     position: relative;
-    margin: var(--gap-large) 0;
+    margin: var( --wp--custom--spacing--large ) 0;
     padding-top: 1.75rem !important;
     background-color: transparent;
     border: 0;
@@ -100,7 +100,7 @@
       position: absolute;
       z-index: 1;
       top: -30px;
-      left: var(--gap-15);
+      left: var( --wp--custom--spacing--small );
     }
     cite {
       position: relative;
@@ -131,12 +131,12 @@
   .cat-links > a {
     display: inline-block;
     font-weight: $bold;
-    padding: var(--gap-small) var(--gap-medium);
+    padding: var( --wp--custom--spacing--small ) var( --wp--custom--spacing--medium );
     border: 1px solid var(--border);
     border-radius: 2px;
     color: var(--text-color);
     text-decoration: none;
-    margin-left: var(--gap-small);
+    margin-left: var( --wp--custom--spacing--small );
     &:hover {
       color: var(--highlight);
       border-color: var(--button-light-hover);

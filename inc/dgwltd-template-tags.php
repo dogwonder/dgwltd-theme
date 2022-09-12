@@ -100,3 +100,15 @@ add_filter(
 		return $title;
 	}
 );
+
+
+add_filter('the_content', 'dgwltd_content_div');
+
+function dgwltd_content_div($content) {
+    $dgwltd_content_html .= $content;
+    $dgwltd_content_html .= '<div class="buffer"></div>';
+
+    $filteredcontent = $dgwltd_content_html;
+
+    return $filteredcontent;
+}

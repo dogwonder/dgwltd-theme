@@ -5,10 +5,10 @@
   display: inline-block;
   font-weight: bold;
   font-size: var(--wp--preset--font-size--normal);
-  line-height: var(--wp--custom--typography--line-height--medium);
+  line-height: var(--wp--custom--typography--line-height--body);
   color: var(--button-text-color);
   padding: 1rem 1.6rem;
-  margin: var(--gap-15) 0;
+  margin: var( --wp--custom--spacing--small ) 0;
   text-decoration: none;
   border: 2px solid var(--button-background);
   background-color: var(--button-background);
@@ -16,7 +16,7 @@
   border-radius: 4px;
   cursor: pointer;
   @include mq($from: md) {
-    margin: 0 0 var(--gap-30);
+    margin: 0 0 var( --wp--custom--spacing--medium );
     line-height: 1;
   }
   &:hover {
@@ -64,7 +64,7 @@
 
 %dgwltd-button--small, 
 .dgwltd-button--small {
-  padding: var(--gap-5) var(--gap-small);
+  padding: var( --wp--custom--spacing--tiny ) var( --wp--custom--spacing--small );
 }
 
 %dgwltd-button--ghost, 

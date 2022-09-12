@@ -136,16 +136,6 @@ $mq-breakpoints: (
   --dark: hsl(98, 0%, 0%);
   --dark-hover: hsl(98, 0%, 15%);
   --light: hsl(0, 0%, 98%);
-
-  @each $gap in $gaps {
-    --gap-#{$gap}: #{$gap}px;
-  }
-
-  //Named gaps
-  --gap-xlarge: 5rem; //80px;
-  --gap-large: 2.5rem; //40px;
-  --gap-medium: 1.25rem; //20px; //Matches --wp--custom--spacing--baseline
-  --gap-small: 0.625rem; //10px;
   
   //Menu height
   --submenu-offset: 0;
@@ -159,9 +149,6 @@ $mq-breakpoints: (
   --layer-important: 2147483647;
 
 }
-//Custom spacing
-//--wp--custom--spacing--baseline: 1.25rem; //20px
-//--wp--custom--spacing--blockgap: 1.25rem; //20px
 
 $palettes: (
     themes: (

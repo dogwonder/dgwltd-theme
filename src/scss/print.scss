@@ -67,7 +67,7 @@ body footer,
 
 .button,
 .dgwltd-button {
-  padding: var(--gap-small) var(--gap-medium);
+  padding: var( --wp--custom--spacing--small ) var( --wp--custom--spacing--medium );
   border: 2px solid var(--text-color);
   border-radius: 2px;
   color: var(--text-color);

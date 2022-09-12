@@ -46,7 +46,7 @@ $nav-height: 64px;
 
   //Width
   width:100%;
-  padding: var(--gap-small) var(--gap-medium);
+  padding: var( --wp--custom--spacing--small ) var( --wp--custom--spacing--medium );
 
   //Logo
   .dgwltd-masthead__logo {
@@ -70,7 +70,7 @@ $nav-height: 64px;
     svg {
       width: 60px;
       height: auto;
-      margin:0 var(--gap-medium) 0 0;
+      margin:0 var( --wp--custom--spacing--medium ) 0 0;
       &:hover {
           fill: var(--highlight);
       }
@@ -101,7 +101,7 @@ $nav-height: 64px;
       text-align: left;
       position: relative;
       padding: 0;
-      margin: 0 0 var(--gap-small);
+      margin: 0 0 var( --wp--custom--spacing--small );
       @include mq($until: lg) {
 
         &.current-menu-item > a, 
@@ -175,7 +175,7 @@ $nav-height: 64px;
       }
       @include mq($from: lg) {
         line-height: toRem(60);
-        margin: 0 var(--gap-small) 0 0;
+        margin: 0 var( --wp--custom--spacing--small ) 0 0;
         .button-show-subnav {
           display: none;
         }
@@ -198,13 +198,13 @@ $nav-height: 64px;
       a {
         display: inline-block;
         text-decoration: none;
-        padding:var(--gap-15) var(--gap-medium);
+        padding:var( --wp--custom--spacing--small ) var( --wp--custom--spacing--medium );
         color: white;
         width: 100%;
         @include mq($from: lg) {
-          padding:0 var(--gap-medium);
+          padding:0 var( --wp--custom--spacing--medium );
           color: var(--text-color);
-          padding:0 var(--gap-small);
+          padding:0 var( --wp--custom--spacing--small );
           margin:0;
         }
         &:hover {
@@ -256,7 +256,7 @@ $nav-height: 64px;
               border-bottom: 2px solid;
               border-right: 2px solid;
               transform: rotate(45deg);
-              margin-left: var(--gap-small);
+              margin-left: var( --wp--custom--spacing--small );
               margin-top: -0.4ex;
             }
           }
@@ -312,9 +312,9 @@ $nav-height: 64px;
     .sub-menu {
       display: none;
       @include mq($until: lg) {
-        margin: var(--gap-small) 0 var(--gap-medium) var(--gap-small);
+        margin: var( --wp--custom--spacing--small ) 0 var( --wp--custom--spacing--medium ) var( --wp--custom--spacing--small );
         li {
-          line-height: var(--wp--custom--typography--line-height--small);
+          line-height: var(--wp--custom--typography--line-height--body);
           margin: 0;
         }
       }
@@ -338,7 +338,7 @@ $nav-height: 64px;
           @include mq($from: lg) {
             line-height: 1;
             a {
-              padding: var(--gap-small);
+              padding: var( --wp--custom--spacing--small );
               display: block;
             }
           }
@@ -491,7 +491,7 @@ $nav-height: 64px;
           display: flex;
         }
         .dgwltd-menu-language {
-          margin: var(--gap-medium);
+          margin: var( --wp--custom--spacing--medium );
         }
       }
       .dgwltd-masthead__logo svg.logo {
@@ -520,21 +520,21 @@ $nav-height: 64px;
 .dgwltd-menu-language {
   list-style-type: none;
   display: flex;
-  margin: 0 var(--gap-small);
+  margin: 0 var( --wp--custom--spacing--small );
   @include mq($until: lg) {
     display: none;  
-    margin: var(--gap-medium) var(--gap-medium) 0 0;
+    margin: var( --wp--custom--spacing--medium ) var( --wp--custom--spacing--medium ) 0 0;
   }
   li {
     @extend %dgwltd-navigation;
     line-height: 1;
     position: relative;
     padding: 0;
-    margin: 0 var(--gap-small) 0 0;
+    margin: 0 var( --wp--custom--spacing--small ) 0 0;
     display: inline-block;
     @include mq($from: lg) {
       line-height: toRem(60);
-      margin: 0 var(--gap-5) 0 0;
+      margin: 0 var( --wp--custom--spacing--tiny ) 0 0;
     }
     .active {
       color: white;

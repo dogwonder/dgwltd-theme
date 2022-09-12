@@ -6,7 +6,7 @@
   .govuk-breadcrumbs__list-item {
     color: var(--text-color);
     margin-left: 0;
-    margin-right: var(--gap-small);
+    margin-right: var( --wp--custom--spacing--small );
     display: flex;
     &:last-of-type {
       margin-right: 0;
@@ -16,7 +16,7 @@
     }
     &:after {
       content: "›";
-      margin-left: var(--gap-small);
+      margin-left: var( --wp--custom--spacing--small );
     }
   }
   .govuk-breadcrumbs__link {

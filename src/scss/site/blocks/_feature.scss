@@ -12,7 +12,7 @@
       padding:0 !important;
       h2 {
         @extend %dgwltd-heading-xl;
-        margin-bottom:var(--gap-30);
+        margin-bottom: var( --wp--custom--spacing--medium );
       }
       h2, h3, p, .govuk-body {
         color:inherit;
@@ -26,7 +26,7 @@
         .dgwltd-feature__inner {
           //Snap back to our container
           grid-column: 2 / span 1;
-          padding:var(--gap-large) var(--gap-medium);
+          padding:var( --wp--custom--spacing--large ) var( --wp--custom--spacing--medium );
         }
       }
     }

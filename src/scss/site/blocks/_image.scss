@@ -6,7 +6,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 0 var(--gap-medium);
+    padding: 0 var( --wp--custom--spacing--medium );
     &.full-width {
       padding: 0;
     }
@@ -38,5 +38,5 @@
 
 .wp-block-group .dgwltd-block__image {
   padding: 0;
-  margin: var(--gap-large) 0;
+  margin: var( --wp--custom--spacing--large ) 0;
 }

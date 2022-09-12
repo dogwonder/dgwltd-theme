@@ -34,8 +34,8 @@
       @extend %container;
       .dgwltd-hero__inner {
         //Extra spacing
-        padding-top: var(--gap-medium);
-        padding-bottom: var(--gap-medium);
+        padding-top: var( --wp--custom--spacing--medium );
+        padding-bottom: var( --wp--custom--spacing--medium );
       }
     }
 
@@ -142,7 +142,7 @@
   &__heading {
     @extend %dgwltd-heading-s;
     color: white;
-    padding: var(--gap-small);
+    padding: var( --wp--custom--spacing--small );
   }
 
   &__close {

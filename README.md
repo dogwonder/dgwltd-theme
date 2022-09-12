@@ -44,6 +44,9 @@ For the Javascript we need to [manually download](https://frontend.design-system
 - [Bootstrap](https://getbootstrap.com/docs/5.0/layout/grid/) only using the grid system see `vendor.scss`
 - [Youtube](https://github.com/paulirish/lite-youtube-embed) and [Vimeo](https://github.com/slightlyoff/lite-vimeo) lite plugins (render the video as a screenshot until a user interacts with the video to save bandwidth) -- note we changed the defulat thumbnail size to 1280px `https://i.ytimg.com/vi/${this.videoId}/maxresdefault.jpg`;
 
+## Custom typeface (optional)
+
+This theme uses [Söhne typeface](https://klim.co.nz/collections/soehne/) by Klim Type Foundry, this is a licensed font for use on this url (dgw.ltd). If you wish to use this on your own website then you will need to [purchase a license](https://klim.co.nz/buy/soehne/). You can remove these form fontFamilies[] in theme.json and typography.scss
 
 ## Custom blocks (optional)
 

@@ -10,9 +10,9 @@
         //Snap back to our container
         width: 100%;
         grid-column: 2 / span 1;
-        padding: var(--gap-medium);
+        padding: var( --wp--custom--spacing--medium );
         @include mq($from: lg) {
-            padding: var(--gap-large) var(--gap-medium);
+            padding: var( --wp--custom--spacing--large ) var( --wp--custom--spacing--medium );
         }
     }
 }
