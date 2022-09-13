@@ -4,8 +4,7 @@ const CACHE = "dgwltd-{{ pkgVersion() }}";
 const precacheFiles = [
   /* Add an array of files to precache for your app */
   'wp-content/themes/dgwltd/src/html/offline.html', 
-  'wp-content/themes/dgwltd/dist/css/critical.css', 
-  'wp-content/themes/dgwltd/dist/css/vendor.css', 
+  'wp-content/themes/dgwltd/dist/css/main.css', 
   'wp-content/themes/dgwltd/dist/scripts/app.js',
   'wp-content/themes/dgwltd/dist/scripts/govuk-frontend-4.0.1.min.js', 
   'wp-content/themes/dgwltd/dist/images/fav/favicon.png',

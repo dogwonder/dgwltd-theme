@@ -8,6 +8,10 @@
  *
  * @package dgwltd
  */
+
+//Get version value from package.json
+$package = json_decode(file_get_contents(get_template_directory() . '/package.json'), true);
+$pkgVersion = $package['version'];
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?> >
@@ -21,10 +25,7 @@
 <link rel="preload" href="<?php echo get_template_directory_uri() ?>/dist/fonts/soehne/soehne-dreiviertelfett.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="<?php echo get_template_directory_uri() ?>/dist/fonts/soehne/soehne-kraftig.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="profile" href="https://gmpg.org/xfn/11">
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/dist/css/vendor.css" />
-<style>
-<?php require locate_template( 'dist/css/critical.php' ); ?>
-</style>
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/dist/css/main.css?v=<?php echo (dgwltd_env('dev') ? $pkgVersion : ''); ?>" />
 <?php wp_head(); ?>
 <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="<?php echo get_template_directory_uri(); ?>/dist/images/fav/favicon-128x128.png" type="image/x-icon">
 <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/dist/images/fav/favicon-128x128.png">

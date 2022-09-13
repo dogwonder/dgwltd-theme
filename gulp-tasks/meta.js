@@ -16,7 +16,7 @@ const comment = '/*\n' +
   '*/\n\n';
 
 const meta = () => { 
-    return src('./dist/css/critical.css')
+    return src('./dist/css/main.css')
     .pipe(banner(comment, {
         pkg: pkg
     }))

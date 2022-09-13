@@ -1,6 +1,6 @@
 {
   "name": "dgwltd",
-  "version": "0.384.0",
+  "version": "0.387.0",
   "description": "",
   "main": "gulpfile.js",
   "author": "",
@@ -24,7 +24,6 @@
     "gulp-imagemin": "^7.1.0",
     "gulp-nunjucks": "^5.1.0",
     "gulp-postcss": "^9.0.1",
-    "gulp-rename": "^2.0.0",
     "gulp-responsive": "^3.0.1",
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",

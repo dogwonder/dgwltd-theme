@@ -13,8 +13,7 @@ const options = {
   out: './dist/css/specific/',
   criticalOut: './dist/css/',
   criticalStyles: [
-    'critical.scss', 
-    'vendor.scss', 
+    'main.scss', 
     'print.scss'
   ]
 }
