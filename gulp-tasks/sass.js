@@ -3,7 +3,6 @@ const cleanCSS = require('gulp-clean-css');
 const sassProcessor = require('gulp-sass')(require('sass'));
 const sourcemaps = require("gulp-sourcemaps");
 const postcss = require('gulp-postcss');
-const postcssHasPseudo = require('css-has-pseudo');
 
 // Flags wether we compress the output etc
 const isProduction = process.env.NODE_ENV === 'production';
@@ -52,7 +51,6 @@ const sass = () => {
   //Log errors
   stream = stream
   .pipe(sassProcessor().on('error', sassProcessor.logError))
-  // .pipe(postcss({plugins: [postcssHasPseudo()]}))
 
   if (isProduction) {
     stream = stream
