@@ -8,26 +8,20 @@
  */
 
 ?>
-<article class="no-results not-found">
-	<div class="page-header">
-		<?php if ( ! empty( $_GET['s'] ) ) : ?>
-		<h2>
-			<?php
-			/* translators: %s: search query. */
-			printf( esc_html__( 'No results found for %s', 'dgwltd' ), '<span>' . get_search_query() . '</span>' );
-			?>
-		</h2>
-		<?php else : ?>
-		<h2><?php esc_html_e( 'No results found', 'dgwltd' ); ?></h2>
-		<?php endif; ?>
-	</div><!-- .page-header -->
+<div class="stack">
+	<?php if ( ! empty( $_GET['s'] ) ) : ?>
+	<h2>
+		<?php
+		/* translators: %s: search query. */
+		printf( esc_html__( 'No results found for %s', 'dgwltd' ), '<span>' . get_search_query() . '</span>' );
+		?>
+	</h2>
+	<?php else : ?>
+	<h2><?php esc_html_e( 'No results found. Sorry.', 'dgwltd' ); ?></h2>
+	<?php endif; ?>
 
-	<div class="page-content">
-		<p class="govuk-body"><?php esc_html_e( 'You could try:', 'dgwltd' ); ?></p>
-		<ul>
-			<li><?php esc_html_e( 'check your spelling', 'dgwltd' ); ?></li>
-			<li><?php esc_html_e( 'searching again using other words', 'dgwltd' ); ?></li>
-			<li><?php esc_html_e( 'contacting our helpline', 'dgwltd' ); ?></li>
-		</ul>
-	</div><!-- .page-content -->
-</article><!-- .no-results -->
+	<div id="search-form" class="site-search">
+		<?php echo do_blocks( '<!-- wp:search {"label":"Search","showLabel":false,"width":100,"widthUnit":"%","buttonText":"Search","buttonUseIcon":true} /-->' ); ?>
+	</div>
+</div>
+

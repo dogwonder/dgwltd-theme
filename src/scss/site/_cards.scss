@@ -90,7 +90,7 @@ h2 ~ .dgwltd-block--cards_inner {
   .dgwltd-card__caption {
     @extend %dgwltd-body-s; 
     display: block;
-    margin-bottom: var( --wp--custom--spacing--tiny );
+    margin-bottom: var( --wp--custom--spacing--extra-small );
   }
 
   .dgwltd-card__heading {
@@ -124,9 +124,9 @@ h2 ~ .dgwltd-block--cards_inner {
       margin: var( --wp--custom--spacing--small ) 0 0;
       .govuk-summary-list__key, 
       .govuk-summary-list__value {
-        padding:var( --wp--custom--spacing--tiny );
+        padding:var( --wp--custom--spacing--extra-small );
         padding-left: 0;
-        margin: 0 0 var( --wp--custom--spacing--tiny );
+        margin: 0 0 var( --wp--custom--spacing--extra-small );
         @extend %dgwltd-body-s;
       }
     }

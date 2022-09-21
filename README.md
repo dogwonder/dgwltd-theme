@@ -46,7 +46,7 @@ For the Javascript we need to [manually download](https://frontend.design-system
 
 ## Custom typeface (optional)
 
-This theme uses the [Söhne typeface](https://klim.co.nz/collections/soehne/) by Klim Type Foundry, this is a licensed font for use on my own url (dgw.ltd). If you wish to use this on your own website then you will need to [purchase a license](https://klim.co.nz/buy/soehne/). You can remove these form fontFamilies[] in theme.json and typography.scss
+This theme uses the [Söhne typeface](https://klim.co.nz/collections/soehne/) by Klim Type Foundry, this is a licensed font for use on my own url (dgw.ltd). If you wish to use this on your own website then you will need to [purchase a license](https://klim.co.nz/buy/soehne/). You can remove these form fontFamilies[] in theme.json, functions.php and typography.scss. These fonts are not included in the repo. 
 
 ## Custom blocks (optional)
 

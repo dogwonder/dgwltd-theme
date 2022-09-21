@@ -16,7 +16,7 @@
     display: block;
     font-weight: $bold;
     a {
-      margin-left: var( --wp--custom--spacing--tiny );
+      margin-left: var( --wp--custom--spacing--extra-small );
     }
   }
 
@@ -27,7 +27,7 @@
   .dgwltd-pagination__link-label {
     @extend %dgwltd-body-xs;
     text-decoration: underline;
-    margin: var( --wp--custom--spacing--tiny ) 0 0 23px;
+    margin: var( --wp--custom--spacing--extra-small ) 0 0 23px;
     display: inline-block;
   }
 

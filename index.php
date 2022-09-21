@@ -18,7 +18,9 @@ get_header();
 	<div id="primary" class="dgwltd-content-wrapper">
 
 		<div class="entry-header">
-			<h1 class="dgwltd-heading-xl"><?php echo esc_attr( get_bloginfo( 'name' ) ); ?></h1>
+			<h1 class="wp-block-post-title wp-block-post-title swiss-shift">
+				<span class="background">Ola</span> <span class="foreground"><?php echo esc_attr( get_bloginfo( 'name' ) ); ?></span>
+			</h1>
 		</div>
 
 		<div class="entry-content">

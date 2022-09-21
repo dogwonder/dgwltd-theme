@@ -27,7 +27,7 @@ body {
 %dgwltd-heading-xl,
 .dgwltd-heading-xl {
   // font-size: clampCalc($type-huge, $type-massive, sm, xxl);
-  font-family: var(--wp--preset--font-family--soehne-extrafett);
+  font-family: var(--wp--preset--font-family--soehne-halbfett);
   font-size: var(--wp--preset--font-size--massive);
   line-height: var(--wp--custom--typography--line-height--headings--gigantic);
   letter-spacing: var(--wp--custom--typography--letter-spacing--gigantic);
@@ -38,7 +38,7 @@ body {
 %dgwltd-heading-l,
 .dgwltd-heading-l {
   // font-size: clampCalc($type-extra-large, $type-huge, sm, xxl);
-  font-family: var(--wp--preset--font-family--soehne-dreiviertelfett);
+  font-family: var(--wp--preset--font-family--soehne-halbfett);
   font-size: var(--wp--preset--font-size--huge);
   line-height: var(--wp--custom--typography--line-height--headings--gigantic);
   letter-spacing: var(--wp--custom--typography--letter-spacing--gigantic);
@@ -135,4 +135,16 @@ ol {
 blockquote p {
   hanging-punctuation: first;
   text-indent: -5px;
+}
+
+
+//Swiss school
+.swiss-shift {
+  span.background {
+    opacity: 0.7;
+  }
+  span.foreground {
+    opacity: 1;
+    margin-inline-start: -1ch;
+  }
 }

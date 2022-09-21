@@ -15,7 +15,7 @@ textarea {
   height: 54px;
   line-height: 54px;
   margin: 0;
-  padding: var( --wp--custom--spacing--tiny ) var( --wp--custom--spacing--small );
+  padding: var( --wp--custom--spacing--extra-small ) var( --wp--custom--spacing--small );
   border: 2px solid black;
   border-radius: 0.25rem;
   appearance: none;
@@ -53,7 +53,7 @@ select {
   letter-spacing: inherit;
   word-spacing: inherit;
   margin: 0;
-  padding: var( --wp--custom--spacing--tiny ) var( --wp--custom--spacing--small );
+  padding: var( --wp--custom--spacing--extra-small ) var( --wp--custom--spacing--small );
   -moz-appearance: menulist;
   -webkit-appearance: menulist;
   appearance: menulist;
@@ -82,6 +82,25 @@ input[type="submit"] {
   }
 }
 
+//WP search button
+.site-search {
+  .wp-block-search__button {
+    appearance: none;
+    border: 2px solid var(--button-background);
+    background-color: var(--button-background);
+    border-radius: 4px;
+    height: 54px;
+    line-height: 54px;
+    padding: 0 var( --wp--custom--spacing--small );
+    margin: 0 0 0 var( --wp--custom--spacing--extra-small );
+    &:hover {
+      border-color: var(--button-hover);
+      background-color: var(--button-hover);
+    }
+  }
+}
+
+
 //Gravity forms
 .gform_wrapper {
   //General styles and resets - (needs ul due to inheritance over .entry-content)
@@ -97,7 +116,7 @@ input[type="submit"] {
       margin-bottom: var( --wp--custom--spacing--medium );
       //Field container with error
       &.gfield_error {
-        margin-left: var( --wp--custom--spacing--tiny );
+        margin-left: var( --wp--custom--spacing--extra-small );
         padding-left: var( --wp--custom--spacing--small );
         border-left: 3px solid var(--error);
       }
@@ -151,7 +170,7 @@ input[type="submit"] {
   .gfield_checkbox {
     .gchoice {
       position: relative;
-      margin-bottom: var( --wp--custom--spacing--tiny );
+      margin-bottom: var( --wp--custom--spacing--extra-small );
     }
     input[type="checkbox"] {
       cursor: pointer;
@@ -225,7 +244,7 @@ input[type="submit"] {
   //Labels
   .gfield_label {
     display: inline-block;
-    margin-bottom: var( --wp--custom--spacing--tiny );
+    margin-bottom: var( --wp--custom--spacing--extra-small );
   }
 
   //Input description - placed above input

@@ -29,7 +29,6 @@
     }
   }
   .entry-content {
-    // padding-bottom: var( --wp--custom--spacing--large );
     //Alignment
     .alignfull {
       max-width: 100%;
@@ -45,9 +44,6 @@
       max-width: var(--containerWidth);
       margin: 0 auto;
     }
-    // &.has-block-as-last-item {
-    //   padding-bottom: 0;
-    // }
   }
 }
 

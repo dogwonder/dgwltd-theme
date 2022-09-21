@@ -21,8 +21,7 @@ $pkgVersion = $package['version'];
 <title><?php bloginfo( 'name' ); ?> &ndash; <?php is_front_page() ? bloginfo( 'description' ) : wp_title( '' ); ?></title>
 <link rel="preconnect" href="<?php echo esc_url( site_url() ); ?>" crossorigin>
 <link rel="preconnect" href="//plausible.io" crossorigin>
-<link rel="preload" href="<?php echo get_template_directory_uri() ?>/dist/fonts/soehne/soehne-extrafett.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="<?php echo get_template_directory_uri() ?>/dist/fonts/soehne/soehne-dreiviertelfett.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="<?php echo get_template_directory_uri() ?>/dist/fonts/soehne/soehne-halbfett.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="<?php echo get_template_directory_uri() ?>/dist/fonts/soehne/soehne-kraftig.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="profile" href="https://gmpg.org/xfn/11">
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/dist/css/main.css?v=<?php echo (dgwltd_env('dev') ? $pkgVersion : ''); ?>" />

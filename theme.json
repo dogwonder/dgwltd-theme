@@ -76,14 +76,9 @@
 					"slug": "system-font"
 				},
 				{
-					"fontFamily": "\"Söhne Extrafett\", sans-serif",
-					"name": "Söhne Extrafett",
-					"slug": "soehne-extrafett"
-				}, 
-				{
-					"fontFamily": "\"Söhne Dreiviertelfett\", sans-serif",
-					"name": "Söhne Dreiviertelfett",
-					"slug": "soehne-dreiviertelfett"
+					"fontFamily": "\"Söhne Halbfett\", sans-serif",
+					"name": "Söhne Halbfett",
+					"slug": "soehne-halbfett"
 				}, 
 				{
 					"fontFamily": "\"Söhne Kraftig\", sans-serif",
@@ -196,7 +191,7 @@
 		"elements": {
 			"h1": {
 				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--soehne-extrafett)",
+					"fontFamily": "var(--wp--preset--font-family--soehne-halbfett)",
 					"fontSize": "var(--wp--preset--font-size--massive)", 
 					"fontWeight": "normal",
 					"lineHeight": "var(--wp--custom--typography--line-height--headings--gigantic)",
@@ -205,7 +200,7 @@
 			},
 			"h2": {
 				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--soehne-dreiviertelfett)",
+					"fontFamily": "var(--wp--preset--font-family--soehne-halbfett)",
 					"fontSize": "var(--wp--preset--font-size--huge)", 
 					"fontWeight": "normal",
 					"lineHeight": "var(--wp--custom--typography--line-height--headings--gigantic)",

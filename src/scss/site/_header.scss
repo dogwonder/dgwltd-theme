@@ -534,7 +534,7 @@ $nav-height: 64px;
     display: inline-block;
     @include mq($from: lg) {
       line-height: toRem(60);
-      margin: 0 var( --wp--custom--spacing--tiny ) 0 0;
+      margin: 0 var( --wp--custom--spacing--extra-small ) 0 0;
     }
     .active {
       color: white;
