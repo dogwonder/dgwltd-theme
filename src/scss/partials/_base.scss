@@ -13,6 +13,11 @@ a {
   text-decoration: underline;
   text-decoration-thickness: unquote("max(0.0875em, .0625rem)");
   text-underline-offset: 0.1em;
+  //Break long urls
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
   &:visited {
     color: var(--wp--preset--color--foreground);
   }
