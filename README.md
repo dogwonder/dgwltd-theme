@@ -50,7 +50,7 @@ This theme uses the [Söhne typeface](https://klim.co.nz/collections/soehne/) by
 
 ## Custom blocks (optional)
 
-These are actived via a custom plugin *dgwltd: Blocks*
+These are actived via a custom plugin [dgwltd: Blocks](https://github.com/dogwonder/dgwltd-plugin)
 
 This requires [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/). $$ - but it really is the greatest plugin ever made. 
 
