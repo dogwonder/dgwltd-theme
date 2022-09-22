@@ -19,8 +19,6 @@
 - dgwltd_env() - URL of current site
 - dgwltd_get_font_face_styles() - Fonts
 - Math div warning: `$ npm install -g sass-migrator` `$ sass-migrator division **/*.scss`
-- dgwltd-blocks/src/actionkit/form.php $source // $akID // $actionkit_page_redirect
-- Social links - in site settings option page: /wp-admin/admin.php?page=site-general-settings
 
 ## Overrides for Framework
 
@@ -83,7 +81,6 @@ Included in the plugin *dgwltd: Blocks* alongside the custom blocks this allows 
 `template-layout.php` 
 
 For home and gateway pages, allows for full width blocks (e.g. DGW.ltd Hero / DGW.ltd Feature) these can be used in any post or page but would be restricted to a fixed width and look weird. This also removes the page title (can be re-added via a heading block)
-
 
 ### Guide template
 
