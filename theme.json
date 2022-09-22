@@ -23,6 +23,11 @@
 					"slug": "background",
 					"color": "#ffffff",
 					"name": "Background"
+				},
+				{
+					"slug": "alt",
+					"color": "#f2f2f2",
+					"name": "Alt"
 				}
 			]
 		},
@@ -35,11 +40,11 @@
 				"large": "min(48px, 12.8vw)",
 				"extra-large": "min(96px, 25.6vw)",
 				"gap": {
-					"horizontal": "clamp( calc( 1.5 * var( --wp--custom--spacing--baseline ) ), 2.222vw, calc( 2 * var( --wp--custom--spacing--baseline ) ) )",
-					"vertical": "clamp( calc( 1.5 * var( --wp--custom--spacing--baseline ) ), 3.333vw, calc( 3 * var( --wp--custom--spacing--baseline ) ) )"
+					"horizontal": "clamp( calc( 1.5 * var(--wp--custom--spacing--baseline) ), 2.222vw, calc( 2 * var(--wp--custom--spacing--baseline) ) )",
+					"vertical": "clamp( calc( 1.5 * var(--wp--custom--spacing--baseline) ), 3.333vw, calc( 3 * var(--wp--custom--spacing--baseline) ) )"
 				},
-				"gutter": "clamp( calc( 2 * var( --wp--custom--spacing--baseline ) ), 6.666vw, calc( 4 * var( --wp--custom--spacing--baseline ) ) )",
-				"outer": "var( --wp--custom--spacing--gutter )"
+				"gutter": "clamp( calc( 2 * var(--wp--custom--spacing--baseline) ), 6.666vw, calc( 4 * var(--wp--custom--spacing--baseline) ) )",
+				"outer": "var(--wp--custom--spacing--gutter)"
 			},
 			"typography": {
 				"letter-spacing": {

@@ -12,11 +12,11 @@
       .dgwltd-cta__inner {
         display: flex;
         flex-direction: column;
-        padding:var( --wp--custom--spacing--large ) var( --wp--custom--spacing--medium );
+        padding:var(--wp--custom--spacing--large) var(--wp--custom--spacing--medium);
         @include mq($from: md) {
           flex-direction: row;
           justify-content: space-between;
-          padding: var( --wp--custom--spacing--extra-large ) var( --wp--custom--spacing--medium );
+          padding: var(--wp--custom--spacing--extra-large) var(--wp--custom--spacing--medium);
         }
       }
       .dgwltd-cta__image {
@@ -39,14 +39,14 @@
         }
       }
       .dgwltd-cta__content {
-        padding: var( --wp--custom--spacing--medium ) 0;
+        padding: var(--wp--custom--spacing--medium) 0;
         p {
           @extend %dgwltd-body-m;
         }
         @include mq($from: md) {
           text-align: left;
           flex-basis: 50%;
-          padding: 0 var( --wp--custom--spacing--large ) 0 0;
+          padding: 0 var(--wp--custom--spacing--large) 0 0;
         }
       }
 
@@ -81,7 +81,7 @@
       }
       .dgwltd-cta__content {
         @include mq($from: md) {
-          padding: 0 0 0 var( --wp--custom--spacing--large );
+          padding: 0 0 0 var(--wp--custom--spacing--large);
         }
       }
     }

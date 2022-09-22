@@ -3,7 +3,7 @@
   padding: 0;
   margin: 0;
   border: 0;
-  background-color: var(--footer);
+  background-color: var(--wp--preset--color--background);
   color: white;
   text-align: left;
   content-visibility: auto; //We only place this here as otherwise we might affect screenreaders. 
@@ -34,7 +34,7 @@
     @include mq($from: lg) {
       flex-direction: row;
     }
-    gap: var( --wp--custom--spacing--large );
+    gap: var(--wp--custom--spacing--large);
   }
 
   //Social links nav
@@ -46,7 +46,7 @@
 
   &__social-links {
     li {
-      margin-right: var( --wp--custom--spacing--small );
+      margin-right: var(--wp--custom--spacing--small);
     }
     a {
       width:30px;
@@ -111,27 +111,27 @@
     flex-direction: row;
     list-style-type: none;
     li {
-      margin-right: var( --wp--custom--spacing--small );
+      margin-right: var(--wp--custom--spacing--small);
     }
   }
 
   &__legal {
     display: flex;
     flex-direction: column;
-    margin-top: var( --wp--custom--spacing--large );
+    margin-top: var(--wp--custom--spacing--large);
     @include mq($from: lg) {
       flex-direction: row;
     }
     .dgwltd-footer__copyright {
       display: flex;
       align-items: center;
-      margin: 0 var( --wp--custom--spacing--small ) 0 0;
+      margin: 0 var(--wp--custom--spacing--small) 0 0;
     }
     .dgwltd-footer__list {
       margin: 0;
       display: flex;
       .menu-item {
-        margin: 0 var( --wp--custom--spacing--small ) 0 0;
+        margin: 0 var(--wp--custom--spacing--small) 0 0;
       } 
     }
     .dgwltd-footer__copyright, 

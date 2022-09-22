@@ -2,7 +2,7 @@
     //Headings
     h2, h3 {
         @extend %dgwltd-heading-xl;
-        margin-bottom: var( --wp--custom--spacing--large );
+        margin-bottom: var(--wp--custom--spacing--large);
     }
     h2, h3, p, .govuk-body {
         color:inherit;
@@ -10,9 +10,9 @@
     //Lists
     ul {
         li {
-            font-weight: bold;
+            font-weight: $bold;
             color:inherit;
-            margin-bottom: var( --wp--custom--spacing--small );
+            margin-bottom: var(--wp--custom--spacing--small);
             > a {
                 color: inherit;
             }
@@ -28,13 +28,13 @@
           color:white;
         }
         .gfield_label {
-            margin-bottom:var( --wp--custom--spacing--small );
+            margin-bottom:var(--wp--custom--spacing--small);
         }
         input[type="text"],
         input[type="email"] {
             border-color:white;
             &:focus {
-                outline: 3px solid var(--secondary);
+                outline: 3px solid var(--wp--preset--color--secondary);
                 outline-offset: 0;
                 box-shadow: none;
             }

@@ -13,8 +13,8 @@ body {
   letter-spacing: 1rem * 0.02;
   word-spacing: 1rem * 0.04;
   text-align: left;
-  background-color: var(--background);
-  color: var(--text-color);
+  background-color: var(--wp--preset--color--background);
+  color: var(--wp--preset--color--foreground);
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -95,7 +95,7 @@ body {
 .dgwltd-body-l {
   font-size: clampCalc($type-medium, $type-large, sm, xxl);
   line-height: var(--wp--custom--typography--line-height--headings--large);
-  margin-bottom: var( --wp--custom--spacing--medium );
+  margin-bottom: var(--wp--custom--spacing--medium);
 }
 
 
@@ -103,14 +103,14 @@ body {
 .dgwltd-body-m {
   font-size: clampCalc($type-normal, $type-medium, sm, xxl);
   line-height: var(--wp--custom--typography--line-height--body);
-  margin-bottom: var( --wp--custom--spacing--medium );
+  margin-bottom: var(--wp--custom--spacing--medium);
 }
 
 %dgwltd-body-s,
 .dgwltd-body-s {
   font-size: var(--wp--preset--font-size--small);
   line-height: var(--wp--custom--typography--line-height--body);
-  margin-bottom: var( --wp--custom--spacing--small );
+  margin-bottom: var(--wp--custom--spacing--small);
 }
 
 %dgwltd-body-xs,

@@ -3,12 +3,12 @@
 .wp-block-button__link {
   appearance: none;
   display: inline-block;
-  font-weight: bold;
+  font-weight: $bold;
   font-size: var(--wp--preset--font-size--normal);
   line-height: var(--wp--custom--typography--line-height--body);
   color: var(--button-text-color);
   padding: 1rem 1.6rem;
-  margin: var( --wp--custom--spacing--small ) 0;
+  margin: var(--wp--custom--spacing--small) 0;
   text-decoration: none;
   border: 2px solid var(--button-background);
   background-color: var(--button-background);
@@ -16,7 +16,7 @@
   border-radius: 4px;
   cursor: pointer;
   @include mq($from: md) {
-    margin: 0 0 var( --wp--custom--spacing--medium );
+    margin: 0 0 var(--wp--custom--spacing--medium);
     line-height: 1;
   }
   &:hover {
@@ -42,9 +42,9 @@
     cursor: not-allowed;
   }
   &.has-primary-background-color {
-    border-color: var(--primary);
+    border-color: var(--wp--preset--color--primary);
     &:hover {
-      border-color: var(--primary);
+      border-color: var(--wp--preset--color--primary);
     }
   }
 }
@@ -64,7 +64,7 @@
 
 %dgwltd-button--small, 
 .dgwltd-button--small {
-  padding: var( --wp--custom--spacing--extra-small ) var( --wp--custom--spacing--small );
+  padding: var(--wp--custom--spacing--extra-small) var(--wp--custom--spacing--small);
 }
 
 %dgwltd-button--ghost, 

@@ -22,9 +22,9 @@ if ( class_exists( 'acf' ) ) {
 		<?php echo do_blocks( '<!-- wp:post-title {"level":1,"className":"wp-block-post-title"} /-->' ); ?>
 	</div><!-- .entry-header -->
 	<?php else : ?>
-	<div class="entry-header">
-		<?php //the_title( '<h1 class="wp-block-post-title visually-hidden">', '</h1>' ); ?>
-		<?php echo do_blocks( '<!-- wp:post-title {"level":1,"className":"wp-block-post-title visually-hidden"} /-->' ); ?>
+	<div class="entry-header visually-hidden">
+		<?php //the_title( '<h1 class="wp-block-post-title">', '</h1>' ); ?>
+		<?php echo do_blocks( '<!-- wp:post-title {"level":1,"className":"wp-block-post-title"} /-->' ); ?>
 	</div><!-- .entry-header -->
 	<?php endif; ?>
 	

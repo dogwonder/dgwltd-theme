@@ -13,7 +13,7 @@ $nav-height: 64px;
   margin: 0;
   padding: 0;
   z-index: 9999;
-  background-color: var(--background);
+  background-color: var(--wp--preset--color--background);
 }
 
 //Overlay
@@ -46,7 +46,7 @@ $nav-height: 64px;
 
   //Width
   width:100%;
-  padding: var( --wp--custom--spacing--small ) var( --wp--custom--spacing--medium );
+  padding: var(--wp--custom--spacing--small) var(--wp--custom--spacing--medium);
 
   //Logo
   .dgwltd-masthead__logo {
@@ -70,9 +70,9 @@ $nav-height: 64px;
     svg {
       width: 60px;
       height: auto;
-      margin:0 var( --wp--custom--spacing--medium ) 0 0;
+      margin:0 var(--wp--custom--spacing--medium) 0 0;
       &:hover {
-          fill: var(--highlight);
+          fill: var(--wp--preset--color--secondary);
       }
     }
   }
@@ -101,7 +101,7 @@ $nav-height: 64px;
       text-align: left;
       position: relative;
       padding: 0;
-      margin: 0 0 var( --wp--custom--spacing--small );
+      margin: 0 0 var(--wp--custom--spacing--small);
       @include mq($until: lg) {
 
         &.current-menu-item > a, 
@@ -175,7 +175,7 @@ $nav-height: 64px;
       }
       @include mq($from: lg) {
         line-height: toRem(60);
-        margin: 0 var( --wp--custom--spacing--small ) 0 0;
+        margin: 0 var(--wp--custom--spacing--small) 0 0;
         .button-show-subnav {
           display: none;
         }
@@ -198,13 +198,13 @@ $nav-height: 64px;
       a {
         display: inline-block;
         text-decoration: none;
-        padding:var( --wp--custom--spacing--small ) var( --wp--custom--spacing--medium );
+        padding:var(--wp--custom--spacing--small) var(--wp--custom--spacing--medium);
         color: white;
         width: 100%;
         @include mq($from: lg) {
-          padding:0 var( --wp--custom--spacing--medium );
-          color: var(--text-color);
-          padding:0 var( --wp--custom--spacing--small );
+          padding:0 var(--wp--custom--spacing--medium);
+          color: var(--wp--preset--color--foreground);
+          padding:0 var(--wp--custom--spacing--small);
           margin:0;
         }
         &:hover {
@@ -219,8 +219,8 @@ $nav-height: 64px;
           color: white !important;
           text-decoration-color: white !important;
           @include mq($from: lg) {
-            color: var(--text-color) !important;
-            text-decoration-color: var(--azul) !important;
+            color: var(--wp--preset--color--foreground) !important;
+            text-decoration-color: var(--wp--preset--color--secondary) !important;
           }
         }
       }
@@ -256,7 +256,7 @@ $nav-height: 64px;
               border-bottom: 2px solid;
               border-right: 2px solid;
               transform: rotate(45deg);
-              margin-left: var( --wp--custom--spacing--small );
+              margin-left: var(--wp--custom--spacing--small);
               margin-top: -0.4ex;
             }
           }
@@ -312,7 +312,7 @@ $nav-height: 64px;
     .sub-menu {
       display: none;
       @include mq($until: lg) {
-        margin: var( --wp--custom--spacing--small ) 0 var( --wp--custom--spacing--medium ) var( --wp--custom--spacing--small );
+        margin: var(--wp--custom--spacing--small) 0 var(--wp--custom--spacing--medium) var(--wp--custom--spacing--small);
         li {
           line-height: var(--wp--custom--typography--line-height--body);
           margin: 0;
@@ -338,7 +338,7 @@ $nav-height: 64px;
           @include mq($from: lg) {
             line-height: 1;
             a {
-              padding: var( --wp--custom--spacing--small );
+              padding: var(--wp--custom--spacing--small);
               display: block;
             }
           }
@@ -356,7 +356,7 @@ $nav-height: 64px;
   padding: 0;
   display: none;
   box-shadow: none;
-  font-weight: bold;
+  font-weight: $bold;
   background-color: transparent;
   border:0;
   width: 44px;
@@ -369,7 +369,7 @@ $nav-height: 64px;
     height: toRem(40);
     margin-left:auto;
     &.close {
-      stroke: var(--text-color);
+      stroke: var(--wp--preset--color--foreground);
       stroke-width: 50;
     }
   }
@@ -491,7 +491,7 @@ $nav-height: 64px;
           display: flex;
         }
         .dgwltd-menu-language {
-          margin: var( --wp--custom--spacing--medium );
+          margin: var(--wp--custom--spacing--medium);
         }
       }
       .dgwltd-masthead__logo svg.logo {
@@ -520,33 +520,33 @@ $nav-height: 64px;
 .dgwltd-menu-language {
   list-style-type: none;
   display: flex;
-  margin: 0 var( --wp--custom--spacing--small );
+  margin: 0 var(--wp--custom--spacing--small);
   @include mq($until: lg) {
     display: none;  
-    margin: var( --wp--custom--spacing--medium ) var( --wp--custom--spacing--medium ) 0 0;
+    margin: var(--wp--custom--spacing--medium) var(--wp--custom--spacing--medium) 0 0;
   }
   li {
     @extend %dgwltd-navigation;
     line-height: 1;
     position: relative;
     padding: 0;
-    margin: 0 var( --wp--custom--spacing--small ) 0 0;
+    margin: 0 var(--wp--custom--spacing--small) 0 0;
     display: inline-block;
     @include mq($from: lg) {
       line-height: toRem(60);
-      margin: 0 var( --wp--custom--spacing--extra-small ) 0 0;
+      margin: 0 var(--wp--custom--spacing--extra-small) 0 0;
     }
     .active {
       color: white;
       @include mq($from: lg) {
-        color: var(--text-color);
+        color: var(--wp--preset--color--foreground);
       }
     }
     a {
       color: var(--border);
       text-decoration: none;
       &:hover {
-        color: var(--text-color);
+        color: var(--wp--preset--color--foreground);
         text-decoration: underline; 
       }
       &:focus {
@@ -558,8 +558,8 @@ $nav-height: 64px;
         color: white !important;
         text-decoration-color: white !important;
         @include mq($from: lg) {
-          color: var(--text-color) !important;
-          text-decoration-color: var(--azul) !important;
+          color: var(--wp--preset--color--foreground) !important;
+          text-decoration-color: var(--wp--preset--color--secondary) !important;
         }
       }
     }

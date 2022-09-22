@@ -25,7 +25,13 @@
     grid-template-columns: 1fr minmax(min-content, var(--containerWidth)) 1fr;
     > * {
       grid-column: 2 / span 1;
-      padding: 0 var( --wp--custom--spacing--medium );
+      padding: 0 var(--wp--custom--spacing--medium);
+    }
+  }
+  .entry-header {
+    > * {
+      margin-block-start: 0;
+      margin-block-end: var(--wp--custom--spacing--medium);
     }
   }
   .entry-content {
@@ -49,9 +55,11 @@
 
 //Exceptions
 .dgwltd-post {
-  .entry-header:has(.entry-meta) {
-    .wp-block-post-title {
-      margin-bottom: var( --wp--custom--spacing--small );
+  .entry-header {
+    &:has(.entry-meta) {
+      .wp-block-post-title {
+        margin-bottom: var(--wp--custom--spacing--small);
+      }
     }
   }
 }

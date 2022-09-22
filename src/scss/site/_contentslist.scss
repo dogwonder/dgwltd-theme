@@ -9,7 +9,7 @@
   }
   .dgwltd-contents-list__list {
     list-style-type: none;
-    margin: 0 0 var( --wp--custom--spacing--medium );
+    margin: 0 0 var(--wp--custom--spacing--medium);
     li {
       padding-top: 8px;
       font-size: 1rem;
@@ -23,11 +23,11 @@
         > a {
           text-decoration: none;
           &:visited {
-            color: var(--text-color);
+            color: var(--wp--preset--color--foreground);
           }
         }
         font-weight: $bold;
-        color: var(--text-color);
+        color: var(--wp--preset--color--foreground);
       }
     }
   }

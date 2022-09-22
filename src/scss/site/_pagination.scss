@@ -1,5 +1,5 @@
 .dgwltd-pagination {
-  margin: var( --wp--custom--spacing--large ) 0;
+  margin: var(--wp--custom--spacing--large) 0;
   
   .dgwltd-pagination__list {
     padding:0;
@@ -16,7 +16,7 @@
     display: block;
     font-weight: $bold;
     a {
-      margin-left: var( --wp--custom--spacing--extra-small );
+      margin-left: var(--wp--custom--spacing--extra-small);
     }
   }
 
@@ -27,14 +27,14 @@
   .dgwltd-pagination__link-label {
     @extend %dgwltd-body-xs;
     text-decoration: underline;
-    margin: var( --wp--custom--spacing--extra-small ) 0 0 23px;
+    margin: var(--wp--custom--spacing--extra-small) 0 0 23px;
     display: inline-block;
   }
 
   .dgwltd-pagination__link {
     display: block;
     text-decoration: none;
-    padding: var( --wp--custom--spacing--small ) var( --wp--custom--spacing--small ) var( --wp--custom--spacing--medium );
+    padding: var(--wp--custom--spacing--small) var(--wp--custom--spacing--small) var(--wp--custom--spacing--medium);
     
     > * {
       color: currentColor;
@@ -42,16 +42,16 @@
 
     &:hover {
       > * {
-        color: var(--highlight);
+        color: var(--wp--preset--color--secondary);
       }
       .dgwltd-pagination__link-icon {
-        fill: var(--highlight);
+        fill: var(--wp--preset--color--secondary);
       }
     }
 
     &:active,
     &:focus {
-      background-color: var(--highlight);
+      background-color: var(--wp--preset--color--secondary);
       .dgwltd-pagination__item {
         border-top: 1px solid var(--dark);
       }

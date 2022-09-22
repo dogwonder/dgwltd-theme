@@ -34,8 +34,7 @@ $type-large: 1.777; //28.43px
 $type-medium: 1.333; //21.33px
 $type-small: 1; //16px
 $type-tiny: 0.875; //15.75px
-//Default
-$type-normal: 1.125; //18px
+$type-normal: 1.125; //18px default font size
 
 //Spacing - usedin fluid spacing
 $spaces: (
@@ -86,7 +85,7 @@ $mq-breakpoints: (
   xxl: 1400px
 );
 
-//CSS Vars - usage var(--background)
+//CSS Vars 
 :root {
 
   --containerWidth: 70rem; //1120px
@@ -95,47 +94,38 @@ $mq-breakpoints: (
 
   //System font as default
   --body: -apple-system, BlinkMacSystemFont,"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell","Fira Sans", "Droid Sans","Helvetica Neue",sans-serif;
-  
-  --background: #ffffff;
-  --footer: #000000;
-  --alt: #fafafa;
 
-  --card: #f2f2f2; 
-  --meta: #424042;
-
+  //Borders
   --border: hsl(200, 12%, 60%);
-  --border-light: #ced1d6;
-  --border-dark: #414042;
-  --radius: 1rem;
 
+  //Link states
   --color-primary: 181.5, 83.2%; //#14D5DE Neon Blue
   --color-secondary: 320.9, 100%; //#ff00a6 Neon Pink
   --l: 46.7%;
 
-  --text-color: hsl(98, 0%, 0%);
   --highlight: hsl(var(--color-secondary),var(--l)); //Pink
 
   --hover: hsl(var(--color-primary),calc(var(--l) - 10%));
   --visited: hsl(var(--color-primary),var(--l));
+  --active: hsl(var(--color-primary),calc(var(--l) - 10%));
+  --focus: hsl(var(--color-primary),calc(var(--l) + 10%));
 
-  --active: hsl(203, 70%, 81%);
-  --focus: hsl(var(--color-primary),var(--l));
-
+  //Forms
   --success: #00703c;
   --error: #d4351c;
 
+  //Buttons
   --button-text-color: white;
   --button-background: hsl(var(--color-primary),var(--l));
   --button-hover: hsl(var(--color-primary),calc(var(--l) - 10%));
   --button-focus: hsl(var(--color-primary),calc(var(--l) + 10%));
   --button-disabled: hsl(var(--color-primary),calc(var(--l) + 90%));
 
-  --primary: hsl(var(--color-primary),var(--l));
-  --secondary: hsl(var(--color-secondary),var(--l));
-
-  --dark: hsl(98, 0%, 0%);
-  --dark-hover: hsl(98, 0%, 15%);
-  --light: hsl(0, 0%, 98%);
+  //Themes
+  --dark: hsl(98, 0%, 15%);
+  --darker: hsl(98, 0%, 5%);
+  --light: hsl(0, 0%, 90%);
+  --lighter: hsl(0, 0%, 95%);
   
   //Menu height
   --submenu-offset: 0;
@@ -153,17 +143,17 @@ $mq-breakpoints: (
 $palettes: (
     themes: (
       primary: (
-          background: var(--primary),
+          background: var(--wp--preset--color--primary),
           text: var(--light), 
           border: var(--light), 
-          highlight: var(--secondary), 
+          highlight: var(--dark), 
           inverse: var(--dark)
       ),
       secondary: (
-          background: var(--secondary),
+          background: var(--wp--preset--color--secondary),
           text: var(--light), 
           border: var(--light), 
-          highlight: var(--primary), 
+          highlight: var(--dark), 
           inverse: var(--dark)
       ),
       black: (
@@ -321,47 +311,5 @@ $palettes: (
     left: 0;
     right: 0;
     bottom: 0;
-  }
-}
-
-
-
-@mixin dgwltd-shape-arrow($direction, $base, $height: null, $display: block) {
-  display: $display;
-
-  width: 0;
-  height: 0;
-
-  border-style: solid;
-  border-color: transparent; // 1
-
-  $perpendicular: math.div($base, 2);
-
-  @if ($height == null) {
-    $height: $base;
-  }
-
-  @if $direction == "up" {
-    clip-path: polygon(50% 0%, 0% 100%, 100% 100%); // 3
-
-    border-width: 0 $perpendicular $height $perpendicular;
-    border-bottom-color: inherit; // 2
-  } @else if $direction == "right" {
-    clip-path: polygon(0% 0%, 100% 50%, 0% 100%); // 3
-
-    border-width: $perpendicular 0 $perpendicular $height;
-    border-left-color: inherit; // 2
-  } @else if $direction == "down" {
-    clip-path: polygon(0% 0%, 50% 100%, 100% 0%); // 3
-
-    border-width: $height $perpendicular 0 $perpendicular;
-    border-top-color: inherit; // 2
-  } @else if $direction == "left" {
-    clip-path: polygon(0% 50%, 100% 100%, 100% 0%); // 3
-
-    border-width: $perpendicular $height $perpendicular 0;
-    border-right-color: inherit; // 2
-  } @else {
-    @error "Invalid arrow direction: expected `up`, `right`, `down` or `left`, got `#{$direction}`";
   }
 }

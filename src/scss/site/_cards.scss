@@ -1,12 +1,12 @@
 //Add margin to top 
 h2 ~ .dgwltd-block--cards_inner {
-  margin-top:var( --wp--custom--spacing--medium );
+  margin-top:var(--wp--custom--spacing--medium);
 }
 
 .dgwltd-block--cards_inner {
   display: grid;
   -ms-display: grid;
-  grid-column-gap: var( --wp--custom--spacing--medium );
+  grid-column-gap: var(--wp--custom--spacing--medium);
   grid-template-columns: repeat(1, 1fr);
   @include mq($from: md) {
     grid-template-columns: 1fr 1fr 1fr;
@@ -28,7 +28,7 @@ h2 ~ .dgwltd-block--cards_inner {
 
 //Single card
 .dgwltd-card {
-  margin-bottom: var( --wp--custom--spacing--medium );
+  margin-bottom: var(--wp--custom--spacing--medium);
   width: 100%;
 
   .dgwltd-card__inner {
@@ -36,7 +36,7 @@ h2 ~ .dgwltd-block--cards_inner {
     height: 100%;
     position: relative;
     text-decoration: none !important;
-    color: var(--text-color);
+    color: var(--wp--preset--color--foreground);
     text-align: left;
     &:hover {
       cursor: pointer;
@@ -84,20 +84,20 @@ h2 ~ .dgwltd-block--cards_inner {
     width: 100%;
     min-height: 6rem;
     aspect-ratio: 1 / 1;
-    background-color: var(--primary);
+    background-color: var(--wp--preset--color--primary);
   }
 
   .dgwltd-card__caption {
     @extend %dgwltd-body-s; 
     display: block;
-    margin-bottom: var( --wp--custom--spacing--extra-small );
+    margin-bottom: var(--wp--custom--spacing--extra-small);
   }
 
   .dgwltd-card__heading {
     @extend %dgwltd-heading-m;
     display: inline-block;
     width: 100%;
-    margin: 0 0 var( --wp--custom--spacing--small );
+    margin: 0 0 var(--wp--custom--spacing--small);
     text-decoration: none;
     > a {
       color:inherit;
@@ -113,7 +113,7 @@ h2 ~ .dgwltd-block--cards_inner {
   }
 
   .dgwltd-card__content {
-    padding: var( --wp--custom--spacing--medium ) 0;
+    padding: var(--wp--custom--spacing--medium) 0;
     p {
       @include mq($from: md) {
         max-width: 100%;
@@ -121,12 +121,12 @@ h2 ~ .dgwltd-block--cards_inner {
     }
 
     .govuk-summary-list {
-      margin: var( --wp--custom--spacing--small ) 0 0;
+      margin: var(--wp--custom--spacing--small) 0 0;
       .govuk-summary-list__key, 
       .govuk-summary-list__value {
-        padding:var( --wp--custom--spacing--extra-small );
+        padding:var(--wp--custom--spacing--extra-small);
         padding-left: 0;
-        margin: 0 0 var( --wp--custom--spacing--extra-small );
+        margin: 0 0 var(--wp--custom--spacing--extra-small);
         @extend %dgwltd-body-s;
       }
     }
@@ -150,17 +150,17 @@ h2 ~ .dgwltd-block--cards_inner {
   //Inverse
   &[data-theme='light'] {
     .dgwltd-card__inner {
-      background-color: var(--alt);
-      color: var(--highlight);
+      background-color: var(--wp--preset--color--alt);
+      color: var(--wp--preset--color--secondary);
       .dgwltd-card__heading > a {
-        color: var(--highlight);
+        color: var(--wp--preset--color--secondary);
         &:focus {
           color: white;
         }
       }
       .govuk-summary-list__key,
       .govuk-summary-list__value {
-        color: var(--highlight);
+        color: var(--wp--preset--color--secondary);
       }
     }
   }

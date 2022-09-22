@@ -9,22 +9,22 @@ html {
 
 //Links
 a {
-  color: var(--text-color);
+  color: var(--wp--preset--color--foreground);
   text-decoration: underline;
   text-decoration-thickness: unquote("max(0.0875em, .0625rem)");
   text-underline-offset: 0.1em;
   &:visited {
-    color: var(--text-color);
+    color: var(--wp--preset--color--foreground);
   }
   &:hover {
-    text-decoration-color: var(--highlight);
+    text-decoration-color: var(--wp--preset--color--secondary);
   }
   &:active {
-    color: var(--text-color);
+    color: var(--wp--preset--color--foreground);
     text-decoration: none;
   }
   &:focus {
-    color: var(--text-color);
+    color: var(--wp--preset--color--foreground);
     background-color: var(--focus);
     outline: 3px solid transparent;
     box-shadow: 0 -2px var(--focus), 0 4px #0b0c0c;
@@ -36,7 +36,7 @@ a {
 }
 
 hr {
-  margin: var( --wp--custom--spacing--medium ) 0;
+  margin: var(--wp--custom--spacing--medium) 0;
   height: 1px;
   border: 0;
   border-bottom: 1px solid var(--border);
