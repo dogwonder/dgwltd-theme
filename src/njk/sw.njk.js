@@ -6,7 +6,7 @@ const precacheFiles = [
   'wp-content/themes/dgwltd/src/html/offline.html', 
   'wp-content/themes/dgwltd/dist/css/main.css', 
   'wp-content/themes/dgwltd/dist/scripts/app.js',
-  'wp-content/themes/dgwltd/dist/scripts/govuk-frontend-4.0.1.min.js', 
+  'wp-content/themes/dgwltd/dist/scripts/govuk-frontend-4.3.1.min.js', 
   'wp-content/themes/dgwltd/dist/images/fav/favicon.png',
   'wp-content/themes/dgwltd/dist/images/fav/favicon-192x192.png', 
   'wp-content/themes/dgwltd/dist/fonts/soehne/soehne-extrafett.woff2',

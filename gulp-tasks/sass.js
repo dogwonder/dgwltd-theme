@@ -9,7 +9,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 const options = {
   in: './src/scss/*.scss',
-  out: './dist/css/specific/',
+  out: './dist/css/',
   criticalOut: './dist/css/',
   criticalStyles: [
     'main.scss', 

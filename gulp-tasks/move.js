@@ -3,7 +3,7 @@ const merge = require('merge-stream');
 
 // Moving files
 const move = () => {
-    let scripts = src(['./src/vendor/govuk-frontend-4.0.1.min.js'])
+    let scripts = src(['./src/vendor/govuk-frontend-4.3.1.min.js'])
         .pipe(dest('./dist/scripts'));
     let fav = src(['./src/images/fav/manifest.json'])
         .pipe(dest('./dist/images/fav'));
