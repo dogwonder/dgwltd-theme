@@ -36,12 +36,6 @@
                 }
                 ?>
                 
-                <?php 
-                if(!empty($languages)) { 
-                    include(locate_template( 'template-parts/_molecules/languages.php' ));
-                } 
-                ?>
-                
                 </div>
                 
             </nav>

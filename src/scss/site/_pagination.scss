@@ -1,5 +1,5 @@
 .dgwltd-pagination {
-  margin: var(--wp--custom--spacing--large) 0;
+  margin: var(--wp--custom--spacing--large) 0 ;
   
   .dgwltd-pagination__list {
     padding:0;
@@ -25,7 +25,7 @@
   }
 
   .dgwltd-pagination__link-label {
-    @extend %dgwltd-body-xs;
+    @extend %dgwltd-body-s;
     text-decoration: underline;
     margin: var(--wp--custom--spacing--extra-small) 0 0 23px;
     display: inline-block;

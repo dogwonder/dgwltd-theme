@@ -1,7 +1,8 @@
 .govuk-breadcrumbs {
-  .govuk-breadcrumbs__list {
+  ol.govuk-breadcrumbs__list {
     list-style-type: none;
     display: flex;
+    margin: 0;
   }
   .govuk-breadcrumbs__list-item {
     color: var(--wp--preset--color--foreground);

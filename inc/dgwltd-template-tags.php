@@ -105,10 +105,17 @@ add_filter(
 add_filter('the_content', 'dgwltd_content_div');
 
 function dgwltd_content_div($content) {
-    $dgwltd_content_html .= $content;
-    $dgwltd_content_html .= '<div class="buffer"></div>';
+	//If not template page
+	if ( ! is_page_template( ['template-guide.php', 'template-blog.php', 'template-search.php' ] ) ) {
+		$dgwltd_content_html .= $content;
+		$dgwltd_content_html .= '<div class="buffer"></div>';
 
-    $filteredcontent = $dgwltd_content_html;
+		$filteredcontent = $dgwltd_content_html;
 
-    return $filteredcontent;
+		return $filteredcontent;
+	} else {
+
+		return $content;
+		
+	};
 }

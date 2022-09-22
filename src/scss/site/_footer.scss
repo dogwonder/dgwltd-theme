@@ -3,8 +3,8 @@
   padding: 0;
   margin: 0;
   border: 0;
-  background-color: var(--wp--preset--color--background);
-  color: white;
+  background-color: var(--wp--preset--color--foreground);
+  color: var(--wp--preset--color--background);
   text-align: left;
   content-visibility: auto; //We only place this here as otherwise we might affect screenreaders. 
 

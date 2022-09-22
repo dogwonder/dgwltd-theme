@@ -60,7 +60,7 @@ if ( $children_ids ) : ?>
 
 	<aside class="dgwltd-navigation-container" role="complementary">
 	<nav class="dgwltd-contents-list dgwltd-contents-list--pages" aria-label="Pages in this section" role="navigation">
-		<h4 class="dgwltd-contents-list__title"><?php esc_html_e( 'Contents', 'dgwltd' ); ?></h4>
+		<h2 class="dgwltd-contents-list__title"><?php esc_html_e( 'Contents', 'dgwltd' ); ?></h2>
 		<ol class="dgwltd-contents-list__list">
 
 			<?php // First get the parent title if it exists and if parent remove link ?>
