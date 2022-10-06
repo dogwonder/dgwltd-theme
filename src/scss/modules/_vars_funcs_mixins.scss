@@ -115,7 +115,7 @@ $mq-breakpoints: (
   --error: #d4351c;
 
   //Buttons
-  --button-text-color: white;
+  --button-text-color:var(--wp--preset--color--foreground);
   --button-background: hsl(var(--color-primary),var(--l));
   --button-hover: hsl(var(--color-primary),calc(var(--l) - 10%));
   --button-focus: hsl(var(--color-primary),calc(var(--l) + 10%));
@@ -246,7 +246,7 @@ $palettes: (
 
   // $slope: math.div(($maxFontSize - $minFontSize), ($lgBreakpoint - $smBreakpoint));
   $slope: math.div(($maxFontSize - $minFontSize), ($lgBreakpoint - $smBreakpoint));
-  $yAxisIntersection: $minFontSize - ($smBreakpoint * $slope);
+  $yAxisIntersection: -$smBreakpoint * $slope + $minFontSize;
   //clamp (minFontSize, yAxisIntersection[rem] + (slope * 100)[vw], maxFontSize)
   @return clamp( ($minFontSize * 1rem), ($yAxisIntersection * 1rem) + (($slope * 100) * 1vw), ($maxFontSize * 1rem) );
 }

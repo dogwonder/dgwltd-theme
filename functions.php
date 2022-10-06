@@ -120,6 +120,8 @@ remove_action( 'admin_print_styles', 'print_emoji_styles' );
 /**
  * Enqueue scripts and styles.
  */
+if ( ! function_exists( 'dgwltd_scripts_styles' ) ) :
+	
 function dgwltd_scripts_styles() {
 
 	// Register theme stylesheet.
@@ -134,13 +136,12 @@ function dgwltd_scripts_styles() {
 	);
 
 	// Add styles inline.
-	wp_add_inline_style( 'dgwltd-style', dgwltd_get_font_face_styles() );
 
 	// Enqueue theme stylesheet.
 	wp_enqueue_style( 'dgwltd-style' );
 
-	// Enqueue custom theme stylesheet - we are inlining this for now but this is how we would add this
-	// wp_enqueue_style('dgwltd-css', get_template_directory_uri() . '/dist/css/critical.css', false);
+	// Enqueue custom theme stylesheet - we are adding this directly to the header but this is how we would add this
+	// wp_enqueue_style('dgwltd-css', get_template_directory_uri() . '/dist/css/main.css', false);
 
 	wp_deregister_script( 'jquery' );
 
@@ -149,6 +150,10 @@ function dgwltd_scripts_styles() {
 	}
 
 }
+
+
+endif;
+
 add_action( 'wp_enqueue_scripts', 'dgwltd_scripts_styles' );
 
 if ( ! function_exists( 'dgwltd_editor_styles' ) ) :
@@ -160,50 +165,14 @@ if ( ! function_exists( 'dgwltd_editor_styles' ) ) :
 	 *
 	 * @return void
 	 */
+	
 	function dgwltd_editor_styles() {
 
-		// Add styles inline.
-		wp_add_inline_style( 'wp-block-library', dgwltd_get_font_face_styles() );
-
 	}
 
 endif;
 
-add_action( 'admin_init', 'dgwltd_editor_styles' );
-
-
-if ( ! function_exists( 'dgwltd_get_font_face_styles' ) ) :
-
-	/**
-	 * Get font face styles.
-	 * Called by functions twentytwentytwo_styles() and twentytwentytwo_editor_styles() above.
-	 *
-	 * @since Twenty Twenty-Two 1.0
-	 *
-	 * @return string
-	 */
-	function dgwltd_get_font_face_styles() {
-
-		return "
-		@font-face {
-			font-family: 'Söhne Halbfett';
-			font-weight: 600;
-			font-style: normal;
-			font-display: swap;
-			src: url('" . get_theme_file_uri( 'dist/fonts/soehne/soehne-halbfett.woff2' ) . "') format('woff2');
-		}
-		@font-face {
-			font-family: 'Söhne Kraftig';
-			font-weight: 500;
-			font-style: normal;
-			font-display: swap;
-			src: url('" . get_theme_file_uri( 'dist/fonts/soehne/soehne-kraftig.woff2' ) . "') format('woff2');
-		}
-		";
-
-	}
-
-endif;
+// add_action( 'admin_init', 'dgwltd_editor_styles' );
 
 /**
  * Custom template tags for this theme.

@@ -12,11 +12,9 @@
       .dgwltd-cta__inner {
         display: flex;
         flex-direction: column;
-        padding:var(--wp--custom--spacing--large) var(--wp--custom--spacing--medium);
         @include mq($from: md) {
           flex-direction: row;
           justify-content: space-between;
-          padding: var(--wp--custom--spacing--extra-large) var(--wp--custom--spacing--medium);
         }
       }
       .dgwltd-cta__image {
