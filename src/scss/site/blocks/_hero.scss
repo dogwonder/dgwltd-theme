@@ -24,6 +24,7 @@
     padding:0 !important;
     h1, h2 {
       @extend %dgwltd-heading-xl;
+      margin: 0 0 var(--wp--custom--spacing--medium);
     }
     h1, h2, p, .govuk-body {
       color:inherit;
