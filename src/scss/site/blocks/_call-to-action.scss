@@ -2,11 +2,33 @@
 //CTA block
 .dgwltd-block--cta {
 
-
     .dgwltd-cta__content {
       text-align: left;
     }
 
+    .dgwltd-button {
+      margin:0;
+    }
+
+    //Reversed
+    &[data-state='reversed'] {
+      .dgwltd-cta__inner {
+        flex-direction: column-reverse;
+        @include mq($from: md) {
+          flex-direction: row-reverse;
+        }
+      }
+      .frame {
+        @include mq($until: md) {
+          margin:0 auto 2rem;
+        }
+      }
+      .dgwltd-cta__content {
+        @include mq($from: md) {
+          padding: 0 0 0 var(--wp--custom--spacing--large);
+        }
+      }
+    }
 
     &.has-image {
       .dgwltd-cta__inner {
@@ -50,38 +72,15 @@
 
 
     }
-    
-    .dgwltd-button {
-      margin:0;
+
+    &.has-background {
+      padding: 0;
+      .dgwltd-cta__content {
+        padding: var(--wp--custom--spacing--medium); 
+      }
     }
 
-  
-    //Reversed
-    &[data-state='reversed'] {
-      .dgwltd-cta__inner {
-        flex-direction: column-reverse;
-        @include mq($from: md) {
-          flex-direction: row-reverse;
-        }
-      }
-      .frame {
-        @include mq($until: md) {
-          margin:0 auto 2rem;
-        }
-      }
-      .dgwltd-cta__image {
-        &.transform {
-          align-items: flex-start;
-          @include mq($from: md) {
-            transform: rotate(5deg); 
-          }
-        }
-      }
-      .dgwltd-cta__content {
-        @include mq($from: md) {
-          padding: 0 0 0 var(--wp--custom--spacing--large);
-        }
-      }
+    &.alignfull {
     }
   
   }

@@ -105,18 +105,16 @@ $govuk-font-family: -apple-system, BlinkMacSystemFont,"Segoe UI", "Roboto", "Oxy
 
 // GUTENBERG BLOCKS
 @import "site/blocks/accordion";
-@import "site/blocks/cta";
+@import "site/blocks/call-to-action";
 @import "site/blocks/cover";
 @import "site/blocks/details";
+@import "site/blocks/feature";
+@import "site/blocks/featured-blocks";
 @import "site/blocks/gallery";
 @import "site/blocks/hero";
-@import "site/blocks/feature";
 @import "site/blocks/image";
 @import "site/blocks/related";
 @import "site/blocks/summary";
-
-// SECTIONS
-@import "site/sections";
 
 // CARDS
 @import "site/cards";

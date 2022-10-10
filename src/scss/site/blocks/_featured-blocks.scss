@@ -1,0 +1,14 @@
+//Add margin to top 
+h2 ~ .dgwltd-block--featured-boxes_inner {
+    margin-top:var(--wp--custom--spacing--medium);
+}
+
+.dgwltd-block--featured-boxes_inner {
+  display: grid;
+  -ms-display: grid;
+  grid-column-gap: var(--wp--custom--spacing--medium);
+  grid-template-columns: repeat(1, 1fr);
+  @include mq($from: md) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

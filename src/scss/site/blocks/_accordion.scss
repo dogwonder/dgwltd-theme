@@ -1,5 +1,8 @@
 //Accordion
 .dgwltd-block--accordion {
+    .govuk-accordion {
+      margin: 0;
+    }
     .govuk-accordion__section-header {
       border-color: var(--border);
     }
