@@ -1,7 +1,7 @@
 @charset 'utf-8';
 @use 'sass:math';
 
-//BOOTSTRAP
+//BOOTSTRAP 5 - https://getbootstrap.com
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/maps";
@@ -15,6 +15,7 @@
 $govuk-include-default-font-face: false;
 $govuk-focus-colour: #14D5DE;
 $govuk-font-family: -apple-system, BlinkMacSystemFont,"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell","Fira Sans", "Droid Sans","Helvetica Neue",sans-serif;
+
 // Import all
 // @import "../../node_modules/govuk-frontend/govuk/all.scss";
 
@@ -81,9 +82,6 @@ $govuk-font-family: -apple-system, BlinkMacSystemFont,"Segoe UI", "Roboto", "Oxy
 // BUTTONS
 @import "partials/buttons";
 
-// EMBEDS (Youtube / Vimeo)
-@import "partials/embeds";
-
 // PAGINATION & PAGE NAVIGATION
 @import "site/breadcrumbs";
 @import "site/pagination";
@@ -106,11 +104,10 @@ $govuk-font-family: -apple-system, BlinkMacSystemFont,"Segoe UI", "Roboto", "Oxy
 // GUTENBERG BLOCKS
 @import "site/blocks/accordion";
 @import "site/blocks/call-to-action";
-@import "site/blocks/cover";
 @import "site/blocks/details";
+@import "site/blocks/embed";
 @import "site/blocks/feature";
 @import "site/blocks/featured-blocks";
-@import "site/blocks/gallery";
 @import "site/blocks/hero";
 @import "site/blocks/image";
 @import "site/blocks/related";
@@ -127,6 +124,3 @@ $govuk-font-family: -apple-system, BlinkMacSystemFont,"Segoe UI", "Roboto", "Oxy
 
 // THEMES
 @import "modules/themes";
-
-//EXPERIMENTAL
-@import "modules/houdini";

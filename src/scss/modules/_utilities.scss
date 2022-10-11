@@ -276,13 +276,12 @@ $heights: (
   }
 }
 
-
-//Fluid spacing - e.g. add 
+//Fluid spacing 
 @each $key in map-keys(map-get($spaces, gaps)) {
-  .m-#{$key} {
+  .mf-#{$key} {
     margin: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
   }
-  .p-#{$key} {
+  .pf-#{$key} {
     padding: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
   }
   .mtf-#{$key} {
@@ -291,23 +290,11 @@ $heights: (
   .mbf-#{$key} {
     margin-bottom: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
   }
-  .mrf-#{$key} {
-    margin-right: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
-  }
-  .mlf-#{$key} {
-    margin-left: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
-  }
   .ptf-#{$key} {
     padding-top: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
   }
   .pbf-#{$key} {
     padding-bottom: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
-  }
-  .plf-#{$key} {
-    padding-left: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
-  }
-  .prf-#{$key} {
-    padding-right: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
   }
 }
 

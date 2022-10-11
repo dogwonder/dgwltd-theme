@@ -54,15 +54,15 @@ This requires [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/
 These are saved in `wp-plugins\dgwltd-blocks\src\acf-json`
 
 - DGW.ltd Accordion - based on GOV.UK's [accordian pattern](https://design-system.service.gov.uk/components/accordion/) 
-- DGW.ltd Featured Boxes - grid of cards linking to other pages, title, excerpt and featured image 
 - DGW.ltd Call-to-Action - call to action split text and image
 - DGW.ltd Details - based on GOV.UK's [details pattern](https://design-system.service.gov.uk/components/details/)
 - DGW.ltd Embed - lite embed custom element for [Youtube](https://github.com/paulirish/lite-youtube-embed) and [Vimeo](https://github.com/slightlyoff/lite-vimeo)
 - DGW.ltd Feature - text and background image similar to hero but less showy
+- DGW.ltd Featured Boxes - grid of cards linking to other pages, title, excerpt and featured image 
+- DGW.ltd Hero Section - hero section with big image / video as background
 - DGW.ltd Image - custom image with aspect ratio variables
-- DGW.ltd Hero - hero section with big image / video as background
-- DGW.ltd Summary list - based on GOV.UK's [summary list pattern](https://design-system.service.gov.uk/components/summary-list/) 
 - DGW.ltd Related pages - list of related links
+- DGW.ltd Summary list - based on GOV.UK's [summary list pattern](https://design-system.service.gov.uk/components/summary-list/) 
 
 ## Custom block patterns
 
@@ -92,7 +92,3 @@ Similar to NHS [contents guide](https://www.nhs.uk/conditions/type-2-diabetes/) 
 `template-blog.php`
 
 Blog / posts list template
-
-### Full site editing - *EXPERIMENTAL*
-
-In the folder FSE

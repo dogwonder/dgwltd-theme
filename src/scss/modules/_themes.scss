@@ -4,10 +4,6 @@
     .c--#{"" + $theme} {
       color: map-deep-get( $palettes, themes $theme background) !important;
     }
-    //Borders
-    .border--#{"" + $theme} {
-      border-color: map-deep-get( $palettes, themes $theme border) !important;
-    }
     //Background themes
     .bg--#{"" + $theme} {
       background-color: map-deep-get($palettes, themes $theme background) !important;
