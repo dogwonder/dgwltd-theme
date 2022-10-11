@@ -101,7 +101,7 @@ $govuk-font-family: -apple-system, BlinkMacSystemFont,"Segoe UI", "Roboto", "Oxy
 // LIST
 @import "site/list";
 
-// GUTENBERG BLOCKS
+// BLOCKS
 @import "site/blocks/accordion";
 @import "site/blocks/call-to-action";
 @import "site/blocks/details";
@@ -112,6 +112,9 @@ $govuk-font-family: -apple-system, BlinkMacSystemFont,"Segoe UI", "Roboto", "Oxy
 @import "site/blocks/image";
 @import "site/blocks/related";
 @import "site/blocks/summary";
+
+//BLOCK PATTERNS
+@import "site/blocks/patterns";
 
 // CARDS
 @import "site/cards";
