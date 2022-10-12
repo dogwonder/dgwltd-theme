@@ -1,13 +1,12 @@
 
 //CTA block
-.dgwltd-block--cta {
+.dgwltd-cta {
 
-    .dgwltd-cta__content {
+    &__content {
       text-align: left;
-    }
-
-    .dgwltd-button {
-      margin:0;
+      .dgwltd-button {
+        margin:0;
+      }
     }
 
     //Reversed
@@ -18,14 +17,14 @@
           flex-direction: row-reverse;
         }
       }
-      .frame {
-        @include mq($until: md) {
-          margin:0 auto 2rem;
-        }
-      }
       .dgwltd-cta__content {
         @include mq($from: md) {
           padding: 0 0 0 var(--wp--custom--spacing--large);
+        }
+      }
+      .frame {
+        @include mq($until: md) {
+          margin:0 auto 2rem;
         }
       }
     }
@@ -81,6 +80,13 @@
     }
 
     &.alignfull {
+    }
+
+    //Block style varients - styles in block.json
+    &.is-style-monochrome {
+      .dgwltd-cta__image img {
+        filter: grayscale(100%) contrast(200%);
+      }
     }
   
   }

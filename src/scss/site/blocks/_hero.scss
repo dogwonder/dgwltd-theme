@@ -1,8 +1,8 @@
 
 //Hero block
-.dgwltd-block--hero {
+.dgwltd-hero {
 
-    .dgwltd-hero__content {
+    &__content {
       ul {
         @extend %list;
       }
@@ -15,29 +15,34 @@
     justify-content: center;
     align-items: center;
     position: relative;
+    padding:0 !important;
     background-color: var(--wp--preset--color--background);
     grid-column: 2 / span 1;
     min-height: 17.5rem;
     @include mq($from: lg) {
       min-height: 25rem;
     }
-    padding:0 !important;
+    
+
     h1, h2 {
       @extend %dgwltd-heading-xl;
       margin: 0 0 var(--wp--custom--spacing--medium);
     }
+
     h1, h2, p, .govuk-body {
       color:inherit;
     }
-    .dgwltd-hero__wrapper {
+
+    &__wrapper {
       z-index:2;
       //Width
       @extend %container;
-      .dgwltd-hero__inner {
-        //Extra spacing
-        padding-top: var(--wp--custom--spacing--medium);
-        padding-bottom: var(--wp--custom--spacing--medium);
-      }
+    }
+
+    &__inner {
+      //Extra spacing
+      padding-top: var(--wp--custom--spacing--medium);
+      padding-bottom: var(--wp--custom--spacing--medium);
     }
 
     //Varients
