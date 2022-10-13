@@ -18,11 +18,11 @@
         > a {
           text-decoration: none;
           &:visited {
-            color: var(--wp--preset--color--foreground);
+            color: var(--wp--preset--color--dark);
           }
         }
         font-weight: $bold;
-        color: var(--wp--preset--color--foreground);
+        color: var(--wp--preset--color--dark);
       }
     }
   }

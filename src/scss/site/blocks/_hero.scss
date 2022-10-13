@@ -16,7 +16,7 @@
     align-items: center;
     position: relative;
     padding:0 !important;
-    background-color: var(--wp--preset--color--background);
+    background-color: var(--wp--preset--color--light);
     grid-column: 2 / span 1;
     min-height: 17.5rem;
     @include mq($from: lg) {

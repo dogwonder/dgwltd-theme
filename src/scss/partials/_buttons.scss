@@ -2,24 +2,23 @@
 .dgwltd-button, 
 .wp-block-button__link {
   appearance: none;
+  text-decoration: none;
   display: inline-block;
   font-weight: $bold;
   font-size: var(--wp--preset--font-size--normal);
-  line-height: var(--wp--custom--typography--line-height--body);
-  color: var(--button-text-color);
+  line-height: 1;
   padding: 1rem 1.6rem;
   margin: var(--wp--custom--spacing--small) 0;
-  text-decoration: none;
-  border: 2px solid var(--button-background);
+  color: var(--button-text-color);
   background-color: var(--button-background);
-  box-shadow: none;
+  border: 2px solid var(--button-background);
   border-radius: 4px;
-  cursor: pointer;
+  box-shadow: none;
   @include mq($from: md) {
     margin: 0 0 var(--wp--custom--spacing--medium);
-    line-height: 1;
   }
   &:hover {
+    cursor: pointer;
     border-color: var(--button-hover);
     background-color: var(--button-hover);
   }

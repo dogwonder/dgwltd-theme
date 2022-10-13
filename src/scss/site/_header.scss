@@ -13,7 +13,7 @@ $nav-height: 64px;
   margin: 0;
   padding: 0;
   z-index: 9999;
-  background-color: var(--wp--preset--color--background);
+  background-color: var(--wp--preset--color--light);
 }
 
 //Overlay
@@ -203,7 +203,7 @@ $nav-height: 64px;
         width: 100%;
         @include mq($from: lg) {
           padding:0 var(--wp--custom--spacing--medium);
-          color: var(--wp--preset--color--foreground);
+          color: var(--wp--preset--color--dark);
           padding:0 var(--wp--custom--spacing--small);
           margin:0;
         }
@@ -219,7 +219,7 @@ $nav-height: 64px;
           color: white !important;
           text-decoration-color: white !important;
           @include mq($from: lg) {
-            color: var(--wp--preset--color--foreground) !important;
+            color: var(--wp--preset--color--dark) !important;
             text-decoration-color: var(--wp--preset--color--secondary) !important;
           }
         }
@@ -369,7 +369,7 @@ $nav-height: 64px;
     height: toRem(40);
     margin-left:auto;
     &.close {
-      stroke: var(--wp--preset--color--foreground);
+      stroke: var(--wp--preset--color--dark);
       stroke-width: 50;
     }
   }
@@ -539,14 +539,14 @@ $nav-height: 64px;
     .active {
       color: white;
       @include mq($from: lg) {
-        color: var(--wp--preset--color--foreground);
+        color: var(--wp--preset--color--dark);
       }
     }
     a {
       color: var(--border);
       text-decoration: none;
       &:hover {
-        color: var(--wp--preset--color--foreground);
+        color: var(--wp--preset--color--dark);
         text-decoration: underline; 
       }
       &:focus {
@@ -558,7 +558,7 @@ $nav-height: 64px;
         color: white !important;
         text-decoration-color: white !important;
         @include mq($from: lg) {
-          color: var(--wp--preset--color--foreground) !important;
+          color: var(--wp--preset--color--dark) !important;
           text-decoration-color: var(--wp--preset--color--secondary) !important;
         }
       }

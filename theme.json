@@ -4,31 +4,46 @@
 	"settings": {
 		"appearanceTools": true,
 		"color": {
+			"defaultDuotone": true,
+			"defaultGradients": false,
+			"defaultPalette": false,
+			"gradients": [
+				{
+					"name": "Black to Primary",
+					"slug": "black-primary",
+					"gradient": "linear-gradient(135deg,rgba(0,0,0,1) 50%,var(--wp--preset--color--primary) 100%)"
+				},
+				{
+					"name": "Black to Secondary",
+					"slug": "black-secondary",
+					"gradient": "linear-gradient(135deg,rgba(0,0,0,1) 50%,var(--wp--preset--color--secondary) 100%)"
+				}
+			],
 			"palette": [
 				{
+					"name": "Primary", 
 					"slug": "primary",
-					"color": "#14D5DE",
-					"name": "Primary"
+					"color": "#14D5DE"
 				},
 				{
+					"name": "Secondary", 
 					"slug": "secondary",
-					"color": "#FF00A6",
-					"name": "Secondary"
+					"color": "#FF00A6"
 				},
 				{
-					"slug": "foreground",
-					"color": "#000000",
-					"name": "Foreground"
+					"name": "Dark", 
+					"slug": "dark",
+					"color": "#000"
 				},
 				{
-					"slug": "background",
-					"color": "#ffffff",
-					"name": "Background"
+					"name": "Light",  
+					"slug": "light",
+					"color": "#ffffff"
 				},
 				{
+					"name": "Alt", 
 					"slug": "alt",
-					"color": "#f2f2f2",
-					"name": "Alt"
+					"color": "#f2f2f2"
 				}
 			]
 		},
@@ -64,14 +79,11 @@
 				}
 			}
 		},
+		"layout": {
+			"contentSize": "1120px"
+		}, 
 		"spacing": {
-			"units": [
-				"%",
-				"px",
-				"rem",
-				"vh",
-				"vw"
-			]
+			"units": [ "px", "em", "rem", "vh", "vw", "%" ]
 		},
 		"typography": {
 			"dropCap": false,
@@ -107,6 +119,11 @@
 							"src": [ "file:./dist/fonts/soehne/soehne-kraftig.woff2" ]
 						}
 					]
+				},
+				{
+					"fontFamily": "monospace",
+					"name": "Monospace",
+					"slug": "monospace"
 				}
 			],
 			"fontSizes": [
@@ -174,9 +191,6 @@
 					"slug": "massive"
 				}
 			]
-		},
-		"layout": {
-			"contentSize": "1120px"
 		}
 	},
 	"styles": {
@@ -185,36 +199,59 @@
 				"spacing": {
 					"blockGap": "1em"
 				}
-			},
-			"core/button": {
+			}, 
+			"core/code": {
 				"border": {
-					"radius": "4px"
+					"radius": "0"
 				},
 				"color": {
-					"background": "var(--wp--preset--color--primary)",
-					"text": "var(--wp--preset--color--foreground)"
+					"background": "var(--wp--preset--color--dark)",
+					"text": "var(--wp--preset--color--light)"
+				},
+				"spacing": {
+					"padding": {
+						"top": "var(--wp--custom--spacing--small)",
+						"right": "var(--wp--custom--spacing--small)",
+						"bottom": "var(--wp--custom--spacing--small)",
+						"left": "var(--wp--custom--spacing--small)"
+					}
 				},
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--normal)",
-					"fontWeight": "bold"
-				}
-			},
-			"core/pullquote": {
-				"border": {
-					"width": "1px 0"
-				}
-			},
-			"core/quote": {
-				"border": {
-					"width": "1px"
+					"fontFamily": "var(--wp--preset--font-family--monospace)",
+					"fontSize": "var(--wp--preset--font-size--small)"
 				}
 			}
 		},
 		"color": {
-			"background": "var(--wp--preset--color--background)",
-			"text": "var(--wp--preset--color--foreground)"
+			"background": "var(--wp--preset--color--light)",
+			"text": "var(--wp--preset--color--dark)"
 		},
 		"elements": {
+			"button": {
+				"border": {
+					"color": "var(--wp--preset--color--primary)",
+					"radius": "4px",
+					"style": "solid",
+					"width": "2px"
+				},
+				"color": {
+					"background": "var(--wp--preset--color--primary)",
+					"text": "var(--wp--preset--color--dark)"
+				},
+				"spacing": {
+					"padding": {
+						"top": "1rem",
+						"right": "1.6rem",
+						"bottom": "1rem",
+						"left": "1.6rem"
+					}
+				},
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--normal)",
+					"lineHeight": "1",
+					"fontWeight": "bold"
+				}
+			},
 			"h1": {
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--soehne-halbfett)",
@@ -301,7 +338,7 @@
 			},
 			"link": {
 				"color": {
-					"text": "var(--wp--preset--color--foreground)"
+					"text": "var(--wp--preset--color--dark)"
 				}
 			}
 		},

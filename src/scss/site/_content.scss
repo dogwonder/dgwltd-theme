@@ -47,7 +47,7 @@
       text-align: left;
       margin: 0;
       padding: var(--wp--custom--spacing--medium);
-      color: var(--wp--preset--color--foreground);
+      color: var(--wp--preset--color--dark);
     }
     .alignright,
     .alignleft,
@@ -93,7 +93,7 @@
     quotes: "\201C""\201D";
     &:before {
       font-family: var(--body);
-      color: var(--wp--preset--color--foreground);
+      color: var(--wp--preset--color--dark);
       content: open-quote;
       font-size: 6rem;
       line-height: 1;
@@ -124,6 +124,10 @@
   .wp-block-button .wp-block-button__link {
     @extend %dgwltd-button;
   }
+  //Code
+  .wp-block-code {
+    padding: var(--wp--custom--spacing--small);
+  }
 }
 
 .entry-footer {
@@ -134,7 +138,7 @@
     padding: var(--wp--custom--spacing--small) var(--wp--custom--spacing--medium);
     border: 1px solid var(--border);
     border-radius: 2px;
-    color: var(--wp--preset--color--foreground);
+    color: var(--wp--preset--color--dark);
     text-decoration: none;
     margin-left: var(--wp--custom--spacing--small);
     &:hover {

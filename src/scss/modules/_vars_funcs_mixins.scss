@@ -115,7 +115,7 @@ $mq-breakpoints: (
   --error: #d4351c;
 
   //Buttons
-  --button-text-color:var(--wp--preset--color--foreground);
+  --button-text-color:var(--wp--preset--color--dark);
   --button-background: hsl(var(--color-primary),var(--l));
   --button-hover: hsl(var(--color-primary),calc(var(--l) - 10%));
   --button-focus: hsl(var(--color-primary),calc(var(--l) + 10%));
