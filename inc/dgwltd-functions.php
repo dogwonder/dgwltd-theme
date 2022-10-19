@@ -17,6 +17,14 @@ if ( ! function_exists( 'dgwltd_body_classes' ) ) :
 
 		global $post;
 
+		// Hide title via custom field
+		if ( class_exists( 'acf' ) ) {
+			$blockSpacing = get_field( 'block_spacing', $post->ID );
+			if ( $blockSpacing ) {
+				$classes[] = $blockSpacing ? 'block-spacing--' . $blockSpacing : '';
+			}
+		}
+
 		if ( ! is_singular() ) {
 			$classes[] = 'hfeed';
 		}
@@ -25,6 +33,8 @@ if ( ! function_exists( 'dgwltd_body_classes' ) ) :
 		if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 			$classes[] = 'no-sidebar';
 		}
+
+
 
 		return $classes;
 	}

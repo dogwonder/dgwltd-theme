@@ -23,6 +23,9 @@ $z-highest: 999;
 //Scale - used for iteration over breakpoints (keys only)
 $scale: ('sm','md','lg','xl');
 
+//Spacing
+$spacing: ( 'extra-small', 'small', 'medium', 'large', 'extra-large');
+
 //Measures - for margin / padding
 $gaps: (5, 10, 15, 20, 25, 30, 35, 40, 50, 80);
 

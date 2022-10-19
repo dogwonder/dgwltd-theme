@@ -98,9 +98,7 @@
 	justify-content: flex-start;
 
 	& > * + * {
-
 		margin-top: $measure;
-
 	}
 
 }
@@ -126,6 +124,13 @@
 }
 .stack-small > * + * {
   margin-top: var(--wp--custom--spacing--small) !important;
+}
+
+//Custom block spacing
+@each $gap in $spacing {
+  body.block-spacing--#{$gap} .wp-block-post-content > * + * { 
+    margin-block-start: var(--wp--custom--spacing--#{$gap});
+  }
 }
 
 

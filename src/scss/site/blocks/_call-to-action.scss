@@ -9,26 +9,6 @@
       }
     }
 
-    //Reversed
-    &[data-state='reversed'] {
-      .dgwltd-cta__inner {
-        flex-direction: column-reverse;
-        @include mq($from: md) {
-          flex-direction: row-reverse;
-        }
-      }
-      .dgwltd-cta__content {
-        @include mq($from: md) {
-          padding: 0 0 0 var(--wp--custom--spacing--large);
-        }
-      }
-      .frame {
-        @include mq($until: md) {
-          margin:0 auto 2rem;
-        }
-      }
-    }
-
     &.has-image {
       .dgwltd-cta__inner {
         display: flex;
@@ -79,14 +59,30 @@
       }
     }
 
-    &.alignfull {
-    }
-
     //Block style varients - styles in block.json
     &.is-style-monochrome {
       .dgwltd-cta__image img {
         filter: grayscale(100%) contrast(200%);
       }
     }
-  
-  }
+
+    //Reversed
+    &[data-state='reversed'] {
+      .dgwltd-cta__inner {
+        flex-direction: column-reverse;
+        @include mq($from: md) {
+          flex-direction: row-reverse;
+        }
+      }
+      .dgwltd-cta__content {
+        @include mq($from: md) {
+          padding: 0 0 0 var(--wp--custom--spacing--large);
+        }
+      }
+      .frame {
+        @include mq($until: md) {
+          margin:0 auto 2rem;
+        }
+      }
+    }
+}

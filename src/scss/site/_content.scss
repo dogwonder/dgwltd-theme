@@ -86,35 +86,36 @@
   //Blockquote
   .wp-block-quote {
     position: relative;
-    margin: var(--wp--custom--spacing--large) 0;
-    padding-top: var(--wp--custom--spacing--medium);
+    margin: 0;
+    padding: 0;
     background-color: transparent;
     border: 0;
     quotes: "\201C""\201D";
+    display: grid;
+    grid-template-columns: 4ch 1fr;
+    grid-template-rows: auto;
     &:before {
-      font-family: var(--body);
+      font-family: 'Times New Roman', Times, serif;
       color: var(--wp--preset--color--dark);
       content: open-quote;
-      font-size: 6rem;
+      font-size: 4rem;
       line-height: 1;
-      position: absolute;
-      z-index: 1;
-      top: -30px;
-      left: var(--wp--custom--spacing--small);
+      grid-column: 1;
     }
     cite {
+      grid-column: 2;
       position: relative;
       z-index: 2;
       font-family: var(--wp--preset--font-family--soehne-dreiviertelfett);
-      @extend %dgwltd-heading-m;
+      @extend %dgwltd-body-s;
     }
     p {
+      grid-column: 2;
       z-index: 2;
       position: relative;
       text-indent: 0;
       font-family: var(--wp--preset--font-family--soehne-dreiviertelfett);
-      @extend %dgwltd-heading-l;
-      line-height: 1;
+      @extend %dgwltd-body-m;
       &:last-child {
         margin: 0;
       }

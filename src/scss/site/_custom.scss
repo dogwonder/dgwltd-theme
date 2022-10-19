@@ -1,0 +1,58 @@
+//Spacing next to headers
+.wp-block-post-content > h2 + *, 
+.wp-block-post-content > h3 + * {
+    margin-block-start: var(--wp--custom--spacing--medium) !important;
+}
+
+//Columns with svg
+.wp-block-columns {
+    .wp-block-column {
+      > * + * {
+        margin-top: var(--wp--custom--spacing--small);
+      }
+      h3 {
+        @extend %dgwltd-heading-s;
+      }
+    }
+    .wp-block-boldblocks-svg-block :not(.use-as-button) {
+      padding: var(--wp--custom--spacing--small) 0;
+      svg {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 4.4rem;
+      }
+    }
+    &.has-large-images {
+        .wp-block-boldblocks-svg-block :not(.use-as-button) {
+            padding: 0;
+            svg {
+              max-width: 8.8rem;
+            }
+          }
+    }
+}
+
+
+//CTA with columns
+.dgwltd-cta {
+    .wp-block-columns {
+        .wp-block-column {
+        display: flex;
+        align-items: flex-start;
+        p {
+            @extend %dgwltd-body-s;
+            &:first-of-type {
+            margin-top: 0;
+            }
+        }
+        }
+        .wp-block-boldblocks-svg-block :not(.use-as-button) {
+        padding: 0 var(--wp--custom--spacing--small) 0 0;
+        svg {
+            padding: 0;
+            margin: 0;
+            width: 2rem;
+        }
+        }
+    }
+}
