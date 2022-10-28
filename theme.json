@@ -50,17 +50,17 @@
 		"custom": {
 			"spacing": {
 				"baseline": "16px",
-				"extra-small": "min(8px, 1.6vw)",
-				"small": "min(16px, 3.2vw)",
-				"medium": "min(32px, 6.4vw)",
-				"large": "min(48px, 12.8vw)",
-				"extra-large": "min(96px, 25.6vw)",
+				"extra-small": "clamp(0.75rem, calc(0.69rem + 0.28vw), 0.94rem)",
+				"small": "clamp(1.00rem, calc(0.93rem + 0.37vw), 1.25rem)",
+				"medium": "clamp(1.50rem, calc(1.39rem + 0.56vw), 1.88rem)",
+				"large": "clamp(2.00rem, calc(1.85rem + 0.74vw), 2.50rem)",
+				"extra-large": "clamp(3.00rem, calc(2.78rem + 1.11vw), 3.75rem)",
 				"gap": {
-					"horizontal": "clamp( calc( 1.5 * var(--wp--custom--spacing--baseline) ), 2.222vw, calc( 2 * var(--wp--custom--spacing--baseline) ) )",
-					"vertical": "clamp( calc( 1.5 * var(--wp--custom--spacing--baseline) ), 3.333vw, calc( 3 * var(--wp--custom--spacing--baseline) ) )"
+					"horizontal": "var(--wp--custom--spacing--medium)",
+					"vertical": "cvar(--wp--custom--spacing--medium)"
 				},
-				"gutter": "clamp( calc( 2 * var(--wp--custom--spacing--baseline) ), 6.666vw, calc( 4 * var(--wp--custom--spacing--baseline) ) )",
-				"outer": "var(--wp--custom--spacing--gutter)"
+				"gutter": "var(--wp--custom--spacing--medium)",
+				"outer": "var(--wp--custom--spacing--medium)"
 			},
 			"typography": {
 				"letter-spacing": {
