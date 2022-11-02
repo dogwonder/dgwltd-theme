@@ -62,6 +62,13 @@
 				"gutter": "var(--wp--custom--spacing--medium)",
 				"outer": "var(--wp--custom--spacing--medium)"
 			},
+			"spacingScale": {
+				"operator": "*",
+				"increment": 1.5,
+				"steps": 7,
+				"mediumStep": 1.5,
+				"unit": "rem"
+			}, 
 			"typography": {
 				"letter-spacing": {
 					"body": "-0.01em",
