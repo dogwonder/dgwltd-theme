@@ -86,7 +86,7 @@ body {
 
 %dgwltd-body-l,
 .dgwltd-body-l {
-  font-size: clampCalc($type-medium, $type-large, sm, xxl);
+  font-size: var(--wp--preset--font-size--large);
   line-height: var(--wp--custom--typography--line-height--headings--large);
   margin-bottom: var(--wp--custom--spacing--medium);
 }
@@ -94,7 +94,7 @@ body {
 
 %dgwltd-body-m,
 .dgwltd-body-m {
-  font-size: clampCalc($type-normal, $type-medium, sm, xxl);
+  font-size: var(--wp--preset--font-size--medium);
   line-height: var(--wp--custom--typography--line-height--body);
   margin-bottom: var(--wp--custom--spacing--medium);
 }

@@ -104,6 +104,8 @@ $nav-height: toRem(60);
       margin: 0 0 var(--wp--custom--spacing--small);
       @include mq($until: lg) {
 
+        font-size: var(--wp--preset--font-size--extra-large);
+
         &.current-menu-item > a, 
         &.current-page-ancestor > a {
           width: calc(100% - 80px) !important;
@@ -359,21 +361,18 @@ $nav-height: toRem(60);
   font-weight: $bold;
   background-color: transparent;
   border:0;
-  width: 44px;
-  height: 44px;
+  width: toRem(44);
+  height: toRem(44);
   &:hover {
     background-color: transparent;
   }
   svg {
-    width: 4.4rem;
-    height: 4.4rem;
     margin-left:auto;
+    height: toRem(44);
     &.close {
-      stroke: var(--wp--preset--color--dark);
-      stroke-width: 50;
+      fill: var(--wp--preset--color--light);
     }
   }
-
 }
 
 
