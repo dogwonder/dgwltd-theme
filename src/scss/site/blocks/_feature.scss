@@ -9,7 +9,6 @@
       align-items: center;
       position: relative;
       grid-column: 2 / span 1;
-      padding:0 !important;
       h2 {
         @extend %dgwltd-heading-xl;
         margin-bottom: var(--wp--custom--spacing--medium);
@@ -29,7 +28,16 @@
           padding:var(--wp--custom--spacing--large) var(--wp--custom--spacing--medium);
         }
       }
+
+      &:not(.alignfull) {
+        padding: 0;
+        margin-left: var(--wp--custom--spacing--medium);
+        margin-right: var(--wp--custom--spacing--medium);
+      }
+      
     }
+
+
 
     //Varients
     &.alignfull {

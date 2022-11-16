@@ -1,5 +1,4 @@
 //Import ES6 dependencies - per ES6 imports, we can omit the `.js` at the end.
-//import LanguagePreference from './modules/language';
 
 ;(function () {
 
@@ -299,31 +298,6 @@
         
     };
 
-    const blockElements = (elem)=>{
-
-        const blocks = document.querySelectorAll(elem);
-
-        if (!blocks) return;
-
-        console.log(blocks);
-        
-        Array.prototype.forEach.call(blocks, function(block, i){
-            // block.classList.add('block');
-            //Get all direct child elements
-            const children = block.children;
-            console.log(children);
-            //get the last item in the array
-            const lastChild = children[children.length - 1];
-            console.log(lastChild);
-            //If the class list contains 'dgwltd-block' add a class to the parent container
-            if (lastChild.classList.contains('dgwltd-block')) {
-                block.classList.add('has-block-as-last-item');
-            };
-        } );
-        
-
-    };
-
     const yoastSchema = ()=>{
         let schemaGraph = {};
         // Query the Element that holds the schema graph.
@@ -344,7 +318,6 @@
         toggleNav('#nav-toggle', '#nav-primary', '#masthead');
         subMenu('#nav-primary', '#masthead');
         cardClick('.dgwltd-card');
-        // blockElements('.wp-block-post-content');
         // yoastSchema();
      });
     

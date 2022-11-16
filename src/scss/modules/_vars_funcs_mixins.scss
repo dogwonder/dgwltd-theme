@@ -146,6 +146,8 @@ $mq-breakpoints: (
   --space-m-l: clamp(1.50rem, calc(1.20rem + 1.48vw), 2.50rem);
   --space-l-xl: clamp(2.00rem, calc(1.48rem + 2.59vw), 3.75rem);
 
+  --gutter: var(--space-s-m);
+
   //Z-index
   --layer-1: 1;
   --layer-2: 2;
@@ -310,22 +312,4 @@ $palettes: (
 @function toRem($value) {
   $remValue: math.div($value, 16) + rem; 
   @return $remValue;
-}
-
-//Aspect ratio
-@mixin aspect-ratio($width, $height) {
-  position: relative;
-  &:before {
-    display: block;
-    content: "";
-    width: 100%;
-    padding-top: math.div($height, $width) * 100%;
-  }
-  > .content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
 }

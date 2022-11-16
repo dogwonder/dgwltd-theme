@@ -15,7 +15,6 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    padding:0 !important;
     background-color: var(--wp--preset--color--light);
     grid-column: 2 / span 1;
     min-height: 17.5rem;
@@ -37,12 +36,6 @@
       z-index:2;
       //Width
       @extend %container;
-    }
-
-    &__inner {
-      //Extra spacing
-      padding-top: var(--wp--custom--spacing--medium);
-      padding-bottom: var(--wp--custom--spacing--medium);
     }
 
     //Varients
@@ -84,6 +77,12 @@
       .block__background img {
         filter: grayscale(100%) contrast(200%);
       }
+    }
+
+    &:not(.alignfull) {
+      padding: 0;
+      margin-left: var(--wp--custom--spacing--medium);
+      margin-right: var(--wp--custom--spacing--medium);
     }
      
   }

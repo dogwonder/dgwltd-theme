@@ -55,9 +55,13 @@
 				"medium": "clamp(1.50rem, calc(1.39rem + 0.56vw), 1.88rem)",
 				"large": "clamp(2.00rem, calc(1.85rem + 0.74vw), 2.50rem)",
 				"extra-large": "clamp(3.00rem, calc(2.78rem + 1.11vw), 3.75rem)",
+				"xs-s": "clamp(0.75rem, calc(0.60rem + 0.74vw), 1.25rem)",
+				"s-m": "clamp(1.00rem, calc(0.74rem + 1.30vw), 1.88rem)",
+				"m-l": "clamp(1.50rem, calc(1.20rem + 1.48vw), 2.50rem)",
+				"l-xl": "clamp(2.00rem, calc(1.48rem + 2.59vw), 3.75rem)",
 				"gap": {
 					"horizontal": "var(--wp--custom--spacing--medium)",
-					"vertical": "cvar(--wp--custom--spacing--medium)"
+					"vertical": "var(--wp--custom--spacing--medium)"
 				},
 				"gutter": "var(--wp--custom--spacing--medium)",
 				"outer": "var(--wp--custom--spacing--medium)"

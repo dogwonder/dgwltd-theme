@@ -1,5 +1,5 @@
 //Vars
-$nav-height: 64px;
+$nav-height: toRem(60);
 
 //Skip link
 .govuk-skip-link:link, 
@@ -68,7 +68,7 @@ $nav-height: 64px;
     }
 
     svg {
-      width: 60px;
+      width: $nav-height;
       height: auto;
       margin:0 var(--wp--custom--spacing--medium) 0 0;
       &:hover {
@@ -174,7 +174,7 @@ $nav-height: 64px;
         }
       }
       @include mq($from: lg) {
-        line-height: toRem(60);
+        line-height: $nav-height;
         margin: 0 var(--wp--custom--spacing--small) 0 0;
         .button-show-subnav {
           display: none;
@@ -365,8 +365,8 @@ $nav-height: 64px;
     background-color: transparent;
   }
   svg {
-    width: toRem(40);
-    height: toRem(40);
+    width: 4.4rem;
+    height: 4.4rem;
     margin-left:auto;
     &.close {
       stroke: var(--wp--preset--color--dark);
@@ -486,12 +486,8 @@ $nav-height: 64px;
       .dgwltd-nav__wrapper {
         content-visibility: visible;
         display: block;
-        .dgwltd-menu, 
-        .dgwltd-menu-language {
+        .dgwltd-menu {
           display: flex;
-        }
-        .dgwltd-menu-language {
-          margin: var(--wp--custom--spacing--medium);
         }
       }
       .dgwltd-masthead__logo svg.logo {
@@ -514,69 +510,4 @@ $nav-height: 64px;
 
   }
 
-}
-
-//Languages
-.dgwltd-menu-language {
-  list-style-type: none;
-  display: flex;
-  margin: 0 var(--wp--custom--spacing--small);
-  @include mq($until: lg) {
-    display: none;  
-    margin: var(--wp--custom--spacing--medium) var(--wp--custom--spacing--medium) 0 0;
-  }
-  li {
-    @extend %dgwltd-navigation;
-    line-height: 1;
-    position: relative;
-    padding: 0;
-    margin: 0 var(--wp--custom--spacing--small) 0 0;
-    display: inline-block;
-    @include mq($from: lg) {
-      line-height: toRem(60);
-      margin: 0 var(--wp--custom--spacing--extra-small) 0 0;
-    }
-    .active {
-      color: white;
-      @include mq($from: lg) {
-        color: var(--wp--preset--color--dark);
-      }
-    }
-    a {
-      color: var(--border);
-      text-decoration: none;
-      &:hover {
-        color: var(--wp--preset--color--dark);
-        text-decoration: underline; 
-      }
-      &:focus {
-        border: 0;
-        background-color: transparent;
-        box-shadow: none;
-        text-decoration: underline;
-        outline: 0;
-        color: white !important;
-        text-decoration-color: white !important;
-        @include mq($from: lg) {
-          color: var(--wp--preset--color--dark) !important;
-          text-decoration-color: var(--wp--preset--color--secondary) !important;
-        }
-      }
-    }
-    &:after {
-      content: "/";
-      color: var(--button-disabled);
-      @include mq($from: lg) {
-        color: var(--border);
-      }
-      display: inline-block;
-      margin-left: 5px;
-    }
-    &:last-of-type {
-      margin: 0;
-      &:after {
-        display: none;
-      }
-    }
-  }
 }

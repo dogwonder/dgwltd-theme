@@ -80,10 +80,11 @@
 //We reset the vertical padding on this for umbgrid and block--table components
 %container, 
 .container {
-  width: 100%;
-  max-width: var(--containerWidth);
   position: relative;
-  margin: 0;
+  width: 100%;
+  max-width: clamp(16rem,var(--containerWidth,70rem),95vw);
+  margin-left: auto;
+  margin-right: auto;
   padding: var(--wp--custom--spacing--medium);
 }
 
@@ -124,6 +125,15 @@
 }
 .stack-small > * + * {
   margin-top: var(--wp--custom--spacing--small) !important;
+}
+
+//Flex push items apart
+.repel {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gutter,var(--space-s-m));
+  justify-content: space-between;
 }
 
 //Custom block spacing

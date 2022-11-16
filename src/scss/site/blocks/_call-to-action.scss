@@ -53,7 +53,11 @@
     }
 
     &.has-background {
-      padding: 0;
+      &:not(.alignfull) {
+        padding: 0;
+        margin-left: var(--wp--custom--spacing--medium);
+        margin-right: var(--wp--custom--spacing--medium);
+      }
       .dgwltd-cta__content {
         padding: var(--wp--custom--spacing--medium); 
       }

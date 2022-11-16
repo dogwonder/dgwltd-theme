@@ -19,14 +19,9 @@ body {
   overflow-x: hidden;
 }
 
-//Based on base size of 16px and 1.618 (golden ratio) type scale - https://type-scale.com
-
-//Usage @extend %dgwltd-heading-m;
-
 // H1
 %dgwltd-heading-xl,
 .dgwltd-heading-xl {
-  // font-size: clampCalc($type-huge, $type-massive, sm, xxl);
   font-family: var(--wp--preset--font-family--soehne-halbfett);
   font-size: var(--wp--preset--font-size--massive);
   line-height: var(--wp--custom--typography--line-height--headings--gigantic);
@@ -48,7 +43,6 @@ body {
 // H3
 %dgwltd-heading-m,
 .dgwltd-heading-m {
-  // font-size: clampCalc($type-large, $type-extra-large, sm, xxl);
   font-family: var(--wp--preset--font-family--soehne-kraftig);
   font-size: var(--wp--preset--font-size--extra-large);
   line-height: var(--wp--custom--typography--line-height--headings--large);
@@ -59,7 +53,6 @@ body {
 // H4
 %dgwltd-heading-s,
 .dgwltd-heading-s {
-  // font-size: clampCalc($type-medium, $type-large, sm, xxl);
   font-family: var(--wp--preset--font-family--soehne-kraftig);
   font-size: var(--wp--preset--font-size--large);
   line-height: var(--wp--custom--typography--line-height--headings--small);
