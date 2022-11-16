@@ -58,6 +58,12 @@
 
         //Set up the vars
         const toggleButton = document.querySelector(button);
+        
+        //As we have some contexts where the nav is not present we need to check for it
+        if (!toggleButton) return;
+        
+        //If the button exists, then run the function
+        
         const menu = document.querySelector(elem);
         const header = document.querySelector(masthead);
 
@@ -155,14 +161,13 @@
     const subMenu = (elem, masthead)=>{  
         
         const menu = document.querySelector(elem);
-        const header = document.querySelector(masthead);
-        
+
         //If no menu bail
         if(!menu) { return; }
 
-        const submenus = menu.querySelectorAll('.menu-item-has-children');
+        const header = document.querySelector(masthead);
 
-        //console.log(submenus);
+        const submenus = menu.querySelectorAll('.menu-item-has-children');
 
         //If window resized lets watch for when we go bigger than a tablet and switch from the burger menu to a full menu
         const observer = new ResizeObserver((observedItems) => {

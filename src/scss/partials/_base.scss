@@ -47,24 +47,6 @@ hr {
   border-bottom: 1px solid var(--border);
 }
 
-//Themes
-$color-map: (
-  "black": black,
-  "white": white,
-  "orange": #f8864c,
-  "blue": #00466e,
-);
-@each $key, $value in $color-map {
-  .bg--#{$key} {
-    background-color: $value;
-    @include text-contrast($value);
-    a,
-    a:hover {
-      color: inherit;
-    }
-  }
-}
-
 /* Remove all animations and transitions
 for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {

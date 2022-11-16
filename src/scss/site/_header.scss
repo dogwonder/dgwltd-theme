@@ -469,11 +469,6 @@ $nav-height: toRem(60);
         top: 90px;
         left: 0;
       }
-
-      //If the status is open and the menu is not visible, show the menu
-      [status="open"] { 
-
-      }
       
     }
 
@@ -501,10 +496,6 @@ $nav-height: toRem(60);
         .open {display: none;}
         .close {display: block;}
       }
-    }
-
-    &[enabled="false"] { 
-      
     }
 
   }
