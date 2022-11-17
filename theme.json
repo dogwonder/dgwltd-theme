@@ -66,13 +66,6 @@
 				"gutter": "var(--wp--custom--spacing--medium)",
 				"outer": "var(--wp--custom--spacing--medium)"
 			},
-			"spacingScale": {
-				"operator": "*",
-				"increment": 1.5,
-				"steps": 7,
-				"mediumStep": 1.5,
-				"unit": "rem"
-			}, 
 			"typography": {
 				"letter-spacing": {
 					"body": "-0.01em",
@@ -94,6 +87,36 @@
 			"contentSize": "1120px"
 		}, 
 		"spacing": {
+			"spacingScale": {
+				"steps": 0
+			},
+			"spacingSizes": [
+				{
+					"size": "var(--wp--custom--spacing--extra-small)",
+					"slug": "30",
+					"name": "1"
+				},
+				{
+					"size": "var(--wp--custom--spacing--small)",
+					"slug": "40",
+					"name": "2"
+				},
+				{
+					"size": "var(--wp--custom--spacing--medium)",
+					"slug": "50",
+					"name": "3"
+				},
+				{
+					"size": "var(--wp--custom--spacing--large)",
+					"slug": "60",
+					"name": "4"
+				},
+				{
+					"size": "var(--wp--custom--spacing--extra-large)",
+					"slug": "70",
+					"name": "5"
+				}
+			],
 			"units": [ "px", "em", "rem", "vh", "vw", "%" ]
 		},
 		"typography": {

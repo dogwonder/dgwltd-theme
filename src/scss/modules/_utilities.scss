@@ -120,12 +120,14 @@
   margin-top: var(--wp--custom--spacing--medium) !important;
 }
 
-.stack-large > * + * {
-  margin-top: var(--wp--custom--spacing--large) !important;
-}
 .stack-small > * + * {
   margin-top: var(--wp--custom--spacing--small) !important;
 }
+
+.stack-large > * + * {
+  margin-top: var(--wp--custom--spacing--large) !important;
+}
+
 
 //Flex push items apart
 .repel {
