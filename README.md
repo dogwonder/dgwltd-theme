@@ -4,15 +4,14 @@
 
 | Prerequisite    | How to check | How to install                                  |
 | --------------- | ------------ | ----------------------------------------------- |
-| PHP >= 7.3.x    | `php -v`     | [php.net](http://php.net/manual/en/install.php) |
+| PHP >= 8.0    | `php -v`     | [php.net](http://php.net/manual/en/install.php) |
 | Node.js >= 12.0 | `node -v`    | [nodejs.org](http://nodejs.org/)                |
-| gulp >= 4.0.0   | `gulp -v`    | `npm install -g gulp`                           |
-| acfpro >= 5.9.4 |              | [advancedcustomfields.com](https://www.advancedcustomfields.com/pro/)         |
+| acfpro >= 6.0 |              | [advancedcustomfields.com](https://www.advancedcustomfields.com/pro/)         |
 
 ## Build
 
 - `npm run watch` — Compile assets when file changes are made
-- `npm run build` — Compile assets for production
+- `npm run build` — Compile assets for production into dist folder
 
 ## Config
 

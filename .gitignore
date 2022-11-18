@@ -38,5 +38,8 @@ Thumbs.db
 node_modules/
 
 #ignore fonts
-dist/fonts/soehne
 src/fonts/soehne
+
+#ignore dist
+dist/
+
