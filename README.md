@@ -91,3 +91,9 @@ Similar to NHS [contents guide](https://www.nhs.uk/conditions/type-2-diabetes/) 
 `template-blog.php`
 
 Blog / posts list template
+
+## Tests
+
+To run tests (e.g. AXE)
+
+`npm run cypress`

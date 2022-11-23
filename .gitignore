@@ -43,3 +43,7 @@ src/fonts/soehne
 #ignore dist
 dist/
 
+#ignore test outputs
+cypress/screenshots/
+cypress/videos/
+
