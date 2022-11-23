@@ -217,9 +217,8 @@ $palettes: (
 
 @function clampCalc($minFontSize, $maxFontSize, $minWidth: sm, $maxWidth: lg) {
   //Based on https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/#for-those-who-dont-mind-that-edge-case
-  
-  // slope = (maxFontSize - minFontSize) / (maxBreakpoint - minBreakpoint) 
-  // yAxisIntersection = -maxBreakpoint * slope + minBreakpoint 
+  // slope = (maxFontSize - minFontSize) / (maxWidth - minWidth) 
+  // yAxisIntersection = (-1 * minWidth) * slope + minFontSize 
   // preferredValue = yAxisIntersection[rem] + (slope * 100)[vw] 
 
   /* Usage
@@ -262,10 +261,9 @@ $palettes: (
     @error "Unknown breakpoint #{$maxWidth}.";
   }
 
-  // $slope: math.div(($maxFontSize - $minFontSize), ($lgBreakpoint - $smBreakpoint));
   $slope: math.div(($maxFontSize - $minFontSize), ($lgBreakpoint - $smBreakpoint));
-  $yAxisIntersection: -$smBreakpoint * $slope + $minFontSize;
-  //clamp (minFontSize, yAxisIntersection[rem] + (slope * 100)[vw], maxFontSize)
+  $yAxisIntersection: (-1 * $smBreakpoint) * $slope + $minFontSize;
+  //clamp (minFontSize[rem], yAxisIntersection[rem] + (slope * 100)[vw], maxFontSize[rem])
   @return clamp( ($minFontSize * 1rem), ($yAxisIntersection * 1rem) + (($slope * 100) * 1vw), ($maxFontSize * 1rem) );
 }
 

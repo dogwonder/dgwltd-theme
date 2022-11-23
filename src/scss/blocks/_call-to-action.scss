@@ -26,7 +26,7 @@
         .frame {
           @include mq($until: md) {
             width:100%;
-            margin:0 auto 2rem;
+            margin:0 auto var(--wp--custom--spacing--medium);
           }
           display: flex;
           aspect-ratio: 4/3;
@@ -86,7 +86,7 @@
       }
       .frame {
         @include mq($until: md) {
-          margin:0 auto 2rem;
+          margin:0 auto var(--wp--custom--spacing--medium);
         }
       }
     }
