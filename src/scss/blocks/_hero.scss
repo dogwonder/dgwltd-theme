@@ -15,7 +15,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: var(--wp--preset--color--light);
+    background-color: var(--color-light);
     grid-column: 2 / span 1;
     min-height: 17.5rem;
     @include mq($from: lg) {
@@ -25,7 +25,7 @@
 
     h1, h2 {
       @extend %dgwltd-heading-xl;
-      margin: 0 0 var(--wp--custom--spacing--medium);
+      margin: 0 0 var(--space-m);
     }
 
     h1, h2, p, .govuk-body {
@@ -56,18 +56,14 @@
       .dgwltd-button {
         display: inline-flex;
         justify-content: space-between;
-        border-color: var(--dark);
-        background-color: var(--dark);
-        color: var(--light);
-        &:hover {
-          background-color: var(--darker);
-          border-color: var(--darker);
-        }
+        border-color: var(--wp--preset--color--dark);
+        background-color: var(--wp--preset--color--dark);
+        color: var(--wp--preset--color--light);
         svg {
           width: 1em;
           height: 1em;
           margin-left: 2ch;
-          fill: var(--light);
+          fill: var(--wp--preset--color--light);
         }
       }
     }
@@ -81,8 +77,8 @@
 
     &:not(.alignfull) {
       padding: 0;
-      margin-left: var(--wp--custom--spacing--medium);
-      margin-right: var(--wp--custom--spacing--medium);
+      margin-left: var(--space-m);
+      margin-right: var(--space-m);
     }
      
   }
@@ -133,7 +129,7 @@
   &__heading {
     @extend %dgwltd-heading-s;
     color: white;
-    padding: var(--wp--custom--spacing--small);
+    padding: var(--space-s);
   }
 
   &__close {

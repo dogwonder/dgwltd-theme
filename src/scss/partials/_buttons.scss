@@ -19,6 +19,7 @@
   }
   &:hover {
     cursor: pointer;
+    color: var(--button-text-color);
     border-color: var(--button-hover);
     background-color: var(--button-hover);
   }
@@ -27,12 +28,6 @@
   &:focus,
   &:active {
     text-decoration: none;
-  }
-  &:focus,
-  &:focus:not(:active):not(:hover) {
-    color: var(--button-text-color);
-    border-color: var(--button-focus);
-    background-color: var(--button-background);
   }
   &[disabled] {
     background-color: var(--button-disabled);
@@ -48,13 +43,22 @@
   }
 }
 
+//Varients
+.wp-block-button__link {
+  @each $color in $palette {
+    &.has-#{$color}-background-color {
+      border-color: var(--wp--preset--color--#{$color});
+    }
+  }
+}
+
 //Remove default outline
 .govuk-button {
   box-shadow: none;
 }
 
 .dgwltd-button > a {
-  color: var(--light);
+  color: var(--wp--preset--color--light);
   text-decoration: none;
   &:hover {
     color: white;
@@ -68,7 +72,7 @@
 
 %dgwltd-button--ghost, 
 .dgwltd-button--ghost {
-  border-color: var(--light);
+  border-color: var(--wp--preset--color--light);
   color: var(--button-background);
   background-color: transparent;
   &:hover {

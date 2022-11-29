@@ -1,17 +1,8 @@
 //Z-index
 @use "sass:math";
 
-$z-low: 1;
-$z-high: 10;
-$z-higher: 11;
-
 //Variables
 $bold: 700;
-
-//Themes
-$text-color: #414042;
-$black: black;
-$white: white;
 
 //Z-indexes
 $z-low: 3; //Move above hero
@@ -19,12 +10,16 @@ $z-high: 10;
 $z-higher: 11;
 $z-highest-1: 998;
 $z-highest: 999;
+$z-important: 2147483647;
 
 //Scale - used for iteration over breakpoints (keys only)
 $scale: ('sm','md','lg','xl');
 
 //Spacing
 $spacing: ( 'extra-small', 'small', 'medium', 'large', 'extra-large');
+
+//Color palette
+$palette: ( 'primary', 'secondary', 'tertiary', 'dark', 'light', 'alt');
 
 //Measures - for margin / padding
 $gaps: (5, 10, 15, 20, 25, 30, 35, 40, 50, 80);
@@ -99,36 +94,32 @@ $mq-breakpoints: (
   --body: -apple-system, BlinkMacSystemFont,"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell","Fira Sans", "Droid Sans","Helvetica Neue",sans-serif;
 
   //Borders
-  --border: hsl(200, 12%, 60%);
+  --border: #666666;
 
   //Link states
-  --color-primary: 181.5, 83.2%; //#14D5DE Neon Blue
-  --color-secondary: 320.9, 100%; //#ff00a6 Neon Pink
-  --l: 46.7%;
+  --color-primary: 185, 100%; //#0095a3
+  --color-secondary: 5, 98%; //#fe9f97
+  --color-tertiary: 40, 97%; //#fbae17
+  --l1: 32%; 
+  --l2: 79%; 
+  --l3: 54%; 
 
-  --highlight: hsl(var(--color-secondary),var(--l)); //Pink
-
-  --hover: hsl(var(--color-primary),calc(var(--l) - 10%));
-  --visited: hsl(var(--color-primary),var(--l));
-  --active: hsl(var(--color-primary),calc(var(--l) - 10%));
-  --focus: hsl(var(--color-primary),calc(var(--l) + 10%));
+  //Highlights and states
+  --highlight: hsl(var(--color-primary),var(--l1));
+  --hover: hsl(var(--color-primary),calc(var(--l1) - 10%));
+  --active: hsl(var(--color-primary),calc(var(--l1) - 10%));
+  --focus: hsl(var(--color-primary),calc(var(--l1) + 10%));
 
   //Forms
-  --success: #00703c;
-  --error: #d4351c;
+  --success: #457c39;
+  --error: #db2f27;
 
   //Buttons
-  --button-text-color:var(--wp--preset--color--dark);
-  --button-background: hsl(var(--color-primary),var(--l));
-  --button-hover: hsl(var(--color-primary),calc(var(--l) - 10%));
-  --button-focus: hsl(var(--color-primary),calc(var(--l) + 10%));
-  --button-disabled: hsl(var(--color-primary),calc(var(--l) + 90%));
-
-  //Themes
-  --dark: hsl(98, 0%, 15%);
-  --darker: hsl(98, 0%, 5%);
-  --light: hsl(0, 0%, 90%);
-  --lighter: hsl(0, 0%, 95%);
+  --button-text-color: var(--wp--preset--color--dark);
+  --button-background: hsl(var(--color-tertiary),var(--l3));
+  --button-hover: hsl(var(--color-tertiary),calc(var(--l3) - 10%));
+  --button-focus: hsl(var(--color-tertiary),calc(var(--l3) + 10%));
+  --button-disabled: hsl(var(--color-tertiary),calc(var(--l3) + 90%));
   
   //Menu height
   --submenu-offset: 0;
@@ -148,45 +139,37 @@ $mq-breakpoints: (
 
   --gutter: var(--space-s-m);
 
-  //Z-index
-  --layer-1: 1;
-  --layer-2: 2;
-  --layer-3: 3;
-  --layer-4: 4;
-  --layer-5: 5;
-  --layer-important: 2147483647;
-
 }
 
 $palettes: (
     themes: (
       primary: (
           background: var(--wp--preset--color--primary),
-          text: var(--light), 
-          border: var(--light), 
-          highlight: var(--dark), 
-          inverse: var(--dark)
+          text: var(--wp--preset--color--light), 
+          border: var(--wp--preset--color--light), 
+          highlight: var(--wp--preset--color--dark), 
+          inverse: var(--wp--preset--color--dark)
       ),
       secondary: (
           background: var(--wp--preset--color--secondary),
-          text: var(--light), 
-          border: var(--light), 
-          highlight: var(--dark), 
-          inverse: var(--dark)
+          text: var(--wp--preset--color--light), 
+          border: var(--wp--preset--color--light), 
+          highlight: var(--wp--preset--color--dark), 
+          inverse: var(--wp--preset--color--dark)
       ),
       black: (
-          background: var(--dark),
-          text: var(--light), 
-          border: var(--light), 
-          highlight: var(--light), 
-          inverse: var(--dark)
+          background: var(--wp--preset--color--dark),
+          text: var(--wp--preset--color--light), 
+          border: var(--wp--preset--color--light), 
+          highlight: var(--wp--preset--color--light), 
+          inverse: var(--wp--preset--color--dark)
       ),
       white: (
-          background: var(--light),
-          text: var(--dark), 
-          border: var(--dark), 
-          highlight: var(--dark), 
-          inverse: var(--light)
+          background: var(--wp--preset--color--light),
+          text: var(--wp--preset--color--dark), 
+          border: var(--wp--preset--color--dark), 
+          highlight: var(--wp--preset--color--dark), 
+          inverse: var(--wp--preset--color--light)
       )
     )
 );
@@ -286,11 +269,11 @@ $palettes: (
     (red(#ffffff) * 299) + (green(#ffffff) * 587) + (math.div(blue(#ffffff) * 114, 1000)));
 
   @if abs($color-brightness) < (math.div($light-color, 2)) {
-    color: $white;
-    border-color: $white;
+    color: var(--wp--preset--color--light);
+    border-color: var(--wp--preset--color--light);
   } @else {
-    color: $text-color;
-    border-color: $text-color;
+    color: var(--wp--preset--color--dark);
+    border-color: var(--wp--preset--color--dark);
   }
 }
 

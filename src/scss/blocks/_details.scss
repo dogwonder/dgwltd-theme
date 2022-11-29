@@ -1,15 +1,13 @@
 //Details block
 .dgwltd-details {
     .govuk-details__summary:before {
-      border-left-color: var(--wp--preset--color--secondary);
+      border-left-color: var(--wp--preset--color--border);
     }
     .govuk-details__summary-text {
-      color: var(--wp--preset--color--secondary);
+      color: var(--wp--preset--color--border);
     }
     .govuk-details__text {
-      color: var(--wp--preset--color--dark);
-      border-color: var(--wp--preset--color--secondary);
+      color: var(--color-dark);
+      border-color: var(--wp--preset--color--border);
     }
-  }
-  
-  
+}

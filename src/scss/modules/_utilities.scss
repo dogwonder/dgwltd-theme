@@ -15,7 +15,7 @@
   -webkit-clip-path: inset(50%);
   clip-path: inset(50%);
   border: 0;
-  &:focus {
+  &:focus-visible {
     background-color: #f1f1f1;
     border-radius: 3px;
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
@@ -52,7 +52,7 @@
   top: -9999em;
 }
 
-.skip-link:focus {
+.skip-link:focus-visible {
   clip: auto;
   height: auto;
   left: 6px;
@@ -261,17 +261,6 @@
   background-color: var(--wp--preset--color--alt);
   padding:.25rem .625rem;
   font-size: var(--wp--preset--font-size--tiny);
-}
-
-a.tag {
-  &:hover {
-    background-color: var(--active);
-  }
-}
-
-//Last item
-.last {
-  margin:0 !important;
 }
 
 //Block heights

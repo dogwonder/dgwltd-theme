@@ -61,7 +61,8 @@
           fill: var(--focus);
         }
       }
-      &:focus {
+      &:focus-visible {
+        outline: none;
         box-shadow: none;
         background-color: transparent;
         .icon-social {
@@ -97,10 +98,10 @@
         &:hover {
           text-decoration: none;
         }
-        &:focus {
-          background-color: var(--light);
-          color: var(--dark);
-          box-shadow: 0 4px var(--focus);
+        &:focus-visible {
+          background-color: var(--wp--preset--color--light);
+          color: var(--wp--preset--color--dark);
+          box-shadow: 0 4px var(--wp--preset--color--primary);
         }
       }
     }

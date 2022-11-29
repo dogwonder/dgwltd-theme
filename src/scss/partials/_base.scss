@@ -22,23 +22,42 @@ a {
     color: var(--wp--preset--color--dark);
   }
   &:hover {
-    text-decoration-color: var(--wp--preset--color--secondary);
+    text-decoration-color: var(--wp--preset--color--primary);
   }
   &:active {
     color: var(--wp--preset--color--dark);
-    text-decoration: none;
-  }
-  &:focus {
-    color: var(--wp--preset--color--dark);
-    background-color: var(--focus);
-    outline: 3px solid transparent;
-    box-shadow: 0 -2px var(--focus), 0 4px #0b0c0c;
     text-decoration: none;
   }
   &.dgwltd-button {
     color: white;
   }
 }
+
+//Focus styles  - via https://www.youtube.com/watch?v=FfQ-JuaNO68
+:is(a, button, input, textarea, summary) {
+  --outline-size: max(2px, 0.08em); //If 0.0.8em is less than 2px use 2px
+  --outline-style: solid;
+  --outline-color: currentColor;
+}
+
+//Reset the outline - :is won't work in IE11 etc so it won't be applied and will get the browser default outlines
+:is(a, button, input, textarea, summary):focus {
+    outline: none;
+}
+
+//Set a global default for focus visible styles
+:is(a, button, input, textarea, summary):focus-visible {
+  outline:
+    var(--outline-size)
+    var(--outline-style)
+    var(--outline-color);
+  outline-offset: var(--outline-offset, var(--outline-size));
+}
+
+//Custom inset for buttons, using the optional --outline-offset variable
+// button {
+//   --outline-offset: -0.15em;
+// }
 
 hr {
   margin: var(--wp--custom--spacing--medium) 0;

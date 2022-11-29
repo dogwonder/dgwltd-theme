@@ -3,7 +3,7 @@ $nav-height: toRem(60);
 
 //Skip link
 .govuk-skip-link:link, 
-.govuk-skip-link:focus {
+.govuk-skip-link:focus-visible {
   color: black !important;
   text-decoration: underline;
 }
@@ -61,9 +61,13 @@ $nav-height: toRem(60);
       &:visited {
         color: inherit;
       }
-      &:focus {
+      &:focus-visible {
+        outline: none;
         box-shadow: none;
         background-color: transparent;
+        svg {
+          fill: var(--focus);
+        }
       }
     }
 
@@ -72,7 +76,7 @@ $nav-height: toRem(60);
       height: auto;
       margin:0 var(--wp--custom--spacing--medium) 0 0;
       &:hover {
-          fill: var(--wp--preset--color--secondary);
+          fill: var(--wp--preset--color--primary);
       }
     }
   }
@@ -182,7 +186,7 @@ $nav-height: toRem(60);
           display: none;
         }
          //A11y menu active state
-        .button-show-subnav:focus {
+        .button-show-subnav:focus-visible {
           position: relative;
           top: 100%;
         }
@@ -212,7 +216,7 @@ $nav-height: toRem(60);
         &:hover {
           text-decoration: underline;
         }
-        &:focus {
+        &:focus-visible {
           border: 0;
           background-color: transparent;
           box-shadow: none;

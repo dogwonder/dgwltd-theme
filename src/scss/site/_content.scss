@@ -121,10 +121,6 @@
       }
     }
   }
-  //Buttons
-  .wp-block-button .wp-block-button__link {
-    @extend %dgwltd-button;
-  }
   //Code
   .wp-block-code {
     padding: var(--wp--custom--spacing--small);

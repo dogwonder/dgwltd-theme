@@ -42,25 +42,26 @@
 
     &:hover {
       > * {
-        color: var(--wp--preset--color--secondary);
+        color: var(--wp--preset--color--primary);
       }
       .dgwltd-pagination__link-icon {
-        fill: var(--wp--preset--color--secondary);
+        fill: var(--wp--preset--color--primary);
       }
     }
 
     &:active,
-    &:focus {
-      background-color: var(--wp--preset--color--secondary);
+    &:focus-visible {
+      outline: none;
+      background-color: var(--focus);
       .dgwltd-pagination__item {
-        border-top: 1px solid var(--dark);
+        border-top: 1px solid var(--wp--preset--color--dark);
       }
       .dgwltd-pagination__link-title, 
       .dgwltd-pagination__link-label {
-        color: var(--light);
+        color: var(--wp--preset--color--dark);
       }
       .dgwltd-pagination__link-icon {
-        fill: var(--light);
+        fill: var(--wp--preset--color--dark);
       }
     }
   }

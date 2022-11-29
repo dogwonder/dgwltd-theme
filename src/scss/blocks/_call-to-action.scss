@@ -26,7 +26,7 @@
         .frame {
           @include mq($until: md) {
             width:100%;
-            margin:0 auto var(--wp--custom--spacing--medium);
+            margin:0 auto var(--space-m);
           }
           display: flex;
           aspect-ratio: 4/3;
@@ -38,14 +38,14 @@
         }
       }
       .dgwltd-cta__content {
-        padding: var(--wp--custom--spacing--medium) 0;
+        padding: var(--space-m) 0;
         p {
           @extend %dgwltd-body-m;
         }
         @include mq($from: md) {
           text-align: left;
           flex-basis: 50%;
-          padding: 0 var(--wp--custom--spacing--large) 0 0;
+          padding: 0 var(--space-l) 0 0;
         }
       }
 
@@ -55,11 +55,11 @@
     &.has-background {
       &:not(.alignfull) {
         padding: 0;
-        margin-left: var(--wp--custom--spacing--medium);
-        margin-right: var(--wp--custom--spacing--medium);
+        margin-left: var(--space-m);
+        margin-right: var(--space-m);
       }
       .dgwltd-cta__content {
-        padding: var(--wp--custom--spacing--medium); 
+        padding: var(--space-m); 
       }
     }
 
@@ -81,12 +81,12 @@
       .dgwltd-cta__content {
         @include mq($from: md) {
           padding-right: 0;
-          padding-left: var(--wp--custom--spacing--large);
+          padding-left: var(--space-l);
         }
       }
       .frame {
         @include mq($until: md) {
-          margin:0 auto var(--wp--custom--spacing--medium);
+          margin:0 auto var(--space-m);
         }
       }
     }

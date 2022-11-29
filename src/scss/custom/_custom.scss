@@ -1,14 +1,14 @@
 //Spacing next to headers
 .wp-block-post-content > h2 + *, 
 .wp-block-post-content > h3 + * {
-    margin-block-start: var(--wp--custom--spacing--medium) !important;
+    margin-block-start: var(--space-m) !important;
 }
 
 //Columns spacing
 .wp-block-columns {
     .wp-block-column {
       > * + * {
-        margin-top: var(--wp--custom--spacing--small);
+        margin-top: var(--space-s);
       }
       h3 {
         @extend %dgwltd-heading-s;
@@ -37,16 +37,23 @@
   h2, 
   .wp-block-columns, 
   .wp-block-buttons {
-    padding-left: var(--wp--custom--spacing--medium);
-    padding-right: var(--wp--custom--spacing--medium);
+    padding-left: var(--space-m);
+    padding-right: var(--space-m);
   }
   .wp-block-column {
     @include mq($until: md) {
-      margin-bottom: var(--wp--custom--spacing--medium);
+      margin-bottom: var(--space-m);
     }
     .wp-block-image {
-      margin-top: var(--wp--custom--spacing--medium);
+      margin-top: var(--space-m);
       max-width: 200px;
     }
+  }
+}
+
+//Hero followed by Featured block
+.wp-block-post-content {
+  .dgwltd-hero + .dgwltd-feature {
+    margin-top: 0 !important;
   }
 }

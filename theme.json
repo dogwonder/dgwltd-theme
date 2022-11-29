@@ -23,27 +23,32 @@
 				{
 					"name": "Primary", 
 					"slug": "primary",
-					"color": "#14D5DE"
+					"color": "#0095a3"
 				},
 				{
 					"name": "Secondary", 
 					"slug": "secondary",
-					"color": "#FF00A6"
+					"color": "#fe9f97"
+				},
+				{
+					"name": "Tertiary", 
+					"slug": "tertiary",
+					"color": "#fbae17"
 				},
 				{
 					"name": "Dark", 
 					"slug": "dark",
-					"color": "#000"
+					"color": "#0d0f05"
 				},
 				{
 					"name": "Light",  
 					"slug": "light",
-					"color": "#ffffff"
+					"color": "#f1f2f0"
 				},
 				{
 					"name": "Alt", 
 					"slug": "alt",
-					"color": "#f2f2f2"
+					"color": "#e0e5db"
 				}
 			]
 		},

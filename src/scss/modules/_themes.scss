@@ -13,7 +13,7 @@
       //Links
       a:not(.dgwltd-button) {
         color: map-deep-get( $palettes, themes $theme text);
-        &:hover, &:focus {
+        &:hover, &:focus-visible {
           color: inherit;
         }
       }

@@ -11,7 +11,7 @@
       grid-column: 2 / span 1;
       h2 {
         @extend %dgwltd-heading-xl;
-        margin-bottom: var(--wp--custom--spacing--medium);
+        margin-bottom: var(--space-m);
       }
       h2, h3, p, .govuk-body {
         color:inherit;
@@ -25,14 +25,14 @@
         .dgwltd-feature__inner {
           //Snap back to our container
           grid-column: 2 / span 1;
-          padding:var(--wp--custom--spacing--large) var(--wp--custom--spacing--medium);
+          padding:var(--space-l) var(--space-m);
         }
       }
 
       &:not(.alignfull) {
         padding: 0;
-        margin-left: var(--wp--custom--spacing--medium);
-        margin-right: var(--wp--custom--spacing--medium);
+        margin-left: var(--space-m);
+        margin-right: var(--space-m);
       }
       
     }

@@ -19,13 +19,13 @@
     
     .govuk-summary-list__key {
       font-weight: $bold;
-      color: var(--wp--preset--color--dark);
+      color: var(--color-dark);
     }
     
     .govuk-summary-list__value {
-      color: var(--wp--preset--color--dark);
+      color: var(--color-dark);
       > a {
-        color: var(--wp--preset--color--dark);
+        color: var(--color-dark);
       }
     }
 
