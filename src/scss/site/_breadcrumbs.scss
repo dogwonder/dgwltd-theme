@@ -1,14 +1,14 @@
 .govuk-breadcrumbs {
   ol.govuk-breadcrumbs__list {
     list-style-type: none;
-    display: flex;
     margin: 0;
+    display: block;
   }
   .govuk-breadcrumbs__list-item {
     color: var(--wp--preset--color--dark);
     margin-left: 0;
     margin-right: var(--wp--custom--spacing--small);
-    display: flex;
+    display: inline-block;
     &:last-of-type {
       margin-right: 0;
       &:after {

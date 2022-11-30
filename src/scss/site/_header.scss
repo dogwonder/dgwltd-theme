@@ -226,7 +226,7 @@ $nav-height: toRem(60);
           text-decoration-color: white !important;
           @include mq($from: lg) {
             color: var(--wp--preset--color--dark) !important;
-            text-decoration-color: var(--wp--preset--color--secondary) !important;
+            text-decoration-color: var(--wp--preset--color--primary) !important;
           }
         }
       }
@@ -367,11 +367,12 @@ $nav-height: toRem(60);
   border:0;
   width: toRem(44);
   height: toRem(44);
-  &:hover {
+  &:focus-visible {
     background-color: transparent;
+    box-shadow: none;
+    outline: var(--wp--preset--color--dark) solid var(--outline-size);
   }
   svg {
-    margin-left:auto;
     height: toRem(44);
     &.close {
       fill: var(--wp--preset--color--light);
@@ -488,17 +489,31 @@ $nav-height: toRem(60);
           display: flex;
         }
       }
-      .dgwltd-masthead__logo svg.logo {
-          fill: white;
-      }
-      .nav-toggle svg.close {
-        stroke: white;
+      .dgwltd-masthead__logo > a {
+        .logo {
+          fill: var(--wp--preset--color--light);
+        }
+        &:focus-visible {
+          .logo {
+            fill: var(--focus);
+          }
+        }
       }
       .nav-toggle {
         position: relative;
         z-index: $z-highest;
+        display: flex;
+        justify-content: center;
         .open {display: none;}
         .close {display: block;}
+        &:focus-visible {
+          background-color: transparent;
+          box-shadow: none;
+          outline: var(--wp--preset--color--light) solid var(--outline-size);
+          outline-offset: var(--outline-offset, var(--outline-size));
+          .close {
+          }
+        }
       }
     }
 

@@ -38,12 +38,6 @@
       }
     }
 
-    &:focus-visible {
-      background-color: white;
-      outline: 3px solid var(--focus) !important;
-      box-shadow: 0 0 0 4px var(--focus) !important;
-    }
-
   }
 
   .dgwltd-card__image {
@@ -121,36 +115,4 @@
     }
   }
 
-  //Reversed
-  &[data-state='reversed'] {
-      .dgwltd-card__inner {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-      .dgwltd-card__image {
-        order: 2;
-      }
-      .dgwltd-card__content {
-        order: 1;
-      }
-  }
-
-  //Inverse
-  &[data-theme='light'] {
-    .dgwltd-card__inner {
-      background-color: var(--wp--preset--color--alt);
-      color: var(--wp--preset--color--secondary);
-      .dgwltd-card__heading > a {
-        color: var(--wp--preset--color--secondary);
-        &:focus-visible {
-          color: white;
-        }
-      }
-      .govuk-summary-list__key,
-      .govuk-summary-list__value {
-        color: var(--wp--preset--color--secondary);
-      }
-    }
-  }
 }

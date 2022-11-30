@@ -1,8 +1,9 @@
 .dgwltd-pagination {
-  margin: var(--wp--custom--spacing--large) 0 ;
+  margin: var(--wp--custom--spacing--large) 0;
   
   .dgwltd-pagination__list {
-    padding:0;
+    padding: 0;
+    margin: 0;
     list-style-type: none;
     display: flex;
     flex-direction: column;

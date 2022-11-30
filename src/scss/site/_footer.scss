@@ -99,9 +99,8 @@
           text-decoration: none;
         }
         &:focus-visible {
-          background-color: var(--wp--preset--color--light);
-          color: var(--wp--preset--color--dark);
-          box-shadow: 0 4px var(--wp--preset--color--primary);
+          --background-color: var(--wp--preset--color--primary);
+          --box-shadow-color: var(--wp--preset--color--primary);
         }
       }
     }

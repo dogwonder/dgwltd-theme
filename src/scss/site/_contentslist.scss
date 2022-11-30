@@ -7,6 +7,7 @@
   ol.dgwltd-contents-list__list {
     list-style-type: none;
     margin: var(--wp--custom--spacing--medium) 0;
+    padding: 0;
     li {
       &:before {
         display: inline-block;
@@ -26,4 +27,9 @@
       }
     }
   }
+}
+
+//Content
+.dgwltd-content-wrapper .entry-content > .entry-content > * {
+  padding: 0;
 }
