@@ -1,4 +1,4 @@
-<header id="masthead" class="dgwltd-masthead" enabled="false">
+<header id="masthead" class="dgwltd-masthead" data-enabled="false">
 
     <div id="skiplink-container">
         <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link"><?php esc_html_e( 'Skip to main content', 'dgwltd' ); ?></a>

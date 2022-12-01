@@ -91,10 +91,10 @@
             // console.log(observedItems[0]);
             if (contentRect.width <= desktopWidth) {
                 state.enabled = true;
-                observedItems[0].target.setAttribute('enabled', state.enabled);
+                observedItems[0].target.setAttribute('data-enabled', state.enabled);
               } else {
                 state.enabled = false;
-                observedItems[0].target.setAttribute('enabled', state.enabled);
+                observedItems[0].target.setAttribute('data-enabled', state.enabled);
             }
             
         });

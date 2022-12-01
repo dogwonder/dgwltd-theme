@@ -386,7 +386,7 @@ $nav-height: toRem(60);
 
   .dgwltd-masthead {
     /* browser decide if x is ok to scroll and show bars on, y hidden */
-    overflow: auto hidden;
+    overflow: visible;
     /* prevent scroll chaining on x scroll */
     overscroll-behavior-x: contain;
     /* scrolling should snap children on x */
@@ -407,6 +407,12 @@ $nav-height: toRem(60);
       flex-shrink: 0;
       /* fixes cross browser quarks */
       min-block-size: fit-content;
+
+      .dgwltd-menu {
+        .menu-item > a {
+            color: var(--wp--preset--color--dark);
+        }
+      }
     }
   }
 
@@ -454,7 +460,7 @@ $nav-height: toRem(60);
   .dgwltd-masthead {
   
     //If we are in the mobile view (<769px), we need to show the burger menu
-    &[enabled="true"] {
+    &[data-enabled="true"] {
 
       .dgwltd-nav {
         align-items: center;
