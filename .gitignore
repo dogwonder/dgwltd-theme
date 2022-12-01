@@ -41,7 +41,7 @@ node_modules/
 src/fonts/soehne
 
 #ignore dist
-dist/
+dist/fonts/
 
 #ignore test outputs
 cypress/screenshots/
