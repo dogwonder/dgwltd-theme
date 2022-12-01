@@ -32,6 +32,10 @@
       color:inherit;
     }
 
+    p, li, .govuk-body {
+      max-width: var(--characterMax);
+    }
+
     &__wrapper {
       z-index:2;
       //Width

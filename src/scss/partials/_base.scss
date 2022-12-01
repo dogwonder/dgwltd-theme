@@ -19,7 +19,7 @@ a {
   word-break: break-word;
   hyphens: auto;
   &:visited {
-    color: var(--wp--preset--color--dark);
+    color: var(--wp--preset--color--dark) !important;
   }
   &:hover {
     text-decoration-color: var(--wp--preset--color--primary);

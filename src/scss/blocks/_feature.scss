@@ -16,6 +16,11 @@
       h2, h3, p, .govuk-body {
         color:inherit;
       }
+
+      p, li, .govuk-body {
+        max-width: var(--characterMax);
+      }
+
       .dgwltd-feature__wrapper {
         position: relative;
         z-index:2;
