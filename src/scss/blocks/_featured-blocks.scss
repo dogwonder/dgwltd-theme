@@ -2,13 +2,13 @@
 
   //Add margin to top 
   h2 ~ .dgwltd-featured-boxes__inner {
-    margin-top:var(--space-m);
+    margin-top:var(--wp--custom--spacing--medium);
   }
 
   &__inner {
     display: grid;
     -ms-display: grid;
-    grid-column-gap: var(--space-m);
+    grid-column-gap: var(--wp--custom--spacing--medium);
     grid-template-columns: repeat(1, 1fr);
     @include mq($from: md) {
       grid-template-columns: 1fr 1fr 1fr;

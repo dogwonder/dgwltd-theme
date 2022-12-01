@@ -17,15 +17,11 @@
     position: relative;
     background-color: var(--color-light);
     grid-column: 2 / span 1;
-    min-height: 17.5rem;
-    @include mq($from: lg) {
-      min-height: 25rem;
-    }
-    
+    min-height: 25rem;
 
     h1, h2 {
       @extend %dgwltd-heading-xl;
-      margin: 0 0 var(--space-m);
+      margin: 0 0 var(--wp--custom--spacing--medium);
     }
 
     h1, h2, p, .govuk-body {
@@ -40,6 +36,8 @@
       z-index:2;
       //Width
       @extend %container;
+      //Extra padding
+      padding: var(--wp--custom--spacing--large) var(--wp--custom--spacing--medium);
     }
 
     //Varients
@@ -81,8 +79,8 @@
 
     &:not(.alignfull) {
       padding: 0;
-      margin-left: var(--space-m);
-      margin-right: var(--space-m);
+      margin-left: var(--wp--custom--spacing--medium);
+      margin-right: var(--wp--custom--spacing--medium);
     }
      
   }
@@ -133,7 +131,7 @@
   &__heading {
     @extend %dgwltd-heading-s;
     color: white;
-    padding: var(--space-s);
+    padding: var(--wp--custom--spacing--small);
   }
 
   &__close {

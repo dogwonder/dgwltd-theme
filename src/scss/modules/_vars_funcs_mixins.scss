@@ -30,9 +30,9 @@ $type-huge: 3.157; //50.52px
 $type-extra-large: 2.369; //37.90px
 $type-large: 1.777; //28.43px
 $type-medium: 1.333; //21.33px
-$type-small: 1; //16px
-$type-tiny: 0.875; //15.75px
 $type-normal: 1.125; //18px default font size
+$type-small: 1; //16px
+$type-tiny: 0.875; //14px
 
 //Spacing - usedin fluid spacing
 $spaces: (
@@ -126,19 +126,21 @@ $mq-breakpoints: (
   --submenu-offset: 0;
 
   //Spacing - https://utopia.fyi/space/calculator/?c=320,16,1.2,1400,20,1.25,5,2,&s=0.75,1.5|2|3,s-l
-  --space-xs: clamp(0.75rem, calc(0.69rem + 0.28vw), 0.94rem);
-  --space-s: clamp(1.00rem, calc(0.93rem + 0.37vw), 1.25rem);
-  --space-m: clamp(1.50rem, calc(1.39rem + 0.56vw), 1.88rem);
-  --space-l: clamp(2.00rem, calc(1.85rem + 0.74vw), 2.50rem);
-  --space-xl: clamp(3.00rem, calc(2.78rem + 1.11vw), 3.75rem);
+  --space-xs: clamp(0.75rem, calc(0.69rem + 0.28vw), 0.94rem); //12-15
+  --space-s: clamp(1.00rem, calc(0.93rem + 0.37vw), 1.25rem); //16-20
+  --space-m: clamp(1.50rem, calc(1.39rem + 0.56vw), 1.88rem); //24-30
+  --space-l: clamp(2.00rem, calc(1.85rem + 0.74vw), 2.50rem); //32-40
+  --space-xl: clamp(3.00rem, calc(2.78rem + 1.11vw), 3.75rem); //48-60
 
   /* One-up pairs */
-  --space-xs-s: clamp(0.75rem, calc(0.60rem + 0.74vw), 1.25rem);
-  --space-s-m: clamp(1.00rem, calc(0.74rem + 1.30vw), 1.88rem);
-  --space-m-l: clamp(1.50rem, calc(1.20rem + 1.48vw), 2.50rem);
-  --space-l-xl: clamp(2.00rem, calc(1.48rem + 2.59vw), 3.75rem);
+  //Note - these are the ones we use for most spacing, e.g. --wp--custom--spacing--medium, --wp--custom--spacing--large
+  //As such --wp--custom--spacing--extra-small and --wp--custom--spacing--small are effectively the same size as each other in mobile contexts. 
+  --space-xs-s: clamp(0.75rem, calc(0.60rem + 0.74vw), 1.25rem); //12-20
+  --space-s-m: clamp(1.00rem, calc(0.74rem + 1.30vw), 1.88rem); //16-30
+  --space-m-l: clamp(1.50rem, calc(1.20rem + 1.48vw), 2.50rem); //24-40
+  --space-l-xl: clamp(2.00rem, calc(1.48rem + 2.59vw), 3.75rem); //32-60
 
-  --gutter: var(--space-s-m);
+  --gutter: var(--wp--custom--spacing--medium);
 
 }
 

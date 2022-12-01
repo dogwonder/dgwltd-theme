@@ -1,14 +1,14 @@
 //Spacing next to headers
 .wp-block-post-content > h2 + *, 
 .wp-block-post-content > h3 + * {
-    margin-block-start: var(--space-m) !important;
+    margin-block-start: var(--wp--custom--spacing--medium) !important;
 }
 
 //Columns spacing
 .wp-block-columns {
     .wp-block-column {
       > * + * {
-        margin-top: var(--space-s);
+        margin-top: var(--wp--custom--spacing--small);
       }
       h3 {
         @extend %dgwltd-heading-s;
@@ -37,15 +37,15 @@
   h2, 
   .wp-block-columns, 
   .wp-block-buttons {
-    padding-left: var(--space-m);
-    padding-right: var(--space-m);
+    padding-left: var(--wp--custom--spacing--medium);
+    padding-right: var(--wp--custom--spacing--medium);
   }
   .wp-block-column {
     @include mq($until: md) {
-      margin-bottom: var(--space-m);
+      margin-bottom: var(--wp--custom--spacing--medium);
     }
     .wp-block-image {
-      margin-top: var(--space-m);
+      margin-top: var(--wp--custom--spacing--medium);
       max-width: 200px;
     }
   }

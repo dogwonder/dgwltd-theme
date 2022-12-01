@@ -164,13 +164,13 @@ input[type="submit"] {
     label:after {
       content: "";
       position: absolute;
-      top: 16px;
-      left: 12px;
-      width: 14px;
-      height: 7px;
+      top: 11px;
+      left: 9px;
+      width: 23px;
+      height: 12px;
       transform: rotate(-45deg);
       border: solid;
-      border-width: 0 0 4px 4px;
+      border-width: 0 0 5px 5px;
       border-top-color: transparent;
       opacity: 0;
       background: transparent;

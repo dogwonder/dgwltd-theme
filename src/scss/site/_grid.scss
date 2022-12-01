@@ -3,7 +3,7 @@
 
 .grid {
   display: grid;
-  gap: var(--gutter,var(--space-s-l));
+  gap: var(--gutter,var(--wp--custom--spacing--medium));
   grid-template-columns: repeat(var(--grid-placement,auto-fill),minmax(var(--grid-min-item-size,16rem),1fr));
 }
 
@@ -11,5 +11,5 @@
 .features  {
   --grid-placement: auto-fit:
   --grid-min-item-size: clamp(16rem, 33%, 20rem);
-  --gutter: var(--space-l-xl);
+  --gutter: var(--wp--custom--spacing--medium);
 }

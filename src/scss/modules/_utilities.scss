@@ -57,7 +57,7 @@
 .container {
   position: relative;
   width: 100%;
-  max-width: clamp(16rem,var(--containerWidth,70rem),95vw);
+  max-width: clamp(16rem,var(--containerWidth,70rem),100vw);
   margin-left: auto;
   margin-right: auto;
   padding: var(--wp--custom--spacing--medium);
@@ -108,7 +108,7 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: var(--gutter,var(--space-s-m));
+  gap: var(--gutter,var(--wp--custom--spacing--medium));
   justify-content: space-between;
 }
 
