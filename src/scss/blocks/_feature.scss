@@ -3,7 +3,12 @@
 .dgwltd-feature {
 
     &__content {
-      p:last-of-type {
+      &:not(:has(.wp-block-button__link)) {
+        p:last-of-type {
+          margin: 0;
+        }
+      }
+      .wp-block-button__link {
         margin: 0;
       }
     }

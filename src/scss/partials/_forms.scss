@@ -134,8 +134,8 @@ input[type="submit"] {
   //Buttons
   .gform_button {
     @extend %dgwltd-button;
-    padding: 0.8rem 3rem 1rem;
     background-color: var(--button-background);
+    line-height: 1 !important; //Overrule theme
     &:hover {
       background-color: var(--button-hover);
     }
