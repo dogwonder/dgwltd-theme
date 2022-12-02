@@ -11,12 +11,17 @@
       grid-template-columns: 1fr 1fr 1fr;        
     }
   }
+
+  //If more than 3 items apply margin
+  .dgwltd-card:nth-child(n + 4) {
+    margin-top: var(--wp--custom--spacing--medium);
+  }
+  
 }
 
 
 //Single card
 .dgwltd-card {
-  margin-bottom: var(--wp--custom--spacing--medium);
   width: 100%;
 
   &__inner {
@@ -92,7 +97,7 @@
   }
 
   &__content {
-    padding: var(--wp--custom--spacing--medium) 0;
+    padding: var(--wp--custom--spacing--medium) 0 0;
   }
 
 }
