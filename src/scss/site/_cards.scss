@@ -93,22 +93,6 @@
 
   &__content {
     padding: var(--wp--custom--spacing--medium) 0;
-    p {
-      @include mq($from: md) {
-        max-width: 100%;
-      }
-    }
-
-    .govuk-summary-list {
-      margin: var(--wp--custom--spacing--small) 0 0;
-      .govuk-summary-list__key, 
-      .govuk-summary-list__value {
-        padding:var(--wp--custom--spacing--extra-small);
-        padding-left: 0;
-        margin: 0 0 var(--wp--custom--spacing--extra-small);
-        @extend %dgwltd-body-s;
-      }
-    }
   }
 
 }
