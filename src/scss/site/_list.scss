@@ -1,6 +1,6 @@
 //For lists blogs / team etc
 .dgwltd-list {
-  .dgwltd-list__item {
+  &__item {
     margin: 0 0 var(--wp--custom--spacing--medium);
     padding-bottom: var(--wp--custom--spacing--medium);
     border-bottom: 1px solid var(--border);
@@ -9,14 +9,14 @@
     }
   }
   //Furniture
-  .dgwltd-list__content {
+  &__content {
     flex: 1;
     order: 2;
     @include mq($from: md) {
       order: 1;
     }
   }
-  .dgwltd-list__figure {
+  &__figure {
     flex: 0 1 100%;
     order: 1;
     margin: 0 0 var(--wp--custom--spacing--medium) 0;
@@ -36,10 +36,10 @@
     }
   }
   //Details
-  .dgwltd-list__title {
+  &__title {
     margin: 0 0 var(--wp--custom--spacing--small);
   }
-  .dgwltd-list__meta {
+  &__meta {
     .posted-on {
       margin-right: var(--wp--custom--spacing--medium);
     }

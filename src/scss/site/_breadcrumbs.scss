@@ -4,7 +4,7 @@
     margin: 0;
     display: block;
   }
-  .govuk-breadcrumbs__list-item {
+  &__list-item {
     color: var(--wp--preset--color--dark);
     margin-left: 0;
     margin-right: var(--wp--custom--spacing--small);

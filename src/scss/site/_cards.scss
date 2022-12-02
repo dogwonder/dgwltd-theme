@@ -19,7 +19,7 @@
   margin-bottom: var(--wp--custom--spacing--medium);
   width: 100%;
 
-  .dgwltd-card__inner {
+  &__inner {
     display: block;
     height: 100%;
     position: relative;
@@ -40,14 +40,14 @@
 
   }
 
-  .dgwltd-card__image {
+  &__image {
     max-width: 100%;
     width: 100%;
     margin: 0;
     position: relative;
     display: flex;
     flex-direction: column;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 3;
     picture {
       display: block;
       width: 100%;
@@ -63,20 +63,20 @@
     }
   }
 
-  .dgwltd-card__image-placeholder {
+  &__image-placeholder {
     width: 100%;
     min-height: 6rem;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 3;
     background-color: var(--wp--preset--color--primary);
   }
 
-  .dgwltd-card__caption {
+  &__caption {
     @extend %dgwltd-body-s; 
     display: block;
     margin-bottom: var(--wp--custom--spacing--small);
   }
 
-  .dgwltd-card__heading {
+  &__heading {
     @extend %dgwltd-heading-m;
     display: inline-block;
     width: 100%;
@@ -91,11 +91,7 @@
     }
   }
 
-  .dgwltd-card__description {
-    @extend %dgwltd-body-s;
-  }
-
-  .dgwltd-card__content {
+  &__content {
     padding: var(--wp--custom--spacing--medium) 0;
     p {
       @include mq($from: md) {
