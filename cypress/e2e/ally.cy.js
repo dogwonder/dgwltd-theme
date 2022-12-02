@@ -15,7 +15,7 @@
 describe('Page accessibility tests', () => {
 
   beforeEach(() => {
-    cy.visit('http://dev.wp.dgw.ltd');
+    cy.visit('http://dev.wp.dgw.ltd/blocks/');
     cy.injectAxe();
   });
   
