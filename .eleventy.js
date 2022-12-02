@@ -24,9 +24,9 @@ module.exports = config => {
   config.addShortcode('timestamp', () => `${Date.now()}`);
 
   // Open the browser on launch
-  config.setBrowserSyncConfig({
-    open: true
-  });
+  // config.setBrowserSyncConfig({
+  //   open: true
+  // });
 
   // Tell 11ty to use the .eleventyignore and ignore our .gitignore file
   config.setUseGitIgnore(false);

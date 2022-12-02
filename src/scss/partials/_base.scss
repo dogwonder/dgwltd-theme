@@ -11,7 +11,7 @@ html {
 a {
   color: var(--wp--preset--color--dark);
   text-decoration: underline;
-  text-decoration-thickness: unquote("max(0.0875em, .0625rem)");
+  text-decoration-thickness: unquote("max(0.1em, .0625rem)") !important;
   text-underline-offset: 0.1em;
   //Break long urls
   overflow-wrap: break-word;

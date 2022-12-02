@@ -7,7 +7,8 @@
       color: var(--wp--preset--color--border);
     }
     .govuk-details__text {
-      color: var(--color-dark);
+      padding-top: var(--wp--custom--spacing--medium);
+      color: var(--wp--preset--color--dark);
       border-color: var(--wp--preset--color--border);
     }
 }
