@@ -39,9 +39,6 @@
       }
       .dgwltd-cta__content {
         padding: 0 0 var(--wp--custom--spacing--medium) 0;
-        p {
-          @extend %dgwltd-body-m;
-        }
         @include mq($from: md) {
           text-align: left;
           flex-basis: 50%;
