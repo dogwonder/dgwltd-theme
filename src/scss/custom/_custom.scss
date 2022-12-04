@@ -10,8 +10,8 @@
       > * + * {
         margin-top: var(--wp--custom--spacing--small);
       }
-      h3 {
-        @extend %dgwltd-heading-s;
+      h2, h3 {
+        @extend %dgwltd-heading-m;
       }
     }
 }
@@ -23,7 +23,6 @@
       display: flex;
       align-items: flex-start;
         p {
-            @extend %dgwltd-body-s;
             &:first-of-type {
               margin-top: 0;
             }
