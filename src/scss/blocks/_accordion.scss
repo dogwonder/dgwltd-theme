@@ -10,7 +10,7 @@
       color: var(--wp--preset--color--primary);
     }
     .govuk-accordion__section-button {
-      font-weight: $bold;
+      @extend %dgwltd-heading-m;
       &:focus-visible {
         background-color: var(--focus);
         box-shadow: 0 -2px var(--focus), 0 4px  var(--wp--preset--color--dark);

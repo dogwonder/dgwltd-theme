@@ -82,14 +82,14 @@
   }
 
   &__heading {
-    @extend %dgwltd-heading-m;
+    @extend %dgwltd-heading-s;
     display: inline-block;
     width: 100%;
     margin: 0 0 var(--wp--custom--spacing--small);
     text-decoration: none;
     > a {
       color:inherit;
-      text-decoration: none;
+      text-decoration: underline;
       &:hover {
         color:var(--hover);
       }
