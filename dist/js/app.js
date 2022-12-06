@@ -302,19 +302,6 @@
         
     };
 
-    const yoastSchema = ()=>{
-        let schemaGraph = {};
-        // Query the Element that holds the schema graph.
-        const schemaGraphNode = document.querySelector (
-            'script[type="application/ld+json"][class="yoast-schema-graph"]'
-        );
-        // Check if the schema graph node exists.
-        if ( schemaGraphNode) {
-            schemaGraph = JSON.parse(schemaGraphNode. textContent);
-        }
-        // console. log(schemaGraph);
-    };
-
     //Init
     document.addEventListener("DOMContentLoaded", function() {
         externalLinks();

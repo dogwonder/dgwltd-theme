@@ -63,6 +63,8 @@
       .dgwltd-button {
         display: inline-flex;
         justify-content: space-between;
+        background-color: transparent;
+        border-color: var(--wp--preset--color--dark);
         svg {
           width: 1em;
           height: 1em;
@@ -76,6 +78,19 @@
     &.is-style-monochrome {
       .block__background img {
         filter: grayscale(100%) contrast(200%);
+      }
+    }
+
+    &.has-light-color {
+      .dgwltd-hero__play .dgwltd-button {
+        color: var(--wp--preset--color--light);
+        border-color: var(--wp--preset--color--light);
+        svg {
+          fill: var(--wp--preset--color--light);
+        }
+        &:hover {
+          background-color: rgba(255, 255, 255, .1);
+        }
       }
     }
 
