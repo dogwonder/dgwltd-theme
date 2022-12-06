@@ -16,7 +16,7 @@
 <?php include(locate_template( 'template-parts/_molecules/sprite.php' )); ?>
 <?php wp_footer(); ?>
 <script src="<?php echo get_template_directory_uri(); ?>/dist/js/app.min.js"></script>
-<script src="<?php echo get_template_directory_uri(); ?>/dist/js/govuk-frontend-4.3.1.min.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/dist/js/govuk-frontend-4.4.0.min.js"></script>
 <script>window.GOVUKFrontend.initAll()</script>
 <script>
   if ('serviceWorker' in navigator) {

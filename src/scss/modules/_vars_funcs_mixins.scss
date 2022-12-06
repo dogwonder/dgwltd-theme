@@ -1,8 +1,6 @@
-//Z-index
-@use "sass:math";
-
-//Variables
-$bold: 700;
+////
+/// Variables
+////
 
 //Z-indexes
 $z-low: 3; //Move above hero
@@ -24,7 +22,10 @@ $palette: ( 'primary', 'secondary', 'tertiary', 'dark', 'light', 'alt');
 //Measures - for margin / padding
 $gaps: (5, 10, 15, 20, 25, 30, 35, 40, 50, 80);
 
-//Custom typography - maps to theme.json - Perfect fourth scale - https://type-scale.com
+//Typography
+$bold: 700;
+
+//Typography scale - maps to theme.json - Perfect fourth scale - https://type-scale.com
 $type-massive: 4.209; //67.34px
 $type-huge: 3.157; //50.52px
 $type-extra-large: 2.369; //37.90px
@@ -60,30 +61,7 @@ $spaces: (
     )
 );
 
-//Fetch nested spaces
-@function map-deep-get($spaces, $keys) {
-  $value: $spaces;
-  @each $key in $keys {
-      $value: map-get($value, $key);
-  }
-  @return $value;
-}
-
-//Calc rems 
-@mixin rem($value) {
-  width: math.div($value, 16) + rem;
-}
-
-//Redeclare from vendor/_mq.scss -- https://github.com/sass-mq/sass-mq
-$mq-breakpoints: (
-  sm: 320px,
-  md: 768px,
-  lg: 992px, 
-  xl: 1200px, 
-  xxl: 1400px
-);
-
-//CSS Vars 
+//CSS Variables
 :root {
 
   --containerWidth: 70rem; //1120px
@@ -131,6 +109,8 @@ $mq-breakpoints: (
   --space-m: clamp(1.50rem, calc(1.39rem + 0.56vw), 1.88rem); //24-30
   --space-l: clamp(2.00rem, calc(1.85rem + 0.74vw), 2.50rem); //32-40
   --space-xl: clamp(3.00rem, calc(2.78rem + 1.11vw), 3.75rem); //48-60
+  --space-2xl: clamp(4.00rem, calc(3.70rem + 1.48vw), 5.00rem); //64-80
+  --space-3xl: clamp(5.00rem, calc(4.63rem + 1.85vw), 6.25rem); //80-100
 
   /* One-up pairs */
   //Note - these are the ones we use for most spacing, e.g. --wp--custom--spacing--medium, --wp--custom--spacing--large
@@ -139,10 +119,30 @@ $mq-breakpoints: (
   --space-s-m: clamp(1.00rem, calc(0.74rem + 1.30vw), 1.88rem); //16-30
   --space-m-l: clamp(1.50rem, calc(1.20rem + 1.48vw), 2.50rem); //24-40
   --space-l-xl: clamp(2.00rem, calc(1.48rem + 2.59vw), 3.75rem); //32-60
+  --space-xl-2xl: clamp(3.00rem, calc(2.41rem + 2.96vw), 5.00rem); //48-80
+  --space-2xl-3xl: clamp(4.00rem, calc(3.33rem + 3.33vw), 6.25rem); //64-100
 
   --gutter: var(--wp--custom--spacing--medium);
 
 }
+
+////
+/// Vendor variables
+////
+
+//Redeclare from vendor/_mq.scss -- https://github.com/sass-mq/sass-mq
+$mq-breakpoints: (
+  sm: 320px,
+  md: 768px,
+  lg: 992px, 
+  xl: 1200px, 
+  xxl: 1400px
+);
+
+
+////
+/// Colors
+////
 
 $palettes: (
     themes: (
@@ -177,17 +177,17 @@ $palettes: (
     )
 );
 
-//Generates classes for margin and padding, e.g .m-t-10, p-b-20. 
-@each $prop, $abbrev in (margin: m, padding: p) {
-  @each $gap in $gaps {
+///
+/// Functions
+/// 
 
-    .#{$abbrev}-a-#{$gap} { #{$prop}:        #{$gap}px #{$gap}px !important; } // a = All sides
-    .#{$abbrev}-t-#{$gap} { #{$prop}-top:    #{$gap}px !important; }
-    .#{$abbrev}-r-#{$gap} { #{$prop}-right:  #{$gap}px !important; }
-    .#{$abbrev}-b-#{$gap} { #{$prop}-bottom: #{$gap}px !important; }
-    .#{$abbrev}-l-#{$gap} { #{$prop}-left:   #{$gap}px !important; }
-
+//Fetch nested spaces
+@function map-deep-get($spaces, $keys) {
+  $value: $spaces;
+  @each $key in $keys {
+      $value: map-get($value, $key);
   }
+  @return $value;
 }
 
 /// Remove the unit of a length
@@ -253,8 +253,18 @@ $palettes: (
   @return clamp( ($minFontSize * 1rem), ($yAxisIntersection * 1rem) + (($slope * 100) * 1vw), ($maxFontSize * 1rem) );
 }
 
-//Mixing for responsive typography
-// Usage @include fluidType(1.25, 1.3333, 1.5, 1.5, sm, md);
+//Convert px to rem
+@function toRem($value) {
+  $remValue: math.div($value, 16) + rem; 
+  @return $remValue;
+}
+
+///
+/// Mixins
+/// 
+
+//Responsive typography
+//Usage @include fluidType(1.25, 1.3333, 1.5, 1.5, sm, md);
 @mixin fluidType($minFontSize: 1.25, $maxFontSize: 1.3333, $minLineHeight: 1.4, $maxLineHeight: 1.2, $breakpointSmall: sm, $breakpointLarge: md) {
   //fallback for old browsers px values
   font-size: $minFontSize; 
@@ -280,7 +290,7 @@ $palettes: (
   }
 }
 
-//Font and line height calulation, with unitless line-height
+// Font and line height calulation, with unitless line-height
 // Base font size of 16px and line-height of 1.25
 // Usage
 // @include rhythm(48, 50);
@@ -292,8 +302,3 @@ $palettes: (
   line-height: math.div($heightValue, $sizeValue);
 }
 
-//Convert px to rem
-@function toRem($value) {
-  $remValue: math.div($value, 16) + rem; 
-  @return $remValue;
-}

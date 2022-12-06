@@ -119,7 +119,6 @@
   }
 }
 
-
 //More modern aspect ratio
 %frame, 
 .frame {
@@ -256,43 +255,41 @@ $heights: (
   }
 }
 
+///
+/// Spacing - we don't use these as we have fluid spacing set in theme.json
+/// 
+
+//Generates classes for margin and padding, e.g .m-t-10, p-b-20. 
+// @each $prop, $abbrev in (margin: m, padding: p) {
+//   @each $gap in $gaps {
+
+//     .#{$abbrev}-a-#{$gap} { #{$prop}:        #{$gap}px #{$gap}px !important; } // a = All sides
+//     .#{$abbrev}-t-#{$gap} { #{$prop}-top:    #{$gap}px !important; }
+//     .#{$abbrev}-r-#{$gap} { #{$prop}-right:  #{$gap}px !important; }
+//     .#{$abbrev}-b-#{$gap} { #{$prop}-bottom: #{$gap}px !important; }
+//     .#{$abbrev}-l-#{$gap} { #{$prop}-left:   #{$gap}px !important; }
+
+//   }
+// }
+
 //Fluid spacing 
-@each $key in map-keys(map-get($spaces, gaps)) {
-  .mf-#{$key} {
-    margin: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
-  }
-  .pf-#{$key} {
-    padding: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
-  }
-  .mtf-#{$key} {
-    margin-top: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
-  }
-  .mbf-#{$key} {
-    margin-bottom: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
-  }
-  .ptf-#{$key} {
-    padding-top: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
-  }
-  .pbf-#{$key} {
-    padding-bottom: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
-  }
-}
-
-//oEmbed responsive
-.embed-container { 
-  position: relative; 
-  padding-bottom: 56.25%;
-  overflow: hidden;
-  max-width: 100%;
-  height: auto;
-} 
-
-.embed-container iframe,
-.embed-container object,
-.embed-container embed { 
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+// @each $key in map-keys(map-get($spaces, gaps)) {
+//   .mf-#{$key} {
+//     margin: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
+//   }
+//   .pf-#{$key} {
+//     padding: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
+//   }
+//   .mtf-#{$key} {
+//     margin-top: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
+//   }
+//   .mbf-#{$key} {
+//     margin-bottom: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
+//   }
+//   .ptf-#{$key} {
+//     padding-top: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
+//   }
+//   .pbf-#{$key} {
+//     padding-bottom: clampCalc(map-deep-get($spaces, gaps $key sm), map-deep-get($spaces, gaps $key lg), sm, lg) !important;
+//   }
+// }

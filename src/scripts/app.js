@@ -3,7 +3,8 @@
     'use strict';
 
     //Constants
-    const desktopWidth = 992;
+    let desktopWidth = 992;
+    let priorFocus;
 
     //Open links with rel='external' in new window/tab
     const externalLinks = () =>{  
