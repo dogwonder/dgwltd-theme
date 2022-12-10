@@ -6,11 +6,17 @@
     .govuk-accordion__section-header {
       border-color: var(--border);
     }
+    .govuk-accordion__section-toggle, 
+    .govuk-accordion__section-heading {
+      margin: 0;
+    }
     .govuk-accordion__show-all, .govuk-accordion__section-toggle {
       color: var(--wp--preset--color--primary);
     }
     .govuk-accordion__section-button {
       @extend %dgwltd-heading-m;
+      margin: 0;
+      padding-bottom: 0;
       &:focus-visible {
         background-color: var(--focus);
         box-shadow: 0 -2px var(--focus), 0 4px  var(--wp--preset--color--dark);
@@ -21,5 +27,8 @@
       .govuk-accordion-nav__chevron:after {
         color: var(--focus);
       }
+    }
+    .govuk-accordion__section-content {
+      padding-top: 0;
     }
 }
