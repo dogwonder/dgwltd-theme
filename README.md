@@ -97,4 +97,5 @@ Blog / posts list template
 
 To run tests (e.g. AXE)
 
-`npm run cypress`
+`npm run tests`
+`node_modules/.bin/cypress open`
