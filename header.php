@@ -31,8 +31,6 @@ $pkgVersion = $package['version'];
 <meta name="apple-mobile-web-app-title" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
 <meta name="theme-color" content="#000000">
 <link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/dist/images/fav/manifest.json">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script defer src="//act.one.org/resources/actionkit.js"></script>
 <script defer data-domain="dgw.ltd" src="https://plausible.io/js/plausible.js"></script>
 <?php
 $site_description           = esc_attr( get_bloginfo( 'description', 'display' ) );
