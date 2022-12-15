@@ -100,6 +100,9 @@ if ( ! function_exists( 'dgwltd_setup' ) ) :
 		// Add support for block styles.
 		add_theme_support( 'wp-block-styles' );
 
+		// Add support for block template parts.
+		add_theme_support( 'block-template-parts' );
+
 		//Remove patterns that ship with WordPress Core.
 		remove_theme_support( 'core-block-patterns' );
 
