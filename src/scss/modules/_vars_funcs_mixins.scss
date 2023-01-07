@@ -264,14 +264,13 @@ $palettes: (
 /// 
 
 //Responsive typography
-//Usage @include fluidType(1.25, 1.3333, 1.5, 1.5, sm, md);
-@mixin fluidType($minFontSize: 1.25, $maxFontSize: 1.3333, $minLineHeight: 1.4, $maxLineHeight: 1.2, $breakpointSmall: sm, $breakpointLarge: md) {
+//Usage @include fluidType(1, 2, 1.5, sm, md);
+@mixin fluidType($minFontSize: 1, $maxFontSize: 2, $lineHeight: 1.5, $breakpointSmall: sm, $breakpointLarge: md) {
   //fallback for old browsers px values
   font-size: $minFontSize; 
-  line-height: $minLineHeight; 
   //modern browsers use clamp()
   font-size: clampCalc($minFontSize, $maxFontSize, $breakpointSmall, $breakpointLarge);
-  line-height: clampCalc($minLineHeight, $maxLineHeight, $breakpointSmall, $breakpointLarge);
+  line-height: $lineHeight;
 }
 
 //Color contrast
