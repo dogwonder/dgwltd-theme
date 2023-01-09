@@ -85,7 +85,7 @@ For home and gateway pages, allows for full width blocks (e.g. DGW.ltd Hero / DG
 
 `template-guide.php`
 
-Similar to NHS [contents guide](https://www.nhs.uk/conditions/type-2-diabetes/) this allows for a parent / child relationshiop to be created with all child pages listed with the parent as the first item on a contents list. Allows the user to navigate forwards and backwards through the contents list. 
+Similar to NHS [contents guide](https://www.nhs.uk/conditions/type-2-diabetes/) this allows for a parent / child relationship to be created with all child pages listed with the parent as the first item on a contents list. Allows the user to navigate forwards and backwards through the contents list. 
 
 ### Blog template
 
