@@ -40,19 +40,17 @@
     border-color: var(--button-disabled);
     cursor: not-allowed;
   }
-  &.has-primary-background-color {
-    border-color: var(--wp--preset--color--primary);
-    &:hover {
-      border-color: var(--wp--preset--color--primary);
-    }
-  }
 }
 
-//Varients
+//Theme varients
 .wp-block-button__link {
   @each $color in $palette {
     &.has-#{$color}-background-color {
       border-color: var(--wp--preset--color--#{$color});
+      &:hover {
+        border-color: hsl(var(--hs-#{$color}), calc(var(--l-#{$color}) - 5%)) !important;
+        background-color: hsl(var(--hs-#{$color}), calc(var(--l-#{$color}) - 5%)) !important;
+      }
     }
   }
 }

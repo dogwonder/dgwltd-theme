@@ -1,5 +1,5 @@
 ////
-/// Variables
+/// SASS Variables
 ////
 
 //Z-indexes
@@ -15,9 +15,6 @@ $scale: ('sm','md','lg','xl');
 
 //Spacing
 $spacing: ( 'extra-small', 'small', 'medium', 'large', 'extra-large');
-
-//Color palette
-$palette: ( 'primary', 'secondary', 'tertiary', 'dark', 'light', 'alt');
 
 //Measures - for margin / padding
 $gaps: (5, 10, 15, 20, 25, 30, 35, 40, 50, 80);
@@ -61,45 +58,101 @@ $spaces: (
     )
 );
 
+////
+/// Vendor variables
+////
+
+//Redeclare from vendor/_mq.scss -- https://github.com/sass-mq/sass-mq
+$mq-breakpoints: (
+  sm: 320px,
+  md: 768px,
+  lg: 992px, 
+  xl: 1200px, 
+  xxl: 1400px
+);
+
+
+////
+/// Colors
+////
+
+$palette: (
+  'primary',
+  'secondary',
+  'tertiary',
+  'dark',
+  'light',
+  'alt'
+);
+
+$palettes: (
+    themes: (
+      primary: (
+          background: var(--wp--preset--color--primary),
+          text: var(--wp--preset--color--light)
+      ),
+      secondary: (
+          background: var(--wp--preset--color--secondary),
+          text: var(--wp--preset--color--dark)
+      ),
+      tertiary: (
+          background: var(--wp--preset--color--tertiary),
+          text: var(--wp--preset--color--dark)
+      ),
+      dark: (
+          background: var(--wp--preset--color--dark),
+          text: var(--wp--preset--color--light)
+      ),
+      light: (
+          background: var(--wp--preset--color--light),
+          text: var(--wp--preset--color--dark)
+      ), 
+      alt: (
+          background: var(--wp--preset--color--alt),
+          text: var(--wp--preset--color--dark)
+      )
+    )
+);
+
 //CSS Variables
 :root {
 
   --containerWidth: 70rem; //1120px
   --contentWidth: 52rem; //832px
   --contentWidthSmall: 38rem; //608px
-  --characterMax: 68ch; 
+  --characterMax: 68ch;
 
   //System font as default
-  --body: -apple-system, BlinkMacSystemFont,"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell","Fira Sans", "Droid Sans","Helvetica Neue",sans-serif;
+  --body: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 
   //Borders
   --border: #666666;
 
-  //Link states
-  --color-primary: 185, 100%; //#0095a3
-  --color-secondary: 5, 98%; //#fe9f97
-  --color-tertiary: 40, 97%; //#fbae17
-  --l1: 32%; 
-  --l2: 79%; 
-  --l3: 54%; 
+  //Color mappings to HSL 
+  --hs-primary: 185, 100%; //#0095a3
+  --hs-secondary: 5, 98%; //#fe9f97
+  --hs-tertiary: 40, 97%; //#fbae17
+  --l-primary: 32%;
+  --l-secondary: 79%;
+  --l-tertiary: 54%;
 
   //Highlights and states
-  --highlight: hsl(var(--color-primary),var(--l1));
-  --hover: hsl(var(--color-primary),calc(var(--l1) - 10%));
-  --active: hsl(var(--color-primary),calc(var(--l1) - 10%));
-  --focus: hsl(var(--color-primary),calc(var(--l1) + 10%));
+  --highlight: hsl(var(--hs-primary), var(--l-primary));
+  --hover: hsl(var(--hs-primary), calc(var(--l-primary) - 5%));
+  --active: hsl(var(--hs-primary), calc(var(--l-primary) - 5%));
+  --focus: hsl(var(--hs-primary), calc(var(--l-primary) + 5%));
 
   //Forms
   --success: #457c39;
   --error: #db2f27;
 
   //Buttons
-  --button-text-color: var(--wp--preset--color--dark);
-  --button-background: hsl(var(--color-tertiary),var(--l3));
-  --button-hover: hsl(var(--color-tertiary),calc(var(--l3) - 10%));
-  --button-focus: hsl(var(--color-tertiary),calc(var(--l3) + 10%));
-  --button-disabled: hsl(var(--color-tertiary),calc(var(--l3) + 90%));
-  
+  --button-text-color: var(--wp--preset--color--light);
+  --button-background: hsl(var(--hs-primary), var(--l-primary));
+  --button-hover: hsl(var(--hs-primary), calc(var(--l-primary) - 5%));
+  --button-focus: hsl(var(--hs-primary), calc(var(--l-primary) + 5%));
+  --button-disabled: hsl(var(--hs-primary), calc(var(--l-primary) + 90%));
+
   //Menu height
   --submenu-offset: 0;
 
@@ -125,57 +178,6 @@ $spaces: (
   --gutter: var(--wp--custom--spacing--medium);
 
 }
-
-////
-/// Vendor variables
-////
-
-//Redeclare from vendor/_mq.scss -- https://github.com/sass-mq/sass-mq
-$mq-breakpoints: (
-  sm: 320px,
-  md: 768px,
-  lg: 992px, 
-  xl: 1200px, 
-  xxl: 1400px
-);
-
-
-////
-/// Colors
-////
-
-$palettes: (
-    themes: (
-      primary: (
-          background: var(--wp--preset--color--primary),
-          text: var(--wp--preset--color--light), 
-          border: var(--wp--preset--color--light), 
-          highlight: var(--wp--preset--color--dark), 
-          inverse: var(--wp--preset--color--dark)
-      ),
-      secondary: (
-          background: var(--wp--preset--color--secondary),
-          text: var(--wp--preset--color--light), 
-          border: var(--wp--preset--color--light), 
-          highlight: var(--wp--preset--color--dark), 
-          inverse: var(--wp--preset--color--dark)
-      ),
-      black: (
-          background: var(--wp--preset--color--dark),
-          text: var(--wp--preset--color--light), 
-          border: var(--wp--preset--color--light), 
-          highlight: var(--wp--preset--color--light), 
-          inverse: var(--wp--preset--color--dark)
-      ),
-      white: (
-          background: var(--wp--preset--color--light),
-          text: var(--wp--preset--color--dark), 
-          border: var(--wp--preset--color--dark), 
-          highlight: var(--wp--preset--color--dark), 
-          inverse: var(--wp--preset--color--light)
-      )
-    )
-);
 
 ///
 /// Functions
@@ -300,4 +302,3 @@ $palettes: (
   //Line height - unitless
   line-height: math.div($heightValue, $sizeValue);
 }
-
