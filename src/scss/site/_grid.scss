@@ -1,5 +1,5 @@
 //Grid 
-//Usage <ul class="features grid" role="list">
+//Usage <ul class="grid" role="list" data-rows="3-col">
 
 .grid {
   display: grid;
@@ -7,9 +7,20 @@
   grid-template-columns: repeat(var(--grid-placement,auto-fill),minmax(var(--grid-min-item-size,16rem),1fr));
 }
 
+//Masonry grid
+.grid[data-rows='masonry'] {
+  grid-template-rows: masonry;
+  align-items: start;
+}
+
+//2 col grid
+.grid[data-layout='50-50'] {
+  --grid-placement: auto-fit;
+  --grid-min-item-size: clamp(16rem, 50vw, 26rem);
+}
+
 //3 col grid
-.features  {
-  --grid-placement: auto-fit:
+.grid[data-rows='3-col'] {
+  --grid-placement: auto-fit: 
   --grid-min-item-size: clamp(16rem, 33%, 20rem);
-  --gutter: var(--wp--custom--spacing--medium);
 }
