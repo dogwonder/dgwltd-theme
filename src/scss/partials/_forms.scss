@@ -71,30 +71,32 @@ input[type="submit"] {
 //Gravity forms
 .gform_wrapper {
   //General styles and resets - (needs ul due to inheritance over .entry-content)
-  .gform_fields,
-  .gfield_checkbox,
-  .gfield_radio {
+  .gform_fields {
     width: 100%;
-    margin: 0 0 var(--wp--custom--spacing--small);
+    margin: 0;
     padding: 0;
     list-style-type: none;
+
     .gfield {
       padding: 0;
-      margin-bottom: var(--wp--custom--spacing--small);
-      //Field container with error
-      &.gfield_error {
-        margin-left: var(--wp--custom--spacing--extra-small);
-        padding-left: var(--wp--custom--spacing--small);
-        border-left: 3px solid var(--error);
-      }
     }
+
     fieldset {
       border: 0;
       padding: 0;
-      margin: 0;
       width: 100%;
     }
+
+    //Spacing
+    > * + * {
+      margin-top: var(--wp--custom--spacing--medium);
+    }
   }
+
+  .gform_footer {
+    margin-top: var(--wp--custom--spacing--medium);
+  }
+
   //Checkboxes & Radios
   .gfield_checkbox,
   .gfield_radio {
@@ -172,6 +174,8 @@ input[type="submit"] {
       opacity: 1;
     }
   }
+
+  //Radios
   .gfield_radio {
     .gchoice {
       position: relative;
@@ -216,51 +220,73 @@ input[type="submit"] {
   .gfield_label {
     display: inline-block;
     margin-bottom: var(--wp--custom--spacing--extra-small);
+    @extend %dgwltd-body;
+    font-weight: bold;
   }
 
   //Input description - placed above input
   .gfield_description {
     margin-bottom: var(--wp--custom--spacing--small);
   }
+}
 
-  //Order of fields
+//Error handling
+.gform_wrapper.gform_validation_error {
+
   .gfield_error {
     display: flex;
     flex-direction: column;
+    margin-left: 0;
+    padding-left: var(--wp--custom--spacing--small);
+    border-left: 3px solid var(--error);
+
+    //Order of fields
     .gfield_label {
       order: 1;
     }
+
     .gfield_description {
       order: 2;
       margin-bottom: var(--wp--custom--spacing--small);
     }
+
     .ginput_container {
       order: 3;
     }
-  }
 
+    input, textarea {
+      border-color: var(--error);
+    }
+
+  }
+  
   //Error Summary
-  .validation_error {
+  .gform_validation_errors {
     padding: var(--wp--custom--spacing--small);
     border: 5px solid var(--error);
     margin-bottom: var(--wp--custom--spacing--large);
     font-weight: $bold;
   }
-  .validation_message {
+
+  //Field error message
+  .gfield_validation_message {
     color: var(--error);
     font-weight: $bold;
     margin-bottom: var(--wp--custom--spacing--small);
   }
+  
+  //Govuk integration
   .govuk-error-summary__title {
     font-weight: $bold;
   }
+  
   ul.govuk-error-summary__list {
     list-style-type: none;
     margin: 0;
     padding: 0;
   }
-}
 
+}
 
 .gfield_visibility_hidden {
   clip: rect(1px, 1px, 1px, 1px);

@@ -81,6 +81,8 @@ body {
 .dgwltd-body, 
 .govuk-body {
   font-weight: normal;
+  font-size: var(--wp--preset--font-size--normal); //18px
+  line-height: var(--wp--custom--typography--line-height--body);
   margin: 0 0 var(--wp--custom--spacing--outer);
 }
 
