@@ -119,3 +119,10 @@ To run tests (e.g. AXE)
 
 `npm run tests`
 `node_modules/.bin/cypress open`
+
+
+## Versioning
+
+To increment the version number (used for asset caching)
+
+`npm version patch`

@@ -10,7 +10,7 @@
  */
 
 //Get version value from package.json
-$package = json_decode(file_get_contents(get_template_directory() . '/package.json'), true);
+$package = json_decode(file_get_contents(get_template_directory() . '/dist/site.json'), true);
 $pkgVersion = $package['version'];
 ?>
 <!doctype html>
