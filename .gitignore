@@ -40,8 +40,8 @@ node_modules/
 #ignore fonts
 src/fonts/soehne
 
-#ignore dist
-dist/
+#ignore commercial fonts
+dist/fonts/
 
 #ignore test outputs
 cypress/screenshots/
