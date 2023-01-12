@@ -241,18 +241,19 @@
 }
 
 //Gradient text
+%gradient-text,
 .gradient-text {
   color: transparent;
-  background: conic-gradient(var(--wp--preset--color--primary) 12%,
-      var(--wp--preset--color--primary) 12%,
-      var(--wp--preset--color--primary) 33%,
-      var(--wp--preset--color--primary) 33%,
-      var(--wp--preset--color--primary) 55%,
-      #1471bb 55%,
-      #1471bb 70%,
-      #ff8b59 70%,
-      #ff8b59 87%,
-      #c569bc 87%);
+  background: conic-gradient(var(--wp--preset--color--dark) 12%,
+      var(--wp--preset--color--dark) 12%,
+      var(--wp--preset--color--dark) 33%,
+      var(--wp--preset--color--dark) 33%,
+      var(--wp--preset--color--dark) 55%,
+      var(--wp--preset--color--secondary) 55%,
+      var(--wp--preset--color--secondary) 70%,
+      var(--wp--preset--color--primary) 70%,
+      var(--wp--preset--color--primary) 87%,
+      var(--wp--preset--color--tertiary) 87%);
   padding: 0.6rem 0;
   background-size: 50%;
   background-clip: text;
