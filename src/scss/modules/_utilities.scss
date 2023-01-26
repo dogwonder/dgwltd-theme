@@ -165,25 +165,6 @@
   }
 }
 
-//Custom list items
-%list, 
-.list {
-  padding: 0 !important;
-  margin: 0 0 var(--wp--custom--spacing--medium) !important;
-  margin-inline-start: 0;
-  list-style-type: none;
-  list-style-position: inside;
-  li {
-    @extend %dgwltd-list;
-    margin: 0;
-    padding: 0;
-    ul, 
-    ol {
-      margin-top: 0 !important;
-    }
-  }
-}
-
 //Alignment
 .text-center {
   text-align: center;

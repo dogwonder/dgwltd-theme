@@ -13,7 +13,6 @@
     list-style-type: disc;
     list-style-position: inside;
     li {
-      @extend %dgwltd-list;
       margin: 0;
       padding: 0;
       ul, 

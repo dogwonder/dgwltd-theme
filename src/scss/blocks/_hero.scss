@@ -4,7 +4,8 @@
 
     &__content {
       ul {
-        @extend %list;
+        margin: 0 0 var(--wp--custom--spacing--medium);
+        padding: 0;
       }
       &:not(:has(.wp-block-button__link)) {
         p:last-of-type {
