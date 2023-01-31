@@ -283,17 +283,6 @@ $palettes: (
   @return $remValue;
 }
 
-/// Remove the unit of a length
-/// @param {Number} $number - Number to remove unit from
-/// @return {Number} - Unitless number
-@function strip-unit($number) {
-  @if type-of($number)=='number' and not unitless($number) {
-    @return $number / ($number * 0 + 1);
-  }
-
-  @return $number;
-}
-
 ///
 /// Mixins
 /// 
@@ -308,7 +297,14 @@ $palettes: (
   line-height: $lineHeight;
 }
 
-//Oxymoronic Responsive typography with breakpoints (for when you need to set a font size at a breakpoint)
+//Oxymoronic Responsive typography 
+//For when you need to set a font size at a specific breakpoint and then scale it up or down from there
+/*Usage
+.dgwltd-heading-stepper {
+  font-family: var(--wp--preset--font-family--soehne-halbfett);
+  @include clampCalcStepper(($type-6, $type-8, $type-9, $type-10), (sm, md, lg, xxl));
+}
+*/
 @mixin clampCalcStepper($steps: (), $breakpoints: ()) {
   //Loop through steps and breakpoints
   @for $i from 1 through length($steps) {
