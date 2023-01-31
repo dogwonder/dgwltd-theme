@@ -32,6 +32,18 @@ $type-normal: 1.125; //18px default font size
 $type-small: 1; //16px
 $type-tiny: 0.875; //14px
 
+//Step based typography scale - we don't add a unit as this is calculated later
+$type-1: 14;
+$type-2: 16;
+$type-3: 18;
+$type-4: 20;
+$type-5: 24;
+$type-6: 32;
+$type-7: 40;
+$type-8: 48;
+$type-9: 64;
+$type-10: 96;
+
 //Spacing - usedin fluid spacing
 $spaces: (
     gaps: (
@@ -58,6 +70,18 @@ $spaces: (
     )
 );
 
+//Step based spacing scale - we don't add a unit as this is calculated later
+$space-1: 8;
+$space-2: 16;
+$space-3: 24;
+$space-4: 32;
+$space-5: 40;
+$space-6: 48;
+$space-7: 64;
+$space-8: 80;
+$space-9: 96;
+$space-10: 160;
+
 ////
 /// Vendor variables
 ////
@@ -66,9 +90,9 @@ $spaces: (
 $mq-breakpoints: (
   sm: 320px,
   md: 768px,
-  lg: 992px, 
-  xl: 1200px, 
-  xxl: 1400px
+  lg: 1024px, 
+  xl: 1440px, 
+  xxl: 1920px
 );
 
 
@@ -203,62 +227,71 @@ $palettes: (
   @return $number;
 }
 
-@function clampCalc($minFontSize, $maxFontSize, $minWidth: sm, $maxWidth: lg) {
+@function clampCalc($minFontSize, $maxFontSize, $minWidth: sm, $maxWidth: xl) {
   //Based on https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/#for-those-who-dont-mind-that-edge-case
   // slope = (maxFontSize - minFontSize) / (maxWidth - minWidth) 
   // yAxisIntersection = (-1 * minWidth) * slope + minFontSize 
   // preferredValue = yAxisIntersection[rem] + (slope * 100)[vw] 
 
   /* Usage
-  padding: clampCalc(1.5, 3, sm, md); //fluid padding between 15px and 30px on small and medium screens
-   font-size: clampCalc(4.5, 5.5, sm, md); //45 to 55px on small and medium screens
-   @include mq($from: md) {
-    font-size: clampCalc(5.5, 8, md, lg); 55 to 80px on medium and large screens snaps to max 80px
-   }
+  padding: clampCalc(1.5, 3, sm, lg); //fluid padding between 15px and 30px between small and large screens
+  font-size: clampCalc(4.5, 9, sm, lg); //45 to 95px between small and large screens
   */
 
-  $smBreakpoint: null;
-  $lgBreakpoint: null;
+  $minBreakpoint: null;
+  $maxBreakpoint: null;
   
-  //Breakpoints based on Bootstrap breakpoints, 320, 768, 992, 1200, 1400
+  //Breakpoints based on Bootstrap breakpoints, 320, 768, 1024, 1440, 1920
   @if $minWidth == sm {
-    $smBreakpoint: 20;
+    $minBreakpoint: 20;
   } @else if $minWidth == md {  
-    $smBreakpoint: 48;
+    $minBreakpoint: 48;
   } @else if $minWidth == lg {  
-    $smBreakpoint: 62;
+    $minBreakpoint: 64;
   } @else if $minWidth == xl {  
-    $smBreakpoint: 75;
+    $minBreakpoint: 90;
   } @else if $minWidth == xxl {  
-    $smBreakpoint: 87.5;
+    $minBreakpoint: 120;
   } @else {
     @error "Unknown breakpoint #{$minWidth}.";
   }
 
   @if $maxWidth == sm {
-    $lgBreakpoint: 20;
+    $maxBreakpoint: 20;
   } @else if $maxWidth == md {  
-    $lgBreakpoint: 48;
+    $maxBreakpoint: 48;
   } @else if $maxWidth == lg {  
-    $lgBreakpoint: 62;
+    $maxBreakpoint: 64;
   } @else if $maxWidth == xl {  
-    $lgBreakpoint: 75;
+    $maxBreakpoint: 90;
   } @else if $maxWidth == xxl {  
-    $lgBreakpoint: 87.5;
+    $maxBreakpoint: 120;
   } @else {
     @error "Unknown breakpoint #{$maxWidth}.";
   }
 
-  $slope: math.div(($maxFontSize - $minFontSize), ($lgBreakpoint - $smBreakpoint));
-  $yAxisIntersection: (-1 * $smBreakpoint) * $slope + $minFontSize;
+  $slope: math.div(($maxFontSize - $minFontSize), ($maxBreakpoint - $minBreakpoint));
+  $yAxisIntersection: (-1 * $minBreakpoint) * $slope + $minFontSize;
   //clamp (minFontSize[rem], yAxisIntersection[rem] + (slope * 100)[vw], maxFontSize[rem])
   @return clamp( ($minFontSize * 1rem), ($yAxisIntersection * 1rem) + (($slope * 100) * 1vw), ($maxFontSize * 1rem) );
 }
+
 
 //Convert px to rem
 @function toRem($value) {
   $remValue: math.div($value, 16) + rem; 
   @return $remValue;
+}
+
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number)=='number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
 }
 
 ///
@@ -273,6 +306,39 @@ $palettes: (
   //modern browsers use clamp()
   font-size: clampCalc($minFontSize, $maxFontSize, $breakpointSmall, $breakpointLarge);
   line-height: $lineHeight;
+}
+
+//Oxymoronic Responsive typography with breakpoints (for when you need to set a font size at a breakpoint)
+@mixin clampCalcStepper($steps: (), $breakpoints: ()) {
+  //Loop through steps and breakpoints
+  @for $i from 1 through length($steps) {
+    $step: nth($steps, $i);
+    $breakpoint: nth($breakpoints, $i);
+  }
+  
+  //Output values for testing;
+  // @debug('Steps: ' + $steps);
+  // @debug('Breakpoints: ' + $breakpoints);
+
+  //Loop through array and create media queries
+  @for $i from 1 through length($steps) {
+    $step: nth($steps, $i);
+    $breakpoint: nth($breakpoints, $i);
+    //If not last item in array
+    @if $i < length($steps) {
+      @include mq($from: $breakpoint) {
+        //Get next step up if not last item
+        $nextStep: if($i ==length($steps), $step, nth($steps, $i + 1));
+        $nextBreakpoint: if($i ==length($breakpoints), $breakpoint, nth($breakpoints, $i + 1));
+        //Convert our number to rems and calculate the clamp
+        // @debug('Step 1: ' + math.div($step, 16));
+        // @debug('Step 2: ' + math.div($nextStep, 16));
+        // @debug('Breakpoint 1: ' + $breakpoint);
+        // @debug('Breakpoint 2: ' + $nextBreakpoint);
+        font-size: clampCalc(math.div($step, 16), math.div($nextStep, 16), $breakpoint, $nextBreakpoint);
+      }
+    }
+  }
 }
 
 //Color contrast
