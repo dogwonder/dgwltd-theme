@@ -304,6 +304,7 @@ $palettes: (
   font-family: var(--wp--preset--font-family--soehne-halbfett);
   @include clampCalcStepper(($type-6, $type-8, $type-9, $type-10), (sm, md, lg, xxl));
 }
+<h1 class="dgwltd-heading-stepper">Amet tempor suspendisse vestibulum sapien ut praesent</h1>
 */
 @mixin clampCalcStepper($steps: (), $breakpoints: ()) {
   //Loop through steps and breakpoints
@@ -320,6 +321,10 @@ $palettes: (
   @for $i from 1 through length($steps) {
     $step: nth($steps, $i);
     $breakpoint: nth($breakpoints, $i);
+    //For the first item (fallback for < 320)
+    @if $i == 1 {
+      font-size: toRem($step);
+    }
     //If not last item in array
     @if $i < length($steps) {
       @include mq($from: $breakpoint) {
