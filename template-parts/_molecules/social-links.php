@@ -1,13 +1,30 @@
 <?php 
 $social = get_field('social_links', 'options');
-$facebook = $social['facebook_link'];
-$github = $social['github_link'];
-$instagram = $social['instagram_link'];
-$linkedin = $social['linkedin_link'];
-$mastodon = $social['mastodon_link'];
-$tiktok = $social['tiktok_link'];
-$twitter = $social['twitter_link'];
-$youtube = $social['youtube_link'];
+//Check to see if the repeater field has rows of data
+if( have_rows('social_links', 'options') ):
+    // loop through the rows of data
+    while ( have_rows('social_links', 'options') ) : the_row();
+        // display a sub field value
+        $facebook = $social['facebook_link'];
+        $github = $social['github_link'];
+        $instagram = $social['instagram_link'];
+        $linkedin = $social['linkedin_link'];
+        $mastodon = $social['mastodon_link'];
+        $tiktok = $social['tiktok_link'];
+        $twitter = $social['twitter_link'];
+        $youtube = $social['youtube_link'];        
+    endwhile;
+else :
+    $facebook = '';
+    $github = '';
+    $instagram = '';
+    $linkedin = '';
+    $mastodon = '';
+    $tiktok = '';
+    $twitter = '';
+    $youtube = '';
+    // no rows found
+endif;
 ?>
 <ul class="dgwltd-footer__social-links dgwltd-footer__inline-list">
 

@@ -41,11 +41,6 @@ a {
   --box-shadow: 0 -2px var(--box-shadow-color), 0 4px currentColor;
 }
 
-//Reset the outline - :is won't work in IE11 etc so it won't be applied and will get the browser default outlines
-:is(a, button, input, textarea, summary):focus {
-    outline: none;
-}
-
 //Set a global default for focus visible styles
 :is(a, button, input, textarea, summary):focus-visible {
   outline:
@@ -56,6 +51,11 @@ a {
   background-color: var(--background-color);
   box-shadow: var(--box-shadow);
   text-decoration: none;
+}
+
+//Reset the outline - :is won't work in IE11 etc so it won't be applied and will get the browser default outlines
+:is(a, button, input, textarea, summary):focus:not(:focus-visible) {
+  outline: none;
 }
 
 //Custom inset for buttons, using the optional --outline-offset variable

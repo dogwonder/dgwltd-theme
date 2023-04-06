@@ -31,7 +31,7 @@ $pkgVersion = $package['version'];
 <meta name="apple-mobile-web-app-title" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
 <meta name="theme-color" content="#000000">
 <link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/dist/images/fav/manifest.json">
-<script defer data-domain="dgw.ltd" src="https://plausible.io/js/plausible.js"></script>
+<script defer data-domain="wp.dgw.ltd" src="https://plausible.io/js/script.js"></script>
 <?php
 $site_description           = esc_attr( get_bloginfo( 'description', 'display' ) );
 $dgwltd_meta['title']       = 'DGW.ltd - ' . $post->post_title ?? '';

@@ -17,17 +17,39 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 }
 
 
-if ( ! function_exists( 'rnid_acf_color_palette' ) ) :
-function rnid_acf_color_palette() {
-?>
-	<script type="text/javascript">
-	(function($) {
-		acf.add_filter('color_picker_args', function( args, $field ){
-			args.palettes = ['#0095a3', '#fe9f97', '#fbae17', '#0d0f05', '#f1f2f0', '#e0e5db']
-			return args;
-		});
-	})(jQuery);
-	</script>
-<?php }
-add_action('acf/input/admin_footer', 'rnid_acf_color_palette');
-endif;
+
+if ( ! function_exists( 'dgwltd_acf_color_palette' ) ) :
+	function dgwltd_acf_color_palette() {
+	
+		// create color palette array
+		$color_palette = [];
+		// check if theme.json is being used and if so, grab the settings
+		if ( class_exists( 'WP_Theme_JSON_Resolver' ) ) {
+			$settings = WP_Theme_JSON_Resolver::get_theme_data()->get_settings();
+	
+			// full theme color palette
+			if ( isset( $settings['color']['palette']['theme'] ) ) {
+				$color_palette = $settings['color']['palette']['theme'];
+			}
+		}
+		if( ! empty( $color_palette ) ) {
+		?>
+		<script type="text/javascript">
+		(function($) {
+			acf.add_filter('color_picker_args', function( args, $field ){
+				args.palettes = [
+					<?php
+					foreach ( $color_palette as $color ) {
+						echo '"' . $color['color'] . '",';
+					}
+					?>
+				]
+				return args;
+			});
+		})(jQuery);
+		</script>
+	<?php 
+		}
+	}
+	add_action('acf/input/admin_footer', 'dgwltd_acf_color_palette');
+	endif;

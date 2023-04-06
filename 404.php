@@ -6,7 +6,12 @@
  *
  * @package dgwltd
  */
-
+//Create object to avoid errors
+$post = new stdClass();
+//Set post ID to 0 to avoid errors
+$post->ID = 0;
+//Set post title to 404 to avoid errors
+$post->post_title = '404';
 get_header();
 ?>
 <div id="primary" class="dgwltd-content-wrapper">

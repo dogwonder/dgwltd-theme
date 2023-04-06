@@ -20,7 +20,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@11ty/eleventy": "^2.0.0-beta.3",
+    "@11ty/eleventy": "^2.0.0",
     "autoprefixer": "^10.4.13",
     "axe-core": "^4.5.2",
     "bootstrap": "^5.2.2",
