@@ -57,7 +57,6 @@ These are saved in `wp-plugins\dgwltd-blocks\src\acf-json`
 
 - DGW.ltd Accordion - based on GOV.UK's [accordion pattern](https://design-system.service.gov.uk/components/accordion/) 
 - DGW.ltd Call-to-Action - text and image with button
-- DGW.ltd Details - based on GOV.UK's [details pattern](https://design-system.service.gov.uk/components/details/)
 - DGW.ltd Embed - lite embed custom element for [Youtube](https://github.com/paulirish/lite-youtube-embed) and [Vimeo](https://github.com/slightlyoff/lite-vimeo)
 - DGW.ltd Feature - text and background image similar to hero but less showy
 - DGW.ltd Featured Boxes - grid of cards linking to other pages, title, excerpt and featured image 

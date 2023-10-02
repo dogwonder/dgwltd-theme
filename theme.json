@@ -4,21 +4,12 @@
 	"settings": {
 		"appearanceTools": true,
 		"color": {
+			"custom": false,
+			"customDuotone": false,
+			"customGradient": false,
 			"defaultDuotone": true,
 			"defaultGradients": false,
 			"defaultPalette": false,
-			"gradients": [
-				{
-					"name": "Black to Primary",
-					"slug": "black-primary",
-					"gradient": "linear-gradient(135deg,rgba(0,0,0,1) 50%,var(--wp--preset--color--primary) 100%)"
-				},
-				{
-					"name": "Black to Secondary",
-					"slug": "black-secondary",
-					"gradient": "linear-gradient(135deg,rgba(0,0,0,1) 50%,var(--wp--preset--color--secondary) 100%)"
-				}
-			],
 			"palette": [
 				{
 					"name": "Primary", 
@@ -90,14 +81,14 @@
 		},
 		"typography": {
 			"customFontSize": false,
-			"lineHeight": false,
-			"dropCap": false,
 			"fontStyle": false,
 			"fontWeight": false,
 			"letterSpacing": false,
+			"lineHeight": false,
 			"textDecoration": false,
 			"textTransform": false,
-			"fluid": true, 
+			"dropCap": false,
+			"fluid": true,
 			"fontFamilies": [
 				{
 					"fontFamily": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
@@ -150,10 +141,10 @@
 					"slug": "small"
 				},
 				{
-					"name": "Normal",
+					"name": "Body",
 					"size": "1.125rem",
 					"fluid": false, 
-					"slug": "normal"
+					"slug": "body"
 				},
 				{
 					"name": "Medium",
@@ -290,7 +281,7 @@
 					}
 				},
 				"typography": {
-					"fontSize": "var(--wp--preset--font-size--normal)",
+					"fontSize": "var(--wp--preset--font-size--body)",
 					"lineHeight": "1",
 					"fontWeight": "bold"
 				}
@@ -390,7 +381,7 @@
 		},
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--system-font)",
-			"fontSize": "var(--wp--preset--font-size--normal)", 
+			"fontSize": "var(--wp--preset--font-size--body)", 
 			"fontWeight": "400",
 			"letterSpacing": "var(--wp--custom--typography--letter-spacing--body)",
 			"lineHeight": "var(--wp--custom--typography--line-height--body)"

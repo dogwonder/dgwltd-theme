@@ -30,43 +30,10 @@ $pkgVersion = $package['version'];
 <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/dist/images/fav/favicon-128x128.png">
 <meta name="apple-mobile-web-app-title" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
 <meta name="theme-color" content="#000000">
+<meta name="view-transition" content="same-origin" />
 <link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/dist/images/fav/manifest.json">
+<?php include(locate_template( 'template-parts/_organisms/meta-tags.php' )) ; ?>
 <script defer data-domain="wp.dgw.ltd" src="https://plausible.io/js/script.js"></script>
-<?php
-$site_description           = esc_attr( get_bloginfo( 'description', 'display' ) );
-$dgwltd_meta['title']       = 'DGW.ltd - ' . $post->post_title ?? '';
-$dgwltd_meta['description'] = strip_shortcodes( wp_trim_words( get_post_field( 'post_content', $post ), 20 ) );
-$dgwltd_meta['description'] = rtrim( str_replace( '&hellip;', '', $dgwltd_meta['description'] ), '' );
-if ( has_post_thumbnail() ) {
-	$image                = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'dgwltd-social-image' );
-	$dgwltd_meta['image'] = $image[0];
-}
-if ( ! is_single() || empty( $dgwltd_meta['image'] ) ) {
-	$dgwltd_meta['image'] = get_template_directory_uri() . '/dist/images/og/og-image.png';
-}
-if ( ! is_single() && ! is_page() || empty( $dgwltd_meta['title'] ) ) {
-	$dgwltd_meta['title'] = strip_shortcodes( esc_attr( get_bloginfo( 'name' ) ) );
-}
-if ( ! is_single() && ! is_page() || empty( $dgwltd_meta['description'] ) ) {
-	$dgwltd_meta['description'] = strip_shortcodes( esc_attr( get_bloginfo( 'description' ) ) );
-}
-if ( is_search() || is_404() ) {
-	$dgwltd_meta['url'] = esc_url( site_url() );
-} else {
-	$dgwltd_meta['url'] = esc_url( get_the_permalink( $post->ID ) );
-}
-?>
-<meta name="description" content="<?php echo esc_attr( $dgwltd_meta['description'] ); ?>">
-<meta property="og:title" content="<?php echo esc_attr( $dgwltd_meta['title'] ); ?>">
-<meta property="og:description" content="<?php echo esc_attr( $dgwltd_meta['description'] ); ?>">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image" content="<?php echo $dgwltd_meta['image']; ?>">
-<meta property="og:url" content="<?php echo $dgwltd_meta['url']; ?>">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="<?php echo esc_attr( $dgwltd_meta['title'] ); ?>">
-<meta name="twitter:description" content="<?php echo esc_attr( $dgwltd_meta['description'] ); ?>">
-<meta name="twitter:image" content="<?php echo $dgwltd_meta['image']; ?>">
 </head>
 <body <?php body_class( 'no-js' ); ?>>
 <script>document.body.className = document.body.className.replace('no-js', 'js-enabled');</script>

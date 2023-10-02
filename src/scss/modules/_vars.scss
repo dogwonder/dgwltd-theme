@@ -141,6 +141,9 @@ $palettes: (
 //CSS Variables
 :root {
 
+  --baseline: calc(var(--wp--preset--font-size--body) * var(--wp--custom--typography--line-height--body));
+  --baseline-multiplier: 1;
+
   --containerWidth: 70rem; //1120px
   --contentWidth: 52rem; //832px
   --contentWidthSmall: 38rem; //608px

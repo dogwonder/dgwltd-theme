@@ -2,6 +2,10 @@
 //Hero block
 .dgwltd-hero {
 
+    // @media not (prefers-reduced-motion: reduce) {
+    //   view-transition-name: hero;
+    // }
+
     &__content {
       ul {
         margin: 0 0 var(--wp--custom--spacing--medium);

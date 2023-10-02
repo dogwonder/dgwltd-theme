@@ -102,10 +102,3 @@ if ( ! function_exists( 'dgwltd_sort_dates' ) ) :
 
 	}
 endif;
-
-
-//Remove core block patterns (WordPress ships with a handful of patterns that are enabled by default)
-function dgwltd_remove_core_block_patterns_support() {
-	remove_theme_support( 'core-block-patterns' );
-}
-add_action( 'after_setup_theme', 'dgwltd_remove_core_block_patterns_support' );

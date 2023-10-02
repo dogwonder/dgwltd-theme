@@ -58,9 +58,9 @@ if ( class_exists( 'acf' ) ) {
 				if ( $parent && $page_template === 'template-guide.php' ) :
 					?>
 					<?php if ( ! empty( $overridden_title ) ) : ?>
-					<h2 class="govuk-heading-l<?php echo ( $hidden_title ? ' visually-hidden' : '' ); ?>"><?php echo $overridden_title; ?></h1>
+					<h2 class="govuk-heading-l<?php echo ( $hidden_title ? ' visually-hidden' : '' ); ?>"><?php echo $overridden_title; ?></h2>
 					<?php else : ?>
-					<h2 class="govuk-heading-l<?php echo ( $hidden_title ? ' visually-hidden' : '' ); ?>"><?php echo get_the_title( $post->ID ); ?></h1>
+					<h2 class="govuk-heading-l<?php echo ( $hidden_title ? ' visually-hidden' : '' ); ?>"><?php echo get_the_title( $post->ID ); ?></h2>
 					<?php endif; ?>
 				<?php endif; ?>
 
