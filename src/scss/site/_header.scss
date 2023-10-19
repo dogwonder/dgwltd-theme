@@ -79,6 +79,15 @@ $nav-height: toRem(60);
           fill: var(--wp--preset--color--primary);
       }
     }
+
+    //Custom styling
+    .logo {
+      &__angle-bracket {
+        opacity: 0.7;
+      }
+      &__line {}
+    }
+    
   }
 
 }

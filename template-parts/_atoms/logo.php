@@ -1,1 +1,4 @@
-<svg class="logo" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m225.87 451.35 215.06-433.49 58.18 27.68-215.06 433.46zm-27.17-297.08-134 104.43v5.72l133.55 103.44-37.7 48.67-156.41-126.84v-55.83l158.8-127.8z" fill-rule="nonzero"/></svg>
+<svg class="logo" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" x="0" y="0" style="enable-background:new 0 0 512 512" version="1.1" viewBox="0 0 512 512">
+    <polygon class="logo__angle-bracket" points="198.7,154.3 162.9,106.1 4.1,233.9 4.1,289.7 170.2,424.5 198.2,367.9 60.8,261.6 "/>
+    <polygon class="logo__line" points="440.9,17.9 497.4,44.7 270.7,505.6 218.8,463.4 "/>
+</svg>
