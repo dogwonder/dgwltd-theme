@@ -8,10 +8,9 @@ $total_pages = $wp_query->max_num_pages;
 ?>
 <nav class="dgwltd-pagination" aria-label="Pagination">
 <ul class="dgwltd-pagination__list">
-	<?php
+<?php
 	// If current page is not the first one
-	if ( $paged !== '1' && $total_pages > 1 ) :
-		?>
+	if ( $paged !== 1 && $total_pages > 1 ) : ?>
 	<li class="dgwltd-pagination__item dgwltd-pagination__item--previous">
 		<a href="<?php echo $prev_url; ?>" class="dgwltd-pagination__link" rel="prev">
 			<span class="dgwltd-pagination__link-title">
