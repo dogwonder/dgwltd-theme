@@ -13,10 +13,10 @@
     @return $number;
   }
   
-  @function clamp-calc($minFontSize, $maxFontSize, $minWidth: sm, $maxWidth: xxl) {
+  @function clamp-calc($minSize, $maxSize, $minWidth: sm, $maxWidth: xxl) {
     //Based on https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/#for-those-who-dont-mind-that-edge-case
-    // slope = (maxFontSize - minFontSize) / (maxWidth - minWidth) 
-    // yAxisIntersection = (-1 * minWidth) * slope + minFontSize 
+    // slope = (maxSize - minSize) / (maxWidth - minWidth) 
+    // yAxisIntersection = (-1 * minWidth) * slope + minSize 
     // preferredValue = yAxisIntersection[rem] + (slope * 100)[vw] 
   
     // padding: clamp-calc(1.5, 3, sm, lg); //fluid padding between 15px and 30px between small and large screens
@@ -44,17 +44,17 @@
       }
     }
   
-    $slope: math.div(($maxFontSize - $minFontSize), ($maxViewport - $minViewport));
-    $yAxisIntersection: -1 * $minViewport * $slope + $minFontSize;
+    $slope: math.div(($maxSize - $minSize), ($maxViewport - $minViewport));
+    $yAxisIntersection: -1 * $minViewport * $slope + $minSize;
   
-    // @debug('minFontSize: ' + $minFontSize);
-    // @debug('maxFontSize: ' + $maxFontSize);
+    // @debug('minSize: ' + $minSize);
+    // @debug('maxSize: ' + $maxSize);
     // @debug('minViewport: ' + $minViewport);
     // @debug('maxViewport: ' + $maxViewport);
     // @debug('slope: ' + $slope);
     // @debug('yAxisIntersection: ' + $yAxisIntersection);
   
-    @return clamp( ($minFontSize * 1rem), ($yAxisIntersection * 1rem) + (($slope * 100) * 1vw), ($maxFontSize * 1rem) );
+    @return clamp( ($minSize * 1rem), ($yAxisIntersection * 1rem) + (($slope * 100) * 1vw), ($maxSize * 1rem) );
     
   }
   
