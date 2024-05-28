@@ -1,0 +1,50 @@
+//For lists blogs / team etc
+.dgwltd-list {
+  &__item {
+    margin: 0 0 var(--wp--custom--spacing--gap);
+    padding-bottom: var(--wp--custom--spacing--gap);
+    border-bottom: 1px solid var(--border);
+    &:last-child {
+      border: 0;
+    }
+  }
+  //Furniture
+  &__content {
+    flex: 1;
+    order: 2;
+    @include mq($from: md) {
+      order: 1;
+    }
+  }
+  &__figure {
+    flex: 0 1 100%;
+    order: 1;
+    margin: 0 0 var(--wp--custom--spacing--gap) 0;
+    @include mq($from: md) {
+      order: 2;
+      flex: 0 1 30%;
+      margin: var(--wp--custom--spacing--gap) 0 0 var(--wp--custom--spacing--gap);
+    }
+    .post-thumbnail {
+      display: block;
+    }
+    img {
+      width: 100%;
+      height: inherit;
+      object-fit: cover;
+      object-position: 50% 50%;
+    }
+  }
+  //Details
+  &__title {
+    margin: 0 0 var(--wp--custom--spacing--sm);
+  }
+  &__meta {
+    .posted-on {
+      margin-inline-end: var(--wp--custom--spacing--md);
+    }
+  }
+  .dgwltd-button {
+    text-decoration: none;
+  }
+}

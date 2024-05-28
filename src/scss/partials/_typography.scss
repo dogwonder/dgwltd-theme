@@ -1,0 +1,160 @@
+html { font-family: var(--body), Helvetica, Arial, sans-serif; }
+
+//Global
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: var(--body);
+  font-weight: normal;
+  font-size: var(--wp--preset--font-size--body); //18px
+  line-height: var(--wp--custom--typography--line-height--body);
+  letter-spacing: 1rem * 0.02;
+  word-spacing: 1rem * 0.04;
+  text-align: left;
+  background-color: var(--wp--preset--color--light);
+  color: var(--wp--preset--color--dark);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+//Margin-block-start approach
+:is( h1, h2, h3, h4, h5, h6 ) {
+  //Reset browser defaults - we avoid reseting the top margin as this is coverted by template literals
+  margin-block: 0;
+  + p {
+    margin-block-start: var(--wp--custom--spacing--sm);
+  }
+}
+
+
+//For H1, H2, H3, we use 2-up pairs for responsive typography 
+//H1 >> extra-large - massive
+//H2 >> large - huge
+//H3 >> medium - extra-large
+
+//Line heights are unitless, e.g. 1.5
+
+/*Note: 
+I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mixins-better-for-performance/) but gov.uk uses silent classes ( https://csswizardry.com/2014/01/extending-silent-classes-in-sass/) for things like typography and that's pretty performant
+*/
+
+.dgwltd-heading-stepper {
+  font-family: var(--wp--preset--font-family--soehne-halbfett);
+  @include clamp-calc-step('font-size', (sm: $type-2, lg: $type-6, xxl: $type-10));
+}
+
+// H1
+.dgwltd-heading-xl, 
+%dgwltd-heading-xl {
+  font-family: var(--wp--preset--font-family--soehne-halbfett);
+  font-size: var(--wp--preset--font-size--massive);
+  line-height: var(--wp--custom--typography--line-height--headings--gigantic);
+  letter-spacing: var(--wp--custom--typography--letter-spacing--gigantic);
+  margin: 0;
+}
+
+// H2
+.dgwltd-heading-l, 
+%dgwltd-heading-l {
+  font-family: var(--wp--preset--font-family--soehne-halbfett);
+  font-size: var(--wp--preset--font-size--huge);
+  line-height: var(--wp--custom--typography--line-height--headings--gigantic);
+  letter-spacing: var(--wp--custom--typography--letter-spacing--gigantic);
+  margin: 0;
+}
+
+// H3
+.dgwltd-heading-m, 
+%dgwltd-heading-m {
+  font-family: var(--wp--preset--font-family--soehne-kraftig);
+  font-size: var(--wp--preset--font-size--extra-large);
+  line-height: var(--wp--custom--typography--line-height--headings--large);
+  letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
+  margin: 0;
+}
+
+// H4
+.dgwltd-heading-s, 
+%dgwltd-heading-s {
+  font-family: var(--wp--preset--font-family--soehne-kraftig);
+  font-size: var(--wp--preset--font-size--large);
+  line-height: var(--wp--custom--typography--line-height--headings--small);
+  letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
+  margin: 0;
+}
+
+// H5 / H6
+%dgwltd-heading-xs,
+.dgwltd-heading-xs {
+  font-family: var(--wp--preset--font-family--soehne-kraftig);
+  font-size: var(--wp--preset--font-size--medium);
+  line-height: var(--wp--custom--typography--line-height--body);
+  letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
+  margin: 0;
+}
+
+.dgwltd-body, 
+%dgwltd-body,
+.govuk-body {
+  font-weight: normal;
+  font-size: var(--wp--preset--font-size--body); //18px
+  line-height: var(--wp--custom--typography--line-height--body);
+}
+
+.dgwltd-body-l, 
+%dgwltd-body-l {
+  font-size: var(--wp--preset--font-size--large);
+  line-height: var(--wp--custom--typography--line-height--headings--large);
+}
+
+.dgwltd-body-m, 
+%dgwltd-body-m {
+  font-size: var(--wp--preset--font-size--medium);
+  line-height: var(--wp--custom--typography--line-height--body);
+}
+
+.dgwltd-body-s, 
+%dgwltd-body-s {
+  font-size: var(--wp--preset--font-size--small);
+  line-height: var(--wp--custom--typography--line-height--body);
+}
+
+.dgwltd-body-xs, 
+%dgwltd-body-xs {
+  font-size: var(--wp--preset--font-size--tiny);
+  line-height: var(--wp--custom--typography--line-height--body);
+}
+
+.dgwltd-navigation, 
+%dgwltd-navigation {
+  font-family: var(--wp--preset--font-family--soehne-kraftig);
+  font-size: var(--wp--preset--font-size--medium);
+  line-height: 1;
+} 
+
+ul,
+ol {
+  padding-left: 0;
+  list-style-position: outside;
+}
+
+blockquote p {
+  hanging-punctuation: first;
+  text-indent: -5px;
+}
+
+//Swiss school
+.swiss-shift {
+  span.background {
+    opacity: 0.7;
+  }
+  span.foreground {
+    opacity: 1;
+    margin-inline-start: -1ch;
+  }
+}

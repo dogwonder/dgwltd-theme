@@ -1,0 +1,70 @@
+
+//Hero block
+.dgwltd-feature {
+
+    .acf-innerblocks-container {
+        @include stack($gap);
+        h2 {
+          --buffer: 0;
+        }
+    }
+
+    &__content {
+      .wp-block-button__link {
+        margin: 0;
+      }
+    }
+
+    &.has-background, 
+    &.has-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      grid-column: 2 / span 1;
+
+      h2 {
+        @extend %dgwltd-heading-xl;
+      }
+
+      h2, h3, p, .govuk-body {
+        color:inherit;
+      }
+
+      p, li, .govuk-body {
+        max-width: var(--characterMax);
+      }
+
+      .dgwltd-feature__wrapper {
+        position: relative;
+        z-index:2;
+        display: grid;
+        //Then create a subgrid
+        grid-template-columns: 1fr minmax(min-content, var(--containerWidth)) 1fr;
+        .dgwltd-feature__inner {
+          //Snap back to our container
+          grid-column: 2 / span 1;
+          padding:var(--wp--custom--spacing--lg) var(--wp--custom--spacing--md);
+        }
+      }
+
+      &:not(.alignfull) {
+        padding: 0;
+        margin-inline: var(--wp--custom--spacing--md);
+      }
+      
+    }
+
+    //Varients
+    &.alignfull {
+      grid-column: 1 / span 3 !important;
+    }
+
+    //Block style varients - styles in block.json
+    &.is-style-monochrome {
+      .block__background img {
+        filter: grayscale(100%) contrast(200%);
+      }
+    }
+    
+}

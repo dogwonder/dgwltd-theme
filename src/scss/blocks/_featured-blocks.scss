@@ -1,0 +1,21 @@
+.dgwltd-featured-boxes {
+
+  //Add margin to top 
+  h2 ~ .dgwltd-featured-boxes__inner {
+    margin-block-start:var(--wp--custom--spacing--gap);
+  }
+
+  &__inner {
+    display: grid;
+    -ms-display: grid;
+    grid-column-gap: var(--wp--custom--spacing--gap);
+    grid-template-columns: repeat(1, 1fr);
+    @include mq($from: md) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+}
+
+
+

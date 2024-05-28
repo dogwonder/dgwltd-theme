@@ -1,0 +1,24 @@
+//Related block
+.dgwltd-related {
+    .contextual-footer {
+      border-top: 2px solid var(--wp--preset--color--dark);
+      padding-top: var(--wp--custom--spacing--sm);
+    }
+    .dgwltd-list {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      li {
+        &:before {
+          display: inline-block;
+          content: "—";
+          font-weight: normal;
+          margin-inline-end: var(--wp--custom--spacing--sm);
+        }
+        a {
+          color: var(--wp--preset--color--dark);
+        }
+      }
+    }
+  }
+  

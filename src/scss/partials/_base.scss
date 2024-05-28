@@ -1,0 +1,91 @@
+//Box sizing
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+//Links
+a {
+  color: var(--wp--preset--color--dark);
+  text-decoration: underline;
+  text-decoration-thickness: unquote("max(0.1em, .0625rem)") !important;
+  text-underline-offset: 0.1em;
+  //Break long urls
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  &:visited {
+    color: var(--wp--preset--color--dark);
+  }
+  &:hover {
+    color: var(--wp--preset--color--dark);
+    text-decoration-color: var(--wp--preset--color--primary);
+  }
+  &:active {
+    color: var(--wp--preset--color--dark);
+    text-decoration: none;
+  }
+}
+
+//Focus styles  - via https://www.youtube.com/watch?v=FfQ-JuaNO68
+:is(a, button, input, textarea, summary) {
+  --outline-size: max(2px, 0.08em); //If 0.0.8em is less than 2px use 2px
+  --outline-style: solid;
+  --outline-color: transparent;
+  --background-color: var(--focus);
+  --box-shadow-color: var(--focus);
+  --box-shadow: 0 -2px var(--box-shadow-color), 0 4px currentColor;
+}
+
+//Set a global default for focus visible styles
+:is(a, button, input, textarea, summary):focus-visible {
+  outline:
+    var(--outline-size)
+    var(--outline-style)
+    var(--outline-color);
+  outline-offset: var(--outline-offset, var(--outline-size));
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow);
+  text-decoration: none;
+}
+
+//Reset the outline - :is won't work in IE11 etc so it won't be applied and will get the browser default outlines
+:is(a, button, input, textarea, summary):focus:not(:focus-visible) {
+  outline: none;
+}
+
+//Custom inset for buttons, using the optional --outline-offset variable
+// button {
+//   --outline-offset: -0.15em;
+// }
+
+// .link {
+//   &:focus-visible {
+//     --background-color: var(--wp--preset--color--primary);
+//     --box-shadow-color: var(--wp--preset--color--primary);
+//   }
+// }
+
+hr {
+  margin: var(--wp--custom--spacing--gap) 0;
+  height: 1px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Remove all animations and transitions
+for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

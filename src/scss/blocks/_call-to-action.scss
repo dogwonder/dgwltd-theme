@@ -1,0 +1,88 @@
+
+//CTA block
+.dgwltd-cta {
+
+    &__content {
+      text-align: left;
+      .dgwltd-button {
+        margin:0;
+      }
+    }
+
+    &.has-image {
+      .dgwltd-cta__inner {
+        display: flex;
+        flex-direction: column;
+        @include mq($from: md) {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+      }
+      .dgwltd-cta__image {
+        @include mq($from: md) {
+          flex-basis: 50%;
+        }
+        margin: 0;
+        .frame {
+          @include mq($until: md) {
+            width:100%;
+            margin:0 auto var(--wp--custom--spacing--gap);
+          }
+          display: flex;
+          aspect-ratio: 4/3;
+        }
+        img {
+          //For the LQIP
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      }
+      .dgwltd-cta__content {
+        padding: 0 0 var(--wp--custom--spacing--gap) 0;
+        @include mq($from: md) {
+          text-align: left;
+          flex-basis: 50%;
+          padding: 0 var(--wp--custom--spacing--lg) 0 0;
+        }
+      }
+
+
+    }
+
+    &.has-background {
+      &:not(.alignfull) {
+        padding: 0;
+        margin-inline: var(--wp--custom--spacing--md);
+      }
+      .dgwltd-cta__content {
+        padding: var(--wp--custom--spacing--md); 
+      }
+    }
+
+    //Block style varients - styles in block.json
+    &.is-style-monochrome {
+      .dgwltd-cta__image img {
+        filter: grayscale(100%) contrast(200%);
+      }
+    }
+
+    //Reversed
+    &[data-state='reversed'] {
+      .dgwltd-cta__inner {
+        @include mq($from: md) {
+          flex-direction: row-reverse;
+        }
+      }
+      .dgwltd-cta__content {
+        @include mq($from: md) {
+          padding-right: 0;
+          padding-left: var(--wp--custom--spacing--lg);
+        }
+      }
+      .frame {
+        @include mq($until: md) {
+          margin:0 auto var(--wp--custom--spacing--gap);
+        }
+      }
+    }
+}

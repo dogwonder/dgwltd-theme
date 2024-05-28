@@ -1,0 +1,70 @@
+//Sticky footer
+.dgwltd-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.dgwltd-container {
+  //We need this for IE11 to respect, flex:1 won't work on it's own
+  flex: 1;
+  position: relative;
+}
+
+//Page layout
+.dgwltd-content-wrapper {
+  padding:0;
+  max-width: 100%;
+  .entry-header, 
+  .entry-content, 
+  .entry-footer {
+    //Allows for full width sections 
+    display: grid;
+    grid-template-columns: 1fr minmax(min-content, var(--containerWidth)) 1fr;
+    > * {
+      grid-column: 2 / span 1;
+      padding: 0 var(--wp--custom--spacing--md);
+    }
+  }
+  .entry-header {
+    > * {
+      margin-block-start: 0;
+      margin-block-end: var(--wp--custom--spacing--gap);
+    }
+  }
+  .entry-content {
+    //Alignment
+    .alignfull {
+      max-width: 100%;
+      grid-column: 1 / span all !important;
+      padding: 0;
+      &.wp-block-image {
+        margin: 0;
+      }
+    }
+    .alignwide {
+      grid-column: 1 / span all !important;
+      width: 100%;
+      max-width: var(--containerWidth);
+      margin: 0 auto;
+    }
+  }
+}
+
+//Exceptions
+.dgwltd-post {
+  .entry-header {
+    &:has(.entry-meta) {
+      .wp-block-post-title {
+        margin-block-end: var(--wp--custom--spacing--sm);
+      }
+    }
+  }
+}
+
+//Hero followed by Featured block
+.wp-block-post-content {
+  .dgwltd-hero + .dgwltd-feature {
+    --buffer: 0;
+  }
+}

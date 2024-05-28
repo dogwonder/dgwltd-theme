@@ -1,0 +1,135 @@
+///
+/// Functions
+/// 
+
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+      @return math.div($number, $number * 0 + 1);
+    }
+  
+    @return $number;
+  }
+  
+  @function clamp-calc($minSize, $maxSize, $minWidth: sm, $maxWidth: xxl) {
+    //Based on https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/#for-those-who-dont-mind-that-edge-case
+    // slope = (maxSize - minSize) / (maxWidth - minWidth) 
+    // yAxisIntersection = (-1 * minWidth) * slope + minSize 
+    // preferredValue = yAxisIntersection[rem] + (slope * 100)[vw] 
+  
+    // padding: clamp-calc(1.5, 3, sm, lg); //fluid padding between 15px and 30px between small and large screens
+    // font-size: clamp-calc(4.5, 9, sm, lg); //45 to 95px between small and large screens
+  
+    $minViewport: null;
+    $maxViewport: null;
+    
+    // Breakpoints based on our default breakpoints, 320, 768, 1024, 1440, 1920
+    $breakpoints : (
+      sm: 20,
+      md: 48,
+      lg: 64,
+      xl: 90,
+      xxl: 120
+    );
+  
+    // Loop through the map and find the closest breakpoint to the provided value
+    @each $breakpoint, $value in $breakpoints {
+      @if $minWidth == $breakpoint {
+        $minViewport: $value;
+      }
+      @if $maxWidth == $breakpoint {
+        $maxViewport: $value;
+      }
+    }
+  
+    $slope: math.div(($maxSize - $minSize), ($maxViewport - $minViewport));
+    $yAxisIntersection: -1 * $minViewport * $slope + $minSize;
+  
+    // @debug('minSize: ' + $minSize);
+    // @debug('maxSize: ' + $maxSize);
+    // @debug('minViewport: ' + $minViewport);
+    // @debug('maxViewport: ' + $maxViewport);
+    // @debug('slope: ' + $slope);
+    // @debug('yAxisIntersection: ' + $yAxisIntersection);
+  
+    @return clamp( ($minSize * 1rem), ($yAxisIntersection * 1rem) + (($slope * 100) * 1vw), ($maxSize * 1rem) );
+    
+  }
+  
+  
+  // Convert px to rem
+  @function toRem($value) {
+    $remValue: math.div($value, 16) + rem; 
+    @return $remValue;
+  }
+  
+  // Convert px to em
+  @function toEm($value) {
+    $emValue: math.div($value, 16) + em; 
+    @return $emValue;
+  }
+  
+  /// map-sort
+  /// Sort map by keys
+  /// @param $map - A SASS map
+  /// @returns A SASS map sorted by keys
+  /// @requires function list-sort
+  /// @author Jake Wilson <jake.e.wilson@gmail.com>
+  @function map-sort($map) {
+    $keys: list-sort(map-keys($map));
+    $sortedMap: ();
+    @each $key in $keys {
+      $sortedMap: map-merge($sortedMap, ($key: map-get($map, $key)));
+    }
+    @return $sortedMap;
+  }
+  
+  /// list-sort
+  /// Sort a SASS list
+  /// @param $list - A SASS list
+  /// @returns A sorted SASS list
+  /// @requires function list-remove
+  /// @author Jake Wilson <jake.e.wilson@gmail.com>
+  @function list-sort($list) {
+    $sortedlist: ();
+    @while length($list) > 0 {
+    $value: nth($list,1);
+    @each $item in $list {
+    @if $item < $value {
+    $value: $item;
+          }
+        }
+    $sortedlist: append($sortedlist, $value, 'space');
+    $list: list-remove($list, index($list, $value));
+      }
+    @return $sortedlist;
+    }
+  
+  
+  /// list-remove
+  /// Remove an item from a list
+  /// @param $list - A SASS list
+  /// @param $index - The list index to remove
+  /// @returns A SASS list
+  /// @author Jake Wilson <jake.e.wilson@gmail.com>
+  @function list-remove($list, $index) {
+    $newList: ();
+    @for $i from 1 through length($list) {
+    @if $i != $index {
+    $newList: append($newList, nth($list,$i), 'space');
+        }
+      }
+    @return $newList;
+  }
+  
+  
+  //Fetch nested spaces
+  @function map-deep-get($spaces, $keys) {
+    $value: $spaces;
+    @each $key in $keys {
+        $value: map-get($value, $key);
+    }
+    @return $value;
+  }

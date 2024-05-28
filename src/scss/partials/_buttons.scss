@@ -1,0 +1,86 @@
+.dgwltd-button, 
+%dgwltd-button,
+.wp-block-button__link {
+  appearance: none;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: $bold;
+  font-size: var(--wp--preset--font-size--body);
+  line-height: 1;
+  padding: var(--wp--custom--spacing--xs) var(--wp--custom--spacing--sm);
+  margin: var(--wp--custom--spacing--sm) 0;
+  color: var(--button-text-color);
+  background-color: var(--button-background);
+  border: 2px solid var(--button-background);
+  border-radius: 0;
+  box-shadow: none;
+  @include mq($from: md) {
+    margin: 0 0 var(--wp--custom--spacing--gap);
+  }
+  &:hover {
+    cursor: pointer;
+    color: var(--button-text-color);
+    border-color: var(--button-hover);
+    background-color: var(--button-hover);
+  }
+  &:link,
+  &:visited,
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
+  &:focus-visible {
+    box-shadow: none;
+    --outline-offset: -0.25em;
+    --outline-color: var(--wp--preset--color--dark);
+  }
+  &[disabled] {
+    background-color: var(--button-disabled);
+    color: black;
+    border-color: var(--button-disabled);
+    cursor: not-allowed;
+  }
+}
+
+//Theme varients
+.wp-block-button__link {
+  @each $color in $palette {
+    &.has-#{$color}-background-color {
+      border-color: var(--wp--preset--color--#{$color});
+      &:hover {
+        border-color: hsl(var(--hs-#{$color}), calc(var(--l-#{$color}) - 5%)) !important;
+        background-color: hsl(var(--hs-#{$color}), calc(var(--l-#{$color}) - 5%)) !important;
+      }
+    }
+  }
+}
+
+//Remove default outline
+.govuk-button {
+  box-shadow: none;
+}
+
+.dgwltd-button > a {
+  color: var(--wp--preset--color--light);
+  text-decoration: none;
+  &:hover {
+    color: white;
+  }
+}
+
+%dgwltd-button--small, 
+.dgwltd-button--small {
+  padding: var(--wp--custom--spacing--xs) var(--wp--custom--spacing--sm);
+}
+
+%dgwltd-button--ghost, 
+.dgwltd-button--ghost {
+  border-color: var(--wp--preset--color--light);
+  color: var(--button-background);
+  background-color: transparent;
+  &:hover {
+    border-color: var(--button-background);
+    background-color: var(--button-background);
+    color: white;
+  }
+}
