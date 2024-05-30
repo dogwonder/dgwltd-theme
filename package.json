@@ -1,12 +1,12 @@
 {
   "name": "dgwltd",
-  "version": "1.2.6",
+  "version": "1.2.10",
   "description": "",
   "main": "",
   "scripts": {
     "clean": "trash \"./dist/\"",
     "css:sass": "sass ./src/scss/main.scss ./dist/css/main.css  && sass ./src/scss/print.scss ./dist/css/print.css",
-    "css:replace": "replace \"Version: v\\d+(\\.\\d+){1,2}\" \"Version: $(npm version patch)\" style.css",
+    "css:replace": "replace \"Version: v\\d+(\\.\\d+){1,2}\" \"Version: $(npm version patch --no-git-tag-version)\" style.css",
     "css:postcss": "postcss ./dist/css/**/*.css --use autoprefixer postcss-custom-properties cssnano --no-map --verbose --dir ./dist/css/",
     "css": "run-s css:*",
     "scripts:concat": "concat ./src/scripts/app.js -o ./src/scripts/app.min.js",
@@ -14,8 +14,8 @@
     "scripts": "run-s scripts:*",
     "watch:css": "onchange \"./src/**/*.scss\" -- npm run css:sass",
     "watch:eleventy": "npx eleventy --serve",
-    "favicon": "node ./scripts/favicon.js",
     "watch": "run-p watch:*",
+    "favicon": "node ./scripts/favicon.js",
     "build": "NODE_ENV=production npm run clean && NODE_ENV=production npm run-s css scripts && NODE_ENV=production npx eleventy && NODE_ENV=production npm run favicon"
   },
   "author": "",
@@ -41,7 +41,7 @@
     "postcss-import": "^15.1.0",
     "postcss-scss": "^4.0.9",
     "replace": "^1.2.2",
-    "sass": "^1.69.5",
+    "sass": "^1.77.3",
     "sharp": "^0.33.3",
     "svg-to-ico": "^1.0.14",
     "trash-cli": "^5.0.0",

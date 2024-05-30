@@ -40,6 +40,11 @@
 					"name": "Alt", 
 					"slug": "alt",
 					"color": "#e0e5db"
+				},
+				{
+					"name": "Focus", 
+					"slug": "focus",
+					"color": "#FFDD00"
 				}
 			]
 		},
