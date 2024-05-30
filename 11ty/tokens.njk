@@ -1,0 +1,28 @@
+---
+permalink: '../src/scss/modules/_tokens.scss'
+---
+:root {
+  {%- for color in tokens.colorMap %}
+  --color-{{ color.name }}: {{ color.color }};
+  {%- endfor %}
+  {%- for space in tokens.spacing %}
+  --space-{{ space.name }}: {{ space.value }};
+  {%- endfor %} 
+  {%- for size in tokens.text %}
+  --font-size-{{ size.name | slug }}: {{ size.value }};
+  {%- endfor %}
+  {%- for size in tokens.lineheight %}
+  --line-height-{{ size.name | slug }}: {{ size.value }};
+  {%- endfor %}
+
+  
+  {%- for size in utopia.resultsSpace %}
+  --space-{{ size.label }}: {{ size.clamp }}; //{{ size.minSize }}px - {{ size.maxSize }}px
+  {%- endfor %}
+
+  {%- for size in utopia.resultsStep %}
+  --step-{{ size.label }}: {{ size.clamp }}; //{{ size.minSize }}px - {{ size.maxSize }}px
+  {%- endfor %}
+  
+ 
+}

@@ -9,7 +9,15 @@
   //We need this for IE11 to respect, flex:1 won't work on it's own
   flex: 1;
   position: relative;
+  container-name: dgwltdContainer;
+  container-type: inline-size;
 }
+
+// @container myContainer (width < 360px) {
+//   .layout > * {
+//     /* fill your boots */
+//   }
+// }
 
 //Page layout
 .dgwltd-content-wrapper {
