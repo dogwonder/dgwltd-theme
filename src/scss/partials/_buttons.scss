@@ -9,9 +9,9 @@
   line-height: 1;
   padding: var(--wp--custom--spacing--xs) var(--wp--custom--spacing--sm);
   margin: var(--wp--custom--spacing--sm) 0;
-  color: var(--button-text-color);
-  background-color: var(--button-background);
-  border: 2px solid var(--button-background);
+  color: var(--wp--preset--color--dark);
+  background-color: var(--wp--preset--color--primary);
+  border: 2px solid var(--wp--preset--color--primary);
   border-radius: 0;
   box-shadow: none;
   @include mq($from: md) {
@@ -19,9 +19,9 @@
   }
   &:hover {
     cursor: pointer;
-    color: var(--button-text-color);
-    border-color: var(--button-hover);
-    background-color: var(--button-hover);
+    color: var(--wp--preset--color--dark);
+    border-color: var(-wp--preset--color--secondary);
+    background-color: var(-wp--preset--color--secondary);
   }
   &:link,
   &:visited,
@@ -35,23 +35,10 @@
     --outline-color: var(--wp--preset--color--dark);
   }
   &[disabled] {
-    background-color: var(--button-disabled);
+    background-color: var(--disabled);
     color: black;
-    border-color: var(--button-disabled);
+    border-color: var(--disabled);
     cursor: not-allowed;
-  }
-}
-
-//Theme varients
-.wp-block-button__link {
-  @each $color in $palette {
-    &.has-#{$color}-background-color {
-      border-color: var(--wp--preset--color--#{$color});
-      &:hover {
-        border-color: hsl(var(--hs-#{$color}), calc(var(--l-#{$color}) - 5%)) !important;
-        background-color: hsl(var(--hs-#{$color}), calc(var(--l-#{$color}) - 5%)) !important;
-      }
-    }
   }
 }
 
@@ -76,11 +63,11 @@
 %dgwltd-button--ghost, 
 .dgwltd-button--ghost {
   border-color: var(--wp--preset--color--light);
-  color: var(--button-background);
+  color: var(--wp--preset--color--primary);
   background-color: transparent;
   &:hover {
-    border-color: var(--button-background);
-    background-color: var(--button-background);
+    border-color: var(--wp--preset--color--primary);
+    background-color: var(--wp--preset--color--primary);
     color: white;
   }
 }

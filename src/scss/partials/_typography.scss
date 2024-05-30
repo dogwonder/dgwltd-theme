@@ -43,10 +43,10 @@ body {
 I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mixins-better-for-performance/) but gov.uk uses silent classes ( https://csswizardry.com/2014/01/extending-silent-classes-in-sass/) for things like typography and that's pretty performant
 */
 
-.dgwltd-heading-stepper {
-  font-family: var(--wp--preset--font-family--soehne-halbfett);
-  @include clamp-calc-step('font-size', (sm: $type-2, lg: $type-6, xxl: $type-10));
-}
+// .dgwltd-heading-stepper {
+//   font-family: var(--wp--preset--font-family--soehne-halbfett);
+//   @include clamp-calc-step('font-size', (sm: $type-2, lg: $type-6, xxl: $type-10));
+// }
 
 // H1
 .dgwltd-heading-xl, 

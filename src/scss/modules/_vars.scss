@@ -10,80 +10,14 @@ $z-highest-1: 998;
 $z-highest: 999;
 $z-important: 2147483647;
 
-//Scale - used for iteration over breakpoints (keys only)
-$scale: ('sm','md','lg','xl');
-
 //Spacing
-$spacing: ( 'extra-small', 'small', 'medium', 'large', 'extra-large');
-
-//Measures - for margin / padding
-$gaps: (5, 10, 15, 20, 25, 30, 35, 40, 50, 80);
+$scale: ( 'xs', 'sm', 'md', 'lg', 'xl');
 
 //Default gap
 $gap: 1.5rem;
 
 //Typography
 $bold: 700;
-
-//Typography scale - maps to theme.json - Perfect fourth scale - https://type-scale.com
-$type-massive: 4.209; //67.34px
-$type-huge: 3.157; //50.52px
-$type-extra-large: 2.369; //37.90px
-$type-large: 1.777; //28.43px
-$type-medium: 1.333; //21.33px
-$type-normal: 1.125; //18px default font size
-$type-small: 1; //16px
-$type-tiny: 0.875; //14px
-
-//Step based typography scale - we don't add a unit as this is calculated later
-$type-1: 14;
-$type-2: 16;
-$type-3: 18;
-$type-4: 20;
-$type-5: 24;
-$type-6: 32;
-$type-7: 40;
-$type-8: 48;
-$type-9: 64;
-$type-10: 96;
-
-//Spacing - usedin fluid spacing
-$spaces: (
-    gaps: (
-      xlarge: (
-        lg: 8,
-        sm: 4
-      ),
-      large: (
-        lg: 4,
-        sm: 2
-      ),
-      medium: (
-        lg: 2,
-        sm: 1
-      ),
-      small: (
-        lg: 1,
-        sm: 1
-      ),
-      none: (
-        lg: 0, 
-        sm: 0
-      )
-    )
-);
-
-//Step based spacing scale - we don't add a unit as this is calculated later
-$space-1: 8;
-$space-2: 16;
-$space-3: 24;
-$space-4: 32;
-$space-5: 40;
-$space-6: 48;
-$space-7: 64;
-$space-8: 80;
-$space-9: 96;
-$space-10: 160;
 
 ////
 /// Vendor variables
@@ -96,49 +30,6 @@ $mq-breakpoints: (
   lg: 1024px, 
   xl: 1440px, 
   xxl: 1920px
-);
-
-
-////
-/// Colors
-////
-
-$palette: (
-  'primary',
-  'secondary',
-  'tertiary',
-  'dark',
-  'light',
-  'alt'
-);
-
-$palettes: (
-    themes: (
-      primary: (
-          background: var(--wp--preset--color--primary),
-          text: var(--wp--preset--color--light)
-      ),
-      secondary: (
-          background: var(--wp--preset--color--secondary),
-          text: var(--wp--preset--color--dark)
-      ),
-      tertiary: (
-          background: var(--wp--preset--color--tertiary),
-          text: var(--wp--preset--color--dark)
-      ),
-      dark: (
-          background: var(--wp--preset--color--dark),
-          text: var(--wp--preset--color--light)
-      ),
-      light: (
-          background: var(--wp--preset--color--light),
-          text: var(--wp--preset--color--dark)
-      ), 
-      alt: (
-          background: var(--wp--preset--color--alt),
-          text: var(--wp--preset--color--dark)
-      )
-    )
 );
 
 //CSS Variables
@@ -158,30 +49,10 @@ $palettes: (
   //Borders
   --border: #666666;
 
-  //Color mappings to HSL 
-  --hs-primary: 185, 100%; //#0095a3
-  --hs-secondary: 5, 98%; //#fe9f97
-  --hs-tertiary: 40, 97%; //#fbae17
-  --l-primary: 32%;
-  --l-secondary: 79%;
-  --l-tertiary: 54%;
-
-  //Highlights and states
-  --highlight: hsl(var(--hs-primary), var(--l-primary));
-  --hover: hsl(var(--hs-primary), calc(var(--l-primary) - 5%));
-  --active: hsl(var(--hs-primary), calc(var(--l-primary) - 5%));
-  --focus: hsl(var(--hs-primary), calc(var(--l-primary) + 5%));
-
   //Forms
   --success: #457c39;
   --error: #db2f27;
-
-  //Buttons
-  --button-text-color: var(--wp--preset--color--light);
-  --button-background: hsl(var(--hs-primary), var(--l-primary));
-  --button-hover: hsl(var(--hs-primary), calc(var(--l-primary) - 5%));
-  --button-focus: hsl(var(--hs-primary), calc(var(--l-primary) + 5%));
-  --button-disabled: hsl(var(--hs-primary), calc(var(--l-primary) + 90%));
+  --disabled: #999999;
 
   //Menu height
   --submenu-offset: 0;

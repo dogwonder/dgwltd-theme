@@ -64,7 +64,7 @@ input[type="submit"] {
   cursor: pointer;
   -webkit-appearance: none;
   &:hover {
-    background-color: var(--button-hover);
+    background-color: var(-wp--preset--color--secondary);
   }
 }
 
@@ -125,10 +125,10 @@ input[type="submit"] {
   //Buttons
   .gform_button {
     @extend %dgwltd-button;
-    background-color: var(--button-background);
+    background-color: var(--wp--preset--color--primary);
     line-height: 1 !important; //Overrule theme
     &:hover {
-      background-color: var(--button-hover);
+      background-color: var(-wp--preset--color--secondary);
     }
     &:focus-visible {
       background-color: var(--button-focus);
