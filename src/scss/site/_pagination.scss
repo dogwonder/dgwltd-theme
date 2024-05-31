@@ -34,7 +34,7 @@
     &:active,
     &:focus-visible {
       outline: none;
-      background-color: var(--focus);
+      background-color: var(--wp--preset--color--focus);
       .dgwltd-pagination__item {
         border-top: 1px solid var(--wp--preset--color--dark);
       }

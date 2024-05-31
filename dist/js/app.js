@@ -302,6 +302,70 @@
         
     };
 
+    class TextareaHandler {
+        constructor(elem) {
+            document.querySelectorAll(elem).forEach((textarea) => {
+                // Set the minimum number of rows for each textarea based on its 'rows' attribute or default to 2
+                textarea.setAttribute('rows', 4);
+                // Update each textarea to adjust its size
+                this.update(textarea);
+            });
+        }
+    
+        // Check if the textarea has a scrollbar
+        isScrolling(textarea) {
+            return textarea.scrollHeight > textarea.clientHeight;
+        }
+    
+        // Increase the number of rows of the textarea until it no longer needs to scroll
+        grow(textarea) {
+            let clientHeight = textarea.clientHeight;
+            let rows = this.rows(textarea);
+            while (this.isScrolling(textarea)) {
+                rows++;
+                textarea.rows = rows;
+                const newClientHeight = textarea.clientHeight;
+                if (newClientHeight === clientHeight) {
+                    break; // Stop if the height does not change
+                }
+                clientHeight = newClientHeight;
+            }
+        }
+    
+        // Decrease the number of rows of the textarea until it reaches the minimum or starts to need a scrollbar
+        shrink(textarea) {
+            let clientHeight = textarea.clientHeight;
+            const minRows = parseInt(textarea.dataset.minRows);
+            let rows = this.rows(textarea);
+            while (!this.isScrolling(textarea) && rows > minRows) {
+                rows--;
+                textarea.rows = Math.max(rows, minRows);
+                if (textarea.clientHeight === clientHeight) {
+                    break; // Stop if the height does not change
+                }
+                if (this.isScrolling(textarea)) {
+                    this.grow(textarea); // Grow again if we over-shrunk
+                    break;
+                }
+            }
+        }
+    
+        // Update the textarea by growing or shrinking it as needed
+        update(textarea) {
+            if (this.isScrolling(textarea)) {
+                this.grow(textarea);
+            } else {
+                this.shrink(textarea);
+            }    
+        }
+    
+        // Helper method to get the current number of rows of the textarea
+        rows(textarea) {
+            return textarea.rows || parseInt(textarea.dataset.minRows);
+        }
+    }
+    
+
     //Init
     document.addEventListener("DOMContentLoaded", function() {
         externalLinks();
@@ -309,7 +373,7 @@
         toggleNav('#nav-toggle', '#nav-primary', '#masthead');
         subMenu('#nav-primary', '#masthead');
         cardClick('.dgwltd-card');
-        // yoastSchema();
+        new TextareaHandler('textarea');
      });
     
 })();

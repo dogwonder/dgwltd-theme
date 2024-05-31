@@ -36,8 +36,8 @@ a {
   --outline-size: max(2px, 0.08em); //If 0.0.8em is less than 2px use 2px
   --outline-style: solid;
   --outline-color: transparent;
-  --background-color: var(--focus);
-  --box-shadow-color: var(--focus);
+  --background-color: var(--wp--preset--color--focus);
+  --box-shadow-color: var(--wp--preset--color--focus);
   --box-shadow: 0 -2px var(--box-shadow-color), 0 4px currentColor;
 }
 

@@ -58,7 +58,7 @@
       color: inherit;
       &:hover {
         .icon-social {
-          fill: var(--focus);
+          fill: var(--wp--preset--color--focus);
         }
       }
       &:focus-visible {
@@ -66,7 +66,7 @@
         box-shadow: none;
         background-color: transparent;
         .icon-social {
-          fill: var(--focus);
+          fill: var(--wp--preset--color--focus);
         }
       }
     }

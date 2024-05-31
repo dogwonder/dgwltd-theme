@@ -20,8 +20,8 @@
   &:hover {
     cursor: pointer;
     color: var(--wp--preset--color--dark);
-    border-color: var(-wp--preset--color--secondary);
-    background-color: var(-wp--preset--color--secondary);
+    border-color: var(--wp--preset--color--secondary);
+    background-color: var(--wp--preset--color--secondary);
   }
   &:link,
   &:visited,
@@ -62,7 +62,7 @@
 
 %dgwltd-button--ghost, 
 .dgwltd-button--ghost {
-  border-color: var(--wp--preset--color--light);
+  border-color: var(--wp--preset--color--primary);
   color: var(--wp--preset--color--primary);
   background-color: transparent;
   &:hover {

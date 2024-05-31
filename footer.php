@@ -17,7 +17,7 @@
 <?php wp_footer(); ?>
 <script type="module" src="<?php echo get_template_directory_uri(); ?>/dist/js/app.min.js"></script>
 <script type="module">
-import { initAll } from '<?php echo get_template_directory_uri(); ?>/dist/js/govuk-frontend-5.3.0.min.js'
+import { initAll } from '<?php echo get_template_directory_uri(); ?>/dist/js/govuk-frontend-5.4.0.min.js'
 initAll()
 </script>
 <script>
