@@ -158,11 +158,6 @@ function dgwltd_scripts_styles() {
 	// Enqueue theme stylesheet.
 	wp_enqueue_style( 'dgwltd-style' );
 
-	// Enqueue custom theme stylesheet - we are adding this directly to the header but this is how we would add this
-	// wp_enqueue_style('dgwltd-css', get_template_directory_uri() . '/dist/css/main.css', false);
-
-	wp_deregister_script( 'jquery' );
-
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}

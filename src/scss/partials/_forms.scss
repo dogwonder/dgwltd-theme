@@ -326,16 +326,56 @@ input[type="submit"] {
   }
 }
 
+//Lists
+.ginput_list {
+  display: block !important;
+}
+.gfield_list_group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--wp--custom--spacing--xs);
+  align-items: center;
+  &:not(:first-of-type) {
+    margin-block-start: var(--wp--custom--spacing--xs);
+  }
+  &:not(:last-of-type) {
+    .add_list_item {
+      display: none !important;
+    }  
+  }
+  &:last-of-type:not(:first-of-type) {
+    .add_list_item {
+      order: 2;
+    }  
+    .delete_list_item {
+      order: 1
+    }
+  }
+}
+
 //Buttons
 .gfield_list_icons {
-  margin-block-start: var(--wp--custom--spacing--2-xs);
+  margin: 0;
   display: flex;
   gap: var(--wp--custom--spacing--xs);
+  align-items: center;
+  button {
+    border:0;
+    margin: 0;
+    padding: 0;
+    &:before {
+      content: "+";
+      margin-inline-end: 0.25em;
+    }
+  }
   .add_list_item  {
-    @extend %dgwltd-button;
-    @extend %dgwltd-button--ghost;
-    margin: 0 !important;
-    font-size: var(--wp--preset--font-size--xs);
-    padding: var(--wp--custom--spacing--2-xs) !important;
+    &:before {
+      content: "+";
+    }
+  }
+  .delete_list_item {
+    &:before {
+      content: "-";
+    }
   }
 }
