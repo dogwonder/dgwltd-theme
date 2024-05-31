@@ -2,21 +2,13 @@
   ol.govuk-breadcrumbs__list {
     list-style-type: none;
     margin: 0;
-    display: block;
-  }
-  &__list-item {
-    color: var(--wp--preset--color--dark);
-    margin: 0;
-    display: inline-block;
-    &:last-of-type {
-      &:after {
-        display: none;
+    padding: 0;
+    li {
+      color: var(--wp--preset--color--dark);
+      &:not(:first-of-type) {
+        margin-left: .625em;
+        padding-left: .9784375em;
       }
-    }
-    &:after {
-      content: "›";
-      margin: 0;
-      margin-inline: var(--wp--custom--spacing--2-xs);
     }
   }
 }
