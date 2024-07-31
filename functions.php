@@ -117,8 +117,9 @@ if ( ! function_exists( 'dgwltd_setup' ) ) :
 
 	}
 
+	add_action( 'after_setup_theme', 'dgwltd_setup' );
 endif;
-add_action( 'after_setup_theme', 'dgwltd_setup' );
+
 
 // Remove admin stuff - e.g. Emojis
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
@@ -164,10 +165,11 @@ function dgwltd_scripts_styles() {
 
 }
 
+add_action( 'wp_enqueue_scripts', 'dgwltd_scripts_styles' );
 
 endif;
 
-add_action( 'wp_enqueue_scripts', 'dgwltd_scripts_styles' );
+
 
 if ( ! function_exists( 'dgwltd_editor_styles' ) ) :
 
@@ -182,10 +184,11 @@ if ( ! function_exists( 'dgwltd_editor_styles' ) ) :
 	function dgwltd_editor_styles() {
 
 	}
-
+	
+	// add_action( 'admin_init', 'dgwltd_editor_styles' );
 endif;
 
-// add_action( 'admin_init', 'dgwltd_editor_styles' );
+
 
 /**
  * Custom template tags for this theme.
