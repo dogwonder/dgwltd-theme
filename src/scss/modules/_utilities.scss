@@ -61,7 +61,7 @@
 .container {
   position: relative;
   width: 100%;
-  max-width: clamp(16rem,var(--containerWidth,70rem),100vw);
+  max-width: clamp(16rem,var(--wp--custom--width--container,70rem),100vw);
   margin-inline-start: auto;
   margin-inline-end: auto;
   padding: var(--wp--custom--spacing--md);
@@ -159,7 +159,7 @@
 .alert {
   padding:1rem;
   border-radius: 0.5rem;
-  background-color: var(--border);
+  background-color: var(--wp--custom--color--border);
   color: var(--wp--preset--color--dark);
   display: flex;
   .alert__icon {
@@ -218,4 +218,11 @@
   background-size: 50%;
   background-clip: text;
   -webkit-background-clip: text;
+}
+
+//Based on .govuk-\!-text-break-word
+%break-word, 
+.break-word {
+  word-wrap: break-word!important;
+  overflow-wrap: break-word!important;
 }

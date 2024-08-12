@@ -3,7 +3,7 @@
   &__item {
     margin: 0 0 var(--wp--custom--spacing--gap);
     padding-bottom: var(--wp--custom--spacing--gap);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--wp--custom--color--border);
     &:last-child {
       border: 0;
     }

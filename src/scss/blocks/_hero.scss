@@ -40,7 +40,7 @@
     }
 
     p, li, .govuk-body {
-      max-width: var(--characterMax);
+      max-width: var(--wp--custom--width--character);
     }
 
     &__wrapper {

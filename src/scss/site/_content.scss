@@ -78,7 +78,7 @@
     }
     height: 1px;
     border: 0;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--wp--custom--color--border);
   }
   //Blockquote
   .wp-block-quote {
@@ -130,7 +130,7 @@
     display: inline-block;
     font-weight: $bold;
     padding: var(--wp--custom--spacing--sm) var(--wp--custom--spacing--md);
-    border: 1px solid var(--border);
+    border: 1px solid var(--wp--custom--color--border);
     border-radius: 2px;
     color: var(--wp--preset--color--dark);
     text-decoration: none;
@@ -148,5 +148,5 @@
 
 .entry-meta {
   @extend %dgwltd-body-s;
-  font-family: var(--wp--preset--font-family--soehne-kraftig);
+  font-family: var(--wp--preset--font-family--secondary);
 }

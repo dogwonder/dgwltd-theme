@@ -9,15 +9,13 @@ html {
 
 //Links
 a {
-  color: var(--wp--preset--color--dark);
+  color: var(--wp--preset--color--dark, inherit);
   text-decoration: underline;
   text-decoration-thickness: unquote("max(0.1em, .0625rem)") !important;
   text-underline-offset: 0.1em;
   //Break long urls
-  overflow-wrap: break-word;
   word-wrap: break-word;
-  word-break: break-word;
-  hyphens: auto;
+  overflow-wrap: break-word;
   &:visited {
     color: var(--wp--preset--color--dark);
   }
@@ -74,7 +72,7 @@ hr {
   margin: var(--wp--custom--spacing--gap) 0;
   height: 1px;
   border: 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--wp--custom--color--border);
 }
 
 /* Remove all animations and transitions

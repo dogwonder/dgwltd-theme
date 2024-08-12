@@ -16,18 +16,18 @@ textarea {
   line-height: 54px;
   margin: 0;
   padding: var(--wp--custom--spacing--xs);
-  background-color: white;
-  border: 2px solid black;
+  background-color: var(--wp--preset--color--light);
+  border: 2px solid var(--wp--preset--color--dark, currentColor);
   border-radius: 0;
   appearance: none;
   &:focus-visible {
     outline: 0.2em solid var(--wp--preset--color--focus);
     outline-offset: 0;
     box-shadow: inset 0 0 0 2px;
-    background-color: white;
+    background-color: var(--wp--preset--color--light);
   }
-  &.dgwltd-input--error {
-    border: 0.2em solid var(--error);
+  &.dgwltd-input--wp--custom--color--error {
+    border: 0.2em solid var(--wp--custom--color--error);
     outline: 0;
   }
 }
@@ -41,7 +41,7 @@ select {
   width: 100%;
   height: 54px;
   line-height: 54px;
-  border: 2px solid black;
+  border: 2px solid var(--wp--preset--color--dark, currentColor);
   border-radius: 0.25rem;
   padding: 0 0.2em;
   font: inherit; //Inherit font family, size, and line height
@@ -245,7 +245,7 @@ input[type="submit"] {
     flex-direction: column;
     margin-inline-start: 0;
     padding-left: var(--wp--custom--spacing--sm);
-    border-left: 3px solid var(--error);
+    border-left: 3px solid var(--wp--custom--color--error);
 
     //Order of fields
     .gfield_label {
@@ -262,9 +262,9 @@ input[type="submit"] {
     }
 
     input, textarea {
-      border-color: var(--error);
+      border-color: var(--wp--custom--color--error);
       &:focus-visible {
-        outline: 0.1em solid var(--error);
+        outline: 0.1em solid var(--wp--custom--color--error);
       }
     }
 
@@ -273,7 +273,7 @@ input[type="submit"] {
 
   //Field error message
   .gfield_validation_message {
-    color: var(--error);
+    color: var(--wp--custom--color--error);
     font-weight: $bold;
     margin-block-end: var(--wp--custom--spacing--sm);
   }
@@ -306,7 +306,7 @@ input[type="submit"] {
 .gfield_required {
   margin-inline-start: 0.25ch;
   font-size: 0.9em;
-  color: var(--error);
+  color: var(--wp--custom--color--error);
   font-weight: normal;
 }
 

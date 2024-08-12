@@ -44,16 +44,16 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
 */
 
 // .dgwltd-heading-stepper {
-//   font-family: var(--wp--preset--font-family--soehne-halbfett);
+//   font-family: var(--wp--preset--font-family--primary);
 //   @include clamp-calc-step('font-size', (sm: $type-2, lg: $type-6, xxl: $type-10));
 // }
 
 // H1
 .dgwltd-heading-xl, 
 %dgwltd-heading-xl {
-  font-family: var(--wp--preset--font-family--soehne-halbfett);
+  font-family: var(--wp--preset--font-family--primary);
   font-size: var(--wp--preset--font-size--3-xl);
-  line-height: var(--wp--custom--typography--line-height--headings--xl);
+  line-height: var(--wp--custom--typography--line-height--heading--lg);
   letter-spacing: var(--wp--custom--typography--letter-spacing--gigantic);
   margin: 0;
 }
@@ -61,9 +61,9 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
 // H2
 .dgwltd-heading-l, 
 %dgwltd-heading-l {
-  font-family: var(--wp--preset--font-family--soehne-halbfett);
+  font-family: var(--wp--preset--font-family--primary);
   font-size: var(--wp--preset--font-size--2-xl);
-  line-height: var(--wp--custom--typography--line-height--headings--xl);
+  line-height: var(--wp--custom--typography--line-height--heading--lg);
   letter-spacing: var(--wp--custom--typography--letter-spacing--gigantic);
   margin: 0;
 }
@@ -71,9 +71,9 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
 // H3
 .dgwltd-heading-m, 
 %dgwltd-heading-m {
-  font-family: var(--wp--preset--font-family--soehne-kraftig);
+  font-family: var(--wp--preset--font-family--secondary);
   font-size: var(--wp--preset--font-size--xl);
-  line-height: var(--wp--custom--typography--line-height--headings--lg);
+  line-height: var(--wp--custom--typography--line-height--heading--lg);
   letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
   margin: 0;
 }
@@ -81,9 +81,9 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
 // H4
 .dgwltd-heading-s, 
 %dgwltd-heading-s {
-  font-family: var(--wp--preset--font-family--soehne-kraftig);
+  font-family: var(--wp--preset--font-family--secondary);
   font-size: var(--wp--preset--font-size--lg);
-  line-height: var(--wp--custom--typography--line-height--headings--sm);
+  line-height: var(--wp--custom--typography--line-height--heading--sm);
   letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
   margin: 0;
 }
@@ -91,7 +91,7 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
 // H5 / H6
 %dgwltd-heading-xs,
 .dgwltd-heading-xs {
-  font-family: var(--wp--preset--font-family--soehne-kraftig);
+  font-family: var(--wp--preset--font-family--secondary);
   font-size: var(--wp--preset--font-size--md);
   line-height: var(--wp--custom--typography--line-height--body);
   letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
@@ -109,7 +109,7 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
 .dgwltd-body-l, 
 %dgwltd-body-l {
   font-size: var(--wp--preset--font-size--lg);
-  line-height: var(--wp--custom--typography--line-height--headings--lg);
+  line-height: var(--wp--custom--typography--line-height--heading--lg);
 }
 
 .dgwltd-body-m, 
@@ -132,7 +132,7 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
 
 .dgwltd-navigation, 
 %dgwltd-navigation {
-  font-family: var(--wp--preset--font-family--soehne-kraftig);
+  font-family: var(--wp--preset--font-family--secondary);
   font-size: var(--wp--preset--font-size--md);
   line-height: 1;
 } 

@@ -28,7 +28,7 @@
   .entry-footer {
     //Allows for full width sections 
     display: grid;
-    grid-template-columns: 1fr minmax(min-content, var(--containerWidth)) 1fr;
+    grid-template-columns: 1fr minmax(min-content, var(--wp--custom--width--container)) 1fr;
     > * {
       grid-column: 2 / span 1;
       padding: 0 var(--wp--custom--spacing--md);
@@ -53,7 +53,7 @@
     .alignwide {
       grid-column: 1 / span all !important;
       width: 100%;
-      max-width: var(--containerWidth);
+      max-width: var(--wp--custom--width--container);
       margin: 0 auto;
     }
   }

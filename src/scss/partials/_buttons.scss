@@ -37,9 +37,9 @@
     --outline: none;
   }
   &[disabled] {
-    background-color: var(--disabled);
+    background-color: var(--wp--custom--color--disabled);
     color: black;
-    border-color: var(--disabled);
+    border-color: var(--wp--custom--color--disabled);
     cursor: not-allowed;
   }
 }
