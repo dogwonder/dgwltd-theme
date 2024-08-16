@@ -1,3 +1,24 @@
+.dgwltd-cards {
+  
+  &__grid {
+    display: grid;
+    gap: var(--gutter,var(--wp--custom--spacing--lg));
+    grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-item-size), 1fr));
+    
+    @include mq($from: lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &:has(.wp-block-heading) {
+    .dgwltd-cards__grid {
+      margin-block-start: var(--wp--custom--spacing--md);
+    }
+  }
+
+}
+
+
 //Single card
 .dgwltd-card {
   width: 100%;
@@ -51,12 +72,6 @@
     min-height: 6rem;
     aspect-ratio: 4 / 3;
     background-color: var(--wp--preset--color--primary);
-  }
-
-  &__caption {
-    @extend %dgwltd-body-s; 
-    display: block;
-    margin-block-end: var(--wp--custom--spacing--sm);
   }
 
   &__heading {
