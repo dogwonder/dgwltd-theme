@@ -5,7 +5,7 @@ excerpt: ""
 date: 2023-06-29 09:46:59
 modified: 2024-08-12 09:37:11
 permalink: 2023/06/29/new-post.html
-tags: ["Uncategorised"]
+tags: []
 featured_img: 
 wpid: 939
 ---
