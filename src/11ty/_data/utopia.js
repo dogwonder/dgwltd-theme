@@ -3,8 +3,8 @@ const { calculateTypeScale, calculateSpaceScale, calculateClamps } = require('..
 // Assuming calculateSpaceScale returns an object directly, not a JSON string
 const dataSpace = calculateSpaceScale({
     minWidth: 320,
-    maxWidth: 1240,
-    minSize: 18,
+    maxWidth: 1500,
+    minSize: 17,
     maxSize: 20,
     positiveSteps: [1.5, 2, 3, 4, 6],
     negativeSteps: [0.75, 0.5, 0.25],
@@ -13,12 +13,12 @@ const dataSpace = calculateSpaceScale({
 
 const dataType = calculateTypeScale({
     minWidth: 320,
-    maxWidth: 1240,
-    minFontSize: 18,
-    maxFontSize: 32,
+    maxWidth: 1500,
+    minFontSize: 17,
+    maxFontSize: 20,
     minTypeScale: 1.2,
-    maxTypeScale: 1.25,
-    positiveSteps: 2,
+    maxTypeScale: 1.33,
+    positiveSteps: 5,
     negativeSteps: 2
 });
 

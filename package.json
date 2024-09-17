@@ -1,11 +1,13 @@
 {
   "name": "dgwltd",
-  "version": "1.2.35",
+  "version": "1.2.41",
   "description": "",
   "main": "",
   "scripts": {
     "clean": "trash \"./dist/\"",
-    "css:sass": "sass ./src/scss/main.scss ./dist/css/main.css  && sass ./src/scss/print.scss ./dist/css/print.css",
+    "css:sass:main": "sass --silence-deprecation=mixed-decls --quiet-deps ./src/scss/main.scss ./dist/css/main.css",
+    "css:sass:print": "sass ./src/scss/print.scss ./dist/css/print.css",
+    "css:sass": "run-s css:sass:main css:sass:print",
     "css:replace": "replace \"Version: v\\d+(\\.\\d+){1,2}\" \"Version: $(npm version patch --no-git-tag-version)\" style.css",
     "css:postcss": "postcss ./dist/css/**/*.css --use autoprefixer postcss-custom-properties cssnano --no-map --verbose --dir ./dist/css/",
     "css": "run-s css:*",

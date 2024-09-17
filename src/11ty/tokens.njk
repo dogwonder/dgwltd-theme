@@ -2,6 +2,8 @@
 permalink: '../src/scss/modules/_tokens.scss'
 ---
 :root {
+
+  /*Generic generate tokens*/
   {%- for color in tokens.colorMap %}
   --color-{{ color.name }}: {{ color.color }};
   {%- endfor %}
@@ -15,7 +17,7 @@ permalink: '../src/scss/modules/_tokens.scss'
   --line-height-{{ size.name | slug }}: {{ size.value }};
   {%- endfor %}
 
-  
+  /*Utopia generated tokens*/
   {%- for size in utopia.resultsSpace %}
   --space-{{ size.label }}: {{ size.clamp }}; //{{ size.minSize }}px - {{ size.maxSize }}px
   {%- endfor %}
@@ -23,6 +25,5 @@ permalink: '../src/scss/modules/_tokens.scss'
   {%- for size in utopia.resultsStep %}
   --step-{{ size.label }}: {{ size.clamp }}; //{{ size.minSize }}px - {{ size.maxSize }}px
   {%- endfor %}
-  
  
 }

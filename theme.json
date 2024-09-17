@@ -147,52 +147,56 @@
 				},
 				{
 					"name": "Body",
-					"size": "1.125rem",
+					"size": "1.0625rem",
+					"fluid": {
+						"min": "1.0625rem",
+						"max": "1.25rem"
+					},
 					"fluid": false, 
 					"slug": "body"
 				},
 				{
 					"name": "Medium",
-					"size": "1.333rem",
+					"size": "1.6625rem",
 					"fluid": {
-						"min": "1.125rem",
-						"max": "1.333rem"
+						"min": "1.25rem",
+						"max": "1.6625rem"
 					},
 					"slug": "md"
 				},
 				{
 					"name": "Large",
-					"size": "1.777rem",
+					"size": "2.2111rem",
 					"fluid": {
-						"min": "1.333rem",
-						"max": "1.777rem"
+						"min": "1.53rem",
+						"max": "2.2111rem"
 					},
 					"slug": "lg"
 				},
 				{
 					"name": "Extra Large",
-					"size": "2.369rem",
+					"size": "2.9408rem",
 					"fluid": {
-						"min": "1.333rem",
-						"max": "2.369rem"
+						"min": "2.2032rem",
+						"max": "2.9408rem"
 					},
 					"slug": "xl"
 				},
 				{
 					"name": "Huge",
-					"size": "3.157rem",
+					"size": "3.9113rem",
 					"fluid": {
-						"min": "1.777rem",
-						"max": "3.157rem"
+						"min": "2.2032rem",
+						"max": "3.9113rem"
 					},
 					"slug": "2xl"
 				},
 				{
 					"name": "Massive",
-					"size": "4.209rem",
+					"size": "5.202rem",
 					"fluid": {
-						"min": "2.369rem",
-						"max": "4.209rem"
+						"min": "2.6438rem",
+						"max": "5.202rem"
 					},
 					"slug": "3xl"
 				}
@@ -201,21 +205,20 @@
 		"useRootPaddingAwareAlignments": true, 
 		"custom": {
 			"spacing": {
-					"baseline": "16px",
-					"gap": "1.5rem", 
-					"2xs": "0.75rem",
-					"xs": "clamp(0.75rem, calc(0.69rem + 0.28vw), 0.94rem)",
-					"sm": "clamp(0.75rem, calc(0.60rem + 0.74vw), 1.25rem)",
-					"md": "clamp(1.00rem, calc(0.74rem + 1.30vw), 1.88rem)",
-					"lg": "clamp(1.50rem, calc(1.20rem + 1.48vw), 2.50rem)",
-					"xl": "clamp(2.00rem, calc(1.48rem + 2.59vw), 3.75rem)",
-					"2xl": "clamp(3.00rem, calc(2.41rem + 2.96vw), 5.00rem)",
-					"xs-s": "clamp(0.75rem, calc(0.60rem + 0.74vw), 1.25rem)",
-					"s-m": "clamp(1.00rem, calc(0.74rem + 1.30vw), 1.88rem)",
-					"m-l": "clamp(1.50rem, calc(1.20rem + 1.48vw), 2.50rem)",
-					"l-xl": "clamp(2.00rem, calc(1.48rem + 2.59vw), 3.75rem)",
-					"xl-2xl": "clamp(3.00rem, calc(2.41rem + 2.96vw), 5.00rem)",
-					"2xl-3xl": "clamp(4.00rem, calc(3.33rem + 3.33vw), 6.25rem)"
+					"gap": "1.25rem", 
+					"2xs": "clamp(0.5625rem, 0.5456rem + 0.0847vi, 0.625rem)",
+					"xs": "clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem)",
+					"sm": "clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem)",
+					"md": "clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem)",
+					"lg": "clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem)",
+					"xl": "clamp(3.1875rem, 3.035rem + 0.7627vi, 3.75rem)",
+					"2xl": "clamp(4.25rem, 4.0466rem + 1.0169vi, 5rem)",
+					"xs-s": "clamp(0.8125rem, 0.6939rem + 0.5932vi, 1.25rem)",
+					"s-m": "clamp(1.0625rem, 0.8422rem + 1.1017vi, 1.875rem)",
+					"m-l": "clamp(1.625rem, 1.3877rem + 1.1864vi, 2.5rem)",
+					"l-xl": "clamp(2.125rem, 1.6843rem + 2.2034vi, 3.75rem)",
+					"xl-2xl": "clamp(3.1875rem, 2.696rem + 2.4576vi, 5rem)",
+					"2xl-3xl": "clamp(4.25rem, 3.3686rem + 4.4068vi, 7.5rem)"
 				},
 				"typography": {
 					"letterSpacing": {
@@ -227,10 +230,8 @@
 					"lineHeight": {
 						"body": "1.5",
 						"heading": {
-							"default": "1.15",
 							"sm": 1.25,
-							"md": 1.15,
-							"xl": 1.05
+							"lg": 1.05
 						}
 					}
 				}, 
