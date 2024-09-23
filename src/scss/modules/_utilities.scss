@@ -144,15 +144,42 @@
   }
 }
 
-//Alignment
-.text-center {
+//Typography
+.centered {
   text-align: center;
+  text-wrap: balance;
 }
-.text-right {
-  text-align: right;
+
+.uppercase {
+  text-transform: uppercase;
+  --opentype-case: "case" on;
 }
-.text-left {
-  text-align: left;
+
+.smallcaps {
+  font-variant-caps: all-small-caps;
+  font-variant-numeric: oldstyle-nums;    
+}
+
+.prose {
+  text-wrap: pretty;
+  font-variant-numeric: oldstyle-nums proportional-nums;
+  font-size-adjust: 0.507;
+  -webkit-hyphens: auto;
+  -webkit-hyphenate-limit-before: 4;
+  -webkit-hyphenate-limit-after: 3;
+  -webkit-hyphenate-limit-lines: 2;
+
+  hyphens: auto;
+  hyphenate-limit-chars: 7 4 3;
+  hyphenate-limit-lines: 2;    
+  hyphenate-limit-zone: 8%;
+  hyphenate-limit-last: always;
+}
+
+.prose pre, .prose code, .prose var, .prose samp, .prose kbd,
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    -webkit-hyphens: manual;
+    hyphens: manual;
 }
 
 //Alerts

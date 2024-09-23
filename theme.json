@@ -109,6 +109,7 @@
 							"fontFamily": "Söhne Halbfett",
 							"fontWeight": "600",
 							"fontStyle": "normal",
+							"fontDisplay": "fallback",
 							"src": [ "file:./dist/fonts/soehne/soehne-halbfett.woff2" ]
 						}
 					]
@@ -122,6 +123,7 @@
 							"fontFamily": "Söhne Kraftig",
 							"fontWeight": "600",
 							"fontStyle": "normal",
+							"fontDisplay": "fallback",
 							"src": [ "file:./dist/fonts/soehne/soehne-kraftig.woff2" ]
 						}
 					]

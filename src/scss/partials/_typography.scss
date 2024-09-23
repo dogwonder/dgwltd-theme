@@ -20,12 +20,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  font-optical-sizing: auto;
+  font-variant-ligatures: common-ligatures no-discretionary-ligatures no-historical-ligatures contextual;
+  font-kerning: normal;
+}
+
+//Note some of the typographic defaults have originated from here https://github.com/clagnut/TODS
+
+//Reset all the margins
+body, h1, h2, h3, h4, h5, h6, address, p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset {
+  margin: 0;
 }
 
 //Margin-block-start approach
 :is( h1, h2, h3, h4, h5, h6 ) {
   //Reset browser defaults - we avoid reseting the top margin as this is coverted by template literals
   margin-block: 0;
+  font-variant-numeric: lining-nums;
   + p {
     margin-block-start: var(--wp--custom--spacing--sm);
   }
@@ -53,6 +64,8 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
 %dgwltd-heading-xl {
   font-family: var(--wp--preset--font-family--primary);
   font-size: var(--wp--preset--font-size--3-xl);
+  font-variant-ligatures: discretionary-ligatures; 
+  font-size-adjust: 0.521;
   line-height: var(--wp--custom--typography--line-height--heading--lg);
   letter-spacing: var(--wp--custom--typography--letter-spacing--gigantic);
   margin: 0;
@@ -146,6 +159,11 @@ ol {
 blockquote p {
   hanging-punctuation: first;
   text-indent: -5px;
+}
+
+strong, b, th { 
+  font-weight: bold;
+  font-size-adjust: 0.514; 
 }
 
 //Swiss school
