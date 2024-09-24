@@ -1,6 +1,6 @@
 ---
 title: "Ipsum et repellat autem"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: "Rerum rerum.
 Error tempore."
 date: 2024-06-14 17:02:16

@@ -1,6 +1,6 @@
 ---
 title: "Ipsam quae nemo voluptas reprehenderit quisquam voluptatem"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: "Quia nemo.
 Quod aliquid.
 Velit non sed."

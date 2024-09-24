@@ -1,6 +1,6 @@
 ---
 title: "Omnis in incidunt optio velit at"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: "Voluptatum ab."
 date: 2024-07-01 02:12:59
 modified: 2024-07-01 02:12:59

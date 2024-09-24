@@ -1,6 +1,6 @@
 ---
 title: "Quo ad magnam cupiditate ullam"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: ""
 date: 2024-07-09 21:50:38
 modified: 2024-07-09 21:50:38

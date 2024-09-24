@@ -1,6 +1,6 @@
 ---
 title: "Ducimus quis laudantium rerum"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: ""
 date: 2024-07-01 20:48:37
 modified: 2024-07-01 20:48:37

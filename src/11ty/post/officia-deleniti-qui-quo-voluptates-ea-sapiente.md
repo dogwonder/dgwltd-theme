@@ -1,6 +1,6 @@
 ---
 title: "Officia deleniti qui quo voluptates ea sapiente"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: "Totam ducimus nihil."
 date: 2024-07-09 12:38:17
 modified: 2024-07-09 12:38:17

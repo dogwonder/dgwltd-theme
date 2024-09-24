@@ -1,6 +1,6 @@
 ---
 title: "Velit rerum perspiciatis voluptas"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: ""
 date: 2024-06-22 01:21:33
 modified: 2024-08-23 14:00:19

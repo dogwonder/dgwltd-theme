@@ -1,6 +1,6 @@
 ---
 title: "Temporibus quidem autem voluptas esse nesciunt"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: ""
 date: 2024-07-05 21:48:54
 modified: 2024-07-05 21:48:54

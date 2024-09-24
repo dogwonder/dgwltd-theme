@@ -1,6 +1,6 @@
 ---
 title: "Modi alias nostrum sed voluptatem"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: ""
 date: 2024-08-22 14:50:39
 modified: 2024-08-23 13:58:40

@@ -1,6 +1,6 @@
 ---
 title: "Voluptates excepturi quos corrupti aperiam"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: ""
 date: 2024-06-23 13:16:57
 modified: 2024-08-23 14:00:29

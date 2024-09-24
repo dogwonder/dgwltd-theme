@@ -1,6 +1,6 @@
 ---
 title: "Minus non molestiae veritatis ab cum"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: "Temporibus."
 date: 2024-06-12 19:37:39
 modified: 2024-08-23 14:00:15

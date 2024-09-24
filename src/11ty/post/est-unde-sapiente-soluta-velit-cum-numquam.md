@@ -1,6 +1,6 @@
 ---
 title: "Est unde sapiente soluta velit cum numquam"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: ""
 date: 2024-06-17 18:46:03
 modified: 2024-06-17 18:46:03

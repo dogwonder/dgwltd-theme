@@ -1,6 +1,6 @@
 ---
 title: "In eum eveniet voluptas rerum ut mollitia"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: ""
 date: 2024-08-16 01:26:42
 modified: 2024-08-16 01:26:42

@@ -1,6 +1,6 @@
 ---
 title: "Error fuga qui laboriosam pariatur ut quia"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: "Ipsa est.
 Cumque ad dolor."
 date: 2024-07-19 13:55:25

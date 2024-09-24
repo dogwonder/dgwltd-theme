@@ -1,6 +1,6 @@
 ---
 title: "Voluptatem est ad quam minima omnis"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: "Dignissimos laboriosam quas asperiores."
 date: 2024-07-30 04:44:26
 modified: 2024-08-23 13:59:46

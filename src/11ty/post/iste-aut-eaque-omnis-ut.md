@@ -1,6 +1,6 @@
 ---
 title: "Iste aut eaque omnis ut"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: "Nihil illo quia.
 Sed reiciendis quis.
 Impedit animi.

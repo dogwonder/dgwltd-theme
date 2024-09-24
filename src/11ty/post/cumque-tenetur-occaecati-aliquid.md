@@ -1,6 +1,6 @@
 ---
 title: "Cumque tenetur occaecati aliquid"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: ""
 date: 2024-07-04 03:07:24
 modified: 2024-07-04 03:07:24

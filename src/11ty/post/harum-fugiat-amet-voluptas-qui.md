@@ -1,6 +1,6 @@
 ---
 title: "Harum fugiat amet voluptas qui"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: "Vitae.
 Sed maxime.
 Praesentium quidem."

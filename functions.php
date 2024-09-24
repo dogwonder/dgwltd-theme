@@ -189,7 +189,6 @@ if ( ! function_exists( 'dgwltd_editor_styles' ) ) :
 endif;
 
 
-
 /**
  * Custom template tags for this theme.
  */

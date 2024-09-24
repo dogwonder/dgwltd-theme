@@ -1,6 +1,6 @@
 ---
 title: "Porro quisquam rem eaque sunt in"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: ""
 date: 2024-07-27 21:08:34
 modified: 2024-08-23 13:59:34

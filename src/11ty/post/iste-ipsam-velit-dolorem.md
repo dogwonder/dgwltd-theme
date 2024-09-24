@@ -1,6 +1,6 @@
 ---
 title: "Iste ipsam velit dolorem"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: ""
 date: 2024-07-19 14:28:47
 modified: 2024-08-23 13:59:22

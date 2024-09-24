@@ -1,6 +1,6 @@
 ---
 title: "Autem temporibus necessitatibus officiis dolor voluptatem et"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: "Ab fuga qui rerum.
 Voluptatem quia voluptates esse architecto."
 date: 2024-08-07 14:11:28

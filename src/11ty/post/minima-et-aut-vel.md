@@ -1,6 +1,6 @@
 ---
 title: "Minima et aut vel"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: "Laborum accusamus aliquid.
 A aut quos.
 Qui atque ut."

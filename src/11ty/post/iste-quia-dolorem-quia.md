@@ -1,6 +1,6 @@
 ---
 title: "Iste quia dolorem quia"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: ""
 date: 2024-07-24 08:00:32
 modified: 2024-08-23 13:59:28

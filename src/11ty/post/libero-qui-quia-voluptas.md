@@ -1,6 +1,6 @@
 ---
 title: "Libero qui quia voluptas"
-layout: "layouts/post.njk"
+layout: "layouts/page.njk"
 excerpt: "Vel.
 Officia."
 date: 2024-08-03 22:30:29
