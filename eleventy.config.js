@@ -1,4 +1,3 @@
-const UpgradeHelper = require("@11ty/eleventy-upgrade-help");
 const dayjs = require('dayjs');
 
 module.exports = async function(eleventyConfig) {
@@ -10,9 +9,6 @@ module.exports = async function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({"src/vendor": "js"});
   eleventyConfig.addPassthroughCopy({"src/vendor": "js"});
   eleventyConfig.addPassthroughCopy({"src/wp": "css"});
-
-  //Plugins 
-  eleventyConfig.addPlugin(UpgradeHelper);
 
   //Get package version
   eleventyConfig.addShortcode('pkgVersion', () => `${require('./package.json').version}`);

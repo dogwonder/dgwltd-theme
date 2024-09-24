@@ -17,6 +17,9 @@ if ( ! function_exists( 'dgwltd_body_classes' ) ) :
 
 		global $post;
 
+		//Add root namespace class to all pages
+		$classes[] = 'dgwltd';
+
 		if ( ! is_singular() ) {
 			$classes[] = 'hfeed';
 		}

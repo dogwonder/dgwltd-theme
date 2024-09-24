@@ -58,7 +58,7 @@ $govuk-font-family: -apple-system, BlinkMacSystemFont,"Segoe UI", "Roboto", "Oxy
 @import "../../node_modules/govuk-frontend/dist/govuk/overrides/index";
 
 // RESET
-@import "modules/normalize";
+@import "modules/reset";
 
 // MEDIA QUERIES
 @import "vendor/mq";

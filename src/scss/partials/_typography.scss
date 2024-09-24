@@ -8,12 +8,12 @@ html {
 body {
   font-family: var(--body);
   font-weight: normal;
-  font-size: var(--wp--preset--font-size--body); //18px
+  font-size: var(--wp--preset--font-size--body); 
   line-height: var(--wp--custom--typography--line-height--body);
   letter-spacing: 1rem * 0.02;
   word-spacing: 1rem * 0.04;
   text-align: left;
-  background-color: var(--wp--preset--color--light);
+  background-color: var(--wp--preset--color--alt);
   color: var(--wp--preset--color--dark);
   overflow-y: scroll;
   overflow-x: hidden;
@@ -115,7 +115,7 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
 %dgwltd-body,
 .govuk-body {
   font-weight: normal;
-  font-size: var(--wp--preset--font-size--body); //18px
+  font-size: var(--wp--preset--font-size--body); 
   line-height: var(--wp--custom--typography--line-height--body);
 }
 
@@ -168,6 +168,7 @@ strong, b, th {
 
 //Swiss school
 .swiss-shift {
+  text-wrap: auto;
   span.background {
     opacity: 0.7;
   }

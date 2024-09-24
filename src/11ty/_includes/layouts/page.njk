@@ -16,12 +16,13 @@
     {% include "dist/css/main.css" %}
     {% endcss %}
   </head>
-  <body class="{{ class if class }}">
+  <body class="dgwltd {{ class if class }}">
     <div id="page" class="dgwltd-wrapper">
         <div id="skiplink-container">
             <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
         </div>
         <header id="masthead" class="dgwltd-masthead">
+          {% include "partials/_header.njk" %}
         </header>
         <main id="content" class="dgwltd-container" tabindex="-1">
             <div id="primary" class="dgwltd-content-wrapper">
