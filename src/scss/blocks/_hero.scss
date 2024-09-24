@@ -2,6 +2,8 @@
 //Hero block
 .dgwltd-hero {
 
+    overflow: hidden;
+
     &__content {
       ul {
         margin: 0 0 var(--wp--custom--spacing--gap);

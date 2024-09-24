@@ -5,8 +5,8 @@ module.exports = async function(eleventyConfig) {
   const {EleventyRenderPlugin} = await import("@11ty/eleventy");
 
   eleventyConfig.addPassthroughCopy({"src/images": "images"});
+  eleventyConfig.addPassthroughCopy({"src/fonts": "fonts"});
   eleventyConfig.addPassthroughCopy({"src/scripts": "js"});
-  eleventyConfig.addPassthroughCopy({"src/vendor": "js"});
   eleventyConfig.addPassthroughCopy({"src/vendor": "js"});
   eleventyConfig.addPassthroughCopy({"src/wp": "css"});
 

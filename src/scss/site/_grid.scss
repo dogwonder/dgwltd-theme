@@ -1,0 +1,25 @@
+//Grid 
+//Usage <ul class="grid" role="list" data-rows="3-col">
+.grid {
+  display: grid;
+  gap: var(--gutter,var(--wp--custom--spacing--md));
+  grid-template-columns: repeat(var(--grid-placement,auto-fill),minmax(var(--grid-min-item-size,16rem),1fr));
+}
+
+//Masonry grid
+.grid[data-rows='masonry'] {
+  grid-template-rows: masonry;
+  align-items: start;
+}
+
+//2 col grid
+.grid[data-layout='50-50'] {
+  --grid-placement: auto-fit;
+  --grid-min-item-size: clamp(8rem, 50vw, 16rem);
+}
+
+//3 col grid
+.grid[data-rows='3-col'] {
+  --grid-placement: auto-fit: 
+  --grid-min-item-size: clamp(8rem, 33%, 16rem);
+}

@@ -2,6 +2,8 @@
 //Hero block
 .dgwltd-feature {
 
+    overflow: hidden;
+
     .acf-innerblocks-container {
         @include stack($gap);
         h2 {
