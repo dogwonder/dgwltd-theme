@@ -17,11 +17,11 @@
 --wp--preset--font-size--xs: 0.875rem;
 --wp--preset--font-size--sm: 1rem;
 --wp--preset--font-size--body: clamp(1.0625rem, 1.0117rem + 0.25vw, 1.25rem);
---wp--preset--font-size--md: clamp(1.25rem, 1.1381rem + 0.56vw, 1.6625rem);
---wp--preset--font-size--lg: clamp(1.53rem, 1.3453rem + 0.92vw, 2.2111rem);
---wp--preset--font-size--xl: clamp(2.2032rem, 2.0032rem + 1vw, 2.9408rem);
---wp--preset--font-size--2-xl: clamp(2.2032rem, 1.74rem + 2.32vw, 3.9113rem);
---wp--preset--font-size--3-xl: clamp(2.6438rem, 1.9501rem + 3.47vw, 5.202rem);
+--wp--preset--font-size--md: clamp(1.275rem, 1.197rem + 0.39vw, 1.5625rem);
+--wp--preset--font-size--lg: clamp(1.53rem, 1.4153rem + 0.57vw, 1.9531rem);
+--wp--preset--font-size--xl: clamp(1.836rem, 1.6718rem + 0.82vw, 2.4414rem);
+--wp--preset--font-size--2-xl: clamp(2.2032rem, 1.9731rem + 1.15vw, 3.0518rem);
+--wp--preset--font-size--3-xl: clamp(2.6438rem, 2.3263rem + 1.59vw, 3.8147rem);
 --wp--custom--typography--line-height--body: 1.5;
 --wp--custom--typography--line-height--heading--sm: 1.25;
 --wp--custom--typography--line-height--heading--lg: 1.05;

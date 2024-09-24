@@ -9,11 +9,6 @@
         margin: 0 0 var(--wp--custom--spacing--gap);
         padding: 0;
       }
-      &:not(:has(.wp-block-button__link)) {
-        p:last-of-type {
-          margin: 0;
-        }
-      }
       .wp-block-button__link {
         margin: 0;
       }
@@ -43,6 +38,10 @@
 
     p, li, .govuk-body {
       max-width: var(--wp--custom--width--character);
+    }
+
+    .wp-block-heading ~ p {
+      margin-block-start: var(--wp--custom--spacing--gap);
     }
 
     &__wrapper {

@@ -158,46 +158,46 @@
 				},
 				{
 					"name": "Medium",
-					"size": "1.6625rem",
+					"size": "1.5625rem",
 					"fluid": {
-						"min": "1.25rem",
-						"max": "1.6625rem"
+						"min": "1.275rem",
+						"max": "1.5625rem"
 					},
 					"slug": "md"
 				},
 				{
 					"name": "Large",
-					"size": "2.2111rem",
+					"size": "1.9531rem",
 					"fluid": {
 						"min": "1.53rem",
-						"max": "2.2111rem"
+						"max": "1.9531rem"
 					},
 					"slug": "lg"
 				},
 				{
 					"name": "Extra Large",
-					"size": "2.9408rem",
+					"size": "2.4414rem",
 					"fluid": {
-						"min": "2.2032rem",
-						"max": "2.9408rem"
+						"min": "1.836rem",
+						"max": "2.4414rem"
 					},
 					"slug": "xl"
 				},
 				{
 					"name": "Huge",
-					"size": "3.9113rem",
+					"size": "3.0518rem",
 					"fluid": {
 						"min": "2.2032rem",
-						"max": "3.9113rem"
+						"max": "3.0518rem"
 					},
 					"slug": "2xl"
 				},
 				{
 					"name": "Massive",
-					"size": "5.202rem",
+					"size": "3.8147rem",
 					"fluid": {
 						"min": "2.6438rem",
-						"max": "5.202rem"
+						"max": "3.8147rem"
 					},
 					"slug": "3xl"
 				}
