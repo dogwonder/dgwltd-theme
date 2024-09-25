@@ -54,11 +54,12 @@ This requires [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/
 These are saved in `wp-plugins\dgwltd-blocks\src\acf-json`
 
 - DGW.ltd Accordion - based on GOV.UK's [accordion pattern](https://design-system.service.gov.uk/components/accordion/)
+- DGW.ltd Banner - text and background image similar to hero but less showy
 - DGW.ltd Breadcrumbs - based on GOV.UK's [breadcrumbs pattern](https://design-system.service.gov.uk/components/breadcrumbs/) 
-- DGW.ltd Call-to-Action - text and image with button (reversible)
+- DGW.ltd Content - text and image with button (reversible)
 - DGW.ltd Cards - grid of cards linking to other pages, title, excerpt and featured image
 - DGW.ltd Embed - lite embed custom element for [Youtube](https://github.com/paulirish/lite-youtube-embed) and [Vimeo](https://github.com/slightlyoff/lite-vimeo)
-- DGW.ltd Feature - text and background image similar to hero but less showy
+- DGW.ltd Promo card - offset image and content block
 - DGW.ltd Hero Section - hero with big image / video as background
 - DGW.ltd Related pages - list of related links
 - DGW.ltd Summary list - based on GOV.UK's [summary list pattern](https://design-system.service.gov.uk/components/summary-list/) 
