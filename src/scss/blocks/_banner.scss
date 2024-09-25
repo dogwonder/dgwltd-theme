@@ -1,8 +1,9 @@
 
-//Hero block
-.dgwltd-feature {
+.dgwltd-banner {
 
-    overflow: hidden;
+    //Align full
+    max-width: 100%;
+    grid-column: 1 / span 3 !important;
 
     .acf-innerblocks-container {
         @include stack($gap);
@@ -26,7 +27,7 @@
       grid-column: 2 / span 1;
 
       h2 {
-        @extend %dgwltd-heading-xl;
+        @extend %dgwltd-heading-lg;
       }
 
       h2, h3, p, .govuk-body {
@@ -37,29 +38,19 @@
         max-width: var(--wp--custom--width--character);
       }
 
-      .dgwltd-feature__wrapper {
+      .dgwltd-banner__wrapper {
         position: relative;
         z-index:2;
         display: grid;
         //Then create a subgrid
         grid-template-columns: 1fr minmax(min-content, var(--wp--custom--width--container)) 1fr;
-        .dgwltd-feature__inner {
+        .dgwltd-banner__inner {
           //Snap back to our container
           grid-column: 2 / span 1;
           padding:var(--wp--custom--spacing--lg) var(--wp--custom--spacing--md);
         }
       }
-
-      &:not(.alignfull) {
-        padding: 0;
-        margin-inline: var(--wp--custom--spacing--md);
-      }
       
-    }
-
-    //Varients
-    &.alignfull {
-      grid-column: 1 / span 3 !important;
     }
 
     //Block style varients - styles in block.json

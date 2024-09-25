@@ -1,4 +1,8 @@
 .dgwltd-cards {
+
+  &__content {
+    
+  }
   
   &__grid {
     display: grid;
@@ -75,7 +79,7 @@
   }
 
   &__heading {
-    @extend %dgwltd-heading-s;
+    @extend %dgwltd-heading-sm;
     display: inline-block;
     width: 100%;
     margin: 0 0 var(--wp--custom--spacing--sm);

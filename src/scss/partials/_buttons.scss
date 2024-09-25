@@ -42,6 +42,12 @@
     border-color: var(--wp--custom--color--disabled);
     cursor: not-allowed;
   }
+  &.has-tertiary-background-color {
+    border-color: var(--wp--preset--color--tertiary);
+    &:hover {
+      border-color: var(--wp--preset--color--dark);
+    }
+  }
 }
 
 //Remove default outline

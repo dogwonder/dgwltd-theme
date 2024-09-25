@@ -3,6 +3,8 @@
 ////
 
 //Z-indexes
+$z-lowest: 1;
+$z-low-1: 2;
 $z-low: 3; //Move above hero
 $z-high: 10;
 $z-higher: 11;
@@ -15,6 +17,10 @@ $scale: ( 'xs', 'sm', 'md', 'lg', 'xl');
 
 //Default gap
 $gap: 1.5rem;
+$gap-sm: 1rem;
+
+//Fluid container for grid layout
+$fluid-container: minmax(var(--wp--custom--spacing--s-m), 1fr) minmax(min-content, calc(var(--wp--custom--width--container))) minmax(var(--wp--custom--spacing--s-m), 1fr);
 
 //Typography
 $bold: 700;

@@ -42,4 +42,4 @@ $pkgVersion = $package['version'];
 <script>document.body.className = document.body.className.replace('no-js', 'js-enabled');</script>
 <div id="page" class="dgwltd-wrapper">
 	<?php include(locate_template( 'template-parts/_layout/masthead.php' )) ; ?>
-	<main id="content" class="dgwltd-container">
+	<main id="content" class="dgwltd-body">

@@ -17,18 +17,20 @@
 			</div><!-- .entry-meta -->
 	</div><!-- .entry-header -->
 	
-	<div class="entry-content stack dgwltd-list__wrapper">        
-
-		<div class="dgwltd-list__content">
-				<?php
-				// Display the excerpt is exists
-				if ( has_excerpt( $post->ID ) ) {
-					echo esc_html( get_the_excerpt( $post->ID ) );
-				} else {
-					echo esc_html( dgwltd_standfirst( 80, $post->ID ) );
-				}
-				?>
-		</div><!-- /content-->   
+	<div class="entry-content wp-block-post-content is-layout-flow">        
+	
+		<div class="dgwltd-list__wrapper">
+			<div class="dgwltd-list__content">
+					<?php
+					// Display the excerpt is exists
+					if ( has_excerpt( $post->ID ) ) {
+						echo esc_html( get_the_excerpt( $post->ID ) );
+					} else {
+						echo esc_html( dgwltd_standfirst( 80, $post->ID ) );
+					}
+					?>
+			</div><!-- /content-->   
+		</div>
 
 	 </div><!-- /wrapper-->   
 

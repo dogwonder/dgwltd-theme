@@ -72,8 +72,8 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
 }
 
 // H2
-.dgwltd-heading-l, 
-%dgwltd-heading-l {
+.dgwltd-heading-lg, 
+%dgwltd-heading-lg {
   font-family: var(--wp--preset--font-family--primary);
   font-size: var(--wp--preset--font-size--2-xl);
   line-height: var(--wp--custom--typography--line-height--heading--lg);
@@ -82,8 +82,8 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
 }
 
 // H3
-.dgwltd-heading-m, 
-%dgwltd-heading-m {
+.dgwltd-heading-md, 
+%dgwltd-heading-md {
   font-family: var(--wp--preset--font-family--secondary);
   font-size: var(--wp--preset--font-size--xl);
   line-height: var(--wp--custom--typography--line-height--heading--lg);
@@ -92,8 +92,8 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
 }
 
 // H4
-.dgwltd-heading-s, 
-%dgwltd-heading-s {
+.dgwltd-heading-sm, 
+%dgwltd-heading-sm {
   font-family: var(--wp--preset--font-family--secondary);
   font-size: var(--wp--preset--font-size--lg);
   line-height: var(--wp--custom--typography--line-height--heading--sm);
@@ -119,20 +119,20 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
   line-height: var(--wp--custom--typography--line-height--body);
 }
 
-.dgwltd-body-l, 
-%dgwltd-body-l {
+.dgwltd-body-lg, 
+%dgwltd-body-lg {
   font-size: var(--wp--preset--font-size--lg);
   line-height: var(--wp--custom--typography--line-height--heading--lg);
 }
 
-.dgwltd-body-m, 
-%dgwltd-body-m {
+.dgwltd-body-md, 
+%dgwltd-body-md {
   font-size: var(--wp--preset--font-size--md);
   line-height: var(--wp--custom--typography--line-height--body);
 }
 
-.dgwltd-body-s, 
-%dgwltd-body-s {
+.dgwltd-body-sm, 
+%dgwltd-body-sm {
   font-size: var(--wp--preset--font-size--sm);
   line-height: var(--wp--custom--typography--line-height--body);
 }
@@ -162,7 +162,7 @@ blockquote p {
 }
 
 strong, b, th { 
-  font-weight: bold;
+  font-weight: $bold;
   font-size-adjust: 0.514; 
 }
 

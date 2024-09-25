@@ -9,63 +9,31 @@
   //We need this for IE11 to respect, flex:1 won't work on it's own
   flex: 1;
   position: relative;
-  container-name: dgwltdContainer;
-  container-type: inline-size;
 }
 
-// @container myContainer (width < 360px) {
-//   .layout > * {
-//     /* fill your boots */
-//   }
-// }
+//Page layout
+.dgwltd-masthead, 
+.entry-header, 
+.entry-content, 
+.entry-footer, 
+.entry-wrapper {
+  padding:0;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: $fluid-container;
+  > * {
+    grid-column: 2 / span 1;
+  }
+}
 
 //Page layout
 .dgwltd-content-wrapper {
   padding:0;
   max-width: 100%;
-  .entry-header, 
-  .entry-content, 
-  .entry-footer {
-    //Allows for full width sections 
-    display: grid;
-    grid-template-columns: 1fr minmax(min-content, var(--wp--custom--width--container)) 1fr;
-    > * {
-      grid-column: 2 / span 1;
-      padding: 0 var(--wp--custom--spacing--md);
-    }
-  }
   .entry-header {
     > * {
       margin-block-start: 0;
       margin-block-end: var(--wp--custom--spacing--gap);
-    }
-  }
-  .entry-content {
-    //Alignment
-    .alignfull {
-      max-width: 100%;
-      grid-column: 1 / span all !important;
-      padding: 0;
-      &.wp-block-image {
-        margin: 0;
-      }
-    }
-    .alignwide {
-      grid-column: 1 / span all !important;
-      width: 100%;
-      max-width: var(--wp--custom--width--container);
-      margin: 0 auto;
-    }
-  }
-}
-
-//Exceptions
-.dgwltd-post {
-  .entry-header {
-    &:has(.entry-meta) {
-      .wp-block-post-title {
-        margin-block-end: var(--wp--custom--spacing--sm);
-      }
     }
   }
 }
@@ -76,3 +44,9 @@
     --buffer: 0;
   }
 }
+
+//Blocks page - add some extra spacing
+.dgwltd-content-wrapper:has(.dgwltd-hero) {
+  --space: var(--wp--custom--spacing--xl) !important;
+}
+

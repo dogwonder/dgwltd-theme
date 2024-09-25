@@ -104,7 +104,7 @@
       position: relative;
       z-index: 2;
       font-family: var(--wp--preset--font-family--soehne-dreiviertelfett);
-      @extend %dgwltd-body-s;
+      @extend %dgwltd-body-sm;
     }
     p {
       grid-column: 2;
@@ -112,7 +112,7 @@
       position: relative;
       text-indent: 0;
       font-family: var(--wp--preset--font-family--soehne-dreiviertelfett);
-      @extend %dgwltd-body-m;
+      @extend %dgwltd-body-md;
       &:last-child {
         margin: 0;
       }
@@ -147,6 +147,6 @@
 }
 
 .entry-meta {
-  @extend %dgwltd-body-s;
+  @extend %dgwltd-body-sm;
   font-family: var(--wp--preset--font-family--secondary);
 }

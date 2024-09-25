@@ -8,13 +8,13 @@
   text-align: left;
   content-visibility: auto; //We only place this here as otherwise we might affect screenreaders. 
 
-  .container {
-    max-width: 100%;
+  .dgwltd-container {
+    padding-block: var(--wp--custom--spacing--s-m);
   }
 
   ul li,
   p:not([class*="dgwltd-heading"]) {
-    @extend %dgwltd-body-s;
+    @extend %dgwltd-body-sm;
     color: white;
   }
 
@@ -86,7 +86,7 @@
     flex-direction: column;
     margin: 0;
     .menu-item {
-      @extend %dgwltd-body-s;;
+      @extend %dgwltd-body-sm;
       color: white;
       display: block;
       @include mq($from: lg) {

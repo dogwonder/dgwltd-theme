@@ -23,7 +23,7 @@ get_header();
 			</h1>
 		</div>
 
-		<div class="entry-content">
+		<div class="entry-content wp-block-post-content is-layout-flow">
 
 			<?php if ( have_posts() ) : ?>
 				<div class="dgwltd-list">

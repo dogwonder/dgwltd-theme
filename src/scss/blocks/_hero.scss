@@ -2,34 +2,23 @@
 //Hero block
 .dgwltd-hero {
 
-    overflow: hidden;
-
-    &__content {
-      ul {
-        margin: 0 0 var(--wp--custom--spacing--gap);
-        padding: 0;
-      }
-      .wp-block-button__link {
-        margin: 0;
-      }
-    }
-    
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: var(--color-light);
-    grid-column: 2 / span 1;
+    background-color: var(--wp--preset--color--dark);
     min-height: 25rem;
+
+    //Align full
+    max-width: 100%;
+    grid-column: 1 / span 3 !important;
+
+    .acf-innerblocks-container {
+      @include stack($gap);
+   }
 
     h1, h2 {
       @extend %dgwltd-heading-xl;
-    }
-
-    h1, h2, h3 {
-      &.has-background {
-        padding: 0;
-      }
     }
 
     h1, h2, p, .govuk-body {
@@ -40,30 +29,21 @@
       max-width: var(--wp--custom--width--character);
     }
 
-    .wp-block-heading ~ p {
-      margin-block-start: var(--wp--custom--spacing--gap);
-    }
-
     &__wrapper {
       z-index:2;
-      //Width
-      @extend %container;
-      //Extra padding
+      @extend %dgwltd-container;
       padding: var(--wp--custom--spacing--lg) var(--wp--custom--spacing--md);
-    }
-
-    //Varients
-    &.alignfull {
-      grid-column: 1 / span 3 !important;
-    }
-    
-    &.has-height {
-      min-height:60vh;
     }
 
     &.has-image {
       background-size: cover;
       background-position: 0 50%;
+      //Aspect ratios
+      aspect-ratio: 10 / 16;
+      @include mq($from: xl) {
+        aspect-ratio: initial;
+        height: 65vh;
+      }
     }
 
     &.has-video {
@@ -99,11 +79,6 @@
           background-color: rgba(255, 255, 255, .1);
         }
       }
-    }
-
-    &:not(.alignfull) {
-      padding: 0;
-      margin-inline: var(--wp--custom--spacing--md);
     }
      
   }
@@ -148,7 +123,7 @@
   }
 
   &__dialog {
-    background-color: #000;
+    background-color: var(--wp--preset--color--dark);
     max-width: clamp(18.75rem,53.125rem,95vw);
     height: clamp(18.75rem,35rem,95vh);
     padding: var(--wp--custom--spacing--md);
@@ -157,7 +132,7 @@
   }
 
   &__heading {
-    @extend %dgwltd-heading-s;
+    @extend %dgwltd-heading-sm;
     margin-block-end: var(--wp--custom--spacing--gap);
     color: var(--wp--preset--color--light);
     min-height: toRem(44);

@@ -72,24 +72,24 @@ You wait and see, Mr. Caruthers, I will be mayor and I’ll be the most powerful
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 
 <div class="wp-block-button is-style-fill">[What, what, ma?](http://dev.wp.dgw.ltd/blocks/)</div></div> </div> </div> </div></div> <style>
-	#block_6d68052fe43304cea11cdc67c5a8151f .dgwltd-cta__image .frame {
+	#block_6d68052fe43304cea11cdc67c5a8151f .dgwltd-content__image .frame {
 		aspect-ratio: 4/3;
 	}
-  </style><div class="dgwltd-block dgwltd-cta  has-image  aspect-4_3" id="block_6d68052fe43304cea11cdc67c5a8151f"><div class="dgwltd-cta__inner"><div class="dgwltd-cta__content"><div class="acf-innerblocks-container">I’m really gonna miss you. Doc, about the future-
+  </style><div class="dgwltd-block dgwltd-content  has-image  aspect-4_3" id="block_6d68052fe43304cea11cdc67c5a8151f"><div class="dgwltd-content__inner"><div class="dgwltd-content"><div class="acf-innerblocks-container">I’m really gonna miss you. Doc, about the future-
 -------------------------------------------------
 
 What’s going on? Where have you been all week? Where were we. Let’s go. Erased from existence. My god, do you know what this means? It means that this damn thing doesn’t work at all.
 
-</div> </div> <figure class="dgwltd-cta__image"> <picture class="frame"> <source media="(min-width: 769px)" srcset="http://dev.wp.dgw.ltd/wp-content/uploads/2022/12/IMG_6595-640x480.webp"> ![DeLorean time machine near a lake](http://dev.wp.dgw.ltd/wp-content/uploads/2022/12/IMG_6595-320x240.webp) </source></picture> </figure> </div> </div> <style>
-	#block_3edddb6f115e544e9cf53387ab7c8276 .dgwltd-cta__image .frame {
+</div> </div> <figure class="dgwltd-content__image"> <picture class="frame"> <source media="(min-width: 769px)" srcset="http://dev.wp.dgw.ltd/wp-content/uploads/2022/12/IMG_6595-640x480.webp"> ![DeLorean time machine near a lake](http://dev.wp.dgw.ltd/wp-content/uploads/2022/12/IMG_6595-320x240.webp) </source></picture> </figure> </div> </div> <style>
+	#block_3edddb6f115e544e9cf53387ab7c8276 .dgwltd-content__image .frame {
 		aspect-ratio: 4/3;
 	}
-  </style><div class="dgwltd-block dgwltd-cta  has-image  aspect-4_3" data-state="reversed" id="block_3edddb6f115e544e9cf53387ab7c8276"><div class="dgwltd-cta__inner"><div class="dgwltd-cta__content"><div class="acf-innerblocks-container">Doc, Doc, it’s me, Marty.
+  </style><div class="dgwltd-block dgwltd-content  has-image  aspect-4_3" data-state="reversed" id="block_3edddb6f115e544e9cf53387ab7c8276"><div class="dgwltd-content__inner"><div class="dgwltd-content"><div class="acf-innerblocks-container">Doc, Doc, it’s me, Marty.
 -------------------------
 
 Well yeah, you know we have two of them. Look, George, I’m telling you George, if you do not ask Lorraine to that dance, I’m gonna regret it for the rest of my life. Well, uh, listen, uh, I really- Biff. Marty, such a nice name.
 
-</div> </div> <figure class="dgwltd-cta__image"> <picture class="frame"> <source media="(min-width: 769px)" srcset="http://dev.wp.dgw.ltd/wp-content/uploads/2022/12/IMG_3985-640x480.webp"> ![DeLorean time machine in a warehouse](http://dev.wp.dgw.ltd/wp-content/uploads/2022/12/IMG_3985-320x240.webp) </source></picture> </figure> </div> </div>Hey, hey, Doc, where are you?
+</div> </div> <figure class="dgwltd-content__image"> <picture class="frame"> <source media="(min-width: 769px)" srcset="http://dev.wp.dgw.ltd/wp-content/uploads/2022/12/IMG_3985-640x480.webp"> ![DeLorean time machine in a warehouse](http://dev.wp.dgw.ltd/wp-content/uploads/2022/12/IMG_3985-320x240.webp) </source></picture> </figure> </div> </div>Hey, hey, Doc, where are you?
 -----------------------------
 
 <div class="dgwltd-block dgwltd-summary-list" id="block_fb15142283e53edc7a731436c182dcee">And Jack Benny is secretary of the Treasury

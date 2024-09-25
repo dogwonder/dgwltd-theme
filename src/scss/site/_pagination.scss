@@ -53,7 +53,7 @@
   }
 
   &__link-label {
-    @extend %dgwltd-body-s;
+    @extend %dgwltd-body-sm;
     text-decoration: underline;
     margin: var(--wp--custom--spacing--xs) 0 0 23px;
     display: inline-block;

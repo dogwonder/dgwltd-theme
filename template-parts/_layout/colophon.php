@@ -1,6 +1,6 @@
 <footer class="dgwltd-footer">
 
-	<div class="container">   
+	<div class="dgwltd-container">   
 
 		<div class="dgwltd-footer__section">
 			

@@ -117,3 +117,25 @@
 	}
 
 }
+
+//Container content
+@mixin container-content($breakpoint: 'xl', $start: 3, $span: 8) {
+
+  @include mq($from: $breakpoint) {
+    
+    display: grid;
+    //12 col grid;
+    grid-template-columns: repeat(12, 1fr);
+    //16-96px padding;
+    padding: 0 var(--wp--custom--spacing--s-xxl);
+    width: 100%;
+    max-width: clamp(16rem, var(--wp--custom--width--container, 120rem), 100vw);
+    margin-inline: auto;
+    gap: var(--wp--custom--spacing--m-l);
+    
+    > * {
+      grid-column: $start / span $span;
+    }
+
+  }
+}

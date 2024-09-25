@@ -17,7 +17,7 @@
       padding: 0;
     }
     .govuk-accordion__section-button {
-      @extend %dgwltd-heading-m;
+      @extend %dgwltd-heading-md;
       margin: 0;
       padding-bottom: 0;
       &:focus-visible {
