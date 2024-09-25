@@ -1,4 +1,4 @@
-
+//Banner block
 .dgwltd-banner {
 
     //Align full
@@ -10,12 +10,6 @@
         h2 {
           --buffer: 0;
         }
-    }
-
-    &__content {
-      .wp-block-button__link {
-        margin: 0;
-      }
     }
 
     &.has-background, 
@@ -30,11 +24,11 @@
         @extend %dgwltd-heading-lg;
       }
 
-      h2, h3, p, .govuk-body {
+      h2, h3, p {
         color:inherit;
       }
 
-      p, li, .govuk-body {
+      p, li {
         max-width: var(--wp--custom--width--character);
       }
 
@@ -47,7 +41,7 @@
         .dgwltd-banner__inner {
           //Snap back to our container
           grid-column: 2 / span 1;
-          padding:var(--wp--custom--spacing--lg) var(--wp--custom--spacing--md);
+          padding-block:var(--wp--custom--spacing--lg);
         }
       }
       

@@ -8,7 +8,7 @@ const dataSpace = calculateSpaceScale({
     maxSize: 20,
     positiveSteps: [1.5, 2, 3, 4, 6],
     negativeSteps: [0.75, 0.5, 0.25],
-    customSizes: ['s-l', '2xl-4xl']
+    customSizes: ['s-l', 's-2xl', '2xl-4xl']
 });
 
 const dataType = calculateTypeScale({

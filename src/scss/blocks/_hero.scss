@@ -15,17 +15,21 @@
 
     .acf-innerblocks-container {
       @include stack($gap);
-   }
+    }
 
     h1, h2 {
       @extend %dgwltd-heading-xl;
     }
 
-    h1, h2, p, .govuk-body {
+    h1, h2, p {
       color:inherit;
     }
 
-    p, li, .govuk-body {
+    p {
+      font-size: var(--wp--preset--font-size--md);
+    }
+
+    p, li {
       max-width: var(--wp--custom--width--character);
     }
 

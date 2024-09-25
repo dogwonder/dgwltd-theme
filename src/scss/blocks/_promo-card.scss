@@ -44,10 +44,14 @@
         .wp-block-heading {
             font-size: var(--wp--preset--font-size--lg);
         }
+        .wp-block-button {
+            --buffer: var(--wp--custom--spacing--md);
+        }
         .wp-element-button {
             color: var(--wp--preset--color--dark);
             border-color: var(--wp--preset--color--dark);
             background-color: transparent;
+            margin: 0;
         }
     }
 
@@ -101,6 +105,14 @@
     }
     
     //Variations
+    &.is-style-dark {
+        background-color: var(--wp--preset--color--dark);
+        .dgwltd-promo-card__content {
+            background-color: var(--wp--preset--color--light);
+            color: var(--wp--preset--color--dark);
+        }
+    }
+
     &.is-style-light {
         .dgwltd-promo-card__content {
             background-color: var(--wp--preset--color--dark);
@@ -112,25 +124,6 @@
         }
     } 
 
-    //Default
-    &.is-style-light-primary {
-        
-    }
-
-    &.is-style-dark {
-        background-color: var(--wp--preset--color--dark);
-        .dgwltd-promo-card__content {
-            background-color: var(--wp--preset--color--light);
-            color: var(--wp--preset--color--dark);
-        }
-    }
-
-    &.is-style-dark-primary {
-        background-color: var(--wp--preset--color--dark);
-        .dgwltd-promo-card__content {
-            background-color: var(--wp--preset--color--primary);
-        }
-    }
     
     
 }

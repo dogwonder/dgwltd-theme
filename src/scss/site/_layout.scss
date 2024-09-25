@@ -5,10 +5,12 @@
   min-height: 100vh;
 }
 
-.dgwltd-container {
-  //We need this for IE11 to respect, flex:1 won't work on it's own
+//Anchor the footer to the bottom of the page
+.dgwltd-body {
   flex: 1;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 //Page layout
@@ -36,6 +38,11 @@
       margin-block-end: var(--wp--custom--spacing--gap);
     }
   }
+}
+
+//Add a little space to the content blockk
+.entry-content {
+  padding-block-end: var(--wp--custom--spacing--lg);
 }
 
 //Hero followed by Featured block

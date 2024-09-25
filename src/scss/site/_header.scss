@@ -44,9 +44,10 @@ $nav-height: toRem(60);
   justify-content: space-between;
   align-items: center;
 
-  //Width
-  width:100%;
-  padding-block: var(--wp--custom--spacing--s-m);
+  //Align full
+  max-width: 100%;
+  grid-column: 1 / span 3 !important;
+  padding: var(--wp--custom--spacing--md);
 
   //Logo
   .dgwltd-masthead__logo {
@@ -83,9 +84,11 @@ $nav-height: toRem(60);
     //Custom styling
     .logo {
       &__angle-bracket {
-        opacity: 0.7;
+        fill: var(--wp--preset--color--primary);
       }
-      &__line {}
+      &__line {
+        
+      }
     }
     
   }

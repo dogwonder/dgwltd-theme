@@ -3,9 +3,11 @@
 --wp--custom--width--content: 52rem;
 --wp--custom--width--content-small: 38rem;
 --wp--custom--width--character: 68ch;
---wp--preset--color--primary: #0095a3;
---wp--preset--color--secondary: #fe9f97;
---wp--preset--color--tertiary: #fbae17;
+--wp--preset--color--primary: #FA008A;
+--wp--preset--color--secondary: #00E5E5;
+--wp--preset--color--accent-magenta: #C3006A;
+--wp--preset--color--accent-peach: #FFC3B9;
+--wp--preset--color--accent-purple: #9A00FA;
 --wp--preset--color--dark: #0d0f05;
 --wp--preset--color--light: #ffffff;
 --wp--preset--color--alt: #f1f2f0;
@@ -38,12 +40,7 @@
 --wp--custom--spacing--xl: clamp(3.1875rem, 3.035rem + 0.7627vi, 3.75rem);
 --wp--custom--spacing--2-xl: clamp(4.25rem, 4.0466rem + 1.0169vi, 5rem);
 --wp--custom--spacing--xs-s: clamp(0.8125rem, 0.6939rem + 0.5932vi, 1.25rem);
---wp--custom--spacing--s-m: clamp(1.0625rem, 0.8422rem + 1.1017vi, 1.875rem);
---wp--custom--spacing--m-l: clamp(1.625rem, 1.3877rem + 1.1864vi, 2.5rem);
---wp--custom--spacing--l-xl: clamp(2.125rem, 1.6843rem + 2.2034vi, 3.75rem);
---wp--custom--spacing--xl-2-xl: clamp(3.1875rem, 2.696rem + 2.4576vi, 5rem);
---wp--custom--spacing--2-xl-3-xl: clamp(4.25rem, 3.3686rem + 4.4068vi, 7.5rem);
---wp--custom--spacing--s-xxl: clamp(1rem, 0.00rem + 5.00vw, 6rem);
+--wp--custom--spacing--s-xxl: clamp(1.0625rem, -0.0053rem + 5.339vi, 5rem);
 --wp--preset--spacing--x-small: var(--wp--custom--spacing--xs);
 --wp--preset--spacing--small: var(--wp--custom--spacing--sm);
 --wp--preset--spacing--medium: var(--wp--custom--spacing--md);

@@ -15,19 +15,16 @@ $z-important: 2147483647;
 //Spacing
 $scale: ( 'xs', 'sm', 'md', 'lg', 'xl');
 
-//Default gap
+//Gaps
 $gap: 1.5rem;
 $gap-sm: 1rem;
+$gap-lg: 2rem;
 
 //Fluid container for grid layout
-$fluid-container: minmax(var(--wp--custom--spacing--s-m), 1fr) minmax(min-content, calc(var(--wp--custom--width--container))) minmax(var(--wp--custom--spacing--s-m), 1fr);
+$fluid-container: minmax(var(--wp--custom--spacing--md), 1fr) minmax(min-content, calc(var(--wp--custom--width--container))) minmax(var(--wp--custom--spacing--md), 1fr);
 
 //Typography
 $bold: 700;
-
-////
-/// Vendor variables
-////
 
 //Redeclare from vendor/_mq.scss -- https://github.com/sass-mq/sass-mq
 $mq-breakpoints: (

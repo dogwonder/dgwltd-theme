@@ -100,24 +100,3 @@ add_filter(
 		return $title;
 	}
 );
-
-
-add_filter('the_content', 'dgwltd_content_div');
-
-function dgwltd_content_div($content) {
-	//If not template page
-	if ( ! is_page_template( ['template-guide.php', 'template-blog.php', 'template-search.php' ] ) ) {
-
-		$dgwltd_content_html = $content;
-		$dgwltd_content_html .= '<div class="buffer"></div>';
-
-		$filteredcontent = $dgwltd_content_html;
-
-		return $filteredcontent;
-		
-	} else {
-
-		return $content;
-		
-	};
-}

@@ -14,17 +14,27 @@
 				{
 					"name": "Primary", 
 					"slug": "primary",
-					"color": "#0095a3"
+					"color": "#FA008A"
 				},
 				{
 					"name": "Secondary", 
 					"slug": "secondary",
-					"color": "#fe9f97"
+					"color": "#00E5E5"
 				},
 				{
-					"name": "Tertiary", 
-					"slug": "tertiary",
-					"color": "#fbae17"
+					"name": "Accent Magenta", 
+					"slug": "accent-magenta",
+					"color": "#C3006A"
+				},
+				{
+					"name": "Accent Peach",
+					"slug": "accent-peach",
+					"color": "#FFC3B9"
+				},
+				{
+					"name": "Accent Purple",
+					"slug": "accent-purple",
+					"color": "#9A00FA"
 				},
 				{
 					"name": "Dark", 
@@ -215,12 +225,7 @@
 					"xl": "clamp(3.1875rem, 3.035rem + 0.7627vi, 3.75rem)",
 					"2xl": "clamp(4.25rem, 4.0466rem + 1.0169vi, 5rem)",
 					"xs-s": "clamp(0.8125rem, 0.6939rem + 0.5932vi, 1.25rem)",
-					"s-m": "clamp(1.0625rem, 0.8422rem + 1.1017vi, 1.875rem)",
-					"m-l": "clamp(1.625rem, 1.3877rem + 1.1864vi, 2.5rem)",
-					"l-xl": "clamp(2.125rem, 1.6843rem + 2.2034vi, 3.75rem)",
-					"xl-2xl": "clamp(3.1875rem, 2.696rem + 2.4576vi, 5rem)",
-					"2xl-3xl": "clamp(4.25rem, 3.3686rem + 4.4068vi, 7.5rem)",
-					"s-xxl": "clamp(1rem, 0.00rem + 5.00vw, 6rem)"
+					"s-xxl": "clamp(1.0625rem, -0.0053rem + 5.339vi, 5rem)"
 				},
 				"typography": {
 					"letterSpacing": {

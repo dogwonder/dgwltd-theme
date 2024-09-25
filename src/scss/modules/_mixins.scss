@@ -66,22 +66,6 @@
     
 }
   
-// Color contrast
-@mixin text-contrast($n) {
-  $color-brightness: round(
-    (red($n) * 299) + (green($n) * 587) + (math.div(blue($n) * 114, 1000)));
-  $light-color: round(
-    (red(#ffffff) * 299) + (green(#ffffff) * 587) + (math.div(blue(#ffffff) * 114, 1000)));
-
-  @if abs($color-brightness) < (math.div($light-color, 2)) {
-    color: var(--wp--preset--color--light);
-    border-color: var(--wp--preset--color--light);
-  } @else {
-    color: var(--wp--preset--color--dark);
-    border-color: var(--wp--preset--color--dark);
-  }
-}
-  
 // SVG icon mixin
 @mixin error-icon($color, $opacity: 0.6) {
   background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m10 0c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10-4.48-10-10-10zm1 15h-2v-2h2zm0-4h-2v-6h2z" fill="#{$color}" opacity="#{$opacity}"/></svg>');
@@ -131,7 +115,7 @@
     width: 100%;
     max-width: clamp(16rem, var(--wp--custom--width--container, 120rem), 100vw);
     margin-inline: auto;
-    gap: var(--wp--custom--spacing--m-l);
+    gap: var(--wp--custom--spacing--lg);
     
     > * {
       grid-column: $start / span $span;
