@@ -72,7 +72,7 @@ if ( ! function_exists( 'dgwltd_setup' ) ) :
 		register_nav_menus(
 			array(
 				'primary' => esc_html__( 'Primary', 'dgwltd' ),
-				'footer-links' => __( 'Footer Menu', 'dgwltd' ), 
+				'footer-links' => __( 'Footer', 'dgwltd' ), 
 				'legal'   => esc_html__( 'Legal', 'dgwltd' )
 			)
 		);

@@ -35,7 +35,7 @@ msgid "Primary"
 msgstr ""
 
 #: functions.php:81
-msgid "Footer Menu"
+msgid "Footer"
 msgstr ""
 
 #: functions.php:82

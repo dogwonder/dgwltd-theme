@@ -38,6 +38,9 @@ $mq-breakpoints: (
 //CSS Variables
 :root {
 
+  /* Opt-in the whole page to interpolate sizes to/from keywords - allows transitions from `height: 0` to `height: auto` */
+  interpolate-size: allow-keywords; /* 👈 */
+
   --baseline: calc(var(--wp--preset--font-size--body) * var(--wp--custom--typography--line-height--body));
   --baseline-multiplier: 1;
 

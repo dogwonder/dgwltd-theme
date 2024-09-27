@@ -7,7 +7,7 @@ const inputSVG = './src/images/logo.svg'; // Replace with your actual path
 sizes.forEach(size => {
   sharp(inputSVG)
     .resize(size, size)
-    .toFile(`./dist/images/fav/favicon-${size}x${size}.png`, (err, info) => {
+    .toFile(`./src/images/fav/favicon-${size}x${size}.png`, (err, info) => {
       if (err) {
         console.error(err);
       } else {
@@ -18,7 +18,7 @@ sizes.forEach(size => {
 
 ico({
   input_name: inputSVG,
-  output_name: './dist/images/fav/favicon.ico',
+  output_name: './src/images/fav/favicon.ico',
   sizes: [ 32 ]
 }).then(() => {
   console.log('file converted');
