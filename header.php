@@ -10,7 +10,15 @@
  */
 
 //Get version value from package.json
-$package = json_decode(file_get_contents(get_template_directory() . '/dist/version.json'), true);
+$response = wp_remote_get(get_template_directory_uri() . '/dist/version.json');
+if (is_wp_error($response)) {
+    // Handle the error appropriately
+    $error_message = $response->get_error_message();
+    echo "Something went wrong: $error_message";
+} else {
+    $body = wp_remote_retrieve_body($response);
+    $package = json_decode($body, true);
+}
 $pkgVersion = $package['version'];
 ?>
 <!doctype html>

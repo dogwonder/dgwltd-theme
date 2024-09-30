@@ -97,3 +97,40 @@ if ( ! function_exists( 'dgwltd_sort_dates' ) ) :
 
 	}
 endif;
+
+if ( ! function_exists( 'dgwltd_generate_color_palette_tints' ) ) :
+	function dgwltd_generate_color_palette_tints( $block = null ) {
+
+		//CSS Relative Colors - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Relative_colors
+
+		$color_palette_array = [];
+
+		$settings = WP_Theme_JSON_Resolver::get_theme_data()->get_settings();
+
+		// Process color palette
+		if (isset($settings["color"]["palette"]["theme"])) {
+			foreach ($settings["color"]["palette"]["theme"] as $color) {
+				$color_palette_array[] = [
+					"slug" => $color["slug"],
+					"color" => $color["color"],
+				];
+			}
+		}
+		
+		// Generate CSS variables
+		$css_vars = '';
+		foreach ($color_palette_array as $color) {
+			$slug = $color['slug'];
+			$hex = $color['color'];
+			for ($i = 1; $i <= 10; $i++) {
+				$tint = $i * 0.1;
+				$css_vars .= "--color-{$slug}-tint-{$i}0: rgb(from var(--wp--preset--color--{$slug}) r g b / {$tint});\n";
+			}
+		}
+
+		//Enqueue the CSS variables
+		wp_add_inline_style('dgwltd-style', ":root {\n{$css_vars}}");
+
+}
+// add_action('wp_enqueue_scripts', 'dgwltd_generate_color_palette_tints');
+endif;
