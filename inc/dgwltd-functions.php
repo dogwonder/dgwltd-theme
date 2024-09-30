@@ -119,13 +119,24 @@ if ( ! function_exists( 'dgwltd_generate_color_palette_tints' ) ) :
 		
 		// Generate CSS variables
 		$css_vars = '';
+
+		//10% increments
+		// foreach ($color_palette_array as $color) {
+		// 	$slug = $color['slug'];
+		// 	$hex = $color['color'];
+		// 	for ($i = 1; $i <= 10; $i++) {
+		// 		$tint = $i * 0.1;
+		// 		$css_vars .= "--color-{$slug}-tint-{$i}0: rgb(from var(--wp--preset--color--{$slug}) r g b / {$tint});\n";
+		// 	}
+		// }
+
+		//10%, 25% and 50%
 		foreach ($color_palette_array as $color) {
 			$slug = $color['slug'];
 			$hex = $color['color'];
-			for ($i = 1; $i <= 10; $i++) {
-				$tint = $i * 0.1;
-				$css_vars .= "--color-{$slug}-tint-{$i}0: rgb(from var(--wp--preset--color--{$slug}) r g b / {$tint});\n";
-			}
+			$css_vars .= "--color-{$slug}-tint-10: rgb(from var(--wp--preset--color--{$slug}) r g b / 0.9);\n";
+			$css_vars .= "--color-{$slug}-tint-25: rgb(from var(--wp--preset--color--{$slug}) r g b / 0.75);\n";
+			$css_vars .= "--color-{$slug}-tint-50: rgb(from var(--wp--preset--color--{$slug}) r g b / 0.5);\n";
 		}
 
 		//Enqueue the CSS variables
