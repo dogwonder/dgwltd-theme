@@ -262,7 +262,8 @@ const calculateSpaceScale = (config) => {
   };
 };
 
-module.exports = {
+// Exporting the functions as named exports
+export {
   calculateTypeScale,
   calculateSpaceScale,
   calculateClamps

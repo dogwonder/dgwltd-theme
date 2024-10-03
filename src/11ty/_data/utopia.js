@@ -1,4 +1,5 @@
-const { calculateTypeScale, calculateSpaceScale, calculateClamps } = require('../../utils/utopia.js');
+// File: utopia.js
+import { calculateTypeScale, calculateSpaceScale, calculateClamps } from '../../utils/utopia.js';
 
 // Assuming calculateSpaceScale returns an object directly, not a JSON string
 const dataSpace = calculateSpaceScale({
@@ -71,4 +72,4 @@ const resultsStep = extractClampValuesAndSizesType(dataType);
 // Logging results for debugging or direct use
 // console.log(results);
 
-module.exports = { resultsSpace, resultsStep };
+export { resultsSpace, resultsStep };

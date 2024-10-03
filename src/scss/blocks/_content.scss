@@ -1,4 +1,6 @@
 //Content block
+@use "sass:list";
+
 .dgwltd-content-block {
 
     &__content {
@@ -145,7 +147,7 @@
           }
           .dgwltd-content-block__image {
             order: 2;
-            grid-column: 6 / span - 1;  
+            grid-column: list.slash(6, span) - 1;  
           }
         }
         @include mq($from: xl) {

@@ -1,5 +1,5 @@
-const sharp = require('sharp');
-const ico = require('svg-to-ico');
+import sharp from 'sharp';
+import ico from 'svg-to-ico';
 
 const sizes = [128, 180, 192, 512];
 const inputSVG = './src/images/logo.svg'; // Replace with your actual path

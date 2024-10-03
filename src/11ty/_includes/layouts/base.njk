@@ -1,20 +1,30 @@
-{% set assetHash = global.random() %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex">
     <meta name="generator" content="{{ eleventy.generator }}">
-    <title>{{ title | safe }}</title>
-    <style>{% getBundle "css", "default" %}</style>
-    {% if bucket == "offline" %}
-    <style>{% getBundle "css", "offline" %}</style>
-    {% endif %}
-    {% css %}
-    {% include "dist/css/wp.css" %}
+    <title>{{ title or metadata.title }}</title>
+    <meta name="description" content="{{ description or metadata.description }}">
+		{#-
+		Plain-text bundles are provided via the `eleventy-plugin-bundle` plugin:
+		1. CSS:
+			* Add to a per-page bundle using `{% css %}{% endcss %}`
+			* Retrieve bundle content using `{% getBundle "css" %}` or `{% getBundleFileUrl "css" %}`
+		2. Or for JavaScript:
+			* Add to a per-page bundle using `{% js %}{% endjs %}`
+			* Retrieve via `{% getBundle "js" %}` or `{% getBundleFileUrl "js" %}`
+		3. Learn more: https://github.com/11ty/eleventy-plugin-bundle
+		#}
+    {#- Add an arbitrary string to the bundle #}
+		{%- css %}/* This is an arbitrary CSS string added to the bundle */{% endcss %}
+		{#- Add the contents of a file to the bundle #}
+		{%- css %}
     {% include "dist/css/main.css" %}
+    {% include "dist/css/wp.css" %}
     {% endcss %}
+    {#- Render the CSS bundle using inlined CSS (for the fastest site performance in production) #}
+		<style>{% getBundle "css" %}</style>
   </head>
   <body class="dgwltd {{ class if class }}">
     <div id="page" class="dgwltd-wrapper">
@@ -22,7 +32,6 @@
             <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
         </div>
         <header id="masthead" class="dgwltd-masthead">
-          
         </header>
         <main id="content" class="dgwltd-container" tabindex="-1">
             <div id="primary" class="dgwltd-content-wrapper">
@@ -32,6 +41,7 @@
         <footer class="dgwltd-footer">
         </footer>
     </div>
-    {% block scripts %}{% endblock %}
+    <!-- This page `{{ page.url | htmlBaseUrl }}` was built on {% currentBuildDate %} -->
+    <script type="module" src="{% getBundleFileUrl "js" %}"></script>
   </body>
 </html>

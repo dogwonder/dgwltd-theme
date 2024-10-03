@@ -1,15 +1,13 @@
 // File: export-style.js
 
-const { exec } = require('child_process');
-const path = require('path');
+import { exec } from 'child_process';
+import path from 'path';
+import fs from 'fs';
 
 // Configuration
 const wpCliPath = 'wp'; // Adjust if WP-CLI is not in your PATH
 const outputDir = path.resolve('./src/wp');
 const outputFile = path.join(outputDir, 'wp.css');
-
-// Ensure the output directory exists
-const fs = require('fs');
 
 if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });

@@ -2,8 +2,8 @@
 a {
   color: var(--wp--preset--color--dark, inherit);
   text-decoration: underline;
-  text-decoration-thickness: unquote("max(0.1em, .0625rem)") !important;
-  text-underline-offset: 0.1em;
+  text-decoration-thickness: max(3px, .1875rem, .12em) !important;
+  text-underline-offset: .1578em;
   //Break long urls
   word-wrap: break-word;
   overflow-wrap: break-word;

@@ -130,11 +130,10 @@ if ( ! function_exists( 'dgwltd_generate_color_palette_tints' ) ) :
 		// 	}
 		// }
 
-		//10%, 25% and 50%
+		//25% and 50%
 		foreach ($color_palette_array as $color) {
 			$slug = $color['slug'];
 			$hex = $color['color'];
-			$css_vars .= "--color-{$slug}-tint-10: rgb(from var(--wp--preset--color--{$slug}) r g b / 0.9);\n";
 			$css_vars .= "--color-{$slug}-tint-25: rgb(from var(--wp--preset--color--{$slug}) r g b / 0.75);\n";
 			$css_vars .= "--color-{$slug}-tint-50: rgb(from var(--wp--preset--color--{$slug}) r g b / 0.5);\n";
 		}

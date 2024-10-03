@@ -4,7 +4,7 @@ layout: "layouts/page.njk"
 excerpt: ""
 date: 2022-07-29 14:52:04
 modified: 2024-09-10 17:23:57
-permalink: .html
+permalink: welcome.html
 tags: []
 featured_img: 
 wpid: 115

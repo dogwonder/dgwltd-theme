@@ -1,4 +1,4 @@
-const viewports = require('../tokens/viewports.json');
+import viewports from '../tokens/viewports.json' assert { type: 'json' };
 
 /**
  * Takes an array of tokens and sends back and array of name
@@ -43,4 +43,4 @@ const clampGenerator = tokens => {
   });
 };
 
-module.exports = clampGenerator;
+export default clampGenerator;
