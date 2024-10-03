@@ -1,7 +1,6 @@
 import { IdAttributePlugin, InputPathToUrlTransformPlugin, HtmlBasePlugin } from "@11ty/eleventy";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginNavigation from "@11ty/eleventy-navigation";
-import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import dayjs from 'dayjs';
 import { readFile } from 'fs/promises';
 
@@ -53,23 +52,6 @@ export default async function(eleventyConfig) {
 	eleventyConfig.addPlugin(HtmlBasePlugin);
   eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
 
-  // Image optimization: https://www.11ty.dev/docs/plugins/image/#eleventy-transform
-	eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
-		// File extensions to process in _site folder
-		extensions: "html",
-
-		// Output formats for each image.
-		formats: ["avif", "webp", "auto"],
-
-		// widths: ["auto"],
-
-		defaultAttributes: {
-			// e.g. <img loading decoding> assigned on the HTML tag will override these values.
-			loading: "lazy",
-			decoding: "async",
-		}
-	});
-
   // Filters
 	eleventyConfig.addPlugin(pluginFilters);
 
@@ -78,8 +60,6 @@ export default async function(eleventyConfig) {
 		// slugify: eleventyConfig.getFilter("slugify"),
 		// selector: "h1,h2,h3,h4,h5,h6", // default
 	});
-
-
 
   // Tell 11ty to use the .eleventyignore and ignore our .gitignore file
   eleventyConfig.setUseGitIgnore(false)
@@ -105,7 +85,7 @@ export const config = {
 		input: "src/11ty",          // default: "."
 		includes: "_includes",  // default: "_includes" (`input` relative)
 		data: "_data",          // default: "_data" (`input` relative)
-		output: "dist"             
+		output: "dist"       
 	},
 
   // -----------------------------------------------------------------

@@ -20,8 +20,8 @@
 		{%- css %}/* This is an arbitrary CSS string added to the bundle */{% endcss %}
 		{#- Add the contents of a file to the bundle #}
 		{%- css %}
-    {% include "dist/css/main.css" %}
     {% include "dist/css/wp.css" %}
+    {% include "dist/css/main.css" %}
     {% endcss %}
     {#- Render the CSS bundle using inlined CSS (for the fastest site performance in production) #}
 		<style>{% getBundle "css" %}</style>
