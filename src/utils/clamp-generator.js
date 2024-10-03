@@ -1,5 +1,4 @@
-import viewports from '../tokens/viewports.json' assert { type: 'json' };
-
+import viewports from '../tokens/viewports.js';
 /**
  * Takes an array of tokens and sends back and array of name
  * and clamp pairs for CSS fluid values.

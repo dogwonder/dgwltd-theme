@@ -1,8 +1,8 @@
 import clampGenerator from '../../utils/clamp-generator.js';
-import spacingTokens from '../../tokens/spacing.json' assert { type: 'json' };
-import colorTokens from '../../tokens/colors.json' assert { type: 'json' };
-import typeTokens from '../../tokens/text-sizes.json' assert { type: 'json' };
-import lineHeightTokens from '../../tokens/line-heights.json' assert { type: 'json' };
+import spacingTokens from '../../tokens/spacing.js';
+import colorTokens from '../../tokens/colors.js';
+import typeTokens from '../../tokens/text-sizes.js';
+import lineHeightTokens from '../../tokens/line-heights.js';
 import slugify from 'slugify';
 
 const tokens = () => {
