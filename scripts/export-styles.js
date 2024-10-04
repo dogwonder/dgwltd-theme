@@ -6,7 +6,7 @@ import fs from 'fs';
 
 // Configuration
 const wpCliPath = 'wp'; // Adjust if WP-CLI is not in your PATH
-const outputDir = path.resolve('./src/wp');
+const outputDir = path.resolve('./src/vendor/css');
 const outputFile = path.join(outputDir, 'wp.css');
 
 if (!fs.existsSync(outputDir)) {

@@ -10,7 +10,7 @@ if ( has_post_thumbnail() ) {
     }
 }
 if ( ! is_single() || empty( $dgwltd_meta['image'] ) ) {
-	$dgwltd_meta['image'] = get_template_directory_uri() . '/dist/images/og/og-image.png';
+	$dgwltd_meta['image'] = get_template_directory_uri() . '/dist/assets/icons/og/og-image.png';
 }
 if ( ! is_single() && ! is_page() || empty( $dgwltd_meta['title'] ) ) {
 	$dgwltd_meta['title'] = strip_shortcodes( esc_attr( get_bloginfo( 'name' ) ) );

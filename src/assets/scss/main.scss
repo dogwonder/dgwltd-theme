@@ -15,47 +15,47 @@ $govuk-font-family: -apple-system, BlinkMacSystemFont,"Segoe UI", "Roboto", "Oxy
 
 // 'Base' includes everything from settings, tools and helpers. Nothing
 // in the base outputs any CSS.
-@import "../../node_modules/govuk-frontend/dist/govuk/base";
+@import "../../../node_modules/govuk-frontend/dist/govuk/base";
 
 // Basic content styles for typography, links etc. Approximately 10% of
 // the CSS output if you include everything.
-@import "../../node_modules/govuk-frontend/dist/govuk/core/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/core/index";
 
 // Objects include things like the page template, grid and form groups.
 // Approximately 5% of the CSS output if you include everything.
-@import "../../node_modules/govuk-frontend/dist/govuk/objects/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/objects/index";
 
 // The components themselves - try to only include the components you
 // are using in your project. Approximately 70% of the CSS output if
 // you include everything.
 
-@import "../../node_modules/govuk-frontend/dist/govuk/components/accordion/index";
-@import "../../node_modules/govuk-frontend/dist/govuk/components/breadcrumbs/index";
-@import "../../node_modules/govuk-frontend/dist/govuk/components/button/index";
-@import "../../node_modules/govuk-frontend/dist/govuk/components/checkboxes/index";
-@import "../../node_modules/govuk-frontend/dist/govuk/components/details/index";
-@import "../../node_modules/govuk-frontend/dist/govuk/components/error-message/index";
-@import "../../node_modules/govuk-frontend/dist/govuk/components/error-summary/index";
-@import "../../node_modules/govuk-frontend/dist/govuk/components/fieldset/index";
-@import "../../node_modules/govuk-frontend/dist/govuk/components/input/index";
-@import "../../node_modules/govuk-frontend/dist/govuk/components/label/index";
-@import "../../node_modules/govuk-frontend/dist/govuk/components/notification-banner/index";
-@import "../../node_modules/govuk-frontend/dist/govuk/components/pagination/index";
-@import "../../node_modules/govuk-frontend/dist/govuk/components/radios/index";
-@import "../../node_modules/govuk-frontend/dist/govuk/components/select/index";
-@import "../../node_modules/govuk-frontend/dist/govuk/components/skip-link/index";
-@import "../../node_modules/govuk-frontend/dist/govuk/components/summary-list/index";
-@import "../../node_modules/govuk-frontend/dist/govuk/components/textarea/index";
-@import "../../node_modules/govuk-frontend/dist/govuk/components/warning-text/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/components/accordion/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/components/breadcrumbs/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/components/button/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/components/checkboxes/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/components/details/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/components/error-message/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/components/error-summary/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/components/fieldset/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/components/input/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/components/label/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/components/notification-banner/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/components/pagination/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/components/radios/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/components/select/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/components/skip-link/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/components/summary-list/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/components/textarea/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/components/warning-text/index";
 
 // Utilities, for example govuk-clearfix or govuk-visually-hidden.
 // Approximately 1% of the CSS output if you include everything.
-@import "../../node_modules/govuk-frontend/dist/govuk/utilities/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/utilities/index";
 
 // Overrides, used to adjust things like the amount of spacing on an
 // element. Override classes always include `-!-` in the class name.
 // Approximately 15% of the CSS output if you include everything.
-@import "../../node_modules/govuk-frontend/dist/govuk/overrides/index";
+@import "../../../node_modules/govuk-frontend/dist/govuk/overrides/index";
 
 // RESET
 @import "modules/reset";

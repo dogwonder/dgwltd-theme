@@ -2,12 +2,12 @@ import sharp from 'sharp';
 import ico from 'svg-to-ico';
 
 const sizes = [128, 180, 192, 512];
-const inputSVG = './src/images/logo.svg'; // Replace with your actual path
+const inputSVG = './src/assets/icons/logo.svg'; // Replace with your actual path
 
 sizes.forEach(size => {
   sharp(inputSVG)
     .resize(size, size)
-    .toFile(`./src/images/fav/favicon-${size}x${size}.png`, (err, info) => {
+    .toFile(`./src/assets/icons/fav/favicon-${size}x${size}.png`, (err, info) => {
       if (err) {
         console.error(err);
       } else {
@@ -18,7 +18,7 @@ sizes.forEach(size => {
 
 ico({
   input_name: inputSVG,
-  output_name: './src/images/fav/favicon.ico',
+  output_name: './src/assets/icons/fav/favicon.ico',
   sizes: [ 32 ]
 }).then(() => {
   console.log('file converted');

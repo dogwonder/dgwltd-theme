@@ -1,19 +1,31 @@
 import { IdAttributePlugin, InputPathToUrlTransformPlugin, HtmlBasePlugin } from "@11ty/eleventy";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginNavigation from "@11ty/eleventy-navigation";
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import dayjs from 'dayjs';
 import { readFile } from 'fs/promises';
 
 import pluginFilters from "./src/11ty/_config/filters.js";
 
+const isProduction = process.env.NODE_ENV === 'production';
+const buildPath = isProduction ? '/wp-content/themes/dgwltd/dist/' : '/';
+
 export default async function(eleventyConfig) {
 
+  // Define the base URL for images
+  const imageBaseUrl = isProduction
+    ? "http://dev.wp.dgw.ltd/wp-content/themes/dgwltd/dist/"
+    : "/";
+  
+  eleventyConfig.addGlobalData("imageBaseUrl", imageBaseUrl);
+
   // Passthrough options
-  eleventyConfig.addPassthroughCopy({"src/images": "images"});
-  eleventyConfig.addPassthroughCopy({"src/fonts": "fonts"});
-  eleventyConfig.addPassthroughCopy({"src/scripts": "js"});
-  eleventyConfig.addPassthroughCopy({"src/vendor": "js"});
-  eleventyConfig.addPassthroughCopy({"src/wp": "css"});
+  eleventyConfig.addPassthroughCopy({"src/assets/fonts": "fonts"});
+  eleventyConfig.addPassthroughCopy({"src/assets/icons/": "icons"});
+  eleventyConfig.addPassthroughCopy({"src/assets/images/": "images"});
+  eleventyConfig.addPassthroughCopy({"src/assets/scripts/": "scripts"});
+  eleventyConfig.addPassthroughCopy({"src/vendor/js/": "js"});
+  eleventyConfig.addPassthroughCopy({"src/vendor/css/": "css"});
 
   //Get package version
   const packageJson = JSON.parse(await readFile(new URL('./package.json', import.meta.url)));
@@ -34,6 +46,8 @@ export default async function(eleventyConfig) {
   eleventyConfig.addShortcode("currentBuildDate", () => {
 		return (new Date()).toISOString();
 	});
+
+  
 
   //Add bundler bundles
   eleventyConfig.addBundle("css", {
@@ -61,6 +75,24 @@ export default async function(eleventyConfig) {
 		// selector: "h1,h2,h3,h4,h5,h6", // default
 	});
 
+  // eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+	// 	// which file extensions to process
+	// 	extensions: "html",
+
+	// 	// optional, output image formats
+	// 	formats: ["webp", "avif", "jpeg"],
+	// 	// formats: ["auto"],
+
+	// 	// optional, output image widths
+	// 	// widths: ["auto"],
+
+	// 	// optional, attributes assigned on <img> override these values.
+	// 	defaultAttributes: {
+	// 		loading: "lazy",
+	// 		decoding: "async",
+	// 	},
+	// });
+
   // Tell 11ty to use the .eleventyignore and ignore our .gitignore file
   eleventyConfig.setUseGitIgnore(false)
 
@@ -73,6 +105,8 @@ export const config = {
     "md",
     "njk"
   ],
+
+  // baseUrl: isDevelopment ? 'localhost:8080' : 'http://dev.wp.dgw.ltd/wp-content/themes/dgwltd/dist/', 
 
   // Pre-process *.md files with: (default: `liquid`)
   markdownTemplateEngine: "njk",
@@ -99,6 +133,6 @@ export const config = {
 	// it will transform any absolute URLs in your HTML to include this
 	// folder name and does **not** affect where things go in the output folder.
 
-	// pathPrefix: "/",
+	pathPrefix: buildPath,
 
 }
