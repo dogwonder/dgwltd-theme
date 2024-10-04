@@ -30,7 +30,7 @@ exec('wp wptomd-types', (error, stdout, stderr) => {
       const selectedPostType = answers.postType;
 
       // Step 3: Construct the appropriate wp wptomd command
-      const targetDir = `./src/11ty/${selectedPostType || 'posts'}/`;
+      const targetDir = `./src/11ty/content/${selectedPostType || 'posts'}/`;
       const command = `wp wptomd ${targetDir} --post_type=${selectedPostType}`;
 
       // Step 4: Execute the command

@@ -1,0 +1,48 @@
+---
+title: 'DGW.ltd'
+layout: 'layouts/base.njk'
+permalink: './typography.html'
+---
+
+{% set fonts = [
+  { name: 'soehne-extraleicht-kursiv', weight: '200' },
+  { name: 'soehne-extraleicht', weight: '200' },
+  { name: 'soehne-leicht-kursiv', weight: '300' },
+  { name: 'soehne-leicht', weight: '300' },
+  { name: 'soehne-buch-kursiv', weight: '400' },
+  { name: 'soehne-buch', weight: '400' },
+  { name: 'soehne-kraftig-kursiv', weight: '500' },
+  { name: 'soehne-kraftig', weight: '500' },
+  { name: 'soehne-halbfett-kursiv', weight: '600' },
+  { name: 'soehne-halbfett', weight: '600' },
+  { name: 'soehne-dreiviertelfett-kursiv', weight: '700' },
+  { name: 'soehne-dreiviertelfett', weight: '700' },
+  { name: 'soehne-fett-kursiv', weight: '800' },
+  { name: 'soehne-fett', weight: '800' },
+  { name: 'soehne-extrafett-kursiv', weight: '900' },
+  { name: 'soehne-extrafett', weight: '900' }
+] %}
+
+{%- css %}
+{% for font in fonts %}
+@font-face {
+  font-family: '{{ font.name }}';
+  src: url('{{ "./fonts/soehne/" + font.name + ".woff2" | htmlBaseUrl }}') format('woff2');
+  font-weight: {{ font.weight }};
+  font-style: normal;
+}
+{% endfor %}
+:root {
+  {% for font in fonts %}
+  --font-{{ font.name }}: '{{ font.name }}';
+  {% endfor %}
+}
+{% endcss %}
+
+<div class="entry-content wp-block-post-content is-layout-flow">
+    {% for font in fonts %}
+    <h2 style="font-family: var(--font-{{ font.name }}); font-weight: {{ font.weight }};">
+      {{ font.name }}
+    </h2>
+    {% endfor %}
+</div>
