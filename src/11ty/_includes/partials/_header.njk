@@ -1,8 +1,32 @@
 <div class="dgwltd-masthead-container">
   <div class="dgwltd-masthead__logo">
       <a href="/" rel="home" title="Go to the homepage for DGW.ltd">
-      <svg class="logo" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m225.87 451.35 215.06-433.49 58.18 27.68-215.06 433.46zm-27.17-297.08-134 104.43v5.72l133.55 103.44-37.7 48.67-156.41-126.84v-55.83l158.8-127.8z" fill-rule="nonzero"/></svg>
+      <svg class="logo" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" x="0" y="0" style="enable-background:new 0 0 512 512" version="1.1" viewBox="0 0 512 512">
+          <polygon class="logo__angle-bracket" points="198.7,154.3 162.9,106.1 4.1,233.9 4.1,289.7 170.2,424.5 198.2,367.9 60.8,261.6 "/>
+          <polygon class="logo__line" points="440.9,17.9 497.4,44.7 270.7,505.6 218.8,463.4 "/>
+      </svg>
       <span class="visually-hidden">DGW.ltd</span>
       </a>
   </div>
+   <nav id="site-navigation" class="main-navigation dgwltd-nav" aria-label="primary">
+
+          <button class="nav-toggle" id="nav-toggle" aria-label="Show or hide Top Level Navigation" aria-controls="nav-primary" aria-expanded="false">
+              <svg class="open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 64H448v64H0V64zM0 224H320v64H0V224zM192 384v64H0V384H192z"/></svg>
+              <svg class="close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M294.6 166.6L317.3 144 272 98.7l-22.6 22.6L160 210.7 70.6 121.4 48 98.7 2.7 144l22.6 22.6L114.7 256 25.4 345.4 2.7 368 48 413.3l22.6-22.6L160 301.3l89.4 89.4L272 413.3 317.3 368l-22.6-22.6L205.3 256l89.4-89.4z"/></svg>
+              <span class="visually-hidden"><?php esc_html_e( 'Menu', 'dgwltd' ); ?></span>
+          </button>
+
+          <div class="dgwltd-nav__wrapper">
+            {% set navPages = collections.all | eleventyNavigation %}
+            {# {{ navPages | dump | safe }} #}
+            <ul class="dgwltd-menu">
+              {% for navPage in navPages %}
+                <li class="menu-item">
+                  <a href="{{ navPage.url }}" class="dgwltd-nav__link" role="menuitem">{{ navPage.key }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+      </nav>
+  
 </div>

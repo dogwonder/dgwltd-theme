@@ -32,13 +32,17 @@
             <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
         </div>
         <header id="masthead" class="dgwltd-masthead">
+          {% include "partials/_header.njk" %}  
         </header>
         <main id="content" class="dgwltd-container" tabindex="-1">
             <div id="primary" class="dgwltd-content-wrapper">
-                {{ content | safe }}
+                <div class="entry-content wp-block-post-content is-layout-flow stack">
+                  {{ content | safe }}
+                </div>
             </div>
         </main>
         <footer class="dgwltd-footer">
+          {% include "partials/_footer.njk" %}  
         </footer>
     </div>
     <!-- This page `{{ page.url | htmlBaseUrl }}` was built on {% currentBuildDate %} -->

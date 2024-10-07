@@ -1,7 +1,6 @@
 import { IdAttributePlugin, InputPathToUrlTransformPlugin, HtmlBasePlugin } from "@11ty/eleventy";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginNavigation from "@11ty/eleventy-navigation";
-import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import dayjs from 'dayjs';
 import { readFile } from 'fs/promises';
 
@@ -46,8 +45,6 @@ export default async function(eleventyConfig) {
   eleventyConfig.addShortcode("currentBuildDate", () => {
 		return (new Date()).toISOString();
 	});
-
-  
 
   //Add bundler bundles
   eleventyConfig.addBundle("css", {

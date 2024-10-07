@@ -41,13 +41,13 @@ For the Javascript we need to [manually download](https://frontend.design-system
 
 ## Custom typeface (optional)
 
-This theme uses the [Söhne typeface](https://klim.co.nz/collections/soehne/) by Klim Type Foundry, this is a licensed font for use on my own url (dgw.ltd). If you wish to use this on your own website then you will need to [purchase a license](https://klim.co.nz/buy/soehne/). You can remove these form fontFamilies[] in theme.json, functions.php and typography.scss. These fonts are not included in the repo. 
+This theme uses the [Söhne typeface](https://klim.co.nz/collections/soehne/) by Klim Type Foundry, this is a licensed font for use on my own url (dgw.ltd). If you wish to use this on your own website then you will need to [purchase a license](https://klim.co.nz/buy/soehne/). You can remove these from fontFamilies[] in theme.json, functions.php and typography.scss. These fonts are not included in the repo. 
 
 ***NOTE*** I've added the `dist/fonts` folder to gitignore so the commerical fonts don't accidentally get committed to this public repo.
 
 ## Custom blocks (optional)
 
-These are actived via a custom plugin [dgwltd: Blocks](https://github.com/dogwonder/dgwltd-plugin)
+These are actived via a custom plugin [dgwltd-plugin](https://github.com/dogwonder/dgwltd-plugin)
 
 This requires [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/). $$ - but it really is the greatest plugin ever made. 
 

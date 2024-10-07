@@ -1,3 +1,19 @@
+@font-face {
+    font-family: "Söhne Halbfett", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-display: fallback;
+    src: url('file:./dist/fonts/soehne/soehne-halbfett.woff2');
+}
+
+@font-face {
+    font-family: "Söhne Kraftig", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-display: fallback;
+    src: url('file:./dist/fonts/soehne/soehne-kraftig.woff2');
+}
+
 :root {
 --wp--custom--width--container: 70rem;
 --wp--custom--width--content: 52rem;
