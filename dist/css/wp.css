@@ -3,7 +3,7 @@
     font-weight: 600;
     font-style: normal;
     font-display: fallback;
-    src: url('file:./dist/fonts/soehne/soehne-halbfett.woff2');
+    src: url('./dist/fonts/soehne/soehne-halbfett.woff2');
 }
 
 @font-face {
@@ -11,7 +11,7 @@
     font-weight: 600;
     font-style: normal;
     font-display: fallback;
-    src: url('file:./dist/fonts/soehne/soehne-kraftig.woff2');
+    src: url('./dist/fonts/soehne/soehne-kraftig.woff2');
 }
 
 :root {
