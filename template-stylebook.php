@@ -122,11 +122,11 @@ code.language-html {
         // End of the loop.
         ?>
 
-			<nav class="dgwltd-contents-list" aria-label="Sections in this page" role="navigation">
+			<nav class="dgwltd-contents-list">
 				<h2 class="dgwltd-contents-list__title"><?php esc_html_e(
-        "Contents",
-        "cfc"
-    ); ?></h2>
+					"Contents",
+					"cfc"
+				); ?></h2>
 				<ol class="dgwltd-contents-list__list"></ol>
 			</nav>
             </div>

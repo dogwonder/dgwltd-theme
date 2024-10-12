@@ -86,7 +86,7 @@
 }
 
 .stack-small > * + * {
-  --space: calc(var(--wp--custom--spacing--gap) * 0.5) !important;
+  --space: calc(var(--wp--custom--spacing--gap) * 0.75) !important;
 }
 
 .stack-large > * + * {

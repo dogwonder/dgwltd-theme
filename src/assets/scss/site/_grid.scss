@@ -1,5 +1,5 @@
 //Grid 
-//Usage <ul class="grid" role="list" data-rows="3-col">
+//Usage <ul class="grid" data-rows="3-col">
 .grid {
   display: grid;
   gap: var(--gutter,var(--wp--custom--spacing--md));
