@@ -217,7 +217,7 @@ $nav-height: toRem(60);
         display: inline-block;
         text-decoration: none;
         padding:var(--wp--custom--spacing--sm) var(--wp--custom--spacing--md);
-        color: white;
+        color: var(--wp--preset--color--light);
         width: 100%;
         @include mq($from: lg) {
           padding:0 var(--wp--custom--spacing--md);
