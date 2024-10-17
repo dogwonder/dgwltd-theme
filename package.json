@@ -18,6 +18,7 @@
     "watch:eleventy": "npx eleventy --serve",
     "watch:scripts": "onchange \"./src/assets/**/*.js\" -- npm run scripts:concat",
     "watch": "run-p watch:*",
+    "cms": "npx tinacms dev -c \"npm run watch\"",
     "favicon": "node ./scripts/favicon.js",
     "export-styles": "node ./scripts/export-styles.js",
     "inquire": "node ./scripts/inquirer.mjs",
