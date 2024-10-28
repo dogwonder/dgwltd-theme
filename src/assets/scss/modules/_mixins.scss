@@ -123,3 +123,55 @@
 
   }
 }
+
+
+// https://toward.studio/latest/making-css-gradients-smooth
+//Usage @include scrimGradient($startColor: #000000, $direction: 'to top', $startAlpha: 0.2);
+@mixin scrimGradient(
+  $startColor: #000000,                // Starting color of the gradient
+  $direction: to bottom,             // Direction of the gradient
+  $startAlpha: 0.2                   // Starting opacity (0 to 1)
+) {
+  // Define scrim coordinates with predefined alpha values
+  $scrimCoordinates: (
+    0: 1,
+    0.19: 0.738,
+    0.34: 0.541,
+    0.47: 0.382,
+    0.565: 0.278,
+    0.65: 0.194,
+    0.73: 0.126,
+    0.802: 0.075,
+    0.861: 0.042,
+    0.91: 0.021,
+    0.952: 0.008,
+    0.982: 0.002,
+    1: 0
+  );
+
+  // Extract HSL components from the starting color
+  $hue: color.channel($startColor, "hue", $space: hsl);
+  $saturation: color.channel($startColor, "saturation", $space: hsl);
+  $lightness: color.channel($startColor, "lightness", $space: hsl);
+
+  // Initialize an empty list for gradient stops
+  $stops: ();
+
+  // Iterate over each scrim coordinate and scale the alpha
+  @each $position, $alphaOriginal in $scrimCoordinates {
+    // Scale the original alpha by the desired starting alpha
+    $scaledAlpha: $alphaOriginal * $startAlpha;
+
+    // Create the HSLA color with the scaled alpha
+    $color: hsla($hue, $saturation, $lightness, $scaledAlpha);
+
+    // Concatenate color and position using interpolation
+    $stop: #{$color} #{percentage($position)};
+
+    // Append the stop to the stops list, separated by commas
+    $stops: append($stops, $stop, comma);
+  }
+
+  // Apply the linear gradient using background-image
+  background-image: linear-gradient(unquote($direction), $stops);
+}

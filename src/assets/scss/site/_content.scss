@@ -83,7 +83,7 @@
   //Blockquote
   .wp-block-quote {
     position: relative;
-    margin: 0;
+    margin-inline: 0;
     padding: 0;
     background-color: transparent;
     border: 0;
@@ -103,7 +103,7 @@
       grid-column: 2;
       position: relative;
       z-index: 2;
-      font-family: var(--wp--preset--font-family--soehne-dreiviertelfett);
+      font-family: var(--wp--preset--font-family--secondary);
       @extend %dgwltd-body-sm;
     }
     p {
@@ -111,7 +111,7 @@
       z-index: 2;
       position: relative;
       text-indent: 0;
-      font-family: var(--wp--preset--font-family--soehne-dreiviertelfett);
+      font-family: var(--wp--preset--font-family--secondary);
       @extend %dgwltd-body-md;
       &:last-child {
         margin: 0;

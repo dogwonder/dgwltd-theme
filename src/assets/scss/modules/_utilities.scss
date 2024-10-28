@@ -56,15 +56,14 @@
 
 //Container
 //Wrapper utility https://piccalil.li/quick-tip/use-css-clamp-to-create-a-more-flexible-wrapper-utility
-//We reset the vertical padding on this for umbgrid and block--table components
+//Include the padding on the clamp ideal value so we always have that buffer
 %dgwltd-container, 
 .dgwltd-container {
-  position: relative;
   width: 100%;
-  //Include the padding here so we always have that buffer
   max-width: clamp(16rem,calc(var(--wp--custom--width--container) + calc(var(--wp--custom--spacing--md) * 2)),100vw);
   margin-inline: auto;
   padding-inline: var(--wp--custom--spacing--md);
+  position: relative;
 }
 
 .stack {
