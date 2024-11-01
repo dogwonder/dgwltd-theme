@@ -49,7 +49,7 @@
 
     //Block style varients - styles in block.json
     &.is-style-monochrome {
-      .block__background img {
+      .dgwltd-block__background img {
         filter: grayscale(100%) contrast(200%);
       }
     }
