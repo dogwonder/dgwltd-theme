@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-11-04T15:36:32.110Z",
+    "end": "2024-11-04T15:36:35.427Z",
+    "duration": 3317,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5333af2a-cacc-4807-94cd-74677d9cca24",
+      "title": "",
+      "fullFile": "cypress/e2e/sw.cy.js",
+      "file": "cypress/e2e/sw.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "cdb2237b-7ccd-4f24-89dd-0ca73128d681",
+          "title": "Service Worker and Cache Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should register service worker and check cache",
+              "fullTitle": "Service Worker and Cache Test should register service worker and check cache",
+              "timedOut": null,
+              "duration": 1764,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(url);\n// Register the service worker\ncy.window().then(win => {\n  return win.navigator.serviceWorker.register('/sw.js');\n}).then(() => {\n  // Wait for 1 second\n  cy.wait(1000);\n  // Open the cache and match the offline.html file\n  cy.window().then(win => {\n    return win.caches.open('dgwltd-1.2.184').then(cache => {\n      return cache.match(`${THEME_PATH}dist/offline.html`);\n    });\n  }).then(response => {\n    // Assert that the response is not null\n    expect(response).to.not.be.null;\n  });\n});",
+              "err": {
+                "message": "ReferenceError: THEME_PATH is not defined",
+                "estack": "ReferenceError: THEME_PATH is not defined\n    at eval (webpack://dgwltd/./cypress/e2e/sw.cy.js:28:36)",
+                "diff": null
+              },
+              "uuid": "4cad3003-c4ac-4a6c-93c9-d28fa1f41d4e",
+              "parentUUID": "cdb2237b-7ccd-4f24-89dd-0ca73128d681",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "4cad3003-c4ac-4a6c-93c9-d28fa1f41d4e"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1764,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "results",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/mocha",
+        "reportFilename": "results",
+        "quiet": true,
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

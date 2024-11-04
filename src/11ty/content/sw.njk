@@ -6,6 +6,7 @@ const CACHE_NAME = "dgwltd-{% pkgVersion %}";
 const MAX_CACHE_SIZE = 50; // Maximum cache size in entries
 const THEME_PATH = 'wp-content/themes/dgwltd/';
 
+
 // This is the service worker with the Cache-first network
 const precacheFiles = [
   `${THEME_PATH}/dist/offline.html`,
@@ -18,97 +19,84 @@ const precacheFiles = [
   `${THEME_PATH}/dist/fonts/soehne/soehne-kraftig.woff2`
 ];
 
-async function fromCache(request) {
-  const cache = await caches.open(CACHE_NAME);
-  const matching = await cache.match(request);
-  if (!matching || matching.status === 404) {
-    throw new Error("no-match");
-  }
-  return matching;
+// Function to retrieve from cache
+function fromCache(request) {
+  return caches.open(CACHE_NAME).then(cache => {
+    return cache.match(request).then(matching => {
+      if (!matching || matching.status === 404) {
+        throw new Error("No match found in cache for " + request.url);
+      }
+      return matching;
+    });
+  });
 }
 
-async function updateCache(request, response) {
-  const cache = await caches.open(CACHE_NAME);
-  await cache.put(request, response);
-  const keys = await cache.keys();
-  if (keys.length > MAX_CACHE_SIZE) {
-    await cache.delete(keys[0]); // Delete the oldest entry
-  }
+// Function to update the cache
+function updateCache(request, response) {
+  return caches.open(CACHE_NAME).then(cache => {
+    return cache.put(request, response).then(() => {
+      return cache.keys().then(keys => {
+        if (keys.length > MAX_CACHE_SIZE) {
+          // Efficient cache deletion
+          let keysToDelete = keys.slice(0, keys.length - MAX_CACHE_SIZE);
+          return Promise.all(keysToDelete.map(key => cache.delete(key)));
+        }
+      });
+    }).catch(error => {
+      console.error("Error updating cache for request:", request.url, error);
+    });
+  });
 }
 
+// Install event
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(precacheFiles))
+      .then((cache) => {
+        return Promise.all(
+          precacheFiles.map((url) => {
+            return cache.add(url).catch((error) => {
+              console.error(`[Service Worker] Failed to cache ${url}:`, error);
+            });
+          })
+        );
+      })
       .then(() => self.skipWaiting())
       .catch((error) => console.error('[Service Worker] Install failed:', error))
   );
 });
 
-self.addEventListener("activate", (event) => {
-  event.waitUntil(
-    caches.keys()
-      .then((cacheNames) => {
-        return Promise.all(
-          cacheNames.map((cacheName) => {
-            if (CACHE_NAME !== cacheName && cacheName.startsWith("dgwltd")) {
-              return caches.delete(cacheName);
-            }
-          })
-        );
-      })
-      .then(() => self.clients.claim())
-      .catch((error) => console.error('[Service Worker] Activate failed:', error))
-  );
-});
-
-async function fromCache(request) {
-  try {
-    const cache = await caches.open(CACHE_NAME);
-    const matching = await cache.match(request);
-    if (!matching || matching.status === 404) {
-      throw new Error("no-match");
-    }
-    return matching;
-  } catch (error) {
-    console.error(`[Service Worker] fromCache error: ${error}`);
-    throw error;
-  }
-}
-
+// Fetch event
 self.addEventListener("fetch", (event) => {
-  if (
-    event.request.method !== "GET" ||
-    event.request.url.match(/wp-admin/) ||
-    event.request.url.match(/preview=true/)
-  ) {
-    return;
-  }
+  const requestUrl = new URL(event.request.url);
 
-  event.respondWith(
-    (async () => {
-      try {
-        const cachedResponse = await fromCache(event.request);
-        event.waitUntil(
-          fetch(event.request).then((networkResponse) => {
-            if (networkResponse && networkResponse.status === 200) {
-              updateCache(event.request, networkResponse.clone());
-            }
-          })
-        );
-        return cachedResponse;
-      } catch (error) {
-        try {
-          const networkResponse = await fetch(event.request);
-          event.waitUntil(updateCache(event.request, networkResponse.clone()));
-          return networkResponse;
-        } catch (networkError) {
-          console.error("[Service Worker] Network request failed and no cache.", networkError);
-          if (event.request.destination === 'document') {
-            return caches.match(`${THEME_PATH}/dist/offline.html`);
-          }
-        }
-      }
-    })()
-  );
+  // Handle same-origin requests
+  if (requestUrl.origin === location.origin) {
+    event.respondWith(
+      fromCache(event.request).catch((error) => {
+        console.error("[Service Worker] fromCache error:", error);
+        return fetch(event.request);
+      })
+    );
+
+    event.waitUntil(
+      fetch(event.request).then((response) => {
+        return updateCache(event.request, response);
+      }).catch((error) => {
+        console.error("[Service Worker] fetch error:", error);
+      })
+    );
+  } else {
+    // Handle external requests with runtime caching
+    event.respondWith(
+      caches.open(CACHE_NAME).then((cache) => {
+        return cache.match(event.request).then((response) => {
+          return response || fetch(event.request).then((networkResponse) => {
+            cache.put(event.request, networkResponse.clone());
+            return networkResponse;
+          });
+        });
+      })
+    );
+  }
 });

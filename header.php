@@ -36,13 +36,13 @@ $pkgVersion = $package['version'];
     ? '?v=' . $pkgVersion
     : ""; ?>">
 <?php wp_head(); ?>
-<link rel="shortcut icon" sizes="16x16 32x32 48x48" href="<?php echo get_template_directory_uri(); ?>/dist/assets/icons/fav/favicon-128x128.png" type="image/x-icon">
-<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/dist/assets/icons/fav/favicon-128x128.png">
+<link rel="shortcut icon" sizes="16x16 32x32 48x48" href="<?php echo get_template_directory_uri(); ?>/dist/icons/fav/favicon-128x128.png" type="image/x-icon">
+<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/dist/icons/fav/favicon-128x128.png">
 <meta name="apple-mobile-web-app-title" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#000000">
 <meta name="view-transition" content="same-origin" />
-<link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/dist/assets/icons/fav/manifest.json">
+<link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/dist/icons/fav/manifest.json">
 <?php include(locate_template( 'template-parts/_organisms/meta-tags.php' )) ; ?>
 <script defer data-domain="wp.dgw.ltd" src="https://plausible.io/js/script.js"></script>
 </head>

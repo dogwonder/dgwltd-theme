@@ -3,12 +3,12 @@
     "name": "DGW.ltd",
     "icons": [
       {
-        "src": "/wp-content/themes/dgwltd/dist/images/fav/favicon-192x192.png",
+        "src": "/wp-content/themes/dgwltd/dist/icons/fav/favicon-192x192.png",
         "type": "image/png",
         "sizes": "192x192"
       },
       {
-        "src": "/wp-content/themes/dgwltd/dist/images/fav/favicon-512x512.png",
+        "src": "/wp-content/themes/dgwltd/dist/icons/fav/favicon-512x512.png",
         "type": "image/png",
         "sizes": "512x512"
       }

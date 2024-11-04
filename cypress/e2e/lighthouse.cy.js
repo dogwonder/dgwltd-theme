@@ -1,7 +1,7 @@
 describe('Lighthouse Audits', () => {
   it('should perform a Lighthouse audit for mobile', () => {
     cy.task('lighthouseAudit', {
-      url: 'https://chancerylaneproject.org',
+      url: 'https://wp.dgw.ltd/',
       opts: {
         logLevel: 'info',
         onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo']
@@ -33,7 +33,7 @@ describe('Lighthouse Audits', () => {
 
   it('should perform a Lighthouse audit for desktop', () => {
     cy.task('lighthouseAudit', {
-      url: 'https://chancerylaneproject.org',
+      url: 'https://wp.dgw.ltd/',
       opts: {
         logLevel: 'info',
         onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'],

@@ -120,6 +120,7 @@ To run tests (e.g. AXE)
 
 `npm run tests`
 `node_modules/.bin/cypress open`
+`node_modules/.bin/cypress install`
 
 
 ## Versioning
