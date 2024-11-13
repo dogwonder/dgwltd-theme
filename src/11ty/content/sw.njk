@@ -2,12 +2,10 @@
 permalink: '../../../../sw.js'
 ---
 
-const CACHE_NAME = "dgwltd-{% pkgVersion %}";
-const MAX_CACHE_SIZE = 50; // Maximum cache size in entries
+const CACHE_NAME = 'dgwltd-{% pkgVersion %}'; // You can version your cache
 const THEME_PATH = 'wp-content/themes/dgwltd/';
 
-
-// This is the service worker with the Cache-first network
+// The files to cache
 const precacheFiles = [
   `${THEME_PATH}/dist/offline.html`,
   `${THEME_PATH}/dist/css/main.css`,
@@ -19,84 +17,64 @@ const precacheFiles = [
   `${THEME_PATH}/dist/fonts/soehne/soehne-kraftig.woff2`
 ];
 
-// Function to retrieve from cache
-function fromCache(request) {
-  return caches.open(CACHE_NAME).then(cache => {
-    return cache.match(request).then(matching => {
-      if (!matching || matching.status === 404) {
-        throw new Error("No match found in cache for " + request.url);
-      }
-      return matching;
-    });
-  });
-}
+const doNotCachePatterns = ["GET", /wp-admin/, /preview=true/];
 
-// Function to update the cache
-function updateCache(request, response) {
-  return caches.open(CACHE_NAME).then(cache => {
-    return cache.put(request, response).then(() => {
-      return cache.keys().then(keys => {
-        if (keys.length > MAX_CACHE_SIZE) {
-          // Efficient cache deletion
-          let keysToDelete = keys.slice(0, keys.length - MAX_CACHE_SIZE);
-          return Promise.all(keysToDelete.map(key => cache.delete(key)));
-        }
-      });
-    }).catch(error => {
-      console.error("Error updating cache for request:", request.url, error);
-    });
-  });
-}
-
-// Install event
-self.addEventListener("install", (event) => {
+// Install event: cache files
+self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => {
-        return Promise.all(
-          precacheFiles.map((url) => {
-            return cache.add(url).catch((error) => {
-              console.error(`[Service Worker] Failed to cache ${url}:`, error);
-            });
-          })
-        );
-      })
-      .then(() => self.skipWaiting())
-      .catch((error) => console.error('[Service Worker] Install failed:', error))
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(precacheFiles);
+    })
   );
 });
 
-// Fetch event
-self.addEventListener("fetch", (event) => {
-  const requestUrl = new URL(event.request.url);
+// Fetch event: serve cached files or fetch from network
+self.addEventListener('fetch', (event) => {
+  const shouldNotCache = doNotCachePatterns.some(pattern => {
+    if (typeof pattern === 'string') {
+      return event.request.method === pattern;
+    }
+    return pattern.test(event.request.url);
+  });
 
-  // Handle same-origin requests
-  if (requestUrl.origin === location.origin) {
-    event.respondWith(
-      fromCache(event.request).catch((error) => {
-        console.error("[Service Worker] fromCache error:", error);
-        return fetch(event.request);
-      })
-    );
-
-    event.waitUntil(
-      fetch(event.request).then((response) => {
-        return updateCache(event.request, response);
-      }).catch((error) => {
-        console.error("[Service Worker] fetch error:", error);
-      })
-    );
-  } else {
-    // Handle external requests with runtime caching
-    event.respondWith(
-      caches.open(CACHE_NAME).then((cache) => {
-        return cache.match(event.request).then((response) => {
-          return response || fetch(event.request).then((networkResponse) => {
-            cache.put(event.request, networkResponse.clone());
-            return networkResponse;
-          });
-        });
-      })
-    );
+  // If the request matches the doNotCache patterns, fetch from network directly
+  if (shouldNotCache) {
+    event.respondWith(fetch(event.request).catch(() => {
+      return caches.match(`${THEME_PATH}/dist/offline.html`);
+    }));
+    return;
   }
+
+  // Cache-first strategy for other requests
+  event.respondWith(
+    caches.match(event.request).then((response) => {
+      // If we have a cached response, return it. Otherwise, fetch from network.
+      return response || fetch(event.request).then((networkResponse) => {
+        // Optionally cache the newly fetched response
+        return caches.open(CACHE_NAME).then((cache) => {
+          cache.put(event.request, networkResponse.clone());
+          return networkResponse;
+        });
+      });
+    }).catch(() => {
+      // Fallback to offline page if network request fails
+      return caches.match(`${THEME_PATH}/dist/offline.html`);
+    })
+  );
+});
+
+// Activate event: clean up old caches
+self.addEventListener('activate', (event) => {
+  const cacheWhitelist = [CACHE_NAME];
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cacheName) => {
+          if (!cacheWhitelist.includes(cacheName)) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
 });

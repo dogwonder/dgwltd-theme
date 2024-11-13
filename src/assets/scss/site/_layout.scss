@@ -17,8 +17,7 @@
 .dgwltd-masthead, 
 .entry-header, 
 .entry-content, 
-.entry-footer, 
-.entry-wrapper {
+.entry-footer {
   padding:0;
   max-width: 100%;
   display: grid;
@@ -27,6 +26,8 @@
     grid-column: 2 / span 1;
   }
 }
+
+
 
 //Page layout
 .dgwltd-content-wrapper {
@@ -41,15 +42,8 @@
 }
 
 //Add a little space to the content blockk
-.entry-content {
+.entry-main {
   padding-block-end: var(--wp--custom--spacing--lg);
-}
-
-//Hero followed by Featured block
-.wp-block-post-content {
-  .dgwltd-hero + .dgwltd-feature {
-    --buffer: 0;
-  }
 }
 
 //Blocks page - add some extra spacing

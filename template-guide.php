@@ -49,7 +49,7 @@ if ( class_exists( 'acf' ) ) {
 			</div><!-- .entry-header -->
 			<?php endif; ?>	
 
-			<div class="entry-content wp-block-post-content is-layout-flow">
+			<div class="entry-content is-layout-flow">
 
 				<?php get_template_part( 'template-parts/_molecules/contents-list' ); ?>
 
@@ -63,9 +63,8 @@ if ( class_exists( 'acf' ) ) {
 					<h2 class="govuk-heading-l<?php echo ( $hidden_title ? ' visually-hidden' : '' ); ?>"><?php echo get_the_title( $post->ID ); ?></h2>
 					<?php endif; ?>
 				<?php endif; ?>
-
-				<?php //the_content(); ?>						
-				<?php echo do_blocks( '<!-- wp:post-content /-->' ); ?>
+					
+				<?php the_content(); ?>
 		
 				<?php get_template_part( 'template-parts/_molecules/contents-navigation' ); ?>
 

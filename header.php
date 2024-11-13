@@ -8,18 +8,15 @@
  *
  * @package dgwltd
  */
-
 //Get version value from package.json
-$response = wp_remote_get(get_template_directory_uri() . '/dist/version.json');
-if (is_wp_error($response)) {
-    // Handle the error appropriately
-    $error_message = $response->get_error_message();
-    echo "Something went wrong: $error_message";
+$versionData = wp_remote_get(get_template_directory_uri() . '/dist/version.json');
+if (is_wp_error($versionData)) {
+    $pkgVersion = '0.0.1';
 } else {
-    $body = wp_remote_retrieve_body($response);
-    $package = json_decode($body, true);
+    $versionContents = wp_remote_retrieve_body($versionData);
+    $package = json_decode($versionContents, true);
+    $pkgVersion = $package['version'] ?? '0.0.1';
 }
-$pkgVersion = $package['version'];
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?> >

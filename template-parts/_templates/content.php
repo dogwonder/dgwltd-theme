@@ -9,6 +9,7 @@
 
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'dgwltd-post stack' ); ?> itemscope itemtype="http://schema.org/BlogPosting">
+	
 
 	<div class="entry-header">
 		<?php
@@ -27,8 +28,7 @@
 
 	</div><!-- .entry-header -->
 
-	<?php //the_content(); ?>	
-	<?php echo do_blocks( '<!-- wp:post-content /-->' ); ?>
+	<?php the_content(); ?>
 
 	<div class="entry-footer">
 	<?php

@@ -17,7 +17,7 @@
 			</div><!-- .entry-meta -->
 	</div><!-- .entry-header -->
 	
-	<div class="entry-content wp-block-post-content is-layout-flow">        
+	<div class="entry-content is-layout-flown">        
 	
 		<div class="dgwltd-list__wrapper">
 			<div class="dgwltd-list__content">

@@ -28,7 +28,7 @@ if ( class_exists( 'acf' ) ) {
 	</div><!-- .entry-header -->
 	<?php endif; ?>
 	
-	<div class="entry-content wp-block-post-content is-layout-flow">
+	<div class="entry-content is-layout-flow">
 		<?php the_content(); ?>
 	</div>
 

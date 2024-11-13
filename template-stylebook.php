@@ -132,7 +132,7 @@ code.language-html {
             </div>
 		</div>
 
-		<div class="entry-content is-layout-flow wp-block-post-content">
+		<div class="entry-content is-layout-flow">
 
 
 		<?php
