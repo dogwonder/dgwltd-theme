@@ -1,6 +1,6 @@
 {
   "name": "dgwltd",
-  "version": "1.2.193",
+  "version": "1.2.199",
   "type": "module",
   "main": "",
   "scripts": {
@@ -25,7 +25,7 @@
     "favicon": "node ./scripts/favicon.js",
     "export-styles": "node ./scripts/export-styles.js",
     "inquire": "node ./scripts/inquirer.mjs",
-    "build": "NODE_ENV=production npm run clean && NODE_ENV=production npm run-s css scripts && NODE_ENV=production npm run export-styles && NODE_ENV=production npx eleventy && NODE_ENV=production npm run favicon",
+    "build": "NODE_ENV=production npm run clean && NODE_ENV=production npm run-s css scripts && NODE_ENV=production npx eleventy && NODE_ENV=production npm run favicon",
     "build:dddev": "NODE_ENV=production npm run clean && NODE_ENV=production npm run-s css scripts && NODE_ENV=production npx eleventy && NODE_ENV=production npm run favicon"
   },
   "author": "",

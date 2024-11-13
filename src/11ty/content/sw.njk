@@ -2,10 +2,10 @@
 permalink: '../../../../sw.js'
 ---
 
-const CACHE_NAME = 'dgwltd-{% pkgVersion %}'; // You can version your cache
+const CACHE_NAME = 'dgwltd-{% pkgVersion %}'; 
 const THEME_PATH = 'wp-content/themes/dgwltd/';
 
-// The files to cache
+// Files to precache
 const precacheFiles = [
   `${THEME_PATH}/dist/offline.html`,
   `${THEME_PATH}/dist/css/main.css`,
@@ -16,65 +16,3 @@ const precacheFiles = [
   `${THEME_PATH}/dist/fonts/soehne/soehne-halbfett.woff2`,
   `${THEME_PATH}/dist/fonts/soehne/soehne-kraftig.woff2`
 ];
-
-const doNotCachePatterns = ["GET", /wp-admin/, /preview=true/];
-
-// Install event: cache files
-self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(precacheFiles);
-    })
-  );
-});
-
-// Fetch event: serve cached files or fetch from network
-self.addEventListener('fetch', (event) => {
-  const shouldNotCache = doNotCachePatterns.some(pattern => {
-    if (typeof pattern === 'string') {
-      return event.request.method === pattern;
-    }
-    return pattern.test(event.request.url);
-  });
-
-  // If the request matches the doNotCache patterns, fetch from network directly
-  if (shouldNotCache) {
-    event.respondWith(fetch(event.request).catch(() => {
-      return caches.match(`${THEME_PATH}/dist/offline.html`);
-    }));
-    return;
-  }
-
-  // Cache-first strategy for other requests
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      // If we have a cached response, return it. Otherwise, fetch from network.
-      return response || fetch(event.request).then((networkResponse) => {
-        // Optionally cache the newly fetched response
-        return caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, networkResponse.clone());
-          return networkResponse;
-        });
-      });
-    }).catch(() => {
-      // Fallback to offline page if network request fails
-      return caches.match(`${THEME_PATH}/dist/offline.html`);
-    })
-  );
-});
-
-// Activate event: clean up old caches
-self.addEventListener('activate', (event) => {
-  const cacheWhitelist = [CACHE_NAME];
-  event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (!cacheWhitelist.includes(cacheName)) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
-});
