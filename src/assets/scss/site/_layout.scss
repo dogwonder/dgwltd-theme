@@ -27,7 +27,10 @@
   }
 }
 
-
+//Reset Wordpress' display: flow-root
+.entry-content.wp-block-post-content {
+  display: grid;
+}
 
 //Page layout
 .dgwltd-content-wrapper {
@@ -42,12 +45,12 @@
 }
 
 //Add a little space to the content blockk
-.entry-main {
+.entry-content {
   padding-block-end: var(--wp--custom--spacing--lg);
 }
 
-//Blocks page - add some extra spacing
+//Blocks page - add some extra spacing for the stack
 .dgwltd-content-wrapper:has(.dgwltd-hero) {
-  --space: var(--wp--custom--spacing--xl) !important;
+  --buffer: var(--wp--custom--spacing--xl) !important;
 }
 

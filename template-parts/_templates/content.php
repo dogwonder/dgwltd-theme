@@ -28,7 +28,7 @@
 
 	</div><!-- .entry-header -->
 
-	<?php the_content(); ?>
+	<?php echo do_blocks( '<!-- wp:post-content /-->' ); ?>
 
 	<div class="entry-footer">
 	<?php

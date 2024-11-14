@@ -64,7 +64,9 @@ if ( class_exists( 'acf' ) ) {
 					<?php endif; ?>
 				<?php endif; ?>
 					
-				<?php the_content(); ?>
+				<?php 
+				//We are already in the entry content context so no do blocks
+				the_content(); ?>
 		
 				<?php get_template_part( 'template-parts/_molecules/contents-navigation' ); ?>
 
