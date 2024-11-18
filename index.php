@@ -41,7 +41,7 @@ get_header();
 				<?php
 					get_template_part( 'template-parts/_molecules/pagination' );
 				else :
-					get_template_part( 'template-parts/_templates/content', 'none' );
+					get_template_part( 'template-parts/_templates/content-none' );
 				endif;
 				?>
 			</div>

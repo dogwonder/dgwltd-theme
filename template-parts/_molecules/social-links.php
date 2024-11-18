@@ -5,28 +5,38 @@ if( have_rows('social_links', 'options') ):
     // loop through the rows of data
     while ( have_rows('social_links', 'options') ) : the_row();
         // display a sub field value
-        $facebook = $social['facebook_link'];
-        $github = $social['github_link'];
-        $instagram = $social['instagram_link'];
-        $linkedin = $social['linkedin_link'];
-        $mastodon = $social['mastodon_link'];
-        $tiktok = $social['tiktok_link'];
-        $twitter = $social['twitter_link'];
-        $youtube = $social['youtube_link'];        
+        $bluesky = $social['bluesky'];
+        $facebook = $social['facebook'];
+        $github = $social['github'];
+        $instagram = $social['instagram'];
+        $linkedin = $social['linkedin'];
+        $mastodon = $social['mastodon'];
+        $tiktok = $social['tiktok'];
+        $youtube = $social['youtube'];        
     endwhile;
 else :
+    $bluesky = '';
     $facebook = '';
     $github = '';
     $instagram = '';
     $linkedin = '';
     $mastodon = '';
     $tiktok = '';
-    $twitter = '';
     $youtube = '';
     // no rows found
 endif;
 ?>
 <ul class="dgwltd-footer__social-links dgwltd-footer__inline-list">
+
+    <?php if($bluesky) : ?>    
+    <li>
+        <a href="<?php echo $bluesky; ?>" rel="external noopener noreferrer" aria-label="Visit our Bluesky page">
+            <svg aria-hidden="true" focusable="false" class="icon icon-social icon-social__bluesky">
+            <use xlink:href="#social-bluesky" />
+            </svg>
+        </a>
+    </li>
+        <?php endif; ?>
 
     <?php if($facebook) : ?>
     <li>
@@ -83,16 +93,6 @@ endif;
         <a href="<?php echo ($tiktok ? $tiktok : 'https://www.tiktok.com/'); ?>" rel="external noopener noreferrer" aria-label="Visit our TikTok profile">
             <svg aria-hidden="true" focusable="false" class="icon icon-social icon-social__tiktok">
             <use xlink:href="#social-tiktok" />
-            </svg>
-        </a>
-    </li>
-    <?php endif; ?>
-
-    <?php if($twitter) : ?>    
-    <li>
-        <a href="<?php echo ($twitter ? $twitter : 'https://twitter.com/'); ?>" rel="external noopener noreferrer" aria-label="Visit our Twitter page">
-            <svg aria-hidden="true" focusable="false" class="icon icon-social icon-social__twitter">
-            <use xlink:href="#social-twitter" />
             </svg>
         </a>
     </li>

@@ -28,7 +28,7 @@ $blog_query = new WP_Query( $post_args );
 	<?php
 	while ( have_posts() ) :
 		the_post();
-		get_template_part( 'template-parts/_templates/content', 'page' );
+		get_template_part( 'template-parts/_templates/content-page' );
 	endwhile; // End of the loop.
 	?>
 	<hr />
@@ -48,7 +48,7 @@ $blog_query = new WP_Query( $post_args );
 		$total_pages = $blog_query->max_num_pages;
 		include locate_template( 'template-parts/_molecules/pagination-query.php' );
 		else :
-			get_template_part( 'template-parts/_templates/content', 'none' );
+			get_template_part( 'template-parts/_templates/content-none' );
 		endif;
 		?>
 		<?php wp_reset_query(); ?>	
