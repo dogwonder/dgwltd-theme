@@ -122,9 +122,31 @@ To run tests (e.g. AXE)
 `node_modules/.bin/cypress open`
 `node_modules/.bin/cypress install`
 
-
 ## Versioning
 
 To increment the version number (used for asset caching)
 
 `npm version patch`
+
+## 11ty import
+
+Import RSS feed posts
+`npx @11ty/import rss https://fosstodon.org/users/eleventy.rss`
+
+Fediverse
+`npx @11ty/import fediverse dogwonder@mastodon.social`
+
+Bluesky
+`npx @11ty/import bluesky @11ty.dev`
+
+WordPress
+```
+# Import *all* posts from the WordPress API
+# Draft posts available when WORDPRESS_USERNAME and WORDPRESS_PASSWORD environment
+# variables are supplied, read more: https://www.11ty.dev/docs/environment-vars/
+npx @11ty/import wordpress https://blog.fontawesome.com
+```
+
+## Inquirer
+
+`npm run inquire`

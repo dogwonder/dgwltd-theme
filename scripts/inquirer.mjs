@@ -1,8 +1,8 @@
 import inquirer from 'inquirer';  // Correct import for Inquirer 10.x
 import { exec } from 'child_process';
 
-// Step 1: Get the post types using wp wptomd-types command
-exec('wp wptomd-types', (error, stdout, stderr) => {
+// Step 1: Get the post types using wp wptomd-types command, notes we are adding ddev as this is the environment, remove if not using ddev
+exec('ddev wp wptomd-types', (error, stdout, stderr) => {
   if (error) {
     console.error(`Error: ${error.message}`);
     return;
@@ -29,9 +29,9 @@ exec('wp wptomd-types', (error, stdout, stderr) => {
 
       const selectedPostType = answers.postType;
 
-      // Step 3: Construct the appropriate wp wptomd command
-      const targetDir = `./src/11ty/content/${selectedPostType || 'posts'}/`;
-      const command = `wp wptomd ${targetDir} --post_type=${selectedPostType}`;
+      // Step 3: Construct the appropriate wp wptomd command, note we are adding ddev as this is the environment, remove if not using ddev
+      const targetDir = `wp-content/themes/dgwltd/src/11ty/content/${selectedPostType || 'posts'}/`;
+      const command = `ddev wp wptomd ${targetDir} --post_type=${selectedPostType}`;
 
       // Step 4: Execute the command
       exec(command, (error, stdout, stderr) => {

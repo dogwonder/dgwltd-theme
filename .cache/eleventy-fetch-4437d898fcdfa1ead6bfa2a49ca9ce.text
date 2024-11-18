@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:webfeeds="http://webfeeds.org/rss/1.0" xmlns:media="http://search.yahoo.com/mrss/">
+  <channel>
+    <title>Rich Holman</title>
+    <description>Public posts from @dogwonder@mastodon.social</description>
+    <link>https://mastodon.social/@dogwonder</link>
+    <image>
+      <url>https://files.mastodon.social/accounts/avatars/000/035/934/original/1a0e6d4ade3f3dea.jpeg</url>
+      <title>Rich Holman</title>
+      <link>https://mastodon.social/@dogwonder</link>
+    </image>
+    <lastBuildDate>Sat, 16 Nov 2024 19:59:32 +0000</lastBuildDate>
+    <webfeeds:icon>https://files.mastodon.social/accounts/avatars/000/035/934/original/1a0e6d4ade3f3dea.jpeg</webfeeds:icon>
+    <generator>Mastodon v4.4.0-nightly.2024-11-15</generator>
+    <item>
+      <guid isPermaLink="true">https://mastodon.social/@dogwonder/113494404162474921</guid>
+      <link>https://mastodon.social/@dogwonder/113494404162474921</link>
+      <pubDate>Sat, 16 Nov 2024 19:59:32 +0000</pubDate>
+      <description>&lt;p&gt;Today is the 25th anniversary of me becoming a web developer. Thought it would be fun to chronicle a website I worked on for each year of that quarter-century.&lt;/p&gt;&lt;p&gt;&lt;a href="https://dogwonder.co.uk/2024/11/silver-jubilee/" target="_blank" rel="nofollow noopener noreferrer" translate="no"&gt;&lt;span class="invisible"&gt;https://&lt;/span&gt;&lt;span class="ellipsis"&gt;dogwonder.co.uk/2024/11/silver&lt;/span&gt;&lt;span class="invisible"&gt;-jubilee/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.social/@dogwonder/113409345054794091</guid>
+      <link>https://mastodon.social/@dogwonder/113409345054794091</link>
+      <pubDate>Fri, 01 Nov 2024 19:27:53 +0000</pubDate>
+      <description>&lt;p&gt;Tl;dr block and pattern based development yes. Full site editing. No.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.social/@dogwonder/113409337316794203</guid>
+      <link>https://mastodon.social/@dogwonder/113409337316794203</link>
+      <pubDate>Fri, 01 Nov 2024 19:25:55 +0000</pubDate>
+      <description>&lt;p&gt;Built my first all pattern WordPress site. Yes there is a massive chonky JS and CSS implementation but I will die on the hill of ‘the client does not need to edit the margin and padding of a card element’ or ‘edit the header layout’. I think of it as design system driven development. &lt;/p&gt;&lt;p&gt;From what i understand even FSE sites need a complex theme.json so again, even with global styles a client is not going to be editing these. As per I still don’t fully get FSE’s place in WordPress development.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.social/@dogwonder/113407134716019944</guid>
+      <link>https://mastodon.social/@dogwonder/113407134716019944</link>
+      <pubDate>Fri, 01 Nov 2024 10:05:46 +0000</pubDate>
+      <description>&lt;p&gt;This is pretty cool. I can even see if from my (Hackney) office!&lt;/p&gt;&lt;p&gt;Meet, Gusty the wind turbine.&lt;/p&gt;</description>
+      <media:content url="https://files.mastodon.social/media_attachments/files/113/407/134/478/858/125/original/080ae9c67da80c25.jpeg" type="image/jpeg" fileSize="691149" medium="image">
+        <media:rating scheme="urn:simple">nonadult</media:rating>
+        <media:description type="plain">Gusty the wind turbine, operating in central London</media:description>
+      </media:content>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.social/@dogwonder/113384918357742041</guid>
+      <link>https://mastodon.social/@dogwonder/113384918357742041</link>
+      <pubDate>Mon, 28 Oct 2024 11:55:52 +0000</pubDate>
+      <description>&lt;p&gt;Finally moving one of my last (non-Squarespace) domains away post Google Domains doing a Google Reader. Now got most of my domains on Cloudflare and one on Porkbun (the reviews seemed pretty good)&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.social/@dogwonder/113357548911959814</guid>
+      <link>https://mastodon.social/@dogwonder/113357548911959814</link>
+      <pubDate>Wed, 23 Oct 2024 15:55:27 +0000</pubDate>
+      <description>&lt;p&gt;I knew that a linear gradient was going to be an issue with a build I am doing right now and the designers we going to point out the ‘sharp edge’. &lt;/p&gt;&lt;p&gt;To the MATH and Scrim!&lt;/p&gt;&lt;p&gt;TL;DR we need way more stops (13!) in our linear gradient in a Ease-in-out-sine shape&lt;/p&gt;&lt;p&gt;&lt;a href="https://css-tricks.com/easing-linear-gradients/" target="_blank" rel="nofollow noopener noreferrer" translate="no"&gt;&lt;span class="invisible"&gt;https://&lt;/span&gt;&lt;span class="ellipsis"&gt;css-tricks.com/easing-linear-g&lt;/span&gt;&lt;span class="invisible"&gt;radients/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.social/@dogwonder/113344658468985915</guid>
+      <link>https://mastodon.social/@dogwonder/113344658468985915</link>
+      <pubDate>Mon, 21 Oct 2024 09:17:14 +0000</pubDate>
+      <description>&lt;p&gt;Good initiative but quite worrying this is not apparently being built using GOV.uk design system. Give the breath of this project this surely should be using familiar and well tested design patterns. Also appears to be built using react and 2MB of JavaScript meaning poor performance for mobile users on low powerred devices. &lt;/p&gt;&lt;p&gt;&lt;a href="https://change.nhs.uk/en-GB/" target="_blank" rel="nofollow noopener noreferrer" translate="no"&gt;&lt;span class="invisible"&gt;https://&lt;/span&gt;&lt;span class=""&gt;change.nhs.uk/en-GB/&lt;/span&gt;&lt;span class="invisible"&gt;&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.social/@dogwonder/113340731405848651</guid>
+      <link>https://mastodon.social/@dogwonder/113340731405848651</link>
+      <pubDate>Sun, 20 Oct 2024 16:38:32 +0000</pubDate>
+      <description>&lt;p&gt;So tried out two new CMSs this week. I think and hope that WordPress will be part of my daily driver for some time to come but it’s good to see what else is out there.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.social/@dogwonder/113329513964710141</guid>
+      <link>https://mastodon.social/@dogwonder/113329513964710141</link>
+      <pubDate>Fri, 18 Oct 2024 17:05:48 +0000</pubDate>
+      <description>&lt;p&gt;Never forgot when a hipster kebab place opened on actual Stoke Newington high street with the tagline ‘kebabs done right’. Was empty from day one until it closed not long after.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.social/@dogwonder/113328969026780128</guid>
+      <link>https://mastodon.social/@dogwonder/113328969026780128</link>
+      <pubDate>Fri, 18 Oct 2024 14:47:13 +0000</pubDate>
+      <description>&lt;p&gt;Trying out CraftCMS I like what I see so far.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.social/@dogwonder/113323266159594477</guid>
+      <link>https://mastodon.social/@dogwonder/113323266159594477</link>
+      <pubDate>Thu, 17 Oct 2024 14:36:54 +0000</pubDate>
+      <description>&lt;p&gt;Installing a CMS in my CMS. &lt;/p&gt;&lt;p&gt;BRAAAM!!!!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.social/@dogwonder/113323141520884808</guid>
+      <link>https://mastodon.social/@dogwonder/113323141520884808</link>
+      <pubDate>Thu, 17 Oct 2024 14:05:12 +0000</pubDate>
+      <description>&lt;p&gt;I think this is broadly on the nose&lt;/p&gt;&lt;p&gt;For most websites and use cases, no-code tools such as Squarespace or Webflow or/and specific product offerings such as Substack or community sites from Mighty Networks / Circle.so will suffice for most small-medium orgs&lt;/p&gt;&lt;p&gt;And on the larger org side WordPress is getting squeezed. As the article says it wont disappear &amp;amp; there will be a need for CMS such as WordPress. This is only really extending a trend thats been going for a few years&lt;/p&gt;&lt;p&gt;&lt;a href="https://molodtsov.me/2024/10/wordpress-doesnt-matter-for-the-future-of-web/" target="_blank" rel="nofollow noopener noreferrer" translate="no"&gt;&lt;span class="invisible"&gt;https://&lt;/span&gt;&lt;span class="ellipsis"&gt;molodtsov.me/2024/10/wordpress&lt;/span&gt;&lt;span class="invisible"&gt;-doesnt-matter-for-the-future-of-web/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.social/@dogwonder/113318269283796886</guid>
+      <link>https://mastodon.social/@dogwonder/113318269283796886</link>
+      <pubDate>Wed, 16 Oct 2024 17:26:07 +0000</pubDate>
+      <description>&lt;p&gt;Building drag and drop…I see it’s not gotten any easier since DHTML.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.social/@dogwonder/113318078369900435</guid>
+      <link>https://mastodon.social/@dogwonder/113318078369900435</link>
+      <pubDate>Wed, 16 Oct 2024 16:37:34 +0000</pubDate>
+      <description>&lt;p&gt;OK, day two of trying to see if I can build a native block (React) in WordPress. Again, thanking 10up. &lt;a href="https://github.com/10up/block-components/tree/develop?tab=readme-ov-file" target="_blank" rel="nofollow noopener noreferrer" translate="no"&gt;&lt;span class="invisible"&gt;https://&lt;/span&gt;&lt;span class="ellipsis"&gt;github.com/10up/block-componen&lt;/span&gt;&lt;span class="invisible"&gt;ts/tree/develop?tab=readme-ov-file&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Even with all that amazing stuff I found a bunch of things just really flaky. Like error city. I thought people liked React for its DX? I found it needlessly needy, like theres a plugin for that x1000.&lt;/p&gt;&lt;p&gt;185 lines of code and I don&amp;#39;t know how many libraries but I have a native drag and drop post list. &lt;/p&gt;&lt;p&gt;Also no way am I rendering this on the FE with React, PHP for that!&lt;/p&gt;</description>
+      <media:content url="https://files.mastodon.social/media_attachments/files/113/318/078/136/033/870/original/38d61534bd64a265.png" type="image/png" fileSize="133093" medium="image">
+        <media:rating scheme="urn:simple">nonadult</media:rating>
+        <media:description type="plain">Screenshot of WordPress edit screen with a posts picker and two posts</media:description>
+      </media:content>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.social/@dogwonder/113312777536258473</guid>
+      <link>https://mastodon.social/@dogwonder/113312777536258473</link>
+      <pubDate>Tue, 15 Oct 2024 18:09:30 +0000</pubDate>
+      <description>&lt;p&gt;Figured I better look around and some native block development I case the WordPress drama continues. Wanted to do something what I thought was relatively straightforward (and in ACF is probably a couple of minutes work). 5 hours and counting. TLDR &lt;span class="h-card" translate="no"&gt;&lt;a href="https://mastodon.social/@wordpress" class="u-url mention"&gt;@&lt;span&gt;wordpress&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;/scripts, Brian Coords and 10up made it just about achievable. But damn it’s a lot of very sensitive code. I still don’t really trust React.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.social/@dogwonder/113288953228873725</guid>
+      <link>https://mastodon.social/@dogwonder/113288953228873725</link>
+      <pubDate>Fri, 11 Oct 2024 13:10:40 +0000</pubDate>
+      <description>&lt;p&gt;One of the largest irony&amp;#39;s with the latest WordPress drama is that the last few releases have been really great and started to seem like a much more mature approach to the Block editor and specifically how Developers can utilise it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.social/@dogwonder/113282807081967151</guid>
+      <link>https://mastodon.social/@dogwonder/113282807081967151</link>
+      <pubDate>Thu, 10 Oct 2024 11:07:37 +0000</pubDate>
+      <description>&lt;p&gt;Why is every DNS guide just hey good fucking luck! Here’s a fucking useless video. &lt;/p&gt;&lt;p&gt;Also every DNS admin screen. Oh you thought this would follow some sort of convention. Fuck you. Enjoy the next 48 hours.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.social/@dogwonder/113267734907414862</guid>
+      <link>https://mastodon.social/@dogwonder/113267734907414862</link>
+      <pubDate>Mon, 07 Oct 2024 19:14:34 +0000</pubDate>
+      <description>&lt;p&gt;WPGraphQL 👀&lt;/p&gt;</description>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.social/@dogwonder/113244617981993430</guid>
+      <link>https://mastodon.social/@dogwonder/113244617981993430</link>
+      <pubDate>Thu, 03 Oct 2024 17:15:38 +0000</pubDate>
+      <description>&lt;p&gt;Decided to properly move over my core 11ty starter instance over to 3.0 and do ESM properly, must admit now realise I didn’t fully get the difference between approaches. Just spicy includes right?! Got myself in a bit of a mess here and there with some hand spun filters and utils but adding .js to everything along with type=module seemed to fix most things. Was mostly syntax foo. Also the upgrade helper was…. A huge help &lt;/p&gt;&lt;p&gt;&lt;a href="https://mastodon.social/tags/11ty" class="mention hashtag" rel="tag"&gt;#&lt;span&gt;11ty&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;</description>
+      <category>11ty</category>
+    </item>
+    <item>
+      <guid isPermaLink="true">https://mastodon.social/@dogwonder/113237399130798412</guid>
+      <link>https://mastodon.social/@dogwonder/113237399130798412</link>
+      <pubDate>Wed, 02 Oct 2024 10:39:47 +0000</pubDate>
+      <description>&lt;p&gt;(X of N) projects updated to 11ty 3.0 only (N - X) projects to go!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
