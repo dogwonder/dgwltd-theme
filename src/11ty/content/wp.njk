@@ -1,5 +1,5 @@
 ---
-permalink: '../src/scss/vendor/_wp.scss'
+permalink: '../src/assets/scss/wp.scss'
 ---
 
 :root {
@@ -7,6 +7,6 @@ permalink: '../src/scss/vendor/_wp.scss'
     --wp--preset--color--{{ color.slug }}: {{ color.color }};
     {%- endfor %}
 
-    --wp-{{ theme.settings.custom.spacing.baseline }}
-    --wp-{{ theme.settings.custom.typography['line-height'].headings.md }}
+    {# --wp-{{ theme.settings.custom.spacing.baseline }}
+    --wp-{{ theme.settings.custom.typography['line-height'].headings.md }} #}
 }

@@ -1,13 +1,14 @@
 {
   "name": "dgwltd",
-  "version": "1.2.214",
+  "version": "1.2.217",
   "type": "module",
   "main": "",
   "scripts": {
     "clean": "trash \"./dist/\"",
     "css:sass:main": "sass --silence-deprecation=mixed-decls --quiet-deps ./src/assets/scss/main.scss ./dist/css/main.css",
     "css:sass:print": "sass ./src/assets/scss/print.scss ./dist/css/print.css",
-    "css:sass": "run-s css:sass:main css:sass:print",
+    "css:sass:wp": "sass ./src/assets/scss/wp.scss ./dist/css/wp.css",
+    "css:sass": "run-s css:sass:main css:sass:print css:sass:wp",
     "css:replace": "replace \"Version: v\\d+(\\.\\d+){1,2}\" \"Version: $(npm version patch --no-git-tag-version)\" style.css",
     "css:postcss": "postcss ./dist/css/**/*.css --use autoprefixer postcss-custom-properties cssnano --no-map --verbose --dir ./dist/css/",
     "css": "run-s css:*",
@@ -24,8 +25,7 @@
     "cms": "npx tinacms dev -c \"npm run watch\"",
     "favicon": "node ./scripts/favicon.js",
     "inquire": "node ./scripts/inquirer.mjs",
-    "build": "NODE_ENV=production npm run clean && NODE_ENV=production npm run-s css scripts && NODE_ENV=production npx eleventy && NODE_ENV=production npm run favicon",
-    "build:dddev": "NODE_ENV=production npm run clean && NODE_ENV=production npm run-s css scripts && NODE_ENV=production npm run export-styles && NODE_ENV=production npx eleventy && NODE_ENV=production npm run favicon"
+    "build": "NODE_ENV=production npm run clean && NODE_ENV=production npm run-s css scripts && NODE_ENV=production npx eleventy && NODE_ENV=production npm run favicon"
   },
   "author": "",
   "license": "ISC",
