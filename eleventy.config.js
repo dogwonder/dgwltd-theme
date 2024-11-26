@@ -4,6 +4,7 @@ import pluginNavigation from "@11ty/eleventy-navigation";
 import dayjs from 'dayjs';
 import { readFile } from 'fs/promises';
 
+
 import pluginFilters from "./src/11ty/_config/filters.js";
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -29,6 +30,12 @@ export default async function(eleventyConfig) {
   //Get package version
   const packageJson = JSON.parse(await readFile(new URL('./package.json', import.meta.url)));
   eleventyConfig.addShortcode('pkgVersion', () => `${packageJson.version}`);
+
+  // Read and parse the WP theme.json file
+  const themeJSON = JSON.parse(await readFile(new URL('./theme.json', import.meta.url)));
+
+  // Add theme settings to Eleventy global data
+  eleventyConfig.addGlobalData('theme', themeJSON);
 
   //Get current Unix timestamp
   eleventyConfig.addShortcode('timestamp', () => `${Date.now()}`);

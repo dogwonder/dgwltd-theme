@@ -1,0 +1,12 @@
+---
+permalink: '../src/scss/vendor/_wp.scss'
+---
+
+:root {
+    {%- for color in theme.settings.color.palette %}
+    --wp--preset--color--{{ color.slug }}: {{ color.color }};
+    {%- endfor %}
+
+    --wp-{{ theme.settings.custom.spacing.baseline }}
+    --wp-{{ theme.settings.custom.typography['line-height'].headings.md }}
+}

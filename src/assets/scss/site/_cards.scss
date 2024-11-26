@@ -1,5 +1,6 @@
 .dgwltd-cards {
 
+
   &__content {
     margin-block-end: var(--wp--custom--spacing--md);
   }
@@ -8,6 +9,8 @@
     display: grid;
     gap: var(--gutter,var(--wp--custom--spacing--lg));
     grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-item-size), 1fr));
+
+    list-style-type: none !important;
     
     @include mq($from: lg) {
       grid-template-columns: repeat(3, 1fr);
@@ -94,7 +97,7 @@
   }
 
   &__content {
-    padding: var(--wp--custom--spacing--gap) 0 0;
+    margin-block-start: var(--wp--custom--spacing--gap);
   }
 
 }
