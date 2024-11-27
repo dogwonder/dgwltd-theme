@@ -59,6 +59,12 @@ export default async function(eleventyConfig) {
     return numericValue * 16;
   });
 
+  //Add clamp shortcode
+  // eleventyConfig.addShortcode("clamp", async function(minSize, maxSize, minWidth, maxWidth) {
+  //   return calculateClamp({ minSize, maxSize, minWidth, maxWidth });
+  // });
+
+
   eleventyConfig.addNunjucksTag('clamp', function (nunjucksEngine) {
     class ClampTag {
       constructor() {
@@ -74,10 +80,10 @@ export default async function(eleventyConfig) {
       }
   
       // Execution function for the custom tag
-      run(context, minWidth, maxWidth, minSize, maxSize, usePx = false, relativeTo = 'viewport') {
+      run(context, minSize, maxSize, minWidth, maxWidth, relativeTo = 'viewport', usePx = true ) {
         try {
           // Validate arguments
-          if (isNaN(minWidth) || isNaN(maxWidth) || isNaN(minSize) || isNaN(maxSize)) {
+          if (isNaN(minSize) || isNaN(maxSize) || isNaN(minWidth) || isNaN(maxWidth)) {
             throw new Error('Invalid numeric values passed to clamp tag.');
           }
           if (minWidth >= maxWidth) {
@@ -87,7 +93,7 @@ export default async function(eleventyConfig) {
             throw new Error('minSize and maxSize cannot be equal.');
           }
   
-          return calculateClamp({ minWidth, maxWidth, minSize, maxSize, usePx, relativeTo });
+          return calculateClamp({ minSize, maxSize, minWidth, maxWidth, relativeTo, usePx });
         } catch (error) {
           console.error('Error in clamp tag:', error.message);
           return ''; // Return empty string to avoid breaking the template
