@@ -67,7 +67,7 @@ export default async function(eleventyConfig) {
 		return (new Date()).toISOString();
 	});
 
-  //Add clamp shortcode
+  //Add clamp shortcode - via https://github.com/trys/utopia-core/tree/main
   eleventyConfig.addShortcode('calculateClamp', (
     minSize,
     maxSize,
