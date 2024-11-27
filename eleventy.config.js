@@ -1,11 +1,12 @@
 import { IdAttributePlugin, InputPathToUrlTransformPlugin, HtmlBasePlugin } from "@11ty/eleventy";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginNavigation from "@11ty/eleventy-navigation";
+
+//Other plugins and utils
 import dayjs from 'dayjs';
 import { readFile } from 'fs/promises';
-
-
 import pluginFilters from "./src/11ty/_config/filters.js";
+import { calculateClamp } from './src/utils/utopia.js';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const buildPath = isProduction ? '/wp-content/themes/dgwltd/dist/' : '/';
@@ -45,6 +46,58 @@ export default async function(eleventyConfig) {
     return dayjs(date).format(dateFormat);
   });
 
+  // Add a custom filter to hyphenate values like xl, 2xl, 3xl, etc.
+  eleventyConfig.addNunjucksFilter('hyphenate', (value) => {
+    return value.replace(/(\d*)(xl|xs)/g, (match, p1, p2) => {
+      return p1 ? `${p1}-${p2}` : `${p2}`;
+    });
+  });
+
+  // Add a custom filter to remove 'rem' and multiply by 16
+  eleventyConfig.addNunjucksFilter('remToPx', (value) => {
+    const numericValue = parseFloat(value.replace('rem', ''));
+    return numericValue * 16;
+  });
+
+  eleventyConfig.addNunjucksTag('clamp', function (nunjucksEngine) {
+    class ClampTag {
+      constructor() {
+        this.tags = ['clamp'];
+      }
+  
+      // Parsing function for custom tag
+      parse(parser, nodes) {
+        const tok = parser.nextToken(); // Get the current token
+        const args = parser.parseSignature(null, true); // Parse arguments
+        parser.advanceAfterBlockEnd(tok.value); // Move parser forward
+        return new nodes.CallExtension(this, 'run', args); // Call the "run" method
+      }
+  
+      // Execution function for the custom tag
+      run(context, minWidth, maxWidth, minSize, maxSize, usePx = false, relativeTo = 'viewport') {
+        try {
+          // Validate arguments
+          if (isNaN(minWidth) || isNaN(maxWidth) || isNaN(minSize) || isNaN(maxSize)) {
+            throw new Error('Invalid numeric values passed to clamp tag.');
+          }
+          if (minWidth >= maxWidth) {
+            throw new Error('minWidth must be less than maxWidth.');
+          }
+          if (minSize === maxSize) {
+            throw new Error('minSize and maxSize cannot be equal.');
+          }
+  
+          return calculateClamp({ minWidth, maxWidth, minSize, maxSize, usePx, relativeTo });
+        } catch (error) {
+          console.error('Error in clamp tag:', error.message);
+          return ''; // Return empty string to avoid breaking the template
+        }
+      }
+    }
+  
+    return new ClampTag();
+  });
+
   //Get the current year
   eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`);
 
@@ -72,6 +125,7 @@ export default async function(eleventyConfig) {
 
   // Filters
 	eleventyConfig.addPlugin(pluginFilters);
+  
 
   eleventyConfig.addPlugin(IdAttributePlugin, {
 		// by default we use Eleventy’s built-in `slugify` filter:

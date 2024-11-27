@@ -1,5 +1,5 @@
 // File: utopia.js
-import { calculateTypeScale, calculateSpaceScale, calculateClamps } from '../../utils/utopia.js';
+import { calculateTypeScale, calculateSpaceScale } from '../../utils/utopia.js';
 
 // Assuming calculateSpaceScale returns an object directly, not a JSON string
 const dataSpace = calculateSpaceScale({

@@ -2,10 +2,42 @@
 permalink: '../src/assets/scss/wp.scss'
 ---
 
+{% set minWidth = 320 %}
+{% set maxWidth = 1500 %}
+
 :root {
+
     {%- for color in theme.settings.color.palette %}
     --wp--preset--color--{{ color.slug }}: {{ color.color }};
     {%- endfor %}
+
+    {%- for spacing, value in theme.settings.custom.spacing %}
+    --wp--custom--spacing--{{ spacing | hyphenate }}: {{ value }};
+    {%- endfor %}
+
+    {%- if theme.settings.typography %}
+
+            {%- for family in theme.settings.typography.fontFamilies %}
+                --wp--custom--font-family--{{ family.slug }}: {{ family.fontFamily | safe }};
+            {%- endfor %}
+
+            {%- for size in theme.settings.typography.fontSizes %}
+                {%- if size.fluid %}
+                     {% set min = size.fluid.min | remToPx %}
+                    {% set max = size.fluid.max | remToPx %}
+                    --wp--preset--font-size--{{ size.slug | hyphenate }}: {% clamp minWidth, maxWidth, min, max %};
+                {%- else %}
+                    --wp--preset--font-size--{{ size.slug | hyphenate }}: {{ size.size }};
+                {%- endif %}
+            {%- endfor %}
+
+            {%- for letterSlug, letterSpacing in theme.settings.custom.typography.letterSpacing %}
+                --wp--custom--typography--letter-spacing--{{ letterSlug }}: {{ letterSpacing }};
+            {%- endfor %}    
+
+        {%- endif %}
+
+    
 
     {# --wp-{{ theme.settings.custom.spacing.baseline }}
     --wp-{{ theme.settings.custom.typography['line-height'].headings.md }} #}

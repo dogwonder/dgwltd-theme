@@ -1,5 +1,4 @@
 // Helpers
-
 const lerp = (x, y, a) => x * (1 - a) + y * a;
 const clamp = (a, min = 0, max = 1) => Math.min(max, Math.max(min, a));
 const invlerp = (x, y, a) => clamp((a - x) / (y - x));
@@ -8,7 +7,6 @@ const roundValue = (n) => Math.round((n + Number.EPSILON) * 10000) / 10000;
 const sortNumberAscending = (a, b) => Number(a) - Number(b);
 
 // Clamp
-
 const calculateClamp = ({
   maxSize,
   minSize,
@@ -266,5 +264,6 @@ const calculateSpaceScale = (config) => {
 export {
   calculateTypeScale,
   calculateSpaceScale,
+  calculateClamp, 
   calculateClamps
 };
