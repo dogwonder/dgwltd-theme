@@ -64,16 +64,6 @@ These are saved in `wp-plugins\dgwltd-blocks\src\acf-json`
 - DGW.ltd Related pages - list of related links
 - DGW.ltd Summary list - based on GOV.UK's [summary list pattern](https://design-system.service.gov.uk/components/summary-list/) 
 
-## Custom block patterns (experimental / in progress)
-
-Included in the plugin *dgwltd: Blocks* alongside the custom blocks this allows for pre-made collections of blocks, accessible under the 'DGW.ltd' in patterns dropdown
-
-- Layout page
-- Lockable content
-- FAQs
-- Columns - dark
-- Columns - light
-
 ## Templates
 
 ### Blocks template
