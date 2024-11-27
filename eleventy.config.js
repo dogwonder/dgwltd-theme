@@ -6,7 +6,6 @@ import pluginNavigation from "@11ty/eleventy-navigation";
 import dayjs from 'dayjs';
 import { readFile } from 'fs/promises';
 import pluginFilters from "./src/11ty/_config/filters.js";
-import { calculateClamp } from './src/utils/utopia.js';
 
 const isProduction = process.env.NODE_ENV === 'production';
 const buildPath = isProduction ? '/wp-content/themes/dgwltd/dist/' : '/';
@@ -59,51 +58,7 @@ export default async function(eleventyConfig) {
     return numericValue * 16;
   });
 
-  //Add clamp shortcode
-  // eleventyConfig.addShortcode("clamp", async function(minSize, maxSize, minWidth, maxWidth) {
-  //   return calculateClamp({ minSize, maxSize, minWidth, maxWidth });
-  // });
-
-
-  eleventyConfig.addNunjucksTag('clamp', function (nunjucksEngine) {
-    class ClampTag {
-      constructor() {
-        this.tags = ['clamp'];
-      }
   
-      // Parsing function for custom tag
-      parse(parser, nodes) {
-        const tok = parser.nextToken(); // Get the current token
-        const args = parser.parseSignature(null, true); // Parse arguments
-        parser.advanceAfterBlockEnd(tok.value); // Move parser forward
-        return new nodes.CallExtension(this, 'run', args); // Call the "run" method
-      }
-  
-      // Execution function for the custom tag
-      run(context, minSize, maxSize, minWidth, maxWidth, relativeTo = 'viewport', usePx = true ) {
-        try {
-          // Validate arguments
-          if (isNaN(minSize) || isNaN(maxSize) || isNaN(minWidth) || isNaN(maxWidth)) {
-            throw new Error('Invalid numeric values passed to clamp tag.');
-          }
-          if (minWidth >= maxWidth) {
-            throw new Error('minWidth must be less than maxWidth.');
-          }
-          if (minSize === maxSize) {
-            throw new Error('minSize and maxSize cannot be equal.');
-          }
-  
-          return calculateClamp({ minSize, maxSize, minWidth, maxWidth, relativeTo, usePx });
-        } catch (error) {
-          console.error('Error in clamp tag:', error.message);
-          return ''; // Return empty string to avoid breaking the template
-        }
-      }
-    }
-  
-    return new ClampTag();
-  });
-
   //Get the current year
   eleventyConfig.addShortcode('year', () => `${new Date().getFullYear()}`);
 
@@ -111,6 +66,37 @@ export default async function(eleventyConfig) {
   eleventyConfig.addShortcode("currentBuildDate", () => {
 		return (new Date()).toISOString();
 	});
+
+  //Add clamp shortcode
+  eleventyConfig.addShortcode('calculateClamp', (
+    minSize,
+    maxSize,
+    minWidth,
+    maxWidth,
+    usePx = false,
+    relativeTo = 'viewport'
+  ) => {
+    // Helpers
+    const roundValue = (n) => Math.round((n + Number.EPSILON) * 10000) / 10000;
+
+    // Clamp
+    const isNegative = minSize > maxSize;
+    const min = isNegative ? maxSize : minSize;
+    const max = isNegative ? minSize : maxSize;
+
+    const divider = usePx ? 1 : 16;
+    const unit = usePx ? 'px' : 'rem';
+    const relativeUnits = {
+      viewport: 'vi',
+      'viewport-width': 'vw',
+      container: 'cqi'
+    };
+    const relativeUnit = relativeUnits[relativeTo] || relativeUnits.viewport;
+
+    const slope = ((maxSize / divider) - (minSize / divider)) / ((maxWidth / divider) - (minWidth / divider));
+    const intersection = (-1 * (minWidth / divider)) * slope + (minSize / divider);
+    return `clamp(${roundValue(min / divider)}${unit}, ${roundValue(intersection)}${unit} + ${roundValue(slope * 100)}${relativeUnit}, ${roundValue(max / divider)}${unit})`;
+  });
 
   //Add bundler bundles
   eleventyConfig.addBundle("css", {

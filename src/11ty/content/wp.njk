@@ -5,7 +5,6 @@ permalink: '../src/assets/scss/wp.scss'
 {% set minWidth = 320 %}
 {% set maxWidth = 1500 %}
 
-
 :root {
 
     {%- for color in theme.settings.color.palette %}
@@ -32,7 +31,7 @@ permalink: '../src/assets/scss/wp.scss'
                 {%- if size.fluid %}
                     {% set minSize = size.fluid.min | remToPx %}
                     {% set maxSize = size.fluid.max | remToPx %}
-                    --wp--preset--font-size--{{ size.slug | hyphenate }}: {% clamp minSize, maxSize, minWidth, maxWidth, 'viewport', false %};
+                    --wp--preset--font-size--{{ size.slug | hyphenate }}: {% calculateClamp minSize, maxSize, minWidth, maxWidth %};
                 {%- else %}
                     --wp--preset--font-size--{{ size.slug | hyphenate }}: {{ size.size }};
                 {%- endif %}
