@@ -24,7 +24,7 @@
     "cypress:run:sw": "RUN_LOCALLY=true cypress run --spec 'cypress/e2e/sw.cy.js'",
     "cms": "npx tinacms dev -c \"npm run watch\"",
     "favicon": "node ./scripts/favicon.js",
-    "inquire": "node ./scripts/inquirer.mjs",
+    "inquirer": "node ./scripts/inquirer.mjs",
     "build": "NODE_ENV=production npm run clean && NODE_ENV=production npm run-s css scripts && NODE_ENV=production npx eleventy && NODE_ENV=production npm run favicon"
   },
   "author": "",

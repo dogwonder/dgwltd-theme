@@ -33,7 +33,7 @@ $govuk-font-family: -apple-system, BlinkMacSystemFont,"Segoe UI", "Roboto", "Oxy
 @import "../../node_modules/govuk-frontend/govuk/all.scss";
 ```
 
-For the Javascript we need to [manually download](https://frontend.design-system.service.gov.uk/install-using-precompiled-files/#install-using-precompiled-files) and update the version as we use a precompiled version of the JS. Place it in the `src/vendor/` folder and update `footer.php`, `move.js` and `sw.njk.js` files to new version name
+For the Javascript we need to [manually download](https://frontend.design-system.service.gov.uk/install-using-precompiled-files/#install-using-precompiled-files) and update the version as we use a precompiled version of the JS. Place it in the `src/vendor/` folder and update `footer.php`, `sw.njk` files to new version name
 
 ## Other notable 3rd party integrations
 - [Youtube](https://github.com/paulirish/lite-youtube-embed) and [Vimeo](https://github.com/slightlyoff/lite-vimeo) lite plugins (render the video as a screenshot until a user interacts with the video to save bandwidth) -- note we changed the defulat thumbnail size to 1280px `https://i.ytimg.com/vi/${this.videoId}/maxresdefault.jpg`;
@@ -139,4 +139,4 @@ npx @11ty/import wordpress https://blog.fontawesome.com
 
 ## Inquirer
 
-`npm run inquire`
+`npm run inquirer`
