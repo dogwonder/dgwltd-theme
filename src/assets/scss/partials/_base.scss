@@ -2,17 +2,18 @@
 a {
   color: var(--wp--preset--color--dark, inherit);
   text-decoration: underline;
-  text-decoration-thickness: max(3px, .1875rem, .12em) !important;
-  text-underline-offset: .1578em;
   //Break long urls
   word-wrap: break-word;
   overflow-wrap: break-word;
+  text-decoration-thickness: max(1px, .0625rem);
+  text-underline-offset: .1578em;
   &:visited {
     color: var(--wp--preset--color--dark);
   }
   &:hover {
     color: var(--wp--preset--color--dark);
     text-decoration-color: var(--wp--preset--color--primary);
+    text-decoration-thickness: max(3px, .1875rem, .12em);
   }
   &:active {
     color: var(--wp--preset--color--dark);
@@ -22,7 +23,7 @@ a {
 
 //Focus styles  - via https://www.youtube.com/watch?v=FfQ-JuaNO68
 :is(a, button, input, textarea, summary) {
-  --outline-size: max(2px, 0.08em); //If 0.0.8em is less than 2px use 2px
+  --outline-size: 3px;
   --outline-style: solid;
   --outline-color: transparent;
   --background-color: var(--wp--preset--color--focus);
