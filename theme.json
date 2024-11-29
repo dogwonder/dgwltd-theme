@@ -111,8 +111,8 @@
 					"slug": "system-font"
 				},
 				{
-					"fontFamily": "\"Söhne Fett\", sans-serif",
-					"name": "Söhne Fett",
+					"fontFamily": "\"Söhne Dreiviertelfett\", sans-serif",
+					"name": "Söhne Dreiviertelfett",
 					"slug": "primary", 
 					"fontFace": [
 						{
