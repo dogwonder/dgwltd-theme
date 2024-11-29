@@ -23,8 +23,9 @@
             --wp--custom--spacing--xs-s: clamp(0.8125rem, 0.6939rem + 0.5932vi, 1.25rem);
             --wp--custom--spacing--s-xxl: clamp(1.0625rem, -0.0053rem + 5.339vi, 5rem);
                 --wp--custom--font-family--system-font: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-                --wp--custom--font-family--primary: "Söhne Halbfett", sans-serif;
-                --wp--custom--font-family--secondary: "Söhne Kraftig", sans-serif;
+                --wp--custom--font-family--primary: "Söhne Fett", sans-serif;
+                --wp--custom--font-family--secondary: "Söhne Halbfett", sans-serif;
+                --wp--custom--font-family--tertertiary: "Söhne Kraftig", sans-serif;
                 --wp--custom--font-family--monospace: monospace;
                     --wp--preset--font-size--xs: 0.875rem;
                     --wp--preset--font-size--sm: 1rem;
@@ -74,40 +75,40 @@ body {
     h1 {
         font-family: var(--wp--preset--font-family--primary);
         font-size: var(--wp--preset--font-size--3-xl);
-        font-weight: 600;
+        font-weight: 800;
         line-height: var(--wp--custom--typography--line-height--heading--lg);
         letter-spacing: var(--wp--custom--typography--letter-spacing--lg);
     }
     h2 {
-        font-family: var(--wp--preset--font-family--primary);
+        font-family: var(--wp--preset--font-family--secondary);
         font-size: var(--wp--preset--font-size--2-xl);
         font-weight: 600;
         line-height: var(--wp--custom--typography--line-height--heading--lg);
         letter-spacing: var(--wp--custom--typography--letter-spacing--lg);
     }
     h3 {
-        font-family: var(--wp--preset--font-family--secondary);
+        font-family: var(--wp--preset--font-family--tertiary);
         font-size: var(--wp--preset--font-size--xl);
         font-weight: 500;
         line-height: var(--wp--custom--typography--line-height--heading--lg);
         letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
     }
     h4 {
-        font-family: var(--wp--preset--font-family--secondary);
+        font-family: var(--wp--preset--font-family--tertiary);
         font-size: var(--wp--preset--font-size--lg);
         font-weight: 500;
         line-height: var(--wp--custom--typography--line-height--body);
         letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
     }
     h5 {
-        font-family: var(--wp--preset--font-family--secondary);
+        font-family: var(--wp--preset--font-family--tertiary);
         font-size: var(--wp--preset--font-size--md);
         font-weight: 500;
         line-height: var(--wp--custom--typography--line-height--body);
         letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
     }
     h6 {
-        font-family: var(--wp--preset--font-family--secondary);
+        font-family: var(--wp--preset--font-family--tertiary);
         font-size: var(--wp--preset--font-size--md);
         font-weight: 500;
         line-height: var(--wp--custom--typography--line-height--body);

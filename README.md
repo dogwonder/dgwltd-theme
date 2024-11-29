@@ -84,26 +84,6 @@ Similar to NHS [contents guide](https://www.nhs.uk/conditions/type-2-diabetes/) 
 
 Blog / posts list template
 
-## Template parts
-
-[Block-Based Template Parts](https://learn.wordpress.org/tutorial/using-block-template-parts-in-classic-themes/) are enabled on this theme, and an example can be founnd in `parts/header.html`
-
-And this can then be included via PHP like so
-
-`<?php block_template_part( 'header' ); ?>`
-
-Additionally the following should be added to theme.json if this feature is going to be used:
-
-```
-"templateParts": [
-    {
-        "name": "my-template-part",
-        "title": "Header",
-        "area": "header"
-    }
-]
-```
-
 ## Tests
 
 To run tests (e.g. AXE)

@@ -109,7 +109,6 @@ input[type="submit"] {
     display: inline-block;
     margin-block-end: var(--wp--custom--spacing--2-xs);
     @extend %dgwltd-body;
-    font-weight: $bold;
   }
 
   //Input description - placed above input
@@ -292,13 +291,12 @@ input[type="submit"] {
   //Field error message
   .gfield_validation_message {
     color: var(--wp--custom--color--error);
-    font-weight: $bold;
     margin-block-end: var(--wp--custom--spacing--sm);
   }
   
   //Govuk integration
   .govuk-error-summary__title {
-    font-weight: $bold;
+    font-weight: bold;
   }
   
   ul.govuk-error-summary__list {

@@ -103,7 +103,7 @@
       grid-column: 2;
       position: relative;
       z-index: 2;
-      font-family: var(--wp--preset--font-family--secondary);
+      font-family: var(--wp--preset--font-family--tertiary);
       @extend %dgwltd-body-sm;
     }
     p {
@@ -111,7 +111,7 @@
       z-index: 2;
       position: relative;
       text-indent: 0;
-      font-family: var(--wp--preset--font-family--secondary);
+      font-family: var(--wp--preset--font-family--tertiary);
       @extend %dgwltd-body-md;
       &:last-child {
         margin: 0;
@@ -128,7 +128,6 @@
   font-size: 1rem;
   .cat-links > a {
     display: inline-block;
-    font-weight: $bold;
     padding: var(--wp--custom--spacing--sm) var(--wp--custom--spacing--md);
     border: 1px solid var(--wp--custom--color--border);
     border-radius: 2px;
@@ -148,5 +147,5 @@
 
 .entry-meta {
   @extend %dgwltd-body-sm;
-  font-family: var(--wp--preset--font-family--secondary);
+  font-family: var(--wp--preset--font-family--tertiary);
 }

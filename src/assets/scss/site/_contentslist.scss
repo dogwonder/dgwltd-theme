@@ -6,7 +6,7 @@
   }
   ol.dgwltd-contents-list__list {
     list-style-type: none;
-    margin: var(--wp--custom--spacing--gap) 0 0;
+    margin: var(--wp--custom--spacing--gap) 0 var(--wp--custom--spacing--xl);
     padding: 0;
     li {
       &:before {
@@ -18,11 +18,11 @@
       &.current_page_item {
         > a {
           text-decoration: none;
+          font-weight: bold;
           &:visited {
             color: var(--wp--preset--color--dark);
           }
         }
-        font-weight: $bold;
         color: var(--wp--preset--color--dark);
       }
     }

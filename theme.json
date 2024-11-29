@@ -111,9 +111,23 @@
 					"slug": "system-font"
 				},
 				{
+					"fontFamily": "\"Söhne Fett\", sans-serif",
+					"name": "Söhne Fett",
+					"slug": "primary", 
+					"fontFace": [
+						{
+							"fontFamily": "Söhne Dreiviertelfett",
+							"fontWeight": "700",
+							"fontStyle": "normal",
+							"fontDisplay": "fallback",
+							"src": [ "file:./dist/fonts/soehne/soehne-dreiviertelfett.woff2" ]
+						}
+					]
+				},
+				{
 					"fontFamily": "\"Söhne Halbfett\", sans-serif",
 					"name": "Söhne Halbfett",
-					"slug": "primary", 
+					"slug": "secondary", 
 					"fontFace": [
 						{
 							"fontFamily": "Söhne Halbfett",
@@ -127,11 +141,11 @@
 				{
 					"fontFamily": "\"Söhne Kraftig\", sans-serif",
 					"name": "Söhne Kraftig",
-					"slug": "secondary", 
+					"slug": "tertertiary", 
 					"fontFace": [
 						{
 							"fontFamily": "Söhne Kraftig",
-							"fontWeight": "600",
+							"fontWeight": "500",
 							"fontStyle": "normal",
 							"fontDisplay": "fallback",
 							"src": [ "file:./dist/fonts/soehne/soehne-kraftig.woff2" ]
@@ -319,14 +333,14 @@
 				"typography": {
 					"fontFamily": "var(--wp--preset--font-family--primary)",
 					"fontSize": "var(--wp--preset--font-size--3-xl)", 
-					"fontWeight": "600",
+					"fontWeight": "800",
 					"lineHeight": "var(--wp--custom--typography--line-height--heading--lg)",
 					"letterSpacing": "var(--wp--custom--typography--letter-spacing--lg)"
 				}
 			},
 			"h2": {
 				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--primary)",
+					"fontFamily": "var(--wp--preset--font-family--secondary)",
 					"fontSize": "var(--wp--preset--font-size--2-xl)", 
 					"fontWeight": "600",
 					"lineHeight": "var(--wp--custom--typography--line-height--heading--lg)",
@@ -335,7 +349,7 @@
 			},
 			"h3": {
 				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--secondary)",
+					"fontFamily": "var(--wp--preset--font-family--tertiary)",
 					"fontSize": "var(--wp--preset--font-size--xl)", 
 					"fontWeight": "500",
 					"lineHeight": "var(--wp--custom--typography--line-height--heading--lg)",
@@ -344,7 +358,7 @@
 			},
 			"h4": {
 				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--secondary)",
+					"fontFamily": "var(--wp--preset--font-family--tertiary)",
 					"fontSize": "var(--wp--preset--font-size--lg)", 
 					"fontWeight": "500",
 					"lineHeight": "var(--wp--custom--typography--line-height--body)",
@@ -353,7 +367,7 @@
 			},
 			"h5": {
 				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--secondary)",
+					"fontFamily": "var(--wp--preset--font-family--tertiary)",
 					"fontSize": "var(--wp--preset--font-size--md)", 
 					"fontWeight": "500",
 					"lineHeight": "var(--wp--custom--typography--line-height--body)",
@@ -362,7 +376,7 @@
 			},
 			"h6": {
 				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--secondary)",
+					"fontFamily": "var(--wp--preset--font-family--tertiary)",
 					"fontSize": "var(--wp--preset--font-size--md)", 
 					"fontWeight": "500",
 					"lineHeight": "var(--wp--custom--typography--line-height--body)",

@@ -1,24 +1,5 @@
 :root {
 
-  /*Generic generate tokens*/
-  --color-neon: #00FFD9;
-  --color-blue: #081248;
-  --color-teal: #10827B;
-  --color-dark: #000000;
-  --color-light: #FFFFFF;
-  --color-alt: #FAFBFC;
-  --space-: ;
-  --space-: ;
-  --space-: ;
-  --font-size-type-xs: clamp(2rem, NaNrem + NaNvw, 4rem);
-  --font-size-type-sm: clamp(2rem, NaNrem + NaNvw, 3rem);
-  --line-height-line-height-body: clamp(1.5rem, NaNrem + NaNvw, 1.8125rem);
-  --line-height-line-height-intro: clamp(1.5rem, NaNrem + NaNvw, 1.75rem);
-  --line-height-line-height-lg: clamp(1.5rem, NaNrem + NaNvw, 1.75rem);
-  --line-height-line-height-xl: clamp(1.75rem, NaNrem + NaNvw, 2rem);
-  --line-height-line-height-2xl: clamp(2rem, NaNrem + NaNvw, 2.5rem);
-  --line-height-line-height-3xl: clamp(2.5rem, NaNrem + NaNvw, 3.5rem);
-
   /*Utopia generated tokens*/
   --space-3xs: clamp(0.25rem, 0.2331rem + 0.0847vi, 0.3125rem); //4px - 5px
   --space-2xs: clamp(0.5625rem, 0.5456rem + 0.0847vi, 0.625rem); //9px - 10px
