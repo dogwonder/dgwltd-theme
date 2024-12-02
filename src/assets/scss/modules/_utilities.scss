@@ -132,6 +132,17 @@
   font-variant-numeric: oldstyle-nums;    
 }
 
+
+/* to remove margin from the top of a subheading,
+and from the bottom of the preceding element */
+%subheading, 
+.subheading {
+	margin-block-start: 0;
+	*:has(+ &) {
+		margin-block-end: 0;
+	}
+}
+
 //Based on .govuk-\!-text-break-word
 %break-word, 
 .break-word {
