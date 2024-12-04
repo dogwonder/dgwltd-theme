@@ -30,7 +30,7 @@
 //Full width align group
 .wp-block-group.alignfull {
   grid-column: 1 / -1;
-  padding-block:  var(--wp--custom--spacing--lg);
+  padding: var(--wp--custom--spacing--lg) var(--wp--custom--spacing--md);
 }
 
 
