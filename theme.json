@@ -14,27 +14,27 @@
 				{
 					"name": "Primary", 
 					"slug": "primary",
-					"color": "#043868"
+					"color": "#FA008A"
 				},
 				{
 					"name": "Secondary", 
 					"slug": "secondary",
-					"color": "#f9de61"
+					"color": "#00E5E5"
 				},
 				{
 					"name": "Accent Magenta", 
-					"slug": "accent-blue",
-					"color": "#1dacfc"
+					"slug": "accent-magenta",
+					"color": "#C3006A"
 				},
 				{
-					"name": "Accent Pink",
-					"slug": "accent-pink",
+					"name": "Accent Peach",
+					"slug": "accent-peach",
 					"color": "#efa9f6"
 				},
 				{
 					"name": "Accent Purple",
-					"slug": "accent-orange",
-					"color": "#e68040"
+					"slug": "accent-purple",
+					"color": "#9A00FA"
 				},
 				{
 					"name": "Dark", 
