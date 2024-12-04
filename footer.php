@@ -28,5 +28,41 @@
       });
   }
 </script>
+<script type=speculationrules>
+  {
+    "prefetch": [
+      {
+        "where": {
+          "selector_matches": "[data-prefetch]"
+        },
+        "eagerness": "immediate"
+      },
+      {
+        "where": {
+          "and": [
+            { "href_matches": "/*" },
+            { "not": {"href_matches": "/wp-admin"}},
+            { "not": {"selector_matches": "[rel~=nofollow]"}}
+          ]
+        },
+        "eagerness": "moderate"
+      }
+    ],
+    "prerender": [
+      {
+        "where": {
+          "selector_matches": "[data-prefetch=prerender]"
+        },
+        "eagerness": "immediate"
+      },
+      {
+        "where": {
+          "selector_matches": "[data-prefetch]"
+        },
+        "eagerness": "moderate"
+      }
+    ]
+  }
+</script>
 </body>
 </html>

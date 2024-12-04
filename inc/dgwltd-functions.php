@@ -59,6 +59,67 @@ if ( ! function_exists( 'wcag_nav_menu_link_attributes' ) ) :
 	add_filter( 'nav_menu_link_attributes', 'wcag_nav_menu_link_attributes', 10, 4 );
 endif;
 
+
+/**
+ * Add Speculation Rules to the menu - https://csswizardry.com/2024/12/a-layered-approach-to-speculation-rules/
+*/
+if ( ! function_exists( 'dgwltd_speculation_rules' ) ) :
+    function dgwltd_speculation_rules( $item_output, $item, $depth, $args ) {
+
+		if ( 'primary' === $args->theme_location ) {
+
+			$tags = new WP_HTML_Tag_Processor( $item_output );
+
+			// Add data-prefetch=prerender to top-level menu links
+			
+			// Top-level mennu items are immediately prerendered
+			// Sub-menu items are immediately prefetched but prerendered on demand (hover for 200ms)
+
+			/*
+			"prefetch": [
+				//immediately pay TTFB costs for any link we’ve opted into
+				{
+				"where": {"selector_matches": "[data-prefetch]"},
+				"eagerness": "immediate"
+				},
+				//on demand (hover for 200ms), pay TTFB costs for any other internal links:
+				{
+				"where": {"href_matches": "/*"}
+				"eagerness": "moderate"
+				}
+			],
+			"prerender": [
+				//immediately pay LCP costs for any link we’ve opted into:
+				{
+				"where": {"selector_matches": "[data-prefetch=prerender]"},
+				"eagerness": "immediate"
+				},
+				//on demand (hover for 200ms), pay LCP costs for any link we’ve already paid TTFB costs for
+				{
+				"where": {"selector_matches": "[data-prefetch]"},
+				"eagerness": "moderate"
+				}
+			]
+			*/
+			
+			if ( $item->menu_item_parent == 0 ) {
+				$tags->next_tag( 'a' );
+				$tags->set_attribute( 'data-prefetch', 'prerender' );
+			} else {
+				$tags->next_tag( 'a' );
+				$tags->set_attribute( 'data-prefetch', '' ); // Add the attribute without a value
+			}
+
+			return $tags->get_updated_html();
+		}
+
+		return $item_output;
+
+    }
+    add_filter( 'walker_nav_menu_start_el', 'dgwltd_speculation_rules', 10, 4 );
+endif;
+
+
 /*
  * Exclude Uncategorized from get_the_category_list function.
  *
