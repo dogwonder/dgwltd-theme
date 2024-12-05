@@ -1,0 +1,8 @@
+.dgwltd-block-cover {
+    //Align full
+    max-width: 100%;
+    grid-column: 1 / span 3 !important;
+    .wp-block-cover__inner-container {
+        @extend %dgwltd-container;
+    }
+}

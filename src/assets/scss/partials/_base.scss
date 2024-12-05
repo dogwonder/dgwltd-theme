@@ -23,9 +23,10 @@ a {
 
 //Focus styles  - via https://www.youtube.com/watch?v=FfQ-JuaNO68
 :is(a, button, input, textarea, summary) {
-  --outline-size: 3px;
-  --outline-style: solid;
   --outline-color: transparent;
+  --outline-style: solid;
+  --outline-size: .25rem;
+  --outline-width: .25rem;
   --background-color: var(--wp--preset--color--focus);
   --box-shadow-color: var(--wp--preset--color--focus);
   --box-shadow: 0 -2px var(--box-shadow-color), 0 4px currentColor;
@@ -34,9 +35,10 @@ a {
 //Set a global default for focus visible styles
 :is(a, button, input, textarea, summary):focus-visible {
   outline:
-    var(--outline-size)
+    var(--outline-color)
     var(--outline-style)
-    var(--outline-color);
+    var(--outline-size)
+    var(--outline-width);
   outline-offset: var(--outline-offset, var(--outline-size));
   background-color: var(--background-color);
   box-shadow: var(--box-shadow);

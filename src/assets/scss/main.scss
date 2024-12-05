@@ -45,7 +45,6 @@ $govuk-font-family: -apple-system, BlinkMacSystemFont,"Segoe UI", "Roboto", "Oxy
 @import "../../../node_modules/govuk-frontend/dist/govuk/components/radios/index";
 @import "../../../node_modules/govuk-frontend/dist/govuk/components/select/index";
 @import "../../../node_modules/govuk-frontend/dist/govuk/components/skip-link/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/summary-list/index";
 @import "../../../node_modules/govuk-frontend/dist/govuk/components/textarea/index";
 @import "../../../node_modules/govuk-frontend/dist/govuk/components/warning-text/index";
 
@@ -106,16 +105,16 @@ $govuk-font-family: -apple-system, BlinkMacSystemFont,"Segoe UI", "Roboto", "Oxy
 // CSS GRID
 @import "site/grid";
 
-// BLOCKS
-@import "blocks/blocks";
-@import "blocks/accordion";
-@import "blocks/banner";
-@import "blocks/content";
-@import "blocks/embed";
-@import "blocks/hero";
-@import "blocks/promo-card";
-@import "blocks/related";
-@import "blocks/summary";
+// BLOCKS - ACF
+@import "blocks/acf/blocks";
+@import "blocks/acf/accordion";
+@import "blocks/acf/banner";
+@import "blocks/acf/embed";
+@import "blocks/acf/hero";
+@import "blocks/acf/promo-card";
+
+// BLOCKS - VARIATIONS
+@import "blocks/variations/cover";
 
 // UTILITIES
 @import "modules/utilities";

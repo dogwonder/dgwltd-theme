@@ -8,6 +8,10 @@ $nav-height: toRem(60);
   text-decoration: underline;
 }
 
+#skiplink-container {
+  grid-column: 1 / -1;
+}
+
 //Masthead
 .dgwltd-masthead {
   margin: 0;
@@ -67,7 +71,10 @@ $nav-height: toRem(60);
         box-shadow: none;
         background-color: transparent;
         svg {
-          fill: var(--wp--preset--color--focus);
+          fill: var(--wp--preset--color--primary);
+          > * {
+            fill: inherit;
+          }
         }
       }
     }

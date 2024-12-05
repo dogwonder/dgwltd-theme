@@ -26,8 +26,15 @@ $paged = get_query_var("paged") ? get_query_var("paged") : 1;
     margin-block-start: var(--wp--custom--spacing--lg);
     margin-inline: 0;
 }
+.section:has(.dgwltd-hero) {
+	grid-column: 1 / -1;
+}
+.section:has(.dgwltd-hero) > *:not(.dgwltd-hero):not(.dgwltd-banner) {
+	width: 100%;
+  	max-width: clamp(16rem,calc(var(--wp--custom--width--container) + calc(var(--wp--custom--spacing--md) * 2)),100vw);
+	margin-inline: auto;
+}
 .grid {
-
 	--grid-min-item-size: 8rem;
 }
 .item {
