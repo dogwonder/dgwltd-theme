@@ -2,17 +2,68 @@
 permalink: '../../../../sw.js'
 ---
 
-const CACHE_NAME = 'dgwltd-{% pkgVersion %}'; 
-const THEME_PATH = 'wp-content/themes/dgwltd/';
+const cacheName = 'dgwltd-{% pkgVersion %}'; 
+const themePath = 'wp-content/themes/dgwltd/';
 
 // Files to precache
-const precacheFiles = [
-  `${THEME_PATH}/dist/offline.html`,
-  `${THEME_PATH}/dist/css/main.css`,
-  `${THEME_PATH}/dist/js/app.min.js`,
-  `${THEME_PATH}/dist/js/govuk-frontend-5.7.1.min.js`,
-  `${THEME_PATH}/dist/icons/fav/favicon.png`,
-  `${THEME_PATH}/dist/icons/fav/favicon-192x192.png`,
-  `${THEME_PATH}/dist/fonts/soehne/soehne-halbfett.woff2`,
-  `${THEME_PATH}/dist/fonts/soehne/soehne-kraftig.woff2`
+const cacheFiles = [
+  `${themePath}/dist/offline.html`,
+  `${themePath}/dist/css/main.css`,
+  `${themePath}/dist/js/app.min.js`,
+  `${themePath}/dist/js/govuk-frontend-5.7.1.min.js`,
+  `${themePath}/dist/icons/fav/favicon.png`,
+  `${themePath}/dist/icons/fav/favicon-192x192.png`,
+  `${themePath}/dist/fonts/soehne/soehne-halbfett.woff2`,
+  `${themePath}/dist/fonts/soehne/soehne-dreiviertelfett.woff2`,
+  `${themePath}/dist/fonts/soehne/soehne-kraftig.woff2`
 ];
+
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open(cacheName)
+      .then(function(cache) {
+        //console.log('Opened cache');
+        return cache.addAll(cacheFiles);
+      })
+  );
+});
+
+self.addEventListener('fetch', function(event) {
+
+  if (event.request.method !== "GET" || event.request.url.match(/wp-admin/) || event.request.url.match(/preview=true/)) {
+    return;
+  }
+
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        // Grab the asset from SW cache.
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+    }).catch(function() {
+      // Can't access the network return an offline page from the cache
+      return caches.match('${themePath}/dist/offline.html');
+    })
+  );
+});
+
+
+// Empty out any caches that don't match the ones listed.
+self.addEventListener('activate', function(event) {
+
+  var cacheWhitelist = ['dgwltd-{% pkgVersion %}'];
+
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});

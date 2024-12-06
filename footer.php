@@ -18,7 +18,7 @@
 <script type="module" src="<?php echo get_template_directory_uri(); ?>/dist/js/app.min.js"></script>
 <script type="module">
   if (!window._govukFrontendInitialized) {
-    import('<?php echo get_template_directory_uri(); ?>/dist/js/govuk-frontend-5.7..min.js')
+    import('<?php echo get_template_directory_uri(); ?>/dist/js/govuk-frontend-5.7.1.min.js')
       .then(({ initAll }) => {
         initAll();
         window._govukFrontendInitialized = true;
