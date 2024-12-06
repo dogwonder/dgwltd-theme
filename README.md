@@ -63,12 +63,6 @@ These are saved in `wp-plugins\dgwltd-blocks\src\acf-json`
 
 ## Templates
 
-### Blocks template
-
-`template-layout.php` 
-
-For home and gateway pages, allows for full width blocks (e.g. DGW.ltd Hero / DGW.ltd Feature) these can be used in any post or page but would be restricted to a fixed width and look weird. This also removes the page title (can be re-added via a heading block)
-
 ### Guide template
 
 `template-guide.php`
