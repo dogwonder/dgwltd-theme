@@ -218,6 +218,25 @@ and from the bottom of the preceding element */
   font-size: var(--wp--preset--font-size--xs);
 }
 
+//Glass effect https://www.tyleo.com/html-glass.html
+%glass,
+.glass {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow:
+    /* Bottom and right depth effect */
+    inset -0.75px -0.5px rgba(255, 255, 255, 0.1),
+    /* Top and left depth effect */
+    inset +0.75px +0.5px rgba(255, 255, 255, 0.025),
+    /* Shadow effect */
+    3px 2px 10px rgba(0, 0, 0, 0.25),
+    /* Short subsurface effect */
+    inset 0px 0px 10px 5px rgba(255, 255, 255, 0.025),
+    /* Long subsurface effect */
+    inset 0px 0px 40px 5px rgba(255, 255, 255, 0.025);
+}
+
 // Define the map with sizes and their corresponding values
 $sizes: (
   sm: var(--wp--custom--spacing--xs),

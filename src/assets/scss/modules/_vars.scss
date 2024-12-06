@@ -55,4 +55,9 @@ $mq-breakpoints: (
   --opentype-case: "case" off;
   --opentype-sinf: "sinf" off;
 
+  //Shadows
+  --shadow-color: rgba(0,0,0, 0.2);
+  --shadow-high: 0 var(--wp--custom--spacing--md) var(--wp--custom--spacing--md) var(--shadow-color);
+  --shadow-low: 0 var(--wp--custom--spacing--sm) var(--wp--custom--spacing--sm) var(--shadow-color);
+
 }

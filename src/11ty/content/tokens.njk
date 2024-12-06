@@ -1,7 +1,14 @@
 ---
 permalink: '../src/assets/scss/modules/_tokens.scss'
 ---
+
+{% set minWidth = 320 %}
+{% set maxWidth = 1280 %}
+
+
 :root {
+
+  --logo: {% calculateClamp 384, 1280, minWidth, maxWidth %}
 
   /*Utopia generated tokens*/
   {%- for size in utopia.resultsSpace %}
