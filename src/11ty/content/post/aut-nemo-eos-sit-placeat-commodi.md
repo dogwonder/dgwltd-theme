@@ -1,9 +1,10 @@
 ---
 title: "Aut nemo eos sit placeat commodi"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: ""
 date: 2024-08-09 17:13:34
 modified: 2024-08-09 17:13:34
+file_type: md
 permalink: 2024/08/09/aut-nemo-eos-sit-placeat-commodi.html
 tags: []
 featured_img: 

@@ -1,9 +1,10 @@
 ---
 title: "Aut consectetur iste amet quam et aut"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: "Saepe eligendi qui accusantium."
 date: 2024-06-23 15:41:59
 modified: 2024-06-23 15:41:59
+file_type: md
 permalink: 2024/06/23/aut-consectetur-iste-amet-quam-et-aut.html
 tags: []
 featured_img: https://dev.wp.dgw.ltd.ddev.site:8443/wp-content/uploads/2024/10/38196460-a874-3d8d-a65b-14ab0e47bf55-150x150.jpg

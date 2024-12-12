@@ -1,9 +1,10 @@
 ---
 title: "Amet ea quia vitae ipsa quos ullam"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: ""
 date: 2024-05-12 22:22:50
 modified: 2024-05-12 22:22:50
+file_type: md
 permalink: 2024/05/12/amet-ea-quia-vitae-ipsa-quos-ullam.html
 tags: []
 featured_img: 

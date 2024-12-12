@@ -1,9 +1,10 @@
 ---
 title: "Eveniet eius sint sunt"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: "Necessitatibus rerum eveniet."
 date: 2024-02-17 01:59:23
 modified: 2024-02-17 01:59:23
+file_type: md
 permalink: 2024/02/17/eveniet-eius-sint-sunt.html
 tags: []
 featured_img: https://dev.wp.dgw.ltd.ddev.site:8443/wp-content/uploads/2024/10/3cf3512e-73d1-3299-bff3-c4e4a19b82f1-150x150.jpg

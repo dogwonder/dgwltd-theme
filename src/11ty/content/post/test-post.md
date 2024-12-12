@@ -1,9 +1,10 @@
 ---
 title: "Test post"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: ""
 date: 2024-10-10 15:34:25
 modified: 2024-10-10 15:34:52
+file_type: md
 permalink: 2024/10/10/test-post.html
 tags: []
 featured_img: 

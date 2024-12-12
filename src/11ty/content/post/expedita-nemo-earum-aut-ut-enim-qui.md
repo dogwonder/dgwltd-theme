@@ -1,9 +1,10 @@
 ---
 title: "Expedita nemo earum aut ut enim qui"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: ""
 date: 2024-10-04 20:50:04
 modified: 2024-10-04 20:50:04
+file_type: md
 permalink: 2024/10/04/expedita-nemo-earum-aut-ut-enim-qui.html
 tags: []
 featured_img: 

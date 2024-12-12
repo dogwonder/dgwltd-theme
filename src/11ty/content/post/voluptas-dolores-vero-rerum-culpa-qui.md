@@ -1,9 +1,10 @@
 ---
 title: "Voluptas dolores vero rerum culpa qui"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: ""
 date: 2024-04-08 13:01:26
 modified: 2024-04-08 13:01:26
+file_type: md
 permalink: 2024/04/08/voluptas-dolores-vero-rerum-culpa-qui.html
 tags: []
 featured_img: 

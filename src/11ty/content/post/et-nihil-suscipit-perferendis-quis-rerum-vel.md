@@ -1,9 +1,10 @@
 ---
 title: "Et nihil suscipit perferendis quis rerum vel"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: "Est quibusdam."
 date: 2024-09-13 12:38:59
 modified: 2024-09-13 12:38:59
+file_type: md
 permalink: 2024/09/13/et-nihil-suscipit-perferendis-quis-rerum-vel.html
 tags: []
 featured_img: 

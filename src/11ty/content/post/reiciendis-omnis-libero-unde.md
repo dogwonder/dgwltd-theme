@@ -1,9 +1,10 @@
 ---
 title: "Reiciendis omnis libero unde"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: ""
 date: 2024-05-07 09:55:57
 modified: 2024-05-07 09:55:57
+file_type: md
 permalink: 2024/05/07/reiciendis-omnis-libero-unde.html
 tags: []
 featured_img: 

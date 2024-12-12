@@ -1,9 +1,10 @@
 ---
 title: "Accusantium fugit placeat quia totam dolorum"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: "Quasi vitae."
 date: 2024-01-23 07:16:02
 modified: 2024-01-23 07:16:02
+file_type: md
 permalink: 2024/01/23/accusantium-fugit-placeat-quia-totam-dolorum.html
 tags: []
 featured_img: 

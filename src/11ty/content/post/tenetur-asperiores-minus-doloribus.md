@@ -1,9 +1,10 @@
 ---
 title: "Tenetur asperiores minus doloribus"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: "Omnis numquam pariatur placeat quia."
 date: 2024-06-09 00:27:25
 modified: 2024-06-09 00:27:25
+file_type: md
 permalink: 2024/06/09/tenetur-asperiores-minus-doloribus.html
 tags: []
 featured_img: 

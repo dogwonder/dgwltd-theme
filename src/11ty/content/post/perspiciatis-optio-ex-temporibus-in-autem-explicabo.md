@@ -1,9 +1,10 @@
 ---
 title: "Perspiciatis optio ex temporibus in autem explicabo"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: "Autem suscipit qui dolor at."
 date: 2024-06-08 00:59:39
 modified: 2024-06-08 00:59:39
+file_type: md
 permalink: 2024/06/08/perspiciatis-optio-ex-temporibus-in-autem-explicabo.html
 tags: []
 featured_img: https://dev.wp.dgw.ltd.ddev.site:8443/wp-content/uploads/2024/10/c1bf570e-dda0-319e-af8e-37e52047950e-150x150.jpg

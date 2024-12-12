@@ -1,11 +1,12 @@
 ---
 title: "Ut nihil occaecati quia doloribus"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: "Consequatur exercitationem.
 Minus aperiam quia.
 Quae officia accusamus."
 date: 2024-06-25 13:19:31
 modified: 2024-06-25 13:19:31
+file_type: md
 permalink: 2024/06/25/ut-nihil-occaecati-quia-doloribus.html
 tags: []
 featured_img: https://dev.wp.dgw.ltd.ddev.site:8443/wp-content/uploads/2024/10/bd503105-cb5d-3ad1-8a8c-eebec17a94b3-150x150.jpg

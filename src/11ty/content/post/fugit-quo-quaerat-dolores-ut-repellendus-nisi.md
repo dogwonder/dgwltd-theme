@@ -1,9 +1,10 @@
 ---
 title: "Fugit quo quaerat dolores ut repellendus nisi"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: ""
 date: 2024-08-06 14:25:54
 modified: 2024-08-06 14:25:54
+file_type: md
 permalink: 2024/08/06/fugit-quo-quaerat-dolores-ut-repellendus-nisi.html
 tags: []
 featured_img: 

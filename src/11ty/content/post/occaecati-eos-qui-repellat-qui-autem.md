@@ -1,9 +1,10 @@
 ---
 title: "Occaecati eos qui repellat qui autem"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: ""
 date: 2024-04-22 21:50:12
 modified: 2024-04-22 21:50:12
+file_type: md
 permalink: 2024/04/22/occaecati-eos-qui-repellat-qui-autem.html
 tags: []
 featured_img: https://dev.wp.dgw.ltd.ddev.site:8443/wp-content/uploads/2024/10/0c8c14a8-f33c-3be9-b531-9e512dd38c67-150x150.jpg

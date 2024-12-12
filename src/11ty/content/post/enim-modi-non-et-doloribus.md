@@ -1,10 +1,11 @@
 ---
 title: "Enim modi non et doloribus"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: "Aut.
 Ab."
 date: 2024-06-12 12:44:20
 modified: 2024-06-12 12:44:20
+file_type: md
 permalink: 2024/06/12/enim-modi-non-et-doloribus.html
 tags: []
 featured_img: 

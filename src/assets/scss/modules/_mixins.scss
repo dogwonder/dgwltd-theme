@@ -175,3 +175,16 @@
   // Apply the linear gradient using background-image
   background-image: linear-gradient(unquote($direction), $stops);
 }
+
+
+//Color contrast - usage
+/*
+--bg: black;
+background-color: var(--bg);
+@include color-contrast(var(--bg));
+*/
+@mixin color-contrast(
+    $background: var(--bg, #000)
+) {
+    color: lch(from #{$background} calc((50 - l) * infinity) 0 0);
+}

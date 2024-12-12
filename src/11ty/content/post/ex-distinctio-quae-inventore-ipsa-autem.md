@@ -1,10 +1,11 @@
 ---
 title: "Ex distinctio quae inventore ipsa autem"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: "Molestias est.
 Dolores ut."
 date: 2024-06-26 12:55:00
 modified: 2024-06-26 12:55:00
+file_type: md
 permalink: 2024/06/26/ex-distinctio-quae-inventore-ipsa-autem.html
 tags: []
 featured_img: 

@@ -1,6 +1,7 @@
 import { IdAttributePlugin, InputPathToUrlTransformPlugin, HtmlBasePlugin } from "@11ty/eleventy";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginNavigation from "@11ty/eleventy-navigation";
+import { eleventyImageTransformPlugin } from '@11ty/eleventy-img';
 
 //Other plugins and utils
 import dayjs from 'dayjs';
@@ -117,6 +118,24 @@ export default async function(eleventyConfig) {
 
   // Filters
 	eleventyConfig.addPlugin(pluginFilters);
+
+  // Images
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+    // which file extensions to process
+    extensions: 'md',
+    // optional, output image formats
+    formats: ['jpg', 'webp'],
+    // optional, output image widths
+    widths: ['auto', 400, 800],
+    urlPath: "/images/", 
+    outputDir: "./dist/images/",
+    // optional, attributes assigned on <img> override these values.
+    defaultAttributes: {
+        loading: 'lazy',
+        sizes: '100vw',
+        decoding: 'async',
+    },
+  });
   
 
   eleventyConfig.addPlugin(IdAttributePlugin, {
@@ -153,6 +172,7 @@ export const config = {
   // e.g.: *.md, *.njk
   templateFormats: [
     "md",
+    "html",
     "njk"
   ],
 

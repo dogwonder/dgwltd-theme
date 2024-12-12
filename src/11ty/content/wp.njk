@@ -5,58 +5,92 @@ permalink: '../src/assets/scss/wp.scss'
 {% set minWidth = 320 %}
 {% set maxWidth = 1500 %}
 
+{# {%- if theme.settings.typography %}
+        {%- for family in theme.settings.typography.fontFamilies %}
+            {%- if 'fontFace' in family %}
+                {% for font in family.fontFace %}
+                @font-face {
+                    font-family: '{{ font.fontFamily }}';
+                    font-style: {{ font.fontStyle }};
+                    font-weight: {{ font.fontWeight }};
+                    font-display: {{ font.fontDisplay }};
+                    src: {% for src in font.src %}url('{{ src | replace("file:./dist/", "") }}') format('woff2'){% if not loop.last %}, {% endif %}{% endfor %};
+                }
+                {% endfor %}
+            {%- endif %}
+        {%- endfor %}
+{%- endif %} #}
+
 :root {
 
-    {%- for color in theme.settings.color.palette %}
-    --wp--preset--color--{{ color.slug }}: {{ color.color }};
-    {%- endfor %}
+{%- for color in theme.settings.color.palette %}
+--wp--preset--color--{{ color.slug }}: {{ color.color }};
+{%- endfor %}
 
-    {%- for key, value in theme.settings.custom.spacing %}
+{%- for size in theme.settings.spacing.spacingSizes %}
+--wp--preset--spacing--{{ size.slug | hyphenate }}: {{ size.size }};
+{%- endfor -%}
+
+{%- for key, value in theme.settings.custom.spacing -%}
+    {%- if value is mapping -%}
+        {%- for subkey, subvalue in value %}
+        --wp--custom--spacing--{{ key | hyphenate }}--{{ subkey }}: {{ subvalue }};
+        {%- endfor %}
+    {%- else %}
+        --wp--custom--spacing--{{ key | hyphenate }}: {{ value }};
+    {%- endif -%}
+{%- endfor -%}
+
+{%- if theme.settings.typography -%}
+
+    {%- for family in theme.settings.typography.fontFamilies %}
+        --wp--preset--font-family--{{ family.slug }}: {{ family.fontFamily | safe }};
+    {%- endfor -%}
+
+    {%- for size in theme.settings.typography.fontSizes %}
+        {%- if size.fluid %}
+            {%- set minSize = size.fluid.min | remToPx -%}
+            {%- set maxSize = size.fluid.max | remToPx -%}
+            --wp--preset--font-size--{{ size.slug | hyphenate }}: {% calculateClamp minSize, maxSize, minWidth, maxWidth %};
+        {% else %}
+            --wp--preset--font-size--{{ size.slug | hyphenate }}: {{ size.size }};
+        {% endif %}
+    {%- endfor -%}
+
+    {%- for key, value in theme.settings.custom.typography.letterSpacing %}
+        --wp--custom--typography--letter-spacing--{{ key }}: {{ value }};
+    {%- endfor -%}    
+
+    {%- for key, value in theme.settings.custom.typography.lineHeight -%}
         {%- if value is mapping %}
-            {%- for subkey, subvalue in value %}
-            --wp--custom--spacing--{{ key | hyphenate }}--{{ subkey }}: {{ subvalue }};
-            {%- endfor %}
+        {% for subkey, subvalue in value %}
+        --wp--custom--typography--line-height--{{ key }}--{{ subkey }}: {{ subvalue }};
+        {%- endfor %}
         {%- else %}
-            --wp--custom--spacing--{{ key | hyphenate }}: {{ value }};
+        --wp--custom--typography--line-height--{{ key }}: {{ value }};
         {%- endif %}
-    {%- endfor %}
+    {%- endfor -%}   
 
-    {%- if theme.settings.typography %}
+    {%- for key, value in theme.settings.custom.width %}
+        --wp--custom--width--{{ key }}: {{ value }};
+    {%- endfor %}  
 
-            {%- for family in theme.settings.typography.fontFamilies %}
-                --wp--custom--font-family--{{ family.slug }}: {{ family.fontFamily | safe }};
-            {%- endfor %}
+{%- endif -%}
 
-            {%- for size in theme.settings.typography.fontSizes %}
-                {%- if size.fluid %}
-                    {% set minSize = size.fluid.min | remToPx %}
-                    {% set maxSize = size.fluid.max | remToPx %}
-                    --wp--preset--font-size--{{ size.slug | hyphenate }}: {% calculateClamp minSize, maxSize, minWidth, maxWidth %};
-                {%- else %}
-                    --wp--preset--font-size--{{ size.slug | hyphenate }}: {{ size.size }};
-                {%- endif %}
-            {%- endfor %}
+}
 
-            {%- for key, value in theme.settings.custom.typography.letterSpacing %}
-                --wp--custom--typography--letter-spacing--{{ key }}: {{ value }};
-            {%- endfor %}    
-
-             {%- for key, value in theme.settings.custom.typography.lineHeight %}
-                  {%- if value is mapping %}
-                    {%- for subkey, subvalue in value %}
-                    --wp--custom--typography--line-height--{{ key }}--{{ subkey }}: {{ subvalue }};
-                    {%- endfor %}
-                  {%- else %}
-                    --wp--custom--typography--line-height--{{ key }}: {{ value }};
-                  {%- endif %}
-            {%- endfor %}   
-
-            {%- for key, value in theme.settings.custom.width %}
-                --wp--custom--width--{{ key }}: {{ value }};
-            {%- endfor %}  
-
-    {%- endif %}
-
+:root {
+    --wp--style--block-gap: var(--buffer, var(--wp--custom--spacing--gap))
+}
+:root :where(.is-layout-flow) > :first-child {
+    margin-block-start: 0
+}
+:root :where(.is-layout-flow) > :last-child {
+    margin-block-end: 0
+}
+:root :where(.is-layout-flow) > * {
+    margin-block-start: var(--buffer, var(--wp--custom--spacing--gap));
+    margin-block-end: 0
 }
 
 body {
@@ -79,4 +113,11 @@ body {
         letter-spacing: {{ value.typography.letterSpacing }};
         {%- endif %}
     }
+{%- endfor %}
+
+
+{%- for color in theme.settings.color.palette %}
+    .has-{{ color.slug }}-background-color {
+        background-color:{{ color.color }} !important;
+    };
 {%- endfor %}

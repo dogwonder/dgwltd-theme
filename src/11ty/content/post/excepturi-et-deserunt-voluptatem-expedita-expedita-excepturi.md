@@ -1,9 +1,10 @@
 ---
 title: "Excepturi et deserunt voluptatem expedita expedita excepturi"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: ""
 date: 2024-02-23 16:19:37
 modified: 2024-02-23 16:19:37
+file_type: md
 permalink: 2024/02/23/excepturi-et-deserunt-voluptatem-expedita-expedita-excepturi.html
 tags: []
 featured_img: 

@@ -1,10 +1,11 @@
 ---
 title: "Ut error quo voluptatem qui harum amet"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: "Voluptatem minima molestiae.
 Consequatur esse sapiente."
 date: 2024-05-11 12:39:50
 modified: 2024-05-11 12:39:50
+file_type: md
 permalink: 2024/05/11/ut-error-quo-voluptatem-qui-harum-amet.html
 tags: []
 featured_img: 

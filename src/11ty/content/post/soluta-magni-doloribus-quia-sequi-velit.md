@@ -1,9 +1,10 @@
 ---
 title: "Soluta magni doloribus quia sequi velit"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: ""
 date: 2024-01-07 19:54:57
 modified: 2024-01-07 19:54:57
+file_type: md
 permalink: 2024/01/07/soluta-magni-doloribus-quia-sequi-velit.html
 tags: []
 featured_img: 

@@ -1,11 +1,12 @@
 ---
 title: "Rerum et est pariatur provident"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: "Sint dolor.
 Veniam est sunt.
 Voluptas unde."
 date: 2024-10-01 04:45:49
 modified: 2024-10-01 04:45:49
+file_type: md
 permalink: 2024/10/01/rerum-et-est-pariatur-provident.html
 tags: []
 featured_img: https://dev.wp.dgw.ltd.ddev.site:8443/wp-content/uploads/2024/10/d016aa00-95e4-317b-b0ac-cbae54eb34d2-150x150.jpg

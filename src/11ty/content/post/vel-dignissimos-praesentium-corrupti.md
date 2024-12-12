@@ -1,9 +1,10 @@
 ---
 title: "Vel dignissimos praesentium corrupti"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: ""
 date: 2024-09-27 19:42:25
 modified: 2024-09-27 19:42:25
+file_type: md
 permalink: 2024/09/27/vel-dignissimos-praesentium-corrupti.html
 tags: []
 featured_img: 

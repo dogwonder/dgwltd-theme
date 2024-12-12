@@ -1,11 +1,12 @@
 ---
 title: "Est occaecati iure expedita vel in dolores"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: "Et sapiente dolores.
 Suscipit omnis eum.
 Id est dolores."
 date: 2024-06-15 18:37:06
 modified: 2024-06-15 18:37:06
+file_type: md
 permalink: 2024/06/15/est-occaecati-iure-expedita-vel-in-dolores.html
 tags: []
 featured_img: https://dev.wp.dgw.ltd.ddev.site:8443/wp-content/uploads/2024/10/68e26a19-7495-373d-ab7d-f811dbc040f6-150x150.jpg

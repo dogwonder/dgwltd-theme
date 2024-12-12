@@ -18,27 +18,56 @@
 		3. Learn more: https://github.com/11ty/eleventy-plugin-bundle
 		#}
     {#- Add an arbitrary string to the bundle #}
-		{%- css %}/* This is an arbitrary CSS string added to the bundle */{% endcss %}
+		{%- css %}
+    @font-face {
+        font-family: 'Söhne Dreiviertelfett';
+        font-style: normal;
+        font-weight: 700;
+        font-display: fallback;
+        src: url('{{ "./fonts/soehne/soehne-dreiviertelfett.woff2" | htmlBaseUrl }}') format('woff2');
+    }
+    @font-face {
+        font-family: 'Söhne Halbfett';
+        font-style: normal;
+        font-weight: 600;
+        font-display: fallback;
+        src: url('{{ "./fonts/soehne/soehne-halbfett.woff2" | htmlBaseUrl }}') format('woff2');
+    }
+    @font-face {
+        font-family: 'Söhne Kraftig';
+        font-style: normal;
+        font-weight: 500;
+        font-display: fallback;
+        src: url('{{ "./fonts/soehne/soehne-kraftig.woff2" | htmlBaseUrl }}') format('woff2');
+    }
+    {% endcss %}
 		{#- Add the contents of a file to the bundle #}
 		{%- css %}
-    {% include "dist/css/wp.css" %}
     {% include "dist/css/main.css" %}
+    {#- WordPress styles after the theme CSS #}
+    {% include "dist/css/wp.css" %}
     {% endcss %}
     {#- Render the CSS bundle using inlined CSS (for the fastest site performance in production) #}
 		<style>{% getBundle "css" %}</style>
   </head>
   <body class="dgwltd {{ class if class }}">
     <div id="page" class="dgwltd-wrapper">
-        <div id="skiplink-container">
-            <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
-        </div>
         <header id="masthead" class="dgwltd-masthead">
+          <div id="skiplink-container">
+            <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+          </div>
           {% include "partials/_header.njk" %}  
         </header>
-        <main id="content" class="dgwltd-container" tabindex="-1">
+        <main id="content" class="dgwltd-body" tabindex="-1">
             <div id="primary" class="dgwltd-content-wrapper">
-                <div class="entry-content is-layout-flow stack">
-                  {{ content | safe }}
+                <div class="entry-content wp-block-post-content is-layout-flow">
+                  {% if file_type == 'html' %}
+                    {% block content %}
+                      This is content
+                    {% endblock %}
+                  {% else %}
+                    {{ content | safe }}
+                  {% endif %}
                 </div>
             </div>
         </main>

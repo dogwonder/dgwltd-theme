@@ -1,10 +1,11 @@
 ---
 title: "Ut voluptatem ipsam asperiores reprehenderit"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: "Dolore vel.
 Odit ipsam."
 date: 2024-09-01 19:58:57
 modified: 2024-09-01 19:58:57
+file_type: md
 permalink: 2024/09/01/ut-voluptatem-ipsam-asperiores-reprehenderit.html
 tags: []
 featured_img: https://dev.wp.dgw.ltd.ddev.site:8443/wp-content/uploads/2024/10/82356130-2dab-36a4-a579-7dee0417bef6-150x150.jpg

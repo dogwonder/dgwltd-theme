@@ -1,9 +1,10 @@
 ---
 title: "Sequi culpa illo qui libero"
-layout: "layouts/post.njk"
+layout: "layouts/markdown.njk"
 excerpt: ""
 date: 2024-08-07 10:13:54
 modified: 2024-08-07 10:13:54
+file_type: md
 permalink: 2024/08/07/sequi-culpa-illo-qui-libero.html
 tags: []
 featured_img: https://dev.wp.dgw.ltd.ddev.site:8443/wp-content/uploads/2024/10/87c1025b-8be2-39ea-831c-4f9b14b2e66b-150x150.jpg
