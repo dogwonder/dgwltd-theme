@@ -3,7 +3,5 @@
   "type": "wordpress-theme",
   "description": "Blocks theme",
   "license": "MIT", 
-  "require": {
-    "afragen/git-updater-lite": "^1.0"
-  }
+  "require": {}
 }

@@ -208,9 +208,3 @@ require_once get_template_directory() . '/inc/dgwltd-acf.php';
  * Functions for forms
  */
 require_once get_template_directory() . '/inc/dgwltd-forms.php';
-
-/**
- * Composer
- */
-// require_once get_template_directory() . '/vendor/autoload.php';
-// ( new \Fragen\Git_Updater\Lite( __FILE__ ) )->run('https://wp.dgw.ltd/wp-json/git-updater/v1/themes-api/?slug=dgwltd');
