@@ -4,7 +4,6 @@
   "description": "Blocks theme",
   "license": "MIT", 
   "require": {
-      "composer/installers": "^1.4",
     "afragen/git-updater-lite": "^1.0"
   }
 }

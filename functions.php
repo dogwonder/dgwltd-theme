@@ -212,5 +212,5 @@ require_once get_template_directory() . '/inc/dgwltd-forms.php';
 /**
  * Composer
  */
-require_once get_template_directory() . '/vendor/autoload.php';
-( new \Fragen\Git_Updater\Lite( __FILE__ ) )->run('https://wp.dgw.ltd/wp-json/git-updater/v1/plugins-api/?slug=dgwltd-theme');
+// require_once get_template_directory() . '/vendor/autoload.php';
+// ( new \Fragen\Git_Updater\Lite( __FILE__ ) )->run('https://wp.dgw.ltd/wp-json/git-updater/v1/themes-api/?slug=dgwltd');
