@@ -205,3 +205,20 @@ if ( ! function_exists( 'dgwltd_generate_color_palette_tints' ) ) :
 }
 // add_action('wp_enqueue_scripts', 'dgwltd_generate_color_palette_tints');
 endif;
+
+
+//
+if ( ! function_exists( 'dgwltd_version' ) ) :
+	function dgwltd_version() {
+		//Get version value from package.json
+		$versionData = wp_remote_get(get_template_directory_uri() . '/dist/version.json');
+		if (is_wp_error($versionData)) {
+			$pkgVersion = '0.0.1';
+		} else {
+			$versionContents = wp_remote_retrieve_body($versionData);
+			$package = json_decode($versionContents, true);
+			$pkgVersion = $package['version'] ?? '0.0.1';
+		}
+		return $pkgVersion;
+	}
+endif;

@@ -8,15 +8,7 @@
  *
  * @package dgwltd
  */
-//Get version value from package.json
-$versionData = wp_remote_get(get_template_directory_uri() . '/dist/version.json');
-if (is_wp_error($versionData)) {
-    $pkgVersion = '0.0.1';
-} else {
-    $versionContents = wp_remote_retrieve_body($versionData);
-    $package = json_decode($versionContents, true);
-    $pkgVersion = $package['version'] ?? '0.0.1';
-}
+$pkgVersion = dgwltd_version();
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?> >

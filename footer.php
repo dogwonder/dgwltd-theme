@@ -8,7 +8,7 @@
  *
  * @package dgwltd
  */
-
+$pkgVersion = dgwltd_version();
 ?>
 	</main><!-- #content -->
 	<?php include(locate_template( 'template-parts/_layout/colophon.php')); ?><!-- #colophon -->
@@ -26,6 +26,19 @@
       .catch(error => {
         console.error('Error loading govuk-frontend:', error);
       });
+  }
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js?<?php echo $pkgVersion ?>').then(function(registration) {
+        // Successfully registered the Service Worker
+        //console.log('Service Worker registration successful with scope: ', registration.scope);
+      }).catch(function(err) {
+        // Failed to register the Service Worker
+        //console.log('Service Worker registration failed: ', err);
+      });
+    });
   }
 </script>
 <script type=speculationrules>

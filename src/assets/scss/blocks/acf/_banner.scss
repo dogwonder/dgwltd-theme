@@ -5,13 +5,6 @@
     max-width: 100%;
     grid-column: 1 / span 3 !important;
 
-    .acf-innerblocks-container {
-        @include stack($gap);
-        h2 {
-          --buffer: 0;
-        }
-    }
-
     &.has-background, 
     &.has-image {
       display: flex;

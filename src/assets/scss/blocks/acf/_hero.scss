@@ -1,4 +1,3 @@
-
 //Hero block
 .dgwltd-hero {
 
@@ -12,10 +11,6 @@
     //Align full
     max-width: 100%;
     grid-column: 1 / span 3 !important;
-
-    .acf-innerblocks-container {
-      @include stack($gap);
-    }
 
     h1, h2 {
       @extend %dgwltd-heading-xl;
