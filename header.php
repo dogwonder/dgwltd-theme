@@ -34,7 +34,7 @@ $pkgVersion = dgwltd_version();
 <meta name="view-transition" content="same-origin" />
 <link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/dist/icons/fav/manifest.json">
 <?php include(locate_template( 'template-parts/_organisms/meta-tags.php' )) ; ?>
-<script defer data-domain="wp.dgw.ltd" src="https://plausible.io/js/script.js"></script>
+<script defer data-domain="dgw.ltd" src="https://plausible.io/js/script.js"></script>
 </head>
 <body <?php body_class( 'no-js govuk-frontend-supported' ); ?>>
 <script>document.body.className = document.body.className.replace('no-js', 'js-enabled');</script>

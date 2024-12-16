@@ -18,11 +18,11 @@ describe('Page accessibility tests', () => {
 
   if (Cypress.env('RUN_LOCALLY')) {
     urls = [
-      'http://dev.wp.dgw.ltd/',
+      'http://dgw.ltd/',
     ];
   } else {
     urls = [
-      'https://wp.dgw.ltd/'
+      'https://dgw.ltd/'
     ];
   }
 

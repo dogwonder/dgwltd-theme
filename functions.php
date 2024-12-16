@@ -12,7 +12,7 @@ SCRIPTS & ENQUEUEING
 *********************/
 $envs = array(
 	'development' => 'http://dev.wp.dgw.ltd',
-	'production'  => 'https://wp.dgw.ltd'
+	'production'  => 'https://dgw.ltd'
   );
 
   define('ENVIRONMENTS', serialize($envs));

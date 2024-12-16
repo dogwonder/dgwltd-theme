@@ -17,7 +17,7 @@ describe('Service Worker and Cache Test', () => {
       ];
     } else {
       urls = [
-        'https://wp.dgw.ltd/'
+        'https://dgw.ltd/'
       ];
     }
 
