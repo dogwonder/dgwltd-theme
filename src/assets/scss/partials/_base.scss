@@ -5,7 +5,7 @@ a {
   //Break long urls
   word-wrap: break-word;
   overflow-wrap: break-word;
-  text-decoration-thickness: max(1px, .0625rem);
+  text-decoration-thickness: max(1px, .025em);
   text-underline-offset: .1578em;
   &:visited {
     color: var(--wp--preset--color--dark);
@@ -13,7 +13,7 @@ a {
   &:hover {
     color: var(--wp--preset--color--dark);
     text-decoration-color: var(--wp--preset--color--primary);
-    text-decoration-thickness: max(3px, .1875rem, .12em);
+    text-decoration-thickness: max(3px, .1875rem, .1em);
   }
   &:active {
     color: var(--wp--preset--color--dark);
