@@ -210,12 +210,21 @@ and from the bottom of the preceding element */
 //Badge
 %tag,
 .tag {
-  text-decoration: none !important;
+  width: fit-content;
   border-radius: 9999px;
-  color: var(--wp--preset--color--dark);
-  background-color: var(--wp--preset--color--alt);
+  color: var(--wp--preset--color--light);
+  background-color: var(--wp--preset--color--dark);
   padding:.25rem .625rem;
   font-size: var(--wp--preset--font-size--xs);
+  a {
+    text-decoration: none;
+  }
+  &:hover {
+    cursor: pointer;
+    a {
+      color: var(--wp--preset--color--secondary);
+    }
+  }
 }
 
 //Glass effect https://www.tyleo.com/html-glass.html

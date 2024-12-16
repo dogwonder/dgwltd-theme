@@ -124,27 +124,6 @@
   }
 }
 
-.entry-footer {
-  font-size: 1rem;
-  .cat-links > a {
-    display: inline-block;
-    padding: var(--wp--custom--spacing--sm) var(--wp--custom--spacing--md);
-    border: 1px solid var(--wp--custom--color--border);
-    border-radius: 2px;
-    color: var(--wp--preset--color--dark);
-    text-decoration: none;
-    margin-inline-start: var(--wp--custom--spacing--sm);
-    &:hover {
-      color: var(--wp--preset--color--secondary);
-      border-color: var(--button-light-hover);
-      background-color: var(--button-light-hover);
-    }
-  }
-  .cat-links:first-of-type > a {
-    margin-inline-start:0;
-  }
-}
-
 .entry-meta {
   @extend %dgwltd-body-sm;
   font-family: var(--wp--preset--font-family--tertiary);

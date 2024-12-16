@@ -53,11 +53,21 @@
 }
 
 //Add a little space to the content blockk
-.entry-content {
+.entry-content, .entry-footer {
   padding-block-end: var(--wp--custom--spacing--lg);
 }
+
+.dgwltd-content-wrapper:has(.entry-footer) {
+  .entry-content {
+    padding-block-end: 0;
+  }
+}
+
 
 //Blocks page - add some extra spacing for the stack
 .dgwltd-content-wrapper:has(.dgwltd-hero) {
   --buffer: var(--wp--custom--spacing--xl);
+  p {
+    --buffer: var(--wp--custom--spacing--gap);
+  }
 }
