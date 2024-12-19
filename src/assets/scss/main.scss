@@ -117,5 +117,8 @@ $govuk-font-family: -apple-system, BlinkMacSystemFont,"Segoe UI", "Roboto", "Oxy
 // BLOCKS - VARIATIONS
 @import "blocks/variations/cover";
 
+// SYTAX HIGHLIGHTING
+@import "vendor/prism";
+
 // UTILITIES
 @import "modules/utilities";
