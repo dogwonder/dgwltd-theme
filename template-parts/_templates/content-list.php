@@ -18,11 +18,12 @@
 			</div>
 	</div><!-- .entry-header -->
 
-	<div class="dgwltd-list__content">
+	<div class="dgwltd-list__content stack">
 		<?php the_content(); ?>
 		<?php
 		$categories_list = get_the_category_list( esc_html__( ', ', 'dgwltd' ) );
 		if ( $categories_list ) {
+			echo '<span>' . esc_html__( 'Categories: ', 'dgwltd' ) . '</span>';
 			/* translators: 1: list of categories. */
 			printf( '<span class="tag">' . esc_html__( '%1$s', 'dgwltd' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
