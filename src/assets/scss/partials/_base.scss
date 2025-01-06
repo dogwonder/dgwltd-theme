@@ -12,7 +12,7 @@ a {
   }
   &:hover {
     color: var(--wp--preset--color--dark);
-    text-decoration-color: var(--wp--preset--color--primary);
+    text-decoration-color: var(--highlight, --wp--preset--color--primary);
     text-decoration-thickness: max(3px, .1875rem, .1em);
   }
   &:active {

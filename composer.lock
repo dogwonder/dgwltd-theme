@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db1fb2079292e0108544e3eea08cb6f1",
+    "content-hash": "f1b8e7f876cfbf0c72c386b81645a584",
     "packages": [
         {
             "name": "afragen/git-updater-lite",
-            "version": "1.0.1",
+            "version": "1.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/afragen/git-updater-lite.git",
-                "reference": "bec8ddb0aadd528216674d983f869e7d0a5ae5a3"
+                "reference": "4cd620b6c416177fccc54610101a47b072cf3245"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/afragen/git-updater-lite/zipball/bec8ddb0aadd528216674d983f869e7d0a5ae5a3",
-                "reference": "bec8ddb0aadd528216674d983f869e7d0a5ae5a3",
+                "url": "https://api.github.com/repos/afragen/git-updater-lite/zipball/4cd620b6c416177fccc54610101a47b072cf3245",
+                "reference": "4cd620b6c416177fccc54610101a47b072cf3245",
                 "shasum": ""
             },
             "require": {
@@ -25,7 +25,7 @@
             },
             "type": "library",
             "autoload": {
-                "files": [
+                "classmap": [
                     "Lite.php"
                 ]
             },
@@ -50,9 +50,9 @@
             ],
             "support": {
                 "issues": "https://github.com/afragen/git-updater-lite/issues",
-                "source": "https://github.com/afragen/git-updater-lite/tree/1.0.1"
+                "source": "https://github.com/afragen/git-updater-lite/tree/1.4.3"
             },
-            "time": "2024-12-07T06:16:14+00:00"
+            "time": "2025-01-05T22:52:15+00:00"
         }
     ],
     "packages-dev": [],

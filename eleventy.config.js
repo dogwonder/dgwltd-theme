@@ -137,7 +137,7 @@ export default async function(eleventyConfig) {
     },
   });
   
-
+  // The Id Attribute plugin adds id attributes to headings on your page 
   eleventyConfig.addPlugin(IdAttributePlugin, {
 		// by default we use Eleventy’s built-in `slugify` filter:
 		// slugify: eleventyConfig.getFilter("slugify"),

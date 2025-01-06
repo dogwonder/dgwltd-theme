@@ -39,6 +39,7 @@ node_modules/
 
 #ignore fonts
 src/fonts/soehne
+src/fonts/untitled
 
 #ignore commercial fonts
 dist/fonts/

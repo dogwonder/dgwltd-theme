@@ -1,6 +1,6 @@
 {
   "name": "dgwltd",
-  "version": "1.2.265",
+  "version": "1.2.266",
   "type": "module",
   "main": "",
   "scripts": {
@@ -9,7 +9,7 @@
     "css:sass:print": "sass ./src/assets/scss/print.scss ./dist/css/print.css",
     "css:sass:wp": "sass ./src/assets/scss/wp.scss ./dist/css/wp.css",
     "css:sass": "run-s css:sass:main css:sass:print css:sass:wp",
-    "css:replace": "replace \"Version: v\\d+(\\.\\d+){1,2}\" \"Version: $(npm version patch --no-git-tag-version)\" style.css",
+    "css:replace": "replace \"Version: v\\d+(\\.\\d+){1,2}\" \"Version: $(npm version patch --no-git-tag-version)\" ./dist/css/main.css",
     "css:postcss": "postcss ./dist/css/**/*.css --use autoprefixer postcss-custom-properties cssnano --no-map --verbose --dir ./dist/css/",
     "css": "run-s css:*",
     "scripts:concat": "concat ./src/assets/scripts/app.js -o ./src/assets/scripts/app.min.js",

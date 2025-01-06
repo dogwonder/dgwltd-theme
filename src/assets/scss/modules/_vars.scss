@@ -51,6 +51,9 @@ $mq-breakpoints: (
   --radius: 0.25rem;
   --radius-outer: 0.5rem;
 
+  //Highlight
+  --highlight: oklch(63.96% 0.2601 358.46);
+
   //Typography
   --opentype-case: "case" off;
   --opentype-sinf: "sinf" off;

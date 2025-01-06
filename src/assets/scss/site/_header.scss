@@ -76,7 +76,7 @@ $nav-height: toRem(60);
         box-shadow: none;
         background-color: transparent;
         svg {
-          fill: var(--wp--preset--color--primary);
+          fill: var(--highlight, --wp--preset--color--primary); 
           > * {
             fill: inherit;
           }
@@ -89,14 +89,14 @@ $nav-height: toRem(60);
       height: auto;
       margin:0 var(--wp--custom--spacing--sm) 0 0;
       &:hover {
-          fill: var(--wp--preset--color--primary);
+          fill: var(--highlight, --wp--preset--color--primary); 
       }
     }
 
     //Custom styling
     .logo {
       &__angle-bracket {
-        fill: var(--wp--preset--color--primary);
+        fill: var(--highlight, --wp--preset--color--primary); 
       }
       &__line {
         
