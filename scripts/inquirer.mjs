@@ -45,7 +45,7 @@ exec('ddev wp wptomd-types', (error, stdout, stderr) => {
 
           // Step 4: Construct the wp wptomd command
           // Note: `ddev` prefix is included as part of environment; remove if not needed
-          const targetDir = `wp-content/themes/dgwltd/src/11ty/content/${selectedPostType || 'posts'}/`;
+          const targetDir = `wp-content/themes/dgwltd-theme/src/11ty/content/${selectedPostType || 'posts'}/`;
           const command = `ddev wp wptomd ${targetDir} --post_type=${selectedPostType} --file_type=${selectedFileType}`;
 
           // Step 5: Execute the command

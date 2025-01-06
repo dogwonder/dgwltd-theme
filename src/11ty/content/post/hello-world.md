@@ -2,10 +2,10 @@
 title: "Hello world!"
 layout: "layouts/markdown.njk"
 excerpt: ""
-date: 2022-05-27 09:29:20
-modified: 2022-05-27 09:29:20
+date: 2025-01-06 16:05:57
+modified: 2025-01-06 16:05:57
 file_type: md
-permalink: 2022/05/27/hello-world.html
+permalink: 2025/01/06/hello-world.html
 tags: []
 featured_img: 
 wpid: 1
