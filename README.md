@@ -111,3 +111,8 @@ npx @11ty/import wordpress https://blog.fontawesome.com
 ## Inquirer
 
 `npm run inquirer`
+
+## Updater
+
+https://wp.dgw.ltd/wp-json/git-updater/v1/update-api/?slug=dgwltd-theme
+https://wp.dgw.ltd/wp-json/git-updater/v1/update-api/?slug=dgwltd-plugin
