@@ -1,9 +1,0 @@
-{
-  "name": "dgwltd/dgwltd",
-  "type": "wordpress-theme",
-  "description": "Blocks theme",
-  "license": "MIT", 
-  "require": {
-    "afragen/git-updater-lite": "^1.4"
-  }
-}

@@ -208,12 +208,3 @@ require_once get_template_directory() . '/inc/dgwltd-acf.php';
  * Functions for forms
  */
 require_once get_template_directory() . '/inc/dgwltd-forms.php';
-
-/**
-* Git updater
-**/
-require_once get_template_directory() . '/vendor/afragen/git-updater-lite/Lite.php';
-add_filter( 'gul_update_server', function () {
-    return 'https://wp.dgw.ltd';
-});
-( new \Fragen\Git_Updater\Lite( __FILE__ ) )->run();
