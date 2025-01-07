@@ -9,13 +9,13 @@ import { readFile } from 'fs/promises';
 import pluginFilters from "./src/11ty/_config/filters.js";
 
 const isProduction = process.env.NODE_ENV === 'production';
-const buildPath = isProduction ? '/wp-content/themes/dgwltd/dist/' : '/';
+const buildPath = isProduction ? '/wp-content/themes/dgwltd-theme/dist/' : '/';
 
 export default async function(eleventyConfig) {
 
   // Define the base URL for images
   const imageBaseUrl = isProduction
-    ? "http://dev.wp.dgw.ltd/wp-content/themes/dgwltd/dist/"
+    ? "http://dev.wp.dgw.ltd/wp-content/themes/dgwltd-theme/dist/"
     : "/";
   
   eleventyConfig.addGlobalData("imageBaseUrl", imageBaseUrl);
@@ -176,7 +176,7 @@ export const config = {
     "njk"
   ],
 
-  // baseUrl: isDevelopment ? 'localhost:8080' : 'http://dev.wp.dgw.ltd/wp-content/themes/dgwltd/dist/', 
+  // baseUrl: isDevelopment ? 'localhost:8080' : 'http://dev.wp.dgw.ltd/wp-content/themes/dgwltd-theme/dist/', 
 
   // Pre-process *.md files with: (default: `liquid`)
   markdownTemplateEngine: "njk",

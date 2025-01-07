@@ -3,7 +3,7 @@
 describe('Service Worker and Cache Test', () => {
 
     let urls;
-    const THEME_PATH = 'wp-content/themes/dgwltd/';
+    const THEME_PATH = 'wp-content/themes/dgwltd-theme/';
     const packageJson = require('../../package.json');
     const VERSION = packageJson.version;
 
