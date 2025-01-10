@@ -120,6 +120,7 @@
   }
   //Code
   .wp-block-code {
+    margin-block: var(--wp--custom--spacing--gap) 0;
     padding: var(--wp--custom--spacing--sm);
   }
 }
