@@ -71,11 +71,11 @@ permalink: '../src/assets/scss/wp.scss'
         {%- endif %}
     {%- endfor -%}   
 
-    {%- for key, value in theme.settings.custom.width %}
-        --wp--custom--width--{{ key }}: {{ value }};
-    {%- endfor %}  
-
 {%- endif -%}
+
+{%- for key, value in theme.settings.custom.width %}
+        --wp--custom--width--{{ key }}: {{ value }};
+{%- endfor %}  
 
 }
 
