@@ -9,8 +9,8 @@
   padding: var(--wp--custom--spacing--xs) var(--wp--custom--spacing--sm);
   margin: var(--wp--custom--spacing--sm) 0;
   color: var(--wp--preset--color--light);
-  background-color: var(--wp--preset--color--dark);
-  border: 2px solid var(--wp--preset--color--dark);
+  background-color: var(--wp--custom--color--text);
+  border: 2px solid var(--wp--custom--color--text);
   border-radius: 0;
   box-shadow: none;
   @include mq($from: md) {
@@ -18,7 +18,7 @@
   }
   &:hover {
     cursor: pointer;
-    color: var(--wp--preset--color--dark);
+    color: var(--wp--custom--color--text);
     border-color: var(--wp--preset--color--secondary);
     background-color: var(--wp--preset--color--secondary);
   }
@@ -32,8 +32,8 @@
     text-decoration: none;
   }
   &:focus {
-    color: var(--wp--preset--color--dark);
-    border-color: var(--wp--preset--color--dark);
+    color: var(--wp--custom--color--text);
+    border-color: var(--wp--custom--color--text);
     background-color: var(--wp--preset--color--focus);
     --box-shadow: none;
     --outline: none;

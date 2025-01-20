@@ -22,7 +22,7 @@
       padding-bottom: 0;
       &:focus-visible {
         background-color: var(--wp--preset--color--focus);
-        box-shadow: 0 -2px var(--wp--preset--color--focus), 0 4px  var(--wp--preset--color--dark);
+        box-shadow: 0 -2px var(--wp--preset--color--focus), 0 4px  var(--wp--custom--color--text);
       }
     }
     .govuk-accordion__show-all:focus-visible, 

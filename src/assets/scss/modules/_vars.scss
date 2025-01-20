@@ -35,6 +35,9 @@ $mq-breakpoints: (
 //CSS Variables
 :root {
 
+  // color-scheme: light dark;
+  color-scheme: light;
+
   /* Opt-in the whole page to interpolate sizes to/from keywords - allows transitions from `height: 0` to `height: auto` */
   interpolate-size: allow-keywords; /* 👈 */
 

@@ -13,8 +13,8 @@ body {
   letter-spacing: 1rem * 0.02;
   word-spacing: 1rem * 0.04;
   text-align: left;
-  background-color: var(--wp--preset--color--alt);
-  color: var(--wp--preset--color--dark);
+  background-color: var(--wp--custom--color--background);
+  color: var(--wp--custom--color--text);
   overflow-y: scroll;
   overflow-x: hidden;
   -moz-osx-font-smoothing: grayscale;

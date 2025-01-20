@@ -1,6 +1,6 @@
 //Links
 a {
-  color: var(--wp--preset--color--dark, inherit);
+  color: var(--wp--custom--color--text, inherit);
   text-decoration: underline;
   //Break long urls
   word-wrap: break-word;
@@ -8,15 +8,15 @@ a {
   text-decoration-thickness: max(1px, .025em);
   text-underline-offset: .1578em;
   &:visited {
-    color: var(--wp--preset--color--dark);
+    color: var(--wp--custom--color--text);
   }
   &:hover {
-    color: var(--wp--preset--color--dark);
+    color: var(--wp--custom--color--text);
     text-decoration-color: var(--highlight, --wp--preset--color--primary);
     text-decoration-thickness: max(3px, .1875rem, .1em);
   }
   &:active {
-    color: var(--wp--preset--color--dark);
+    color: var(--wp--custom--color--text);
     text-decoration: none;
   }
 }

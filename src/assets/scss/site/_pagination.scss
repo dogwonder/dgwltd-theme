@@ -36,14 +36,14 @@
       outline: none;
       background-color: var(--wp--preset--color--focus);
       .dgwltd-pagination__item {
-        border-top: 1px solid var(--wp--preset--color--dark);
+        border-top: 1px solid var(--wp--custom--color--text);
       }
       .dgwltd-pagination__link-title, 
       .dgwltd-pagination__link-label {
-        color: var(--wp--preset--color--dark);
+        color: var(--wp--custom--color--text);
       }
       .dgwltd-pagination__link-icon {
-        fill: var(--wp--preset--color--dark);
+        fill: var(--wp--custom--color--text);
       }
     }
   }

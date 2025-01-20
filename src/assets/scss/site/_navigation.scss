@@ -118,11 +118,9 @@
           display: inline-block;
           text-decoration: none;
           padding:var(--wp--custom--spacing--sm) var(--wp--custom--spacing--md);
-          color: var(--wp--preset--color--light);
           width: 100%;
           @include mq($from: lg) {
             padding:0 var(--wp--custom--spacing--md);
-            color: var(--wp--preset--color--dark);
             padding:0 var(--wp--custom--spacing--sm);
             margin:0;
           }
@@ -138,7 +136,7 @@
             color: white !important;
             text-decoration-color: white !important;
             @include mq($from: lg) {
-              color: var(--wp--preset--color--dark) !important;
+              color: var(--wp--custom--color--text) !important;
               text-decoration-color: var(--wp--preset--color--primary) !important;
             }
           }
@@ -285,9 +283,10 @@
     &:focus-visible {
       background-color: transparent;
       box-shadow: none;
-      outline: var(--wp--preset--color--dark) solid var(--outline-size);
+      outline: var(--wp--custom--color--text) solid var(--outline-size);
     }
     svg {
+      fill: var(--wp--custom--color--text);
       height: toRem(44);
       &.close {
         fill: var(--wp--preset--color--light);
@@ -325,7 +324,7 @@
   
         .dgwltd-menu {
           .menu-item > a {
-              color: var(--wp--preset--color--dark);
+              color: var(--wp--custom--color--text);
           }
         }
       }
@@ -358,6 +357,11 @@
         &:before {
           visibility: visible;
           opacity: 1;
+        }
+      }
+      .logo {
+        &__line {
+          fill: var(--wp--preset--color--light);
         }
       }
     }
@@ -411,9 +415,6 @@
           }
         }
         .dgwltd-masthead__logo > a {
-          .logo {
-            fill: var(--wp--preset--color--light);
-          }
           &:focus-visible {
             .logo {
               fill: var(--wp--preset--color--focus);

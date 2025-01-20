@@ -44,7 +44,7 @@
       text-align: left;
       margin: 0;
       padding: var(--wp--custom--spacing--md);
-      color: var(--wp--preset--color--dark);
+      color: var(--wp--custom--color--text);
     }
     .alignright,
     .alignleft,
@@ -93,7 +93,7 @@
     grid-template-rows: auto;
     &:before {
       font-family: 'Times New Roman', Times, serif;
-      color: var(--wp--preset--color--dark);
+      color: var(--wp--custom--color--text);
       content: open-quote;
       font-size: 4rem;
       line-height: 1;
@@ -122,6 +122,13 @@
   .wp-block-code {
     margin-block: var(--wp--custom--spacing--gap) 0;
     padding: var(--wp--custom--spacing--sm);
+    code {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-all;
+      word-break: break-word;
+      hyphens: auto;
+    }
   }
 }
 

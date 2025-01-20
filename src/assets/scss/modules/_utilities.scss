@@ -212,8 +212,8 @@ and from the bottom of the preceding element */
 .dgwltd-tag {
   width: fit-content;
   border-radius: 9999px;
-  color: var(--wp--preset--color--light);
-  background-color: var(--wp--preset--color--dark);
+  color: var(--wp--custom--color--background);
+  background-color: var(--wp--custom--color--text);
   padding:.25rem .625rem;
   font-size: var(--wp--preset--font-size--xs);
   a {

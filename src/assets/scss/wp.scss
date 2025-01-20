@@ -74,8 +74,8 @@
 }
 
 body {
-    color: var(--wp--preset--color--dark);
-    background-color: var(--wp--preset--color--alt);
+    color: var(--wp--custom--color--text);
+    background-color: var(--wp--custom--color--background);
     font-family: var(--wp--preset--font-family--system-font);
     font-size: var(--wp--preset--font-size--body);
     font-weight: 400;
