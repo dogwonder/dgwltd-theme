@@ -157,6 +157,42 @@
 
     };
 
+    const toggleTheme = ()=>{
+
+        // Dark/light mode switching
+        const themeSwitcher = document.getElementById("theme-switcher");
+
+        const switchTheme = (theme) => {
+            if (theme === "light") {
+              document.documentElement.dataset.colorScheme = "light";
+              localStorage.setItem("mode", "light");
+              document.getElementById("theme-light").checked = true;
+            } else if (theme === "dark") {
+              document.documentElement.dataset.colorScheme = "dark";
+              localStorage.setItem("mode", "dark");
+              document.getElementById("theme-dark").checked = true;
+            } else {
+              delete document.documentElement.dataset.colorScheme;
+              localStorage.removeItem("mode");
+              document.getElementById("theme-system").checked = true;
+            }
+        };
+
+        themeSwitcher.classList.add("visible"); // show theme switcher when JS loads
+
+        // Set the initial theme
+        const mode = localStorage.getItem("mode");
+        
+        // If the user has set a theme, use it
+        switchTheme(mode);
+
+         // Add event listeners for theme switcher buttons
+        document.getElementById("theme-light").addEventListener("click", () => switchTheme("light"));
+        document.getElementById("theme-dark").addEventListener("click", () => switchTheme("dark"));
+        document.getElementById("theme-system").addEventListener("click", () => switchTheme("auto"));
+
+    };
+
     const subMenu = (elem, masthead)=>{  
         
         const menu = document.querySelector(elem);
@@ -371,6 +407,7 @@
         externalLinks();
         smoothScroll();
         toggleNav('#nav-toggle', '#nav-primary', '#masthead');
+        toggleTheme();
         subMenu('#nav-primary', '#masthead');
         cardClick('.dgwltd-card');
         new TextareaHandler('textarea');
