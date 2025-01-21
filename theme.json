@@ -314,8 +314,8 @@
 					"width": "2px"
 				},
 				"color": {
-					"background": "var(--wp--custom--color--text)",
-					"text": "var(--wp--custom--color--background)"
+					"background": "var(--wp--custom--color--background)",
+					"text": "var(--wp--custom--color--text)"
 				},
 				"spacing": {
 					"padding": {

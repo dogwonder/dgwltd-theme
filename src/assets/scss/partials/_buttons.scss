@@ -18,7 +18,7 @@
   }
   &:hover {
     cursor: pointer;
-    color: var(--wp--custom--color--text);
+    color: var(--wp--preset--color--dark);
     border-color: var(--wp--preset--color--secondary);
     background-color: var(--wp--preset--color--secondary);
   }
@@ -32,8 +32,8 @@
     text-decoration: none;
   }
   &:focus {
-    color: var(--wp--custom--color--text);
-    border-color: var(--wp--custom--color--text);
+    color: var(--wp--preset--color--dark);
+    border-color: var(--wp--preset--color--dark);
     background-color: var(--wp--preset--color--focus);
     --box-shadow: none;
     --outline: none;
