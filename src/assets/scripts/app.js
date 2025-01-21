@@ -174,7 +174,7 @@
             } else {
               delete document.documentElement.dataset.colorScheme;
               localStorage.removeItem("mode");
-              document.getElementById("theme-system").checked = true;
+              document.getElementById("theme-light").checked = true;
             }
         };
 
@@ -189,7 +189,7 @@
          // Add event listeners for theme switcher buttons
         document.getElementById("theme-light").addEventListener("click", () => switchTheme("light"));
         document.getElementById("theme-dark").addEventListener("click", () => switchTheme("dark"));
-        document.getElementById("theme-system").addEventListener("click", () => switchTheme("auto"));
+        // document.getElementById("theme-system").addEventListener("click", () => switchTheme("auto"));
 
     };
 

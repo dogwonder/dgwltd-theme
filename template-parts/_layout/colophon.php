@@ -27,6 +27,8 @@
 				<div class="dgwltd-footer__switcher">
 					<fieldset class="dgwltd-theme-switcher" id="theme-switcher">
 						<legend class="visually-hidden">Theme</legend>
+						
+						<?php /* ?>
 						<label for="theme-system">
 						<input type="radio" name="color-theme" value="system" checked id="theme-system">
 						<svg id="icon-system" width="1em" height="1em"  viewBox="0 0 512 512" fill="currentColor" role="img"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
@@ -34,6 +36,7 @@
 							<path d="M448 256c0-106-86-192-192-192l0 384c106 0 192-86 192-192zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/>
 						</svg>
 						</label>
+						<?php */ ?>
 
 						<label>
 						<input type="radio" name="color-theme" value="dark" id="theme-dark">
