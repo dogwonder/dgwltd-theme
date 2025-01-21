@@ -31,6 +31,9 @@
         color: var(--wp--preset--color--focus);
       }
     }
+    .govuk-accordion__section-heading-text-focus {
+      color: var(--wp--custom--color--text);
+    }
     .govuk-accordion__section-content {
       padding-top: 0;
     }
