@@ -20,6 +20,11 @@
       @extend %dgwltd-heading-md;
       margin: 0;
       padding-bottom: 0;
+      &:hover {
+        .govuk-accordion__section-heading-text-focus {
+          color: var(--wp--custom--color--background);
+        }
+      }
       &:focus-visible {
         background-color: var(--wp--preset--color--focus);
         box-shadow: 0 -2px var(--wp--preset--color--focus), 0 4px  var(--wp--custom--color--text);
