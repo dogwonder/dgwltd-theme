@@ -36,8 +36,8 @@ $pkgVersion = dgwltd_version();
 <?php include(locate_template( 'template-parts/_organisms/meta-tags.php' )) ; ?>
 <script defer data-domain="dgw.ltd" src="https://plausible.io/js/script.js"></script>
 </head>
-<body <?php body_class( 'no-js govuk-frontend-supported' ); ?>>
-<script>document.body.className = document.body.className.replace('no-js', 'js-enabled');</script>
+<body <?php body_class( 'no-js' ); ?>>
+<script>document.body.className = document.body.className.replace('no-js', 'js-enabled govuk-frontend-supported');</script>
 <div id="page" class="dgwltd-wrapper">
 	<?php include(locate_template( 'template-parts/_layout/masthead.php' )) ; ?>
 	<main id="content" class="dgwltd-body">

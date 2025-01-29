@@ -29,7 +29,7 @@ In `vendor.scss` we need to overide the default font family.
 ```
 $govuk-include-default-font-face: false;
 $govuk-focus-colour: #00FFD9;
-$govuk-font-family: -apple-system, BlinkMacSystemFont,"Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell","Fira Sans", "Droid Sans","Helvetica Neue",sans-serif;
+$govuk-font-family: system-ui, sans-serif;
 @import "../../node_modules/govuk-frontend/govuk/all.scss";
 ```
 

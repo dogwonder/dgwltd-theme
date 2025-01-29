@@ -51,7 +51,7 @@ $mq-breakpoints: (
   --baseline-multiplier: 1;
 
   //System font as default
-  --body: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --body: system-ui, sans-serif;
 
   //Menu height
   --submenu-offset: 0;

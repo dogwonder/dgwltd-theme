@@ -20,7 +20,8 @@
 --wp--preset--spacing--large: var(--wp--custom--spacing--lg);
 --wp--preset--spacing--x-large: var(--wp--custom--spacing--xl);
         --wp--custom--spacing--gap: 1.25rem;
-        --wp--custom--spacing--2-xs: clamp(0.5625rem, 0.5456rem + 0.0847vi, 0.625rem);
+        --wp--custom--spacing--3-xs: 0.3125rem;
+        --wp--custom--spacing--2-xs: 0.625rem;
         --wp--custom--spacing--xs: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem);
         --wp--custom--spacing--sm: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem);
         --wp--custom--spacing--md: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem);
@@ -29,7 +30,7 @@
         --wp--custom--spacing--2-xl: clamp(4.25rem, 4.0466rem + 1.0169vi, 5rem);
         --wp--custom--spacing--xs-s: clamp(0.8125rem, 0.6939rem + 0.5932vi, 1.25rem);
         --wp--custom--spacing--s-xxl: clamp(1.0625rem, -0.0053rem + 5.339vi, 5rem);
-        --wp--preset--font-family--system-font: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+        --wp--preset--font-family--system-font: system-ui, sans-serif;
         --wp--preset--font-family--primary: "Söhne Dreiviertelfett", sans-serif;
         --wp--preset--font-family--secondary: "Söhne Halbfett", sans-serif;
         --wp--preset--font-family--tertertiary: "Söhne Kraftig", sans-serif;
@@ -49,6 +50,7 @@
         --wp--custom--typography--letter-spacing--large: 0.01em;
         --wp--custom--typography--letter-spacing--uppercase: 0;
         --wp--custom--typography--line-height--body: 1.5;
+        --wp--custom--typography--line-height--input: 1.25;
         
         --wp--custom--typography--line-height--heading--sm: 1.25;
         --wp--custom--typography--line-height--heading--lg: 1.05;

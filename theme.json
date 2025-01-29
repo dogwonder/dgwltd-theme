@@ -106,7 +106,7 @@
 			"fluid": true,
 			"fontFamilies": [
 				{
-					"fontFamily": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
+					"fontFamily": "system-ui, sans-serif",
 					"name": "System Font",
 					"slug": "system-font"
 				},
@@ -231,7 +231,8 @@
 		"custom": {
 			"spacing": {
 					"gap": "1.25rem", 
-					"2xs": "clamp(0.5625rem, 0.5456rem + 0.0847vi, 0.625rem)",
+					"3xs": "0.3125rem",
+					"2xs": "0.625rem",
 					"xs": "clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem)",
 					"sm": "clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem)",
 					"md": "clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem)",
@@ -250,6 +251,7 @@
 				},
 				"lineHeight": {
 					"body": "1.5",
+					"input": "1.25",
 					"heading": {
 						"sm": 1.25,
 						"lg": 1.05
@@ -262,6 +264,9 @@
 				"content-small": "38rem",
 				"character": "68ch"
 			}, 
+			"height": {
+				"input": "2.5rem"
+			},
 			"color": {
 				"background": "light-dark(var(--wp--preset--color--alt), var(--wp--preset--color--dark))",
 				"text": "light-dark(var(--wp--preset--color--dark), var(--wp--preset--color--light))",

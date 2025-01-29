@@ -1,4 +1,7 @@
 <?php
+//Disable CSS
+add_filter('gform_disable_form_theme_css', '__return_true');
+
 // Error messages
 
 // Include field validation errors
@@ -29,7 +32,6 @@ add_filter(
 	10,
 	2
 );
-
 
 // WGAC compliance
 // Add autocomplete to fields
