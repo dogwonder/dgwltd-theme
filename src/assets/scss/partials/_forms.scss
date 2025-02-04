@@ -31,10 +31,6 @@ textarea {
   }
 }
 
-textarea {
-  line-height: var(--wp--custom--typography--line-height--body);
-}
-
 // Selects
 select {
   width: 100%;
@@ -58,6 +54,7 @@ select {
 }
 
 textarea {
+  line-height: var(--wp--custom--typography--line-height--body);
   min-height: 40px;
   height: auto;
 }

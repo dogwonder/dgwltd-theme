@@ -4,6 +4,7 @@
   appearance: none;
   text-decoration: none;
   display: inline-block;
+  min-width: fit-content;
   font-size: var(--wp--preset--font-size--body);
   line-height: 1;
   padding: var(--wp--custom--spacing--xs) var(--wp--custom--spacing--sm);

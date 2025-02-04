@@ -2,6 +2,7 @@ import { IdAttributePlugin, InputPathToUrlTransformPlugin, HtmlBasePlugin } from
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginNavigation from "@11ty/eleventy-navigation";
 import { eleventyImageTransformPlugin } from '@11ty/eleventy-img';
+import prettier from 'prettier';
 
 //Other plugins and utils
 import dayjs from 'dayjs';
@@ -161,6 +162,26 @@ export default async function(eleventyConfig) {
 	// 		decoding: "async",
 	// 	},
 	// });
+
+  // Add transforms
+
+  // Prettify HTML output, ignore CSS
+  eleventyConfig.addTransform("prettier", function (content) {
+    if ((this.page.outputPath || "").endsWith(".html")) {
+
+        let prettified = prettier.format(content, {
+            bracketSameLine: true,
+            printWidth: 512,
+            parser: "html",
+            tabWidth: 2, 
+            embeddedLanguageFormatting: "off"
+        });
+        return prettified;
+    }
+
+    // If not an HTML output, return content as-is
+    return content;
+  });
 
   // Tell 11ty to use the .eleventyignore and ignore our .gitignore file
   eleventyConfig.setUseGitIgnore(false)
