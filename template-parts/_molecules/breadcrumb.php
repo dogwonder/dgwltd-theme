@@ -28,8 +28,6 @@ $parent = wp_get_post_parent_id( $currentpost_id );
 			</a>
 			</li>
 		<?php } ?>
-		
-			<?php wp_reset_query(); // results query ?>
 		<?php endif; ?>
 
 		<?php if ( ! is_front_page() ) : ?>

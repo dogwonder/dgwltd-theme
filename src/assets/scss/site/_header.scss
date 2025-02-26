@@ -36,8 +36,6 @@ $nav-height: toRem(60);
     opacity: 0;
     transition: visibility .25s cubic-bezier(.24,.26,.2,1),opacity .25s cubic-bezier(.24,.26,.2,1);
 
-    //Glass effect https://www.tyleo.com/html-glass.html
-
     @include mq($until: lg) {
       background-color: rgba(0,0,0,.9);
     }

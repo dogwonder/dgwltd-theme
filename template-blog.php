@@ -53,7 +53,6 @@ $blog_query = new WP_Query( $post_args );
 				get_template_part( 'template-parts/_templates/content-none' );
 			endif;
 			?>
-		<?php wp_reset_query(); ?>	
 	</div>
 
 </div><!-- #primary -->

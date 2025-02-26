@@ -18,12 +18,12 @@ if ( class_exists( 'acf' ) ) {
 	
 	<?php if ( ! $hidden_title ) : ?>
 		<div class="entry-header">
-			<?php echo do_blocks( '<!-- wp:post-title {"level":1,"className":"wp-block-post-title"} /-->' ); ?>
-			<?php if ( 'post' === get_post_type() ) : ?>
-			<div class="entry-meta">
-				<?php dgwltd_posted_on(); ?>
-			</div><!-- .entry-meta -->
-			<?php endif; ?>
+			<hgroup>
+				<?php echo do_blocks( '<!-- wp:post-title {"level":1,"className":"wp-block-post-title"} /-->' ); ?>
+				<?php if ( 'post' === get_post_type() ) : ?>
+				<p class="entry-meta"><?php dgwltd_posted_on(); ?></p><!-- .entry-meta -->
+				<?php endif; ?>
+			<hgroup>
 		</div><!-- .entry-header -->
 		
 	<?php else : ?>

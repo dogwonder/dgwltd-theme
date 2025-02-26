@@ -322,7 +322,7 @@ code.language-html {
                     $total_pages = $blog_query->max_num_pages;
                     include locate_template("template-parts/_molecules/pagination-query.php");
                 endif;
-                wp_reset_query();
+                wp_reset_postdata();
                 echo "</div>";
         ?>
 

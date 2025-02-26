@@ -255,13 +255,11 @@
           background-color: var(--wp--preset--color--alt);
           min-width: 24rem;
           .menu-item {
-            @include mq($from: lg) {
               line-height: 1;
               a {
                 padding: var(--wp--custom--spacing--sm);
                 display: block;
               }
-            }
           }
         }
       }
@@ -406,7 +404,7 @@
       &.masthead-is-open {
         z-index: $z-highest;
         position: relative;
-        background-color: black;
+        background-color: var(--wp--custom--color--text);
         .dgwltd-nav__wrapper {
           content-visibility: visible;
           display: block;

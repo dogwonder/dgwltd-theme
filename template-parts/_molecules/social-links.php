@@ -5,14 +5,14 @@ if( have_rows('social_links', 'options') ):
     // loop through the rows of data
     while ( have_rows('social_links', 'options') ) : the_row();
         // display a sub field value
-        $bluesky = $social['bluesky'];
-        $facebook = $social['facebook'];
-        $github = $social['github'];
-        $instagram = $social['instagram'];
-        $linkedin = $social['linkedin'];
-        $mastodon = $social['mastodon'];
-        $tiktok = $social['tiktok'];
-        $youtube = $social['youtube'];        
+        $bluesky = $social['bluesky_link'];
+        $facebook = $social['facebook_link'];
+        $github = $social['github_link'];
+        $instagram = $social['instagram_link'];
+        $linkedin = $social['linkedin_link'];
+        $mastodon = $social['mastodon_link'];
+        $tiktok = $social['tiktok_link'];
+        $youtube = $social['youtube_link'];        
     endwhile;
 else :
     $bluesky = '';

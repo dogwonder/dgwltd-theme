@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "clean": "trash \"./dist/\"",
-    "css:sass:main": "sass --quiet-deps ./src/assets/scss/main.scss ./dist/css/main.css",
+    "css:sass:main": "sass ./src/assets/scss/main.scss ./dist/css/main.css",
     "css:sass:print": "sass ./src/assets/scss/print.scss ./dist/css/print.css",
     "css:sass:wp": "sass ./src/assets/scss/wp.scss ./dist/css/wp.css",
     "css:sass": "run-s css:sass:main css:sass:print css:sass:wp",

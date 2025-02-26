@@ -92,7 +92,6 @@ if ( $children_ids ) : ?>
 			<?php endwhile; ?>
 				<?php wp_reset_postdata(); ?>
 			<?php endif; ?>
-			<?php wp_reset_query(); // results query ?>
 
 		</ol>
 	</nav>
