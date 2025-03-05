@@ -1,0 +1,23 @@
+.entry-comments {
+    padding: var(--wp--custom--spacing--lg);
+    background-color: light-dark(var(--wp--preset--color--light), #000000);
+}
+
+.comment-list {
+    list-style-type: none;
+}
+
+.comment {
+    .comment-author {
+        display: flex;
+        gap: 0.5ch;
+    }
+    .comment-body {
+        @include stack($gap-sm);
+    }
+}
+
+.comment-respond, 
+.comment-form {
+    @include stack($gap-sm);
+}
