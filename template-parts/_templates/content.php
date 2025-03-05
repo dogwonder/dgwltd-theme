@@ -44,5 +44,11 @@ if ( class_exists( 'acf' ) ) {
 	}
 	?>
 	</div><!-- .entry-content -->
+
+	<?php if ( comments_open() || get_comments_number() ) : ?>
+	<div class="entry-comments">
+		<?php comments_template(); ?>
+	</div>
+	<?php endif; ?>
 	
 </article><!-- #post-<?php the_ID(); ?> -->
