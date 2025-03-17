@@ -23,7 +23,7 @@ if ( class_exists( 'acf' ) ) {
 				<?php if ( 'post' === get_post_type() ) : ?>
 				<p class="entry-meta"><?php dgwltd_posted_on(); ?></p><!-- .entry-meta -->
 				<?php endif; ?>
-			<hgroup>
+				</hgroup>
 		</div><!-- .entry-header -->
 		
 	<?php else : ?>
