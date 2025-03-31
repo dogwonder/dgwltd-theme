@@ -4,7 +4,7 @@ import inquirer from 'inquirer';  // Correct import for Inquirer 10.x
 import { exec } from 'child_process';
 
 // Step 1: Ask the user to select a method of exporting
-const methods = ['wptommd', '11ty'];
+const methods = ['wptomd', '11ty'];
 
 inquirer
   .prompt([
@@ -18,7 +18,7 @@ inquirer
   .then(methodAnswers => {
     const selectedMethod = methodAnswers.method;
 
-    if (selectedMethod === 'wptommd') {
+    if (selectedMethod === 'wptomd') {
 
       // Step 2: Get the post types using `wp wptomd-types` command
       // Note: `ddev` is included as part of the environment; remove it if not needed
