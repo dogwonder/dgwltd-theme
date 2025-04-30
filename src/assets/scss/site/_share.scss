@@ -1,0 +1,26 @@
+//Share container
+.entry-share {
+    padding: var(--wp--custom--spacing--sm) ;
+}
+
+//Share buttons
+.dgwltd-share-actions li {
+    position: relative;
+    button {
+      @extend %dgwltd-button;
+    }
+  }
+  
+  .dgwltd-share-actions [role='alert'] {
+    position: absolute;
+    inset: 0;
+    align-content: center;
+    text-align: center;
+    background: var(--wp--preset--color--primary);
+    color: var(--wp--preset--color--light);
+    line-height: 1;
+  }
+  
+  .dgwltd-share-actions [role='alert']:empty {
+    display: none;
+  }

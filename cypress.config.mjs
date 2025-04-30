@@ -2,7 +2,8 @@ import { defineConfig } from 'cypress';
 import { prepareAudit } from 'cypress-audit';
 import puppeteer from 'puppeteer';
 import lighthouse from 'lighthouse';
-import { ReportGenerator } from 'lighthouse/report/generator/report-generator.js';
+import reportGeneratorPkg from 'lighthouse/report/generator/report-generator.js';
+const { ReportGenerator } = reportGeneratorPkg;
 
 export default defineConfig({
   e2e: {

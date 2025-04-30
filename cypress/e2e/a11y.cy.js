@@ -18,7 +18,7 @@ describe('Page accessibility tests', () => {
 
   if (Cypress.env('RUN_LOCALLY')) {
     urls = [
-      'http://dgw.ltd/',
+      'https://dev.dgw.ltd.ddev.site:8443',
     ];
   } else {
     urls = [

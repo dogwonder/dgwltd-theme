@@ -118,7 +118,7 @@
             Make sure this is not the <nav> as it’s undiscoverable when hidden
             The <nav> should be the surrounding container for the toggled state
             */
-            menu.setAttribute('status', state.status);
+            menu.setAttribute('status', state.status);        
 
             //Add an additional class to the header just incase we want to do something with it in it's opened state
             header.classList.toggle('masthead-is-open');
@@ -232,15 +232,16 @@
                         //document.body.classList.add('masthead-expanded');   
                         el.querySelector('a').setAttribute('aria-expanded', !open);
                         el.classList.toggle('menu-open');
+                        el.querySelector('.sub-menu').removeAttribute('hidden');
                         document.body.classList.add('masthead-expanded');
                         
-
                     });   
 
                     el.addEventListener("mouseleave", function(event){
                         
                         el.querySelector('a').setAttribute('aria-expanded', 'false');
                         el.classList.remove('menu-open');
+                        el.querySelector('.sub-menu').setAttribute('hidden', '');
                         document.body.classList.remove('masthead-expanded');     
 
                     });
@@ -250,8 +251,9 @@
 
                         if (!event.key.includes('Escape')) { return; }
                         document.body.classList.remove('masthead-expanded'); 
-                        el.querySelector('a').setAttribute('aria-expanded', 'falqse');
+                        el.querySelector('a').setAttribute('aria-expanded', 'false');
                         el.classList.remove('menu-open');
+                        el.querySelector('.sub-menu').setAttribute('hidden', '');
 
                     });
                     
@@ -301,9 +303,13 @@
                     //Close all other menus
                     this.parentNode.querySelector('a').setAttribute('aria-expanded', "true");
                     this.parentNode.querySelector('button').setAttribute('aria-expanded', "true");
+                    // Remove the hidden attribute from the sub-menu
+                    this.parentNode.querySelector('.sub-menu').removeAttribute('hidden');
                 } else {
                     this.parentNode.querySelector('a').setAttribute('aria-expanded', "false");
                     this.parentNode.querySelector('button').setAttribute('aria-expanded', "false");
+                    // Add the hidden attribute to the sub-menu
+                    this.parentNode.querySelector('.sub-menu').setAttribute('hidden', '');
                 }
                 event.preventDefault();
                 return false;

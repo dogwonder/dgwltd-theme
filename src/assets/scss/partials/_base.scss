@@ -50,6 +50,11 @@ a {
   outline: none;
 }
 
+svg:has(use) {
+  width: 2rem;
+  height: 2rem;
+}
+
 //Custom inset for buttons, using the optional --outline-offset variable
 // button {
 //   --outline-offset: -0.15em;

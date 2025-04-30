@@ -45,10 +45,15 @@ if ( class_exists( 'acf' ) ) {
 	?>
 	</div><!-- .entry-content -->
 
+	<div class="entry-share">
+		<?php get_template_part( 'template-parts/_atoms/share' ); ?>
+	</div>
+
 	<?php if ( comments_open() || get_comments_number() ) : ?>
 	<div class="entry-comments">
 		<?php comments_template(); ?>
 	</div>
 	<?php endif; ?>
+
 	
 </article><!-- #post-<?php the_ID(); ?> -->

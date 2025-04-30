@@ -17,7 +17,7 @@ export default async function(eleventyConfig) {
 
   // Define the base URL for images
   const imageBaseUrl = isProduction
-    ? "http://dev.wp.dgw.ltd/wp-content/themes/dgwltd-theme/dist/"
+    ? "http://wp.dgw.ltd/wp-content/themes/dgwltd-theme/dist/"
     : "/";
   
   eleventyConfig.addGlobalData("imageBaseUrl", imageBaseUrl);
@@ -26,7 +26,7 @@ export default async function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({"src/assets/fonts": "fonts"});
   eleventyConfig.addPassthroughCopy({"src/assets/icons/": "icons"});
   eleventyConfig.addPassthroughCopy({"src/assets/images/": "images"});
-  eleventyConfig.addPassthroughCopy({"src/assets/scripts/": "js"});
+  eleventyConfig.addPassthroughCopy({"src/assets/js/": "js"});
   eleventyConfig.addPassthroughCopy({"src/vendor/js/": "js"});
   eleventyConfig.addPassthroughCopy({"src/vendor/css/": "css"});
 

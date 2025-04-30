@@ -143,11 +143,11 @@ code.language-html {
 
 
 		<?php
-  // check if theme.json is being used and if so, grab the settings
-  $color_palette = [];
-  $font_families = [];
-  $font_sizes = [];
-  $spacing = [];
+	// check if theme.json is being used and if so, grab the settings
+	$color_palette = [];
+	$font_families = [];
+	$font_sizes = [];
+	$spacing = [];
 
   if (class_exists("WP_Theme_JSON_Resolver")) {
       $settings = WP_Theme_JSON_Resolver::get_theme_data()->get_settings();

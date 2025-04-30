@@ -59,7 +59,6 @@ if ( ! function_exists( 'wcag_nav_menu_link_attributes' ) ) :
 	add_filter( 'nav_menu_link_attributes', 'wcag_nav_menu_link_attributes', 10, 4 );
 endif;
 
-
 /**
  * Add Speculation Rules to the menu - https://csswizardry.com/2024/12/a-layered-approach-to-speculation-rules/
 */
@@ -72,7 +71,7 @@ if ( ! function_exists( 'dgwltd_speculation_rules' ) ) :
 
 			// Add data-prefetch=prerender to top-level menu links
 			
-			// Top-level mennu items are immediately prerendered
+			// Top-level menu items are immediately prerendered
 			// Sub-menu items are immediately prefetched but prerendered on demand (hover for 200ms)
 
 			/*
@@ -119,6 +118,46 @@ if ( ! function_exists( 'dgwltd_speculation_rules' ) ) :
     add_filter( 'walker_nav_menu_start_el', 'dgwltd_speculation_rules', 10, 4 );
 endif;
 
+//Disable core speculation rules
+add_filter(
+    'wp_speculation_rules_configuration',
+    function ( $config ) {
+        // Returning null disables all speculative loading rules.
+        return null;
+    }
+);
+
+/*
+ * Add hidden attribute to submenus
+ *
+ * @access public
+ */
+if ( ! function_exists( 'wcag_nav_menu_add_hidden_to_submenus' ) ) :
+	function wcag_nav_menu_add_hidden_to_submenus( $nav_menu, $args ) {
+		// Target only specific menu locations (optional)
+		if ( ! isset( $args->theme_location ) || $args->theme_location !== 'primary' ) {
+			return $nav_menu;
+		}
+
+		// Bail early if the class doesn't exist (WP < 6.2)
+		if ( ! class_exists( 'WP_HTML_Tag_Processor' ) ) {
+			return $nav_menu;
+		}
+
+		$processor = new WP_HTML_Tag_Processor( $nav_menu );
+
+		// Add 'hidden' to all <ul> elements with the sub-menu class
+		while ( $processor->next_tag( 'ul' ) ) {
+			$class = $processor->get_attribute( 'class' );
+			if ( strpos( $class, 'sub-menu' ) !== false ) {
+				$processor->set_attribute( 'hidden', true );
+			}
+		}
+
+		return (string) $processor;
+	}
+	add_filter( 'wp_nav_menu', 'wcag_nav_menu_add_hidden_to_submenus', 10, 2 );
+endif;
 
 /*
  * Exclude Uncategorized from get_the_category_list function.

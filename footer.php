@@ -9,6 +9,8 @@
  * @package dgwltd
  */
 $pkgVersion = dgwltd_version();
+$theme = wp_get_theme();
+$theme_slug = $theme->get_template();
 ?>
 	</main><!-- #content -->
 	<?php include(locate_template( 'template-parts/_layout/colophon.php')); ?><!-- #colophon -->
@@ -41,7 +43,7 @@ $pkgVersion = dgwltd_version();
     });
   }
 </script>
-<script type=speculationrules>
+<script type="speculationrules">
   {
     "prefetch": [
       {
@@ -53,9 +55,29 @@ $pkgVersion = dgwltd_version();
       {
         "where": {
           "and": [
-            { "href_matches": "/*" },
-            { "not": {"href_matches": "/wp-admin"}},
-            { "not": {"selector_matches": "[rel~=nofollow]"}}
+            { "href_matches": "^/.*" },
+            { "not": {
+                "href_matches": [
+                  "\/wp-*.php",
+                  "\/wp-admin\/*",
+                  "\/wp-content\/uploads\/*",
+                  "\/wp-content\/*",
+                  "\/wp-content\/plugins\/*",
+                  "\/wp-content\/themes\/<?php echo sanitize_title($theme_slug); ?>\/*",
+                  "\/*\\?(.+)"
+                ]
+              }
+            },
+            {
+            "not": {
+                "selector_matches": "a[rel~=\"nofollow\"]"
+              }
+            },
+            {
+            "not": {
+                "selector_matches": ".no-prefetch, .no-prefetch a"
+              }
+            }
           ]
         },
         "eagerness": "moderate"
