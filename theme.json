@@ -59,7 +59,7 @@
 			]
 		},
 		"layout": {
-			"contentSize": "1120px"
+			"contentSize": "var(--wp--custom--width--container)"
 		},
 		"spacing": {
 			"defaultFontSizes": false, 
