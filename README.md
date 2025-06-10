@@ -51,15 +51,24 @@ These are actived via a custom plugin [dgwltd-plugin](https://github.com/dogwond
 
 This requires [ACF PRO](https://www.advancedcustomfields.com/pro/). $$ - but it really is the greatest plugin ever made. 
 
-These are saved in `wp-plugins\dgwltd-blocks\src\acf-json`
+These are saved in `wp-plugins/dgwltd-blocks/src/acf-json`
 
 - DGW.ltd Accordion - based on GOV.UK's [accordion pattern](https://design-system.service.gov.uk/components/accordion/)
 - DGW.ltd Banner - text and background image similar to hero but less showy
 - DGW.ltd Breadcrumbs - based on GOV.UK's [breadcrumbs pattern](https://design-system.service.gov.uk/components/breadcrumbs/) 
-- DGW.ltd Cards - grid of cards linking to other pages, title, excerpt and featured image
+- DGW.ltd Cards - grid of featured cards picked from relationship field displaying, title, excerpt and featured image. 
 - DGW.ltd Embed - lite embed custom element for [Youtube](https://github.com/paulirish/lite-youtube-embed) and [Vimeo](https://github.com/slightlyoff/lite-vimeo)
 - DGW.ltd Promo card - offset image and content block
-- DGW.ltd Hero Section - hero with big image / video as background
+- DGW.ltd Hero Section - hero with big image / video as background - with experimental Focal Point selector
+
+
+## Custom block variations
+
+These are saved in `wp-plugins/dgwltd-plugin/admin/scripts/dgwltd-plugin-variations.js`
+
+- DGW.ltd Cover - an extenstion of the cover block with H1 and paragraph text. 
+- DGW.ltd Details Accordion - paragraph block followed by 4 details blocks
+- DGW.ltd Code - Ability to set block styles on a code block to allow syntax highlighting via Prism.css
 
 ## Templates
 

@@ -74,7 +74,7 @@ if ( $children_ids ) : ?>
 				'post__in'       => $children_ids,
 				'orderby'        => 'menu_order',
 				'order'          => 'ASC',
-				'posts_per_page' => -1,
+				'posts_per_page' => count( $children_ids ),
 			);
 			?>
 
