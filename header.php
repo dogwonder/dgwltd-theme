@@ -41,3 +41,13 @@ $pkgVersion = dgwltd_version();
 <div id="page" class="dgwltd-wrapper">
 	<?php include(locate_template( 'template-parts/_layout/masthead.php' )) ; ?>
 	<main id="content" class="dgwltd-body">
+        
+    <?php
+    // Display custom cookie banner code meta field
+    $cookie_banner_code = get_option('cookie_banner_code');
+    if (!empty($cookie_banner_code)) {
+        echo $cookie_banner_code;
+    }
+    ?>
+
+    
