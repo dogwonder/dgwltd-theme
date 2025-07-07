@@ -20,7 +20,7 @@ $theme_slug = $theme->get_template();
 <script type="module" src="<?php echo get_template_directory_uri(); ?>/dist/js/app.min.js"></script>
 <script type="module">
   if (!window._govukFrontendInitialized) {
-    import('<?php echo get_template_directory_uri(); ?>/dist/js/govuk-frontend-5.8.0.min.js')
+    import('<?php echo get_template_directory_uri(); ?>/dist/js/govuk-frontend-5.11.0.min.js')
       .then(({ initAll }) => {
         initAll();
         window._govukFrontendInitialized = true;

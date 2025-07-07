@@ -67,6 +67,7 @@
 }
   
 // SVG icon mixin
+// Usage: @include icon('check', $color: #000, $opacity: 0.6);
 @mixin error-icon($color, $opacity: 0.6) {
   background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="m10 0c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10-4.48-10-10-10zm1 15h-2v-2h2zm0-4h-2v-6h2z" fill="#{$color}" opacity="#{$opacity}"/></svg>');
 }

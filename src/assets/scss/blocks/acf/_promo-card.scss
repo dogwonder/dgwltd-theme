@@ -30,6 +30,7 @@
         background-color: var(--wp--preset--color--primary);
         padding: var(--wp--custom--spacing--md);
         position: relative;
+        z-index: 2;
         @include mq($from: lg) {
             max-width: var(--wp--custom--width--content-small);
             position: relative; 
@@ -59,7 +60,7 @@
         @include mq($from: lg) {
             flex: 1;   
             position: relative; 
-            z-index: -1;
+            z-index: 1;
             margin-inline-start: calc(var(--wp--custom--spacing--xl) * -1);
         }
         img {
@@ -74,7 +75,7 @@
         @include mq($from: lg) {
             flex: 1;   
             position: relative; 
-            z-index: -1;
+            z-index: 1;
             margin-inline-start: calc(var(--wp--custom--spacing--xl) * -1);
         }
         lite-youtube, 

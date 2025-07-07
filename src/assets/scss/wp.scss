@@ -14,6 +14,12 @@
 --wp--preset--color--light: #ffffff;
 --wp--preset--color--alt: #f1f2f0;
 --wp--preset--color--focus: #FFDD00;
+--wp--custom--color--background: light-dark(var(--wp--preset--color--alt), var(--wp--preset--color--dark));
+--wp--custom--color--text: light-dark(var(--wp--preset--color--dark), var(--wp--preset--color--light));
+--wp--custom--color--border: #666666;
+--wp--custom--color--success: #457c39;
+--wp--custom--color--error: #db2f27;
+--wp--custom--color--disabled: #999999;
 --wp--preset--spacing--x-small: var(--wp--custom--spacing--xs);
 --wp--preset--spacing--small: var(--wp--custom--spacing--sm);
 --wp--preset--spacing--medium: var(--wp--custom--spacing--md);

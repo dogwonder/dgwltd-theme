@@ -27,6 +27,10 @@ permalink: '../src/assets/scss/wp.scss'
 --wp--preset--color--{{ color.slug }}: {{ color.color }};
 {%- endfor %}
 
+{%- for key, value in theme.settings.custom.color %}
+--wp--custom--color--{{ key }}: {{ value }};
+{%- endfor -%}    
+
 {%- for size in theme.settings.spacing.spacingSizes %}
 --wp--preset--spacing--{{ size.slug | hyphenate }}: {{ size.size }};
 {%- endfor -%}
