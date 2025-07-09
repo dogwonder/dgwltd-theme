@@ -119,6 +119,9 @@
           text-decoration: none;
           padding:var(--wp--custom--spacing--sm) var(--wp--custom--spacing--md);
           width: 100%;
+          @include mq($until: lg) {
+            color: var(--wp--preset--color--light);
+          }
           @include mq($from: lg) {
             padding:0 var(--wp--custom--spacing--md);
             padding:0 var(--wp--custom--spacing--sm);
@@ -157,7 +160,7 @@
             display: flex;
             align-items: center;
             > a {
-              padding-right:0;
+              padding-inline-end:0;
               margin-inline-end:0;
               display: flex;
               align-items: center;
@@ -234,6 +237,9 @@
           li {
             line-height: var(--wp--custom--typography--line-height--body);
             margin: 0;
+            a {
+              padding-block: 0;
+            }
           }
         }
         @include mq($from: lg) {
@@ -257,6 +263,7 @@
           .menu-item {
               line-height: 1;
               a {
+                color: var(--wp--preset--color--dark);
                 padding: var(--wp--custom--spacing--sm);
                 display: block;
               }
@@ -323,6 +330,11 @@
         .dgwltd-menu {
           .menu-item > a {
               color: var(--wp--custom--color--text);
+          }
+          .button-show-subnav {
+            &:before, &:after {
+              border-color: var(--wp--custom--color--text);
+            }
           }
         }
       }
@@ -404,7 +416,7 @@
       &.masthead-is-open {
         z-index: $z-highest;
         position: relative;
-        background-color: var(--wp--custom--color--text);
+        background-color: var(--wp--custom--color--dark);
         .dgwltd-nav__wrapper {
           content-visibility: visible;
           display: block;

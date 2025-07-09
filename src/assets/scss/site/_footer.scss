@@ -140,4 +140,10 @@
     }
   }
 
+  &__switcher {
+    @include mq($until: lg) {
+      margin-block-start: var(--wp--custom--spacing--sm);
+    }
+  }
+
 }
