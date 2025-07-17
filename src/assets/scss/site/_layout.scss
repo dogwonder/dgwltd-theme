@@ -36,7 +36,6 @@
   padding: var(--wp--custom--spacing--lg) var(--wp--custom--spacing--md);
 }
 
-
 //Reset Wordpress' display: flow-root
 .entry-content.wp-block-post-content {
   display: grid;
@@ -54,7 +53,7 @@
   }
 }
 
-//Add a little space to the content blockk
+//Add a little space to the content block
 .entry-content, .entry-footer {
   padding-block-end: var(--wp--custom--spacing--lg);
 }

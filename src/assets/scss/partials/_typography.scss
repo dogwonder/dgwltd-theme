@@ -65,7 +65,6 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
   font-family: var(--wp--preset--font-family--primary);
   font-size: var(--wp--preset--font-size--3-xl);
   font-variant-ligatures: discretionary-ligatures; 
-  font-size-adjust: 0.521;
   line-height: var(--wp--custom--typography--line-height--heading--lg);
   letter-spacing: var(--wp--custom--typography--letter-spacing--gigantic);
   margin: 0;
@@ -159,10 +158,6 @@ ol {
 blockquote p {
   hanging-punctuation: first;
   text-indent: -5px;
-}
-
-strong, b, th { 
-  font-size-adjust: 0.514; 
 }
 
 //Swiss school

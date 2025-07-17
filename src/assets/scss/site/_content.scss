@@ -46,14 +46,23 @@
       padding: var(--wp--custom--spacing--md);
       color: var(--wp--custom--color--text);
     }
-    .alignright,
-    .alignleft,
-    .aligncenter {
-      text-align: left;
-      float: none;
+    &.alignleft, 
+    &.alignright, 
+    &.aligncenter {
+        display: flex;
+        float: none;
       > figcaption {
         display: block;
       }
+    }
+    &.alignleft {
+        justify-content: flex-start;
+    }
+    &.alignright {
+      justify-content: flex-end;
+    }
+    &.aligncenter {
+      justify-content: center;
     }
   }
   // Embed

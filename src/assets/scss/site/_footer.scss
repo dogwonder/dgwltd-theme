@@ -46,7 +46,9 @@
 
   &__social-links {
     li {
-      margin-inline-end: var(--wp--custom--spacing--sm);
+      &:not(:last-of-type) {
+        margin-inline-end: var(--wp--custom--spacing--sm);
+      }
     }
     a {
       width:30px;
@@ -110,17 +112,23 @@
     display: flex;
     flex-direction: row;
     list-style-type: none;
+    @include mq($until: lg) {
+      flex-direction: column;
+    }
     li {
-      margin-inline-end: var(--wp--custom--spacing--sm);
+      &:not(:last-of-type) {
+        margin-inline-end: var(--wp--custom--spacing--sm);
+      }
     }
   }
 
   &__legal {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin-block-start: var(--wp--custom--spacing--lg);
-    @include mq($from: lg) {
-      flex-direction: row;
+    @include mq($until: lg) {
+      flex-direction: column;
+      text-align: center;
     }
     .dgwltd-footer__copyright {
       display: flex;

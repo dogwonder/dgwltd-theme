@@ -22,7 +22,7 @@ $gap-sm: 1rem;
 $gap-lg: 2rem;
 
 //Fluid container for grid layout
-$fluid-container: minmax(var(--wp--custom--spacing--md), 1fr) minmax(min-content, calc(var(--wp--custom--width--container))) minmax(var(--wp--custom--spacing--md), 1fr);
+$fluid-container: minmax(var(--wp--custom--spacing--md), 1fr) minmax(min-content, var(--wp--custom--width--container)) minmax(var(--wp--custom--spacing--md), 1fr);
 
 //Redeclare from vendor/_mq.scss -- https://github.com/sass-mq/sass-mq
 $mq-breakpoints: (

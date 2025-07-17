@@ -19,27 +19,31 @@ export default function(eleventyConfig) {
         maxWidth,
         usePx = false,
         relativeTo = 'viewport'
-    ) => {
-        // Helpers
-        const roundValue = (n) => Math.round((n + Number.EPSILON) * 10000) / 10000;
+        ) => {
+            // Helper
+            const roundValue = (n) => Math.round((n + Number.EPSILON) * 10000) / 10000;
 
-        // Clamp
-        const isNegative = minSize > maxSize;
-        const min = isNegative ? maxSize : minSize;
-        const max = isNegative ? minSize : maxSize;
+            // Handle negative slopes
+            const isNegative = minSize > maxSize;
+            const min = isNegative ? maxSize : minSize;
+            const max = isNegative ? minSize : maxSize;
 
-        const divider = usePx ? 1 : 16;
-        const unit = usePx ? 'px' : 'rem';
-        const relativeUnits = {
-        viewport: 'vi',
-        'viewport-width': 'vw',
-        container: 'cqi'
-        };
-        const relativeUnit = relativeUnits[relativeTo] || relativeUnits.viewport;
+            // Configuration
+            const divider = usePx ? 1 : 16;
+            const unit = usePx ? 'px' : 'rem';
+            const relativeUnits = {
+                viewport: 'vi',
+                'viewport-width': 'vw',
+                container: 'cqi'
+            };
+            const relativeUnit = relativeUnits[relativeTo] || relativeUnits.viewport;
 
-        const slope = ((maxSize / divider) - (minSize / divider)) / ((maxWidth / divider) - (minWidth / divider));
-        const intersection = (-1 * (minWidth / divider)) * slope + (minSize / divider);
-        return `clamp(${roundValue(min / divider)}${unit}, ${roundValue(intersection)}${unit} + ${roundValue(slope * 100)}${relativeUnit}, ${roundValue(max / divider)}${unit})`;
+            // Calculate slope and intersection (in pixels)
+            const slope = (maxSize - minSize) / (maxWidth - minWidth);
+            const intersection = -minWidth * slope + minSize;
+
+            // Convert to desired units only for output
+            return `clamp(${roundValue(min / divider)}${unit}, ${roundValue(intersection / divider)}${unit} + ${roundValue(slope * 100)}${relativeUnit}, ${roundValue(max / divider)}${unit})`;
     });
 
 }
