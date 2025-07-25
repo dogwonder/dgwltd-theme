@@ -34,17 +34,21 @@
     figure {
       width: 100%;
       margin: 0;
+      inline-size: fit-content;
+      margin-inline: auto;
     }
-    img,
-    figcaption {
-      width: 100%;
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
     figcaption {
       font-size: 1rem;
       text-align: left;
       margin: 0;
-      padding: var(--wp--custom--spacing--md);
+      padding-block: var(--wp--custom--spacing--xs);
       color: var(--wp--custom--color--text);
+      contain: inline-size;
     }
     &.alignleft, 
     &.alignright, 

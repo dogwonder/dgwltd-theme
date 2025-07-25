@@ -1,0 +1,135 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "title": "Goth",
+  "settings": {
+    "appearanceTools": true,
+    "color": {
+      "palette": [
+        {
+          "name": "Primary",
+          "slug": "primary",
+          "color": "#a79494"
+        },
+        {
+          "name": "Secondary",
+          "slug": "secondary",
+          "color": "#5a4252"
+        },
+        {
+          "name": "Dark",
+          "slug": "dark",
+          "color": "#0d0f05"
+        },
+        {
+          "name": "Light",
+          "slug": "light",
+          "color": "#ffffff"
+        },
+        {
+          "name": "Alt",
+          "slug": "alt",
+          "color": "#eee9e9"
+        },
+        {
+          "name": "Focus",
+          "slug": "focus",
+          "color": "#FFDD00"
+        }
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "system-ui, sans-serif",
+          "name": "System Font",
+          "slug": "system-font"
+        },
+        {
+          "fontFamily": "\"Söhne Dreiviertelfett\", sans-serif",
+          "name": "Söhne Dreiviertelfett",
+          "slug": "primary",
+          "fontFace": [
+            {
+              "fontFamily": "Söhne Dreiviertelfett",
+              "fontWeight": "700",
+              "fontStyle": "normal",
+              "fontDisplay": "fallback",
+              "src": [
+                "file:./dist/fonts/soehne/soehne-dreiviertelfett.woff2"
+              ]
+            }
+          ]
+        },
+        {
+          "fontFamily": "\"Söhne Halbfett\", sans-serif",
+          "name": "Söhne Halbfett",
+          "slug": "secondary",
+          "fontFace": [
+            {
+              "fontFamily": "Söhne Halbfett",
+              "fontWeight": "600",
+              "fontStyle": "normal",
+              "fontDisplay": "fallback",
+              "src": [
+                "file:./dist/fonts/soehne/soehne-halbfett.woff2"
+              ]
+            }
+          ]
+        },
+        {
+          "fontFamily": "\"Söhne Kraftig\", sans-serif",
+          "name": "Söhne Kraftig",
+          "slug": "tertertiary",
+          "fontFace": [
+            {
+              "fontFamily": "Söhne Kraftig",
+              "fontWeight": "500",
+              "fontStyle": "normal",
+              "fontDisplay": "fallback",
+              "src": [
+                "file:./dist/fonts/soehne/soehne-kraftig.woff2"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "custom": {
+      "typography": {
+        "letterSpacing": {
+          "body": "-0.01em",
+          "heading": "-0.02em",
+          "large": "0.01em",
+          "uppercase": "0"
+        },
+        "lineHeight": {
+          "body": "1.5",
+          "input": "1.25",
+          "heading": {
+            "sm": 1.25,
+            "lg": 1.05
+          }
+        }
+      },
+      "color": {
+        "background": "light-dark(var(--wp--preset--color--dark), var(--wp--preset--color--light))",
+        "text": "light-dark(var(--wp--preset--color--light), var(--wp--preset--color--dark))",
+        "border": "#666666",
+        "success": "#457c39",
+        "error": "#db2f27",
+        "disabled": "#999999"
+      }
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--custom--color--background)",
+      "text": "var(--wp--custom--color--text)"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--system-font)",
+      "fontWeight": "400"
+    }
+  }
+}

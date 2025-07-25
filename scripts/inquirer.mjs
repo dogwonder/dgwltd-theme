@@ -74,7 +74,6 @@ inquirer
                     message: 'How would you like to select content?',
                     choices: [
                       { name: 'Export all posts', value: 'all' },
-                      { name: 'Interactive selection (CLI guided)', value: 'interactive' },
                       { name: 'Filter by search term', value: 'search' },
                       { name: 'Filter by date range', value: 'date' },
                       { name: 'Filter by category', value: 'category' },
@@ -90,9 +89,7 @@ inquirer
                 // Build filtering options based on selection
                 let filterOptions = [];
                 
-                if (exportMode === 'interactive') {
-                  filterOptions.push('--interactive');
-                } else if (exportMode === 'search') {
+                if (exportMode === 'search') {
                   const searchAnswer = await inquirer.prompt([
                     {
                       type: 'input',
@@ -177,12 +174,6 @@ inquirer
                       name: 'excludeEmpty',
                       message: 'Exclude posts with empty content?',
                       default: false
-                    },
-                    {
-                      type: 'confirm',
-                      name: 'includeDependencies',
-                      message: 'Include media dependencies?',
-                      default: false
                     }
                   ]);
                   
@@ -191,7 +182,6 @@ inquirer
                   if (advancedAnswers.categories.trim()) filterOptions.push(`--category="${advancedAnswers.categories}"`);
                   if (advancedAnswers.tags.trim()) filterOptions.push(`--tag="${advancedAnswers.tags}"`);
                   if (advancedAnswers.excludeEmpty) filterOptions.push('--exclude-empty');
-                  if (advancedAnswers.includeDependencies) filterOptions.push('--include-dependencies');
                 }
 
                 // Ask about dry run
