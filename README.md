@@ -84,6 +84,10 @@ Similar to NHS [contents guide](https://www.nhs.uk/conditions/type-2-diabetes/) 
 
 Blog / posts list template
 
+### Styles browser
+
+Accessible via the Editor: `/wp-admin/site-editor.php?p=%2Fstyles&section=%2Fvariations`
+
 ## Tests
 
 To run tests (e.g. AXE)
