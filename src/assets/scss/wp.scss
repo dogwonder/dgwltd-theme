@@ -7,6 +7,7 @@
 :root {
 --wp--preset--color--primary: #FA008A;
 --wp--preset--color--secondary: #00E5E5;
+--wp--preset--color--accent-primary: #D60076;
 --wp--preset--color--accent-magenta: #C3006A;
 --wp--preset--color--accent-peach: #FFC3B9;
 --wp--preset--color--accent-purple: #9A00FA;
@@ -141,6 +142,9 @@ body {
     }
     .has-secondary-background-color {
         background-color:#00E5E5 !important;
+    }
+    .has-accent-primary-background-color {
+        background-color:#D60076 !important;
     }
     .has-accent-magenta-background-color {
         background-color:#C3006A !important;

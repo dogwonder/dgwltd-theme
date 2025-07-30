@@ -1,8 +1,6 @@
 //Accordion block
 .dgwltd-accordion {
-    .govuk-accordion {
-      margin: 0;
-    }
+     margin: 0;
     .govuk-accordion__section-header {
       border-color: var(--wp--custom--color--border);
     }
@@ -10,8 +8,10 @@
     .govuk-accordion__section-heading {
       margin: 0;
     }
-    .govuk-accordion__show-all, .govuk-accordion__section-toggle {
-      color: var(--wp--preset--color--primary);
+    .govuk-accordion-nav__chevron, 
+    .govuk-accordion__show-all-text, 
+    .govuk-accordion__section-toggle-text {
+      color: var(--wp--preset--color--accent-primary);
     }
     .govuk-accordion__section {
       padding: 0;

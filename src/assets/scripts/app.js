@@ -322,26 +322,29 @@
         
     };
 
-    const cardClick = (elem)=>{  
+    const cardClick = (elem) => {  
 
         const cardLinks = document.querySelectorAll(elem);
 
         if (!cardLinks) return;
 
         Array.prototype.forEach.call(cardLinks, function(card, i){
-
-            card.addEventListener("click", handleClick);
-
+            //Get the link from .kc-card__link FIRST
+            const link = card.querySelector('.dgwltd-card__link');
+            
+            // Skip if no link found
+            if (!link) return;
+            
             // Click handler but only if text is not selected
             function handleClick(event) {
                 const isTextSelected = window.getSelection().toString();
                 if (!isTextSelected) {
-                    window.location = card.dataset.url;
+                    window.location = link.href; 
                 }
             }
 
+            card.addEventListener("click", handleClick);
         });   
-        
     };
 
     class TextareaHandler {

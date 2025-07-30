@@ -22,6 +22,11 @@
 					"color": "#00E5E5"
 				},
 				{
+					"name": "Accent Primary", 
+					"slug": "accent-primary",
+					"color": "#D60076"
+				},
+				{
 					"name": "Accent Magenta", 
 					"slug": "accent-magenta",
 					"color": "#C3006A"
@@ -265,7 +270,7 @@
 				"character": "68ch"
 			}, 
 			"height": {
-				"input": "2.5rem"
+				"input": "2.75rem"
 			},
 			"color": {
 				"background": "light-dark(var(--wp--preset--color--alt), var(--wp--preset--color--dark))",
