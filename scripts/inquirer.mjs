@@ -26,16 +26,23 @@ inquirer
       // Note: `ddev` is included as part of the environment; remove it if not needed
       exec('ddev wp wptofile-types', (error, stdout, stderr) => {
         if (error) {
-          console.error(`Error: ${error.message}`);
+          console.error(`❌ Failed to get post types: ${error.message}`);
+          console.error('💡 Make sure DDEV is running and wp-to-file plugin is active');
           return;
         }
         if (stderr) {
-          console.error(`stderr: ${stderr}`);
+          console.error(`⚠️  Warning getting post types: ${stderr}`);
           return;
         }
 
         // Assuming the command returns post types as a newline-separated list
-        const postTypes = stdout.trim().split('\n');
+        const postTypes = stdout.trim().split('\n').filter(type => type.length > 0);
+
+        if (postTypes.length === 0) {
+          console.error('❌ No post types found. Please check your WordPress installation.');
+          return;
+        }
+        
         const fileTypes = ['md', 'html', 'json', 'csv', 'asciidoc'];
 
         // Step 2: Use Inquirer to let the user select a post type
@@ -74,6 +81,7 @@ inquirer
                     message: 'How would you like to select content?',
                     choices: [
                       { name: 'Export all posts', value: 'all' },
+                      { name: 'Use export profile', value: 'profile' },
                       { name: 'Filter by search term', value: 'search' },
                       { name: 'Filter by date range', value: 'date' },
                       { name: 'Filter by category', value: 'category' },
@@ -89,7 +97,24 @@ inquirer
                 // Build filtering options based on selection
                 let filterOptions = [];
                 
-                if (exportMode === 'search') {
+                if (exportMode === 'profile') {
+                  const profileAnswer = await inquirer.prompt([
+                    {
+                      type: 'list',
+                      name: 'profile',
+                      message: 'Select export profile:',
+                      choices: [
+                        { name: 'Blog posts (published, with featured images)', value: 'blog' },
+                        { name: 'All pages', value: 'pages' },
+                        { name: 'Documentation (published content)', value: 'docs' },
+                        { name: 'Migration (all content)', value: 'migration' },
+                        { name: 'Content audit (metadata focus)', value: 'audit' },
+                        { name: 'API export (structured data)', value: 'api' }
+                      ]
+                    }
+                  ]);
+                  filterOptions.push(`--profile="${profileAnswer.profile}"`);
+                } else if (exportMode === 'search') {
                   const searchAnswer = await inquirer.prompt([
                     {
                       type: 'input',
@@ -151,6 +176,17 @@ inquirer
                   const advancedAnswers = await inquirer.prompt([
                     {
                       type: 'input',
+                      name: 'postIds',
+                      message: 'Specific post IDs (comma-separated, optional):',
+                      validate: input => {
+                        if (!input.trim()) return true; // Optional field
+                        const ids = input.split(',').map(id => id.trim());
+                        const invalidIds = ids.filter(id => !/^\d+$/.test(id));
+                        return invalidIds.length === 0 || `Invalid post IDs: ${invalidIds.join(', ')}. Use only numbers.`;
+                      }
+                    },
+                    {
+                      type: 'input',
                       name: 'search',
                       message: 'Search term (optional):'
                     },
@@ -174,14 +210,22 @@ inquirer
                       name: 'excludeEmpty',
                       message: 'Exclude posts with empty content?',
                       default: false
+                    },
+                    {
+                      type: 'confirm',
+                      name: 'requireFeaturedImage',
+                      message: 'Only include posts with featured images?',
+                      default: false
                     }
                   ]);
                   
+                  if (advancedAnswers.postIds.trim()) filterOptions.push(`--post-ids="${advancedAnswers.postIds}"`);
                   if (advancedAnswers.search.trim()) filterOptions.push(`--search="${advancedAnswers.search}"`);
                   if (advancedAnswers.authors.trim()) filterOptions.push(`--authors="${advancedAnswers.authors}"`);
                   if (advancedAnswers.categories.trim()) filterOptions.push(`--category="${advancedAnswers.categories}"`);
                   if (advancedAnswers.tags.trim()) filterOptions.push(`--tag="${advancedAnswers.tags}"`);
                   if (advancedAnswers.excludeEmpty) filterOptions.push('--exclude-empty');
+                  if (advancedAnswers.requireFeaturedImage) filterOptions.push('--require-featured-image');
                 }
 
                 // Ask about dry run
@@ -219,13 +263,24 @@ inquirer
                 // Step 6: Execute the command
                 exec(command, (error, stdout, stderr) => {
                   if (error) {
-                    console.error(`❌ Error: ${error.message}`);
+                    console.error(`❌ Export failed: ${error.message}`);
+                    if (error.message.includes('wp: command not found')) {
+                      console.error('💡 Make sure DDEV is running and WP-CLI is available');
+                    } else if (error.message.includes('wptofile')) {
+                      console.error('💡 Make sure wp-to-file plugin is installed and active');
+                    }
                     return;
                   }
-                  if (stderr) {
-                    console.error(`⚠️  Warning: ${stderr}`);
+                  if (stderr && !stderr.includes('Warning')) {
+                    console.error(`⚠️  Export warning: ${stderr}`);
                   }
-                  console.log(`💫 Export completed:\n${stdout}`);
+                  
+                  if (dryRunAnswer.dryRun) {
+                    console.log(`🔍 Preview completed:\n${stdout}`);
+                  } else {
+                    console.log(`💫 Export completed successfully:\n${stdout}`);
+                    console.log(`📁 Files saved to: ${makeDir}`);
+                  }
                 });
               })
               .catch(error => {
