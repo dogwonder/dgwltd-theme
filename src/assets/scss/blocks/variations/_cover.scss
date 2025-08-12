@@ -1,8 +1,9 @@
 .dgwltd-block-cover {
-    //Align full
-    max-width: 100%;
-    grid-column: 1 / span 3 !important;
+    display: grid !important;
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
+    padding: 0 !important;
     .wp-block-cover__inner-container {
-        @extend %dgwltd-container;
+        grid-column: 2 / span 1;
     }
 }

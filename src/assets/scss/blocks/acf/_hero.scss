@@ -1,16 +1,11 @@
 //Hero block
 .dgwltd-hero {
-
-    display: flex;
+    @extend %align-full;
     justify-content: center;
     align-items: center;
     position: relative;
     background-color: var(--wp--preset--color--accent-peach);
     min-height: 25rem;
-
-    //Align full
-    max-width: 100%;
-    grid-column: 1 / span 3 !important;
 
     h1, h2 {
       @extend %dgwltd-heading-xl;
@@ -30,8 +25,8 @@
 
     &__wrapper {
       z-index:2;
-      @extend %dgwltd-container;
-      padding: var(--wp--custom--spacing--lg) var(--wp--custom--spacing--md);
+      grid-column: 2 / span 1;
+      padding-block: var(--wp--custom--spacing--md);
     }
 
     &.has-image {

@@ -2,18 +2,14 @@
 //Promo card block
 .dgwltd-promo-card {
 
-    //Always align full
-    max-width: 100%;
-    grid-column: 1 / span 3 !important;
+    @extend %align-full;
 
     &__wrapper {
         position: relative;
+        grid-column: 2 / span 1;
+        padding-block: var(--wp--custom--spacing--xl);
         //Create a new stacking context - allows the element we want to go to the back to be positioned relative to this
         isolation: isolate; 
-        //Width
-        @extend %dgwltd-container;
-        //Extra padding
-        padding-block: var(--wp--custom--spacing--xl);
     }
 
     &__inner {
@@ -31,8 +27,10 @@
         padding: var(--wp--custom--spacing--md);
         position: relative;
         z-index: 2;
+        --buffer: var(--wp--custom--spacing--sm);
         @include mq($from: lg) {
             max-width: var(--wp--custom--width--content-small);
+            padding-block: var(--wp--custom--spacing--lg);
             position: relative; 
         }
         .acf-innerblocks-container {

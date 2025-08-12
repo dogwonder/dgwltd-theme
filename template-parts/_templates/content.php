@@ -25,7 +25,6 @@ if ( class_exists( 'acf' ) ) {
 				<?php endif; ?>
 				</hgroup>
 		</div><!-- .entry-header -->
-		
 	<?php else : ?>
 		<div class="entry-header visually-hidden">
 			<?php echo do_blocks( '<!-- wp:post-title {"level":1,"className":"wp-block-post-title"} /-->' ); ?>

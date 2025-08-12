@@ -1,18 +1,13 @@
 //Banner block
 .dgwltd-banner {
 
-    //Align full
-    max-width: 100%;
-    grid-column: 1 / span 3 !important;
+    @extend %align-full;
 
     &.has-background, 
     &.has-image {
-      display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
-      grid-column: 2 / span 1;
-
       h2 {
         @extend %dgwltd-heading-lg;
       }
@@ -28,12 +23,8 @@
       .dgwltd-banner__wrapper {
         position: relative;
         z-index:2;
-        display: grid;
-        //Then create a subgrid
-        grid-template-columns: 1fr minmax(min-content, var(--wp--custom--width--container)) 1fr;
+        grid-column: 2 / span 1;
         .dgwltd-banner__inner {
-          //Snap back to our container
-          grid-column: 2 / span 1;
           padding-block:var(--wp--custom--spacing--lg);
         }
       }

@@ -1,30 +1,12 @@
 <?php 
 $social = get_field('social_links', 'options');
-//Check to see if the repeater field has rows of data
-if( have_rows('social_links', 'options') ):
-    // loop through the rows of data
-    while ( have_rows('social_links', 'options') ) : the_row();
-        // display a sub field value
-        $bluesky = $social['bluesky_link'];
-        $facebook = $social['facebook_link'];
-        $github = $social['github_link'];
-        $instagram = $social['instagram_link'];
-        $linkedin = $social['linkedin_link'];
-        $mastodon = $social['mastodon_link'];
-        $tiktok = $social['tiktok_link'];
-        $youtube = $social['youtube_link'];        
-    endwhile;
-else :
-    $bluesky = '';
-    $facebook = '';
-    $github = '';
-    $instagram = '';
-    $linkedin = '';
-    $mastodon = '';
-    $tiktok = '';
-    $youtube = '';
-    // no rows found
-endif;
+$bluesky = $social['bluesky_link'] ?? '';
+$facebook = $social['facebook_link'] ?? '';
+$github = $social['github_link'] ?? '';
+$instagram = $social['instagram_link'] ?? '';
+$linkedin = $social['linkedin_link'] ?? '';
+$tiktok = $social['tiktok_link'] ?? '';
+$youtube = $social['youtube_link'] ?? '';        
 ?>
 <ul class="dgwltd-footer__social-links dgwltd-footer__inline-list">
 
@@ -73,16 +55,6 @@ endif;
         <a href="<?php echo ($linkedin ? $linkedin : 'https://www.linkedin.com/'); ?>" rel="external" aria-label="Visit our Linkedin profile">
             <svg aria-hidden="true" focusable="false" class="icon icon-social icon-social__linkedin">
             <use xlink:href="#social-linkedin" />
-            </svg>
-        </a>
-    </li>
-    <?php endif; ?>
-
-    <?php if($mastodon) : ?>
-    <li>
-        <a href="<?php echo $mastodon; ?>" rel="external" aria-label="Visit our Mastodon profile">
-            <svg aria-hidden="true" focusable="false" class="icon icon-social icon-social__mastodon">
-            <use xlink:href="#social-mastodon" />
             </svg>
         </a>
     </li>

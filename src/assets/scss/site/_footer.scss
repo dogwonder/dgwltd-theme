@@ -15,7 +15,6 @@
   ul li,
   p:not([class*="dgwltd-heading"]) {
     @extend %dgwltd-body-sm;
-    color: white;
   }
 
   &__section {
@@ -39,9 +38,7 @@
 
   //Social links nav
   &__social {
-    @include mq($from: lg) {
-      margin-inline-start: auto;
-    }
+    
   }
 
   &__social-links {
@@ -77,7 +74,7 @@
       height: 30px;
       margin:0;
       display: block;
-      fill: white;
+      fill: var(--wp--custom--color--background);
     }
   }
 
@@ -89,7 +86,6 @@
     margin: 0;
     .menu-item {
       @extend %dgwltd-body-sm;
-      color: white;
       display: block;
       @include mq($from: lg) {
         display: inline-block;
@@ -145,12 +141,6 @@
     .dgwltd-footer__copyright, 
     .menu-item {
       @extend %dgwltd-body-xs;
-    }
-  }
-
-  &__switcher {
-    @include mq($until: lg) {
-      margin-block-start: var(--wp--custom--spacing--sm);
     }
   }
 

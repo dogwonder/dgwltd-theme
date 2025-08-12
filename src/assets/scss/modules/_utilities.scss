@@ -131,6 +131,14 @@ Can be any acceptable flexbox alignment value.
   justify-content: space-between;
 }
 
+//Align full using subgrid
+.align-full, 
+%align-full {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+}
+
 //Sidebar - based on Every Layout
 :has(> .sidebar) {
   display: flex;
