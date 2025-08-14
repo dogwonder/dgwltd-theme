@@ -1,17 +1,21 @@
+
 .dgwltd-nav {
     z-index: $z-low;
     display: flex;
     
     .dgwltd-menu {
       margin:0;
-      padding: 0;
+      padding: var(--wp--custom--spacing--sm);
       display: flex;
       flex-direction: column;
+      gap: var(--wp--custom--spacing--sm);
+
       @include mq($from: lg) {
         flex: 1;
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
+        padding: 0;
       }
       .menu-item {
         list-style-type: none;
@@ -20,17 +24,18 @@
         text-align: left;
         position: relative;
         padding: 0;
-        margin: 0 0 var(--wp--custom--spacing--sm);
+        margin: 0;
         @include mq($until: lg) {
           font-size: var(--wp--preset--font-size--xl);
+          line-height: var(--button-height);
           &.current-menu-item > a, 
           &.current-page-ancestor > a {
-            width: calc(100% - 80px) !important;
+            width: calc(100% - var(--button-height)) !important;
           }
           .button-show-subnav {
             position: absolute;
-            height: 50px;
-            width: 80px;
+            height: 2.5rem;
+            width: 2.5rem;
             right: 0;
             top: 0;
             display: flex;
@@ -49,8 +54,8 @@
               height: 0;
               width: 1ex;
               height: 1ex;
-              border-bottom: 3px solid #fff;
-              border-right: 3px solid #fff;
+              border-bottom: 3px solid var(--wp--preset--color--light);
+              border-right: 3px solid var(--wp--preset--color--light);
               transform: rotate(45deg);
               margin: 0 auto;
             }
@@ -58,8 +63,8 @@
               &:after {
                 border-bottom: transparent;
                 border-right: transparent;
-                border-top: 3px solid #fff;
-                border-left: 3px solid #fff;
+                border-top: 3px solid var(--wp--preset--color--light);
+                border-left: 3px solid var(--wp--preset--color--light);
               }
             }
             @include mq($until: lg) {
@@ -68,18 +73,18 @@
                   content: "";
                   display: block;
                   border-radius: 50%;
-                  border: 1px solid #fff;
-                  width: 40px;
-                  height: 40px;
+                  border: 1px solid var(--wp--preset--color--light);
+                  width: var(--button-height);
+                  height: var(--button-height);
               }
               &:after {
                 position: absolute;
-                top: 14px;
-                right: 32px;
+                top: 10px;
+                right: 14px;
               }
               &[aria-expanded="true"] {
                 &:after {
-                  top: 21px;
+                  top: 16px;
                 }
               }
             }
@@ -94,7 +99,6 @@
         }
         @include mq($from: lg) {
           line-height: $nav-height;
-          margin: 0 var(--wp--custom--spacing--sm) 0 0;
           .button-show-subnav {
             display: none;
           }
@@ -117,13 +121,12 @@
         a {
           display: inline-block;
           text-decoration: none;
-          padding:var(--wp--custom--spacing--sm) var(--wp--custom--spacing--md);
+          padding: 0;
           width: 100%;
           @include mq($until: lg) {
             color: var(--wp--preset--color--light);
           }
           @include mq($from: lg) {
-            padding:0 var(--wp--custom--spacing--md);
             padding:0 var(--wp--custom--spacing--sm);
             margin:0;
           }
@@ -144,7 +147,6 @@
             }
           }
         }
-  
   
         // Use a different one to .current-menu-item so we can toggle it in the mobile view
         &.current_page_item, 
@@ -191,6 +193,8 @@
             display: block;
             @include mq($from: lg) {
               display: flex;
+              flex-direction: column;
+              gap: var(--wp--custom--spacing--sm);
             }
           }
         }
@@ -233,12 +237,16 @@
       .sub-menu {
         display: none;
         @include mq($until: lg) {
-          margin: var(--wp--custom--spacing--sm) 0 var(--wp--custom--spacing--md) var(--wp--custom--spacing--sm);
+          margin: var(--wp--custom--spacing--sm) 0 0;
+          padding: 0;
           li {
-            line-height: var(--wp--custom--typography--line-height--body);
-            margin: 0;
+            margin: 0 0 var(--wp--custom--spacing--sm);
+            padding: 0;
+            &:last-of-type {
+                margin: 0;
+            }
             a {
-              padding-block: 0;
+              padding: 0;
             }
           }
         }
