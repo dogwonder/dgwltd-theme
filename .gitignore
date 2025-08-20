@@ -50,3 +50,9 @@ cypress/videos/
 
 node_modules
 .env
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

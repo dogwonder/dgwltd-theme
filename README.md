@@ -90,11 +90,9 @@ Accessible via the Editor: `/wp-admin/site-editor.php?p=%2Fstyles&section=%2Fvar
 
 ## Tests
 
-To run tests (e.g. AXE)
-
-`npm run tests`
-`node_modules/.bin/cypress open`
-`node_modules/.bin/cypress install`
+npx playwright test
+npx playwright test --ui
+npx playwright test a11y
 
 ## Versioning
 

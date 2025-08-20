@@ -19,9 +19,7 @@
     "watch:eleventy": "npx eleventy --serve",
     "watch:scripts": "onchange \"./src/assets/scripts/**/*.js\" -- npm run scripts:concat",
     "watch": "run-p watch:*",
-    "tests:dev": "RUN_LOCALLY=true cypress run",
     "tests:prod": "cypress run",
-    "cypress:run:sw": "RUN_LOCALLY=true cypress run --spec 'cypress/e2e/sw.cy.js'",
     "cms": "npx tinacms dev -c \"npm run watch\"",
     "favicon": "node ./scripts/favicon.js",
     "inquirer": "node ./scripts/inquirer.mjs",
@@ -37,6 +35,7 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.1",
     "@11ty/font-awesome": "^1.0.0-beta.1",
     "@11ty/import": "^1.0.15",
+    "@axe-core/playwright": "^4.10.2",
     "autoprefixer": "^10.4.21",
     "concat": "^1.0.3",
     "concurrently": "^9.2.0",
@@ -60,18 +59,13 @@
     "uglify-js": "^3.19.3"
   },
   "devDependencies": {
-    "@cypress-audit/lighthouse": "^1.4.2",
+    "@playwright/test": "^1.54.2",
     "@tinacms/cli": "^1.9.9",
     "@types/node": "^24.0.4",
-    "axe-core": "^4.10.3",
-    "cypress": "^14.5.0",
-    "cypress-audit": "^1.1.0",
-    "cypress-axe": "^1.6.0",
-    "cypress-puppeteer-plugin": "^1.0.1",
+    "http-server": "^14.1.1",
     "inquirer": "^12.6.3",
-    "mochawesome": "^7.1.3",
+    "playwright-lighthouse": "^4.0.0",
     "prettier": "3.6.1",
-    "puppeteer": "^24.10.2",
     "tinacms": "^2.7.9"
   }
 }

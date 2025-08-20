@@ -22,6 +22,6 @@
 
 //3 col grid
 .grid[data-rows='3-col'] {
-  --grid-placement: auto-fit: 
+  --grid-placement: auto-fit;
   --grid-min-item-size: clamp(8rem, 33%, 16rem);
 }
