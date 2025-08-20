@@ -19,7 +19,6 @@
     "watch:eleventy": "npx eleventy --serve",
     "watch:scripts": "onchange \"./src/assets/scripts/**/*.js\" -- npm run scripts:concat",
     "watch": "run-p watch:*",
-    "tests:prod": "cypress run",
     "cms": "npx tinacms dev -c \"npm run watch\"",
     "favicon": "node ./scripts/favicon.js",
     "inquirer": "node ./scripts/inquirer.mjs",
@@ -35,7 +34,6 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.1",
     "@11ty/font-awesome": "^1.0.0-beta.1",
     "@11ty/import": "^1.0.15",
-    "@axe-core/playwright": "^4.10.2",
     "autoprefixer": "^10.4.21",
     "concat": "^1.0.3",
     "concurrently": "^9.2.0",
@@ -59,6 +57,7 @@
     "uglify-js": "^3.19.3"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
     "@playwright/test": "^1.54.2",
     "@tinacms/cli": "^1.9.9",
     "@types/node": "^24.0.4",
