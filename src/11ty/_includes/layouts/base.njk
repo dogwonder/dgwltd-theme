@@ -77,6 +77,7 @@
     </div>
     <!-- This page `{{ page.url | htmlBaseUrl }}` was built on {% currentBuildDate %} -->
     <script type="module" src="{% getBundleFileUrl "js" %}"></script>
+    <script type="module" src="{{ "./js/app.min.js" | htmlBaseUrl }}"></script>
     {% getBundle "fontawesome" %}
   </body>
 </html>

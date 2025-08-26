@@ -1,4 +1,6 @@
 //WP entry-content e.g. posts
+@use "sass:math";
+
 .entry-content {
   //Hide empty paragraphs
   p:empty {
@@ -49,6 +51,14 @@
       padding-block: var(--wp--custom--spacing--xs);
       color: var(--wp--custom--color--text);
       contain: inline-size;
+    }
+    video {
+      aspect-ratio: var(--aspect-ratio, var(--vertical-aspect-ratio, math.div(9, 16)));
+    }
+    @media (min-aspect-ratio: 1 / 1) {
+      video {
+        --aspect-ratio: var(--horizontal-aspect-ratio, 16 / 9);
+      }
     }
     &.alignleft, 
     &.alignright, 

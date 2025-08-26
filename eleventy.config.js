@@ -26,7 +26,6 @@ export default async function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({"src/assets/fonts": "fonts"});
   eleventyConfig.addPassthroughCopy({"src/assets/icons/": "icons"});
   eleventyConfig.addPassthroughCopy({"src/assets/images/": "images"});
-  eleventyConfig.addPassthroughCopy({"src/assets/js/": "js"});
   eleventyConfig.addPassthroughCopy({"src/vendor/js/": "js"});
   eleventyConfig.addPassthroughCopy({"src/vendor/css/": "css"});
 

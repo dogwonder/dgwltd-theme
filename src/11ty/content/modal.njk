@@ -1,0 +1,36 @@
+---
+title: 'DGW.ltd'
+layout: 'layouts/base.njk'
+permalink: './modal.html'
+eleventyNavigation:
+  key: Home
+---
+
+{%- css %}{% endcss %}
+
+{% js %}
+console.log('Hello world!');
+{% endjs %}
+
+<h1>Hello world!</h1>
+
+<h2>Popover</h2>
+<button popovertarget="dgwltd-popover">
+	Open Dialog
+</button>
+<dialog id="dgwltd-popover" popover>
+	Incididunt veniam veniam, et ea. Et ea aute eiusmo.
+</dialog>
+
+<hr />
+
+<h2>Modal - via Invoker Command API</h2>
+<button 
+	command="show-modal"
+	commandfor="dgwltd-modal"
+>
+	Open Dialog
+</button>
+<dialog id="dgwltd-modal">
+	Laboris in tempor elit. Tempor elit dolore excepteur laboris incididunt adipiscing, proident. Excepteur laboris incididunt adipiscing. Incididunt adipiscing proident sunt voluptate ad. Proident, sunt voluptate ad magna fugiat. Ad, magna fugiat veniam nulla. Veniam nulla consequat exercitation. Consequat exercitation labore non.
+</dialog>
