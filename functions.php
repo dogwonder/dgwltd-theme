@@ -126,6 +126,9 @@ remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
 remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 remove_action( 'admin_print_styles', 'print_emoji_styles' );
+// Remove 'Available to install' external block directory
+remove_action("enqueue_block_editor_assets", "wp_enqueue_editor_block_directory_assets");
+remove_action("enqueue_block_editor_assets", "gutenberg_enqueue_block_editor_assets_block_directory");
 
 // Disable all XML-RPC functionality
 if (!function_exists("dgwltd_disable_x_pingback")) :

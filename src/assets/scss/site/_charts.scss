@@ -1,0 +1,20 @@
+@use "sass:list";
+@use "sass:map";
+
+.dgwltd-status-bar {
+}
+
+.dgwltd-chart {
+    font-family: var(--wp--preset--font-family--charts);
+    font-size: 5rem;
+    line-height: 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-feature-settings: "dlig" on;
+    font-feature-settings: "dlig" on;  
+    span {
+        color: var(--fuel-color, var(--wp--preset--color--primary));
+        &.chart-ring {
+            color: white;
+        }
+    }
+}

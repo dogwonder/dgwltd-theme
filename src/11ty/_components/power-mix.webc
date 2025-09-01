@@ -1,0 +1,54 @@
+<script webc:type="js">
+export default function(data) {
+  let generationMix = [];
+  try {
+    generationMix = JSON.parse(data?.generationData || '[]');
+  } catch (e) {
+    generationMix = [];
+  }
+  
+  const filteredMix = generationMix
+    .filter(fuel => fuel.perc > 0)
+    .sort((a, b) => b.perc - a.perc);
+
+  const mixData = filteredMix.map(fuel => `${fuel.fuel}:${fuel.perc}`).join(',');
+  const renewable = filteredMix
+    .filter(fuel => ['wind', 'solar', 'hydro'].includes(fuel.fuel))
+    .reduce((sum, fuel) => sum + fuel.perc, 0);
+
+  const fuelColors = {
+    'wind': '#9bdb5e',
+    'solar': '#eedc30', 
+    'nuclear': '#189aca',
+    'gas': '#ec994d',
+    'coal': '#000000',
+    'biomass': '#8b4513',
+    'hydro': '#0066cc',
+    'imports': '#555555',
+    'other': '#cccccc'
+  };
+
+  let cumulativePerc = 0;
+  const spans = filteredMix.map((fuel, index) => {
+    const content = index === 0 
+      ? `${fuel.perc}+` 
+      : `${fuel.perc}_${cumulativePerc.toFixed(1)}+`;
+    
+    const span = `<span 
+      data-fuel="${fuel.fuel}" 
+      aria-label="${fuel.fuel}: ${fuel.perc}%"
+      style="--fuel-color: ${fuelColors[fuel.fuel] || '#cccccc'}; --fuel-percentage: ${fuel.perc}; --cumulative-percentage: ${cumulativePerc};">${content}</span>`;
+    
+    cumulativePerc += fuel.perc;
+    return span;
+  }).join('');
+
+  return `<dgw-gaw-power-mix 
+    data-gaw-location="UK" 
+    data-gaw-mix="${mixData}" 
+    data-renewable-percentage="${Math.round(renewable)}">
+    <div class="dgwltd-chart">${spans}<span class="chart-ring">+x20</span></div>
+    <span class="dgwltd-body-xs">${Math.round(renewable)}% renewable</span>
+</dgw-gaw-power-mix>`;
+}
+</script>

@@ -1,0 +1,2 @@
+
+<power-mix generation-data="[{&quot;fuel&quot;:&quot;biomass&quot;,&quot;perc&quot;:2.1},{&quot;fuel&quot;:&quot;coal&quot;,&quot;perc&quot;:0},{&quot;fuel&quot;:&quot;imports&quot;,&quot;perc&quot;:6.7},{&quot;fuel&quot;:&quot;gas&quot;,&quot;perc&quot;:10.2},{&quot;fuel&quot;:&quot;nuclear&quot;,&quot;perc&quot;:10.9},{&quot;fuel&quot;:&quot;other&quot;,&quot;perc&quot;:0},{&quot;fuel&quot;:&quot;hydro&quot;,&quot;perc&quot;:0},{&quot;fuel&quot;:&quot;solar&quot;,&quot;perc&quot;:18.4},{&quot;fuel&quot;:&quot;wind&quot;,&quot;perc&quot;:51.8}]"></power-mix>

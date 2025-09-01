@@ -158,6 +158,20 @@
 					]
 				},
 				{
+					"fontFamily": "\"Chartwell Pies\", sans-serif",
+					"name": "Chartwell Pies",
+					"slug": "charts", 
+					"fontFace": [
+						{
+							"fontFamily": "Chartwell Pies",
+							"fontWeight": "normal",
+							"fontStyle": "normal",
+							"fontDisplay": "fallback",
+							"src": [ "file:./dist/fonts/chartwell/Chartwell-Pies.woff2" ]
+						}
+					]
+				},
+				{
 					"fontFamily": "monospace",
 					"name": "Monospace",
 					"slug": "monospace"

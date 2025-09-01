@@ -3,6 +3,7 @@ import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginNavigation from "@11ty/eleventy-navigation";
 import fontAwesomePlugin from "@11ty/font-awesome";
 import { eleventyImageTransformPlugin } from '@11ty/eleventy-img';
+import pluginWebc from "@11ty/eleventy-plugin-webc";
 
 //Other plugins and utils
 import { readFile } from 'fs/promises';
@@ -38,6 +39,7 @@ export default async function(eleventyConfig) {
 
   // Add theme settings to Eleventy global data
   eleventyConfig.addGlobalData('theme', themeJSON);
+  
 
   //Add bundler bundles
   eleventyConfig.addBundle("css", {
@@ -56,6 +58,11 @@ export default async function(eleventyConfig) {
 	eleventyConfig.addPlugin(HtmlBasePlugin);
   eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
   eleventyConfig.addPlugin(fontAwesomePlugin);
+  eleventyConfig.addPlugin(pluginWebc, {
+    components: "src/11ty/_components/**/*.webc",
+    useTransform: true,
+    globalData: true
+  });
   
   // The Id Attribute plugin adds id attributes to headings on your page 
   eleventyConfig.addPlugin(IdAttributePlugin, {

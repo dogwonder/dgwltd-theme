@@ -1,0 +1,19 @@
+<script webc:type="js">
+export default function(data) {
+  const currentIntensity = parseInt(data?.currentIntensity || '150') || 150;
+  
+  let level = 'unknown';
+  if (currentIntensity < 100) level = 'low';
+  else if (currentIntensity <= 250) level = 'moderate';
+  else level = 'high';
+
+  return `<dgw-gaw-info-bar 
+    data-gaw-level="${level}" 
+    data-gaw-location="GB" 
+    data-gaw-intensity="${currentIntensity}">
+    <span class="dgwltd-body-xs">
+      Grid intensity: ${currentIntensity} gCO2/kWh (${level})
+    </span>
+  </dgw-gaw-info-bar>`;
+}
+</script>

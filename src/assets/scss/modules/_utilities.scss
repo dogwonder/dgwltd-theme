@@ -123,7 +123,8 @@ Can be any acceptable flexbox alignment value.
 }
 
 //Flex push items apart
-.repel {
+.repel, 
+%repel {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
@@ -137,6 +138,13 @@ Can be any acceptable flexbox alignment value.
   display: grid;
   grid-template-columns: subgrid;
   grid-column: 1 / -1;
+}
+
+.flex-center, 
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 //Sidebar - based on Every Layout

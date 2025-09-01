@@ -1,5 +1,7 @@
 import "invokers-polyfill";
 import "./share.js"; 
+// import "../../../node_modules/@11ty/is-land/is-land.js"; 
+import { initializeCarbonComponents } from './components/carbon-components.js';
 
 const desktopWidth = 992;
 
@@ -172,6 +174,7 @@ export const cardClick = elem => {
   });
 };
 
+
 export class TextareaHandler {
   constructor(elem) {
     document.querySelectorAll(elem).forEach(textarea => {
@@ -231,4 +234,5 @@ document.addEventListener("DOMContentLoaded", () => {
   subMenu('#nav-primary', '#masthead');
   cardClick('.dgwltd-card');
   new TextareaHandler('textarea');
+  initializeCarbonComponents();
 });

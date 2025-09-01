@@ -11,6 +11,7 @@ permalink: '../src/assets/scss/modules/_tokens.scss'
   --logo: {% calculateClamp 384, 1280, minWidth, maxWidth %}
   --title: {% calculateClamp 28, 44, minWidth, maxWidth %}
   --text: {% calculateClamp 32, 48, minWidth, maxWidth %}
+  --image {% calculateClamp 120, 220, minWidth, maxWidth %}
 
   /*Utopia generated tokens*/
   {%- for size in utopia.resultsSpace %}

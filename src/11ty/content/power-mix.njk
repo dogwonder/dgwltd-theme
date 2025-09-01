@@ -1,0 +1,6 @@
+---
+layout: 'layouts/component.njk'
+permalink: './power-mix.php'
+---
+{% set generationMix = carbonData.generation.data.generationmix or [] %}
+<power-mix generation-data="{{ generationMix | dump }}"></power-mix>

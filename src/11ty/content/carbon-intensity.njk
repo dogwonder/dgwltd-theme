@@ -1,0 +1,7 @@
+---
+layout: 'layouts/component.njk'
+permalink: './carbon-intensity.php'
+---
+
+{% set intensityValue = carbonData.intensity.data[0].intensity.actual or carbonData.intensity.data[0].intensity.forecast or 150 %}
+<carbon-intensity current-intensity="{{ intensityValue }}"></carbon-intensity>
