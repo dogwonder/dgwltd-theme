@@ -1,15 +1,44 @@
 <?php
+// Helper functions
+function dgwltd_get_selected_dates() {
+    if (isset($_GET['cal_dates']) && is_array($_GET['cal_dates'])) {
+        return array_map('sanitize_text_field', $_GET['cal_dates']);
+    }
+    if (isset($_POST['selected_dates']) && is_array($_POST['selected_dates'])) {
+        return array_map('sanitize_text_field', $_POST['selected_dates']);
+    }
+    return array();
+}
+
+function dgwltd_get_dates_from_other_months($existing_dates, $year, $month) {
+    $month_prefix = sprintf('%04d-%02d-', $year, $month);
+    return array_filter($existing_dates, function($date) use ($month_prefix) {
+        return !str_starts_with($date, $month_prefix);
+    });
+}
+
+function dgwltd_format_dates_for_display($dates) {
+    $formatted = array();
+    foreach ($dates as $date) {
+        $timestamp = strtotime($date);
+        if ($timestamp) {
+            $formatted[] = date('jS F', $timestamp);
+        }
+    }
+    return $formatted;
+}
+
+function dgwltd_calculate_nav_month($current_month, $current_year, $direction) {
+    if ($direction === 'prev') {
+        return $current_month === 1 ? [12, $current_year - 1] : [$current_month - 1, $current_year];
+    }
+    return $current_month === 12 ? [1, $current_year + 1] : [$current_month + 1, $current_year];
+}
+
 // Get current month and year
 $current_month = isset($_GET['cal_month']) ? intval($_GET['cal_month']) : date('n');
 $current_year = isset($_GET['cal_year']) ? intval($_GET['cal_year']) : date('Y');
-
-// Get selected dates from URL parameters or POST data
-$selected_dates = array();
-if (isset($_GET['cal_dates']) && is_array($_GET['cal_dates'])) {
-    $selected_dates = array_map('sanitize_text_field', $_GET['cal_dates']);
-} elseif (isset($_POST['selected_dates']) && is_array($_POST['selected_dates'])) {
-    $selected_dates = array_map('sanitize_text_field', $_POST['selected_dates']);
-}
+$selected_dates = dgwltd_get_selected_dates();
 
 // Calendar generation
 $first_day = mktime(0, 0, 0, $current_month, 1, $current_year);
@@ -18,30 +47,19 @@ $month_name = date('F Y', $first_day);
 $start_day = date('w', $first_day); // 0 = Sunday, 6 = Saturday
 
 // Navigation logic
-$prev_month = $current_month - 1;
-$prev_year = $current_year;
-if ($prev_month < 1) {
-    $prev_month = 12;
-    $prev_year = $current_year - 1;
-}
-
-$next_month = $current_month + 1;
-$next_year = $current_year;
-if ($next_month > 12) {
-    $next_month = 1;
-    $next_year = $current_year + 1;
-}
+[$prev_month, $prev_year] = dgwltd_calculate_nav_month($current_month, $current_year, 'prev');
+[$next_month, $next_year] = dgwltd_calculate_nav_month($current_month, $current_year, 'next');
 
 // Base URL for navigation (preserve selected dates)
-$base_url = remove_query_arg(array('cal_month', 'cal_year'), $_SERVER['REQUEST_URI']);
+$base_url = remove_query_arg(['cal_month', 'cal_year'], $_SERVER['REQUEST_URI']);
 
 // Previous/next month URLs (preserve selected dates)
-$prev_url = add_query_arg(array('cal_month' => $prev_month, 'cal_year' => $prev_year), $base_url);
-$next_url = add_query_arg(array('cal_month' => $next_month, 'cal_year' => $next_year), $base_url);
+$prev_url = add_query_arg(['cal_month' => $prev_month, 'cal_year' => $prev_year], $base_url);
+$next_url = add_query_arg(['cal_month' => $next_month, 'cal_year' => $next_year], $base_url);
 
 // Year navigation
-$current_actual_year = date('Y');
-$year_range = range($current_actual_year - 1, $current_actual_year + 1);
+$today_year = date('Y');
+$year_range = range($today_year - 1, $today_year + 1);
 ?>
 
 
@@ -70,16 +88,7 @@ $year_range = range($current_actual_year - 1, $current_actual_year + 1);
                     </div>
                     <div class="govuk-notification-banner__content">
                         <h3 class="govuk-notification-banner__heading">
-                            Selected dates: <?php 
-                            $formatted_dates = array();
-                            foreach ($selected_dates as $date) {
-                                $timestamp = strtotime($date);
-                                if ($timestamp) {
-                                    $formatted_dates[] = date('jS F', $timestamp);
-                                }
-                            }
-                            echo esc_html(implode(', ', $formatted_dates));
-                            ?>
+                            Selected dates: <?php echo esc_html(implode(', ', dgwltd_format_dates_for_display($selected_dates))); ?>
                         </h3>
                     </div>
                 </div>
@@ -88,13 +97,12 @@ $year_range = range($current_actual_year - 1, $current_actual_year + 1);
             <div class="dgwltd-calendar-grid">
                 <!-- Day headers -->
                 <div class="dgwltd-calendar-header">
-                    <span class="dgwltd-calendar-day-header has-lg-font-size">Sun</span>
-                    <span class="dgwltd-calendar-day-header has-lg-font-size">Mon</span>
-                    <span class="dgwltd-calendar-day-header has-lg-font-size">Tue</span>
-                    <span class="dgwltd-calendar-day-header has-lg-font-size">Wed</span>
-                    <span class="dgwltd-calendar-day-header has-lg-font-size">Thu</span>
-                    <span class="dgwltd-calendar-day-header has-lg-font-size">Fri</span>
-                    <span class="dgwltd-calendar-day-header has-lg-font-size">Sat</span>
+                    <?php 
+                    $day_headers = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                    foreach ($day_headers as $day) {
+                        echo '<span class="dgwltd-calendar-day-header has-lg-font-size">' . esc_html($day) . '</span>';
+                    }
+                    ?>
                 </div>
 
                 <!-- Calendar days -->
@@ -146,7 +154,7 @@ $year_range = range($current_actual_year - 1, $current_actual_year + 1);
         <ul class="govuk-pagination__list">
             <?php foreach ($year_range as $year) : 
                 $is_current = ($year == $current_year);
-                $year_url = add_query_arg(array('cal_year' => $year, 'cal_month' => ($is_current ? $current_month : 1)), $base_url);
+                $year_url = add_query_arg(['cal_year' => $year, 'cal_month' => ($is_current ? $current_month : 1)], $base_url);
             ?>
                 <li class="govuk-pagination__item <?php echo $is_current ? 'govuk-pagination__item--current' : ''; ?>">
                     <?php if ($is_current) : ?>
@@ -207,51 +215,33 @@ $year_range = range($current_actual_year - 1, $current_actual_year + 1);
 <?php
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && wp_verify_nonce($_POST['calendar_nonce'], 'calendar_selection')) {
+    $base_redirect_url = remove_query_arg(['cal_dates'], $_SERVER['REQUEST_URI']);
+    
     if (isset($_POST['clear_selection'])) {
-        // Redirect to clear selection
-        $redirect_url = remove_query_arg(array('cal_dates'), $_SERVER['REQUEST_URI']);
-        wp_redirect($redirect_url);
-        exit;
-    } elseif (isset($_POST['selected_dates']) && is_array($_POST['selected_dates'])) {
-        // Merge form dates (current month) with existing dates from other months
-        $form_dates = array_map('sanitize_text_field', $_POST['selected_dates']);
-        $existing_dates = isset($_GET['cal_dates']) && is_array($_GET['cal_dates']) 
-            ? array_map('sanitize_text_field', $_GET['cal_dates']) 
-            : array();
-        
-        // Filter out existing dates from current month (form replaces these)
-        $current_month_prefix = sprintf('%04d-%02d-', $current_year, $current_month);
-        $dates_from_other_months = array_filter($existing_dates, function($date) use ($current_month_prefix) {
-            return !str_starts_with($date, $current_month_prefix);
-        });
-        
-        // Combine other months' dates with current month's form selection
-        $all_dates = array_merge($dates_from_other_months, $form_dates);
-        
-        $base_redirect_url = remove_query_arg(array('cal_dates'), $_SERVER['REQUEST_URI']);
-        $redirect_url = add_query_arg('cal_dates', $all_dates, $base_redirect_url);
-        wp_redirect($redirect_url);
-        exit;
-    } else {
-        // No dates selected in current month - preserve dates from other months only
-        $existing_dates = isset($_GET['cal_dates']) && is_array($_GET['cal_dates']) 
-            ? array_map('sanitize_text_field', $_GET['cal_dates']) 
-            : array();
-            
-        // Filter out existing dates from current month
-        $current_month_prefix = sprintf('%04d-%02d-', $current_year, $current_month);
-        $dates_from_other_months = array_filter($existing_dates, function($date) use ($current_month_prefix) {
-            return !str_starts_with($date, $current_month_prefix);
-        });
-        
-        $base_redirect_url = remove_query_arg(array('cal_dates'), $_SERVER['REQUEST_URI']);
-        if (!empty($dates_from_other_months)) {
-            $redirect_url = add_query_arg('cal_dates', $dates_from_other_months, $base_redirect_url);
-        } else {
-            $redirect_url = $base_redirect_url;
-        }
-        wp_redirect($redirect_url);
+        wp_redirect($base_redirect_url);
         exit;
     }
+    
+    // Get current form dates and existing URL dates
+    $form_dates = isset($_POST['selected_dates']) && is_array($_POST['selected_dates']) 
+        ? array_map('sanitize_text_field', $_POST['selected_dates']) 
+        : [];
+    $existing_url_dates = isset($_GET['cal_dates']) && is_array($_GET['cal_dates']) 
+        ? array_map('sanitize_text_field', $_GET['cal_dates']) 
+        : [];
+    
+    // Preserve dates from other months
+    $dates_from_other_months = dgwltd_get_dates_from_other_months($existing_url_dates, $current_year, $current_month);
+    
+    // Combine with current month's selection
+    $final_dates = array_merge($dates_from_other_months, $form_dates);
+    
+    // Redirect with final selection or clean URL if no dates
+    $redirect_url = !empty($final_dates) 
+        ? add_query_arg('cal_dates', $final_dates, $base_redirect_url)
+        : $base_redirect_url;
+        
+    wp_redirect($redirect_url);
+    exit;
 }
 ?>
