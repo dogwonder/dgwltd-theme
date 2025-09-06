@@ -185,7 +185,7 @@ $year_range = range($today_year - 1, $today_year + 1);
 
         <div class="dgwltd-calendar__actions govuk-button-group">
             <button type="submit" class="govuk-button" data-module="govuk-button">
-                Confirm dates
+                Select dates
             </button>
             
             <?php if (!empty($selected_dates)) : ?>
@@ -249,11 +249,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && wp_verify_nonce($_POST['calendar_no
     
     // Combine with current month's selection
     $final_dates = array_merge($dates_from_other_months, $form_dates);
-    
-    // Redirect with final selection or clean URL if no dates
+
     $redirect_url = !empty($final_dates) 
         ? add_query_arg('cal_dates', $final_dates, $base_redirect_url)
         : $base_redirect_url;
+
+    /*
+    $proceed_to_booking = !empty($final_dates);
+    
+    if ($proceed_to_booking) {
+        // Redirect to booking form with selected dates
+        $booking_form_url = esc_url( home_url( '/' ) );
+        $redirect_url = add_query_arg([
+            'selected_dates' => implode(',', $final_dates),
+            'date_count' => count($final_dates)
+        ], $booking_form_url);
+    } else {
+        // No dates selected - stay on calendar
+        $redirect_url = $base_redirect_url;
+    }
+    */
         
     wp_redirect($redirect_url);
     exit;
