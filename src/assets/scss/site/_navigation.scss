@@ -221,16 +221,6 @@
           }
         }
   
-        //If current menu open the sub-menu on mobile
-        &.menu-item-has-children.current-menu-item, 
-        &.menu-item-has-children.current-menu-ancestor {
-          .sub-menu {
-            @include mq($until: lg) {
-              display: block;
-            }
-          }
-        }
-  
       }
   
       //Sub menu
@@ -264,7 +254,7 @@
           right: 0;
           top: 100%;
           margin:0;
-          padding:0;
+          padding: var(--wp--custom--spacing--sm) 0;
           width: auto;
           background-color: var(--wp--preset--color--alt);
           min-width: 24rem;
@@ -272,7 +262,7 @@
               line-height: 1;
               a {
                 color: var(--wp--preset--color--dark);
-                padding: var(--wp--custom--spacing--sm);
+                padding: 0 var(--wp--custom--spacing--sm);
                 display: block;
               }
           }

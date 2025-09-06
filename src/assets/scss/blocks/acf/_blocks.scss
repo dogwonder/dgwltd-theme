@@ -37,22 +37,4 @@
       height: 100%;
       margin: 0;
     }
-  }
-
-/* LQIP (Low Quality Image Placeholder) System */
-
-/* Base LQIP class using CSS custom properties */
-.dgwltd-lqip {
-    background-image: var(--dgwltd-lqip-image, none);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    /* Blur effect for base64 LQIP */
-    filter: blur(1px);
-    transition: filter 0.3s ease;
-}
-
-/* Remove blur when image loads */
-.dgwltd-lqip.loaded {
-    filter: none;
 }

@@ -37,11 +37,7 @@
             @include stack($gap-sm);
         }
         .dgwltd-promo-card__kicker {
-            font-size: var(--wp--preset--font-size--md);
             font-weight: bold;
-        }
-        .wp-block-heading {
-            font-size: var(--wp--preset--font-size--lg);
         }
         .wp-block-button {
             --buffer: var(--wp--custom--spacing--md);
@@ -122,7 +118,4 @@
             }
         }
     } 
-
-    
-    
 }

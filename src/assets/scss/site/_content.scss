@@ -45,7 +45,7 @@
       display: block;
     }
     figcaption {
-      font-size: 1rem;
+      font-size: var(--wp--preset--font-size--sm);
       text-align: left;
       margin: 0;
       padding-block: var(--wp--custom--spacing--xs);
@@ -118,7 +118,7 @@
       font-family: 'Times New Roman', Times, serif;
       color: var(--wp--custom--color--text);
       content: open-quote;
-      font-size: 4rem;
+      font-size: var(--wp--preset--font-size--xl);
       line-height: 1;
       grid-column: 1;
     }

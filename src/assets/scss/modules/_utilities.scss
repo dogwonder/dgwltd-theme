@@ -168,6 +168,11 @@ Can be any acceptable flexbox alignment value.
   min-inline-size: var(--sidebar-wrap-at, 50%);
 }
 
+.sticky {
+  position: sticky;
+  top: var(--wp--custom--spacing--md);
+}
+
 //More modern aspect ratio
 %frame, 
 .frame {
@@ -213,8 +218,8 @@ and from the bottom of the preceding element */
 //Based on .govuk-\!-text-break-word
 %break-word, 
 .break-word {
-  word-wrap: break-word!important;
-  overflow-wrap: break-word!important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
 }
 
 %prose, 
@@ -292,6 +297,23 @@ and from the bottom of the preceding element */
       color: var(--wp--preset--color--secondary);
     }
   }
+}
+
+// LQIP (Low Quality Image Placeholder) System 
+//Base LQIP class using CSS custom properties
+.dgwltd-lqip {
+    background-image: var(--dgwltd-lqip-image, none);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Blur effect for base64 LQIP */
+    filter: blur(1px);
+    transition: filter 0.3s ease;
+}
+
+//Remove blur when image loads
+.dgwltd-lqip.loaded {
+    filter: none;
 }
 
 //Glass effect https://www.tyleo.com/html-glass.html

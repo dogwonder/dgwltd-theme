@@ -101,6 +101,7 @@
 		},
 		"typography": {
 			"customFontSize": false,
+			"defaultFontSizes": false, 
 			"fontStyle": false,
 			"fontWeight": false,
 			"letterSpacing": false,
@@ -179,7 +180,7 @@
 			],
 			"fontSizes": [
 				{
-					"name": "Tiny",
+					"name": "Extra Small",
 					"size": "0.875rem",
 					"fluid": false, 
 					"slug": "xs"

@@ -42,15 +42,12 @@
   }
 
   &__social-links {
+    gap: var(--wp--custom--spacing--sm);
     li {
-      &:not(:last-of-type) {
-        margin-inline-end: var(--wp--custom--spacing--sm);
-      }
+      margin: 0 !important;
     }
     a {
-      width:30px;
-      height:30px;
-      margin: 0 0 6px 0;
+      margin: 0;
       display: flex;
       align-items: center;
       text-align: center;
@@ -70,8 +67,8 @@
       }
     }
     .icon-social {
-      width: 30px;
-      height: 30px;
+      width: toRem(44);
+      width: toRem(44);
       margin:0;
       display: block;
       fill: var(--wp--custom--color--background);

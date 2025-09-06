@@ -43,7 +43,6 @@ $paged = get_query_var("paged") ? get_query_var("paged") : 1;
 	align-items: center;
 }
 .item span {
-	font-size: var(--wp--preset--font-size--xs);
 	margin-block-start: var(--wp--custom--spacing--sm);
 }
 .type .size {
@@ -57,7 +56,6 @@ $paged = get_query_var("paged") ? get_query_var("paged") : 1;
 }
 code.language-html {
 	padding: var(--wp--custom--spacing--xs) !important;
-	font-size: var(--wp--preset--font-size--xs);
 	flex: 1;
 }
 .code-icon {
@@ -184,7 +182,7 @@ code.language-html {
   //Loop through $color_palette and cxreate a div with the color
   echo '<div class="grid">';
   foreach ($color_palette as $color) {
-      echo '<div class="item"><div style="background-color:' .
+      echo '<div class="item has-xs-font-size"><div style="background-color:' .
           $color["color"] .
           ';" class="swatch" data-hex="' .
           $color["color"] .
@@ -302,7 +300,7 @@ code.language-html {
 		<div class="grid" style="--grid-min-item-size: 16rem;">
 			<div class="button">
 				<button class="dgwltd-button">Click me!</button>
-				<code class="language-html mt-3">
+				<code class="language-html has-xs-font-size mt-3">
 					&lt;button class="dgwltd-button"&gt;<?php echo htmlentities("Click me!"); ?>&lt;/button&gt;
 				</code>
 			</div>

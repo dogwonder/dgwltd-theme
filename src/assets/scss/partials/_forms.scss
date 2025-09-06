@@ -9,7 +9,7 @@ input[type="tel"],
 input[type="search"],
 input[type="url"],
 textarea {
-  font-size: 1rem;
+  font-size: var(--wp--preset--font-size--sm);
   line-height: var(--wp--custom--typography--line-height--input);
   width: 100%;
   height: var(--wp--custom--height--input);
@@ -325,11 +325,6 @@ input[type="submit"] {
   font-size: 0.9em;
   color: var(--wp--custom--color--error);
   font-weight: normal;
-}
-
-// Terms and conditions
-.gptos_the_terms {
-  font-size: var(--wp--preset--font-size--sm);
 }
 
 //Columns
