@@ -83,7 +83,7 @@ $year_range = range($today_year - 1, $today_year + 1);
                     </h2>
                 </legend>
                 <div id="calendar-hint" class="govuk-hint">
-                    Select the dates you want to book or mark as available.
+                    Select the dates you want to book.
                 </div>
 
                 <?php if (!empty($selected_dates)) : ?>
