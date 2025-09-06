@@ -1,9 +1,7 @@
 <?php
 /*
-Based on this quote
-
+Quote
 If your calendar was a bunch of progressively enhanced checkboxes and a submit button, you could be riding off into the sunset and counting money instead of taking support calls from frustrated octogenarians. And it’s hard for me to shut up about that.
-
 */
 
 // Helper functions
@@ -147,7 +145,7 @@ $year_range = range($today_year - 1, $today_year + 1);
                 </div>
         </fieldset>
 
-        <!-- Month Navigation -->
+        
         <nav class="govuk-pagination" role="navigation" aria-label="Calendar navigation">
             <div class="govuk-pagination__prev">
                 <a class="govuk-link govuk-pagination__link" href="<?php echo esc_url($prev_url); ?>" rel="prev">
