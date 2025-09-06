@@ -32,10 +32,10 @@ if ($next_month > 12) {
     $next_year = $current_year + 1;
 }
 
-// Base URL for navigation (without selected dates)
-$base_url = remove_query_arg(array('cal_dates', 'cal_month', 'cal_year'), $_SERVER['REQUEST_URI']);
+// Base URL for navigation (preserve selected dates)
+$base_url = remove_query_arg(array('cal_month', 'cal_year'), $_SERVER['REQUEST_URI']);
 
-// Previous/next month URLs
+// Previous/next month URLs (preserve selected dates)
 $prev_url = add_query_arg(array('cal_month' => $prev_month, 'cal_year' => $prev_year), $base_url);
 $next_url = add_query_arg(array('cal_month' => $next_month, 'cal_year' => $next_year), $base_url);
 
@@ -213,14 +213,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && wp_verify_nonce($_POST['calendar_no
         wp_redirect($redirect_url);
         exit;
     } elseif (isset($_POST['selected_dates']) && is_array($_POST['selected_dates'])) {
-        // Redirect with selected dates in URL
-        $selected = array_map('sanitize_text_field', $_POST['selected_dates']);
-        $redirect_url = add_query_arg('cal_dates', $selected, $_SERVER['REQUEST_URI']);
+        // Merge form dates (current month) with existing dates from other months
+        $form_dates = array_map('sanitize_text_field', $_POST['selected_dates']);
+        $existing_dates = isset($_GET['cal_dates']) && is_array($_GET['cal_dates']) 
+            ? array_map('sanitize_text_field', $_GET['cal_dates']) 
+            : array();
+        
+        // Filter out existing dates from current month (form replaces these)
+        $current_month_prefix = sprintf('%04d-%02d-', $current_year, $current_month);
+        $dates_from_other_months = array_filter($existing_dates, function($date) use ($current_month_prefix) {
+            return !str_starts_with($date, $current_month_prefix);
+        });
+        
+        // Combine other months' dates with current month's form selection
+        $all_dates = array_merge($dates_from_other_months, $form_dates);
+        
+        $base_redirect_url = remove_query_arg(array('cal_dates'), $_SERVER['REQUEST_URI']);
+        $redirect_url = add_query_arg('cal_dates', $all_dates, $base_redirect_url);
         wp_redirect($redirect_url);
         exit;
     } else {
-        // No dates selected - redirect without parameters
-        $redirect_url = remove_query_arg(array('cal_dates'), $_SERVER['REQUEST_URI']);
+        // No dates selected in current month - preserve dates from other months only
+        $existing_dates = isset($_GET['cal_dates']) && is_array($_GET['cal_dates']) 
+            ? array_map('sanitize_text_field', $_GET['cal_dates']) 
+            : array();
+            
+        // Filter out existing dates from current month
+        $current_month_prefix = sprintf('%04d-%02d-', $current_year, $current_month);
+        $dates_from_other_months = array_filter($existing_dates, function($date) use ($current_month_prefix) {
+            return !str_starts_with($date, $current_month_prefix);
+        });
+        
+        $base_redirect_url = remove_query_arg(array('cal_dates'), $_SERVER['REQUEST_URI']);
+        if (!empty($dates_from_other_months)) {
+            $redirect_url = add_query_arg('cal_dates', $dates_from_other_months, $base_redirect_url);
+        } else {
+            $redirect_url = $base_redirect_url;
+        }
         wp_redirect($redirect_url);
         exit;
     }
