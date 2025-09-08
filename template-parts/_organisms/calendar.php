@@ -68,7 +68,7 @@ $year_range = range($today_year - 1, $today_year + 1);
 ?>
 
 <div class="dgwltd-calendar">
-    <form method="post" action="<?php echo esc_url($_SERVER['REQUEST_URI']); ?>" class="dgwltd-calendar__form">
+    <form method="post" action="<?php echo esc_url($_SERVER['REQUEST_URI']); ?>" class="dgwltd-calendar__form" data-range-selection="true">
 
         <?php wp_nonce_field('calendar_selection', 'calendar_nonce'); ?>
         

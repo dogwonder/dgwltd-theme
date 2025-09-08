@@ -34,6 +34,7 @@ get_header();
 
 			<div class="entry-wrapper">
 				<?php get_template_part( 'template-parts/_organisms/calendar' ); ?>
+				<script type="module" src="<?php echo get_template_directory_uri(); ?>/dist/js/calendar.min.js"></script>
 			</div>
 
 		</div>	

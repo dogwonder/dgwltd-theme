@@ -1,6 +1,7 @@
 import "invokers-polyfill";
 import "./share.js"; 
 // import "../../../node_modules/@11ty/is-land/is-land.js"; 
+import Konami from 'konami';
 import { initializeCarbonComponents } from './components/carbon-components.js';
 
 const desktopWidth = 992;
@@ -174,6 +175,9 @@ export const cardClick = elem => {
   });
 };
 
+export const konami = elem => {
+  const easterEgg = new Konami("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+};
 
 export class TextareaHandler {
   constructor(elem) {
@@ -234,5 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
   subMenu('#nav-primary', '#masthead');
   cardClick('.dgwltd-card');
   new TextareaHandler('textarea');
-  initializeCarbonComponents();
+  konami();
+  // initializeCarbonComponents();
+  
 });
