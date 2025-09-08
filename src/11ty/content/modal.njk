@@ -6,7 +6,11 @@ eleventyNavigation:
   key: Home
 ---
 
-{%- css %}{% endcss %}
+{%- css %}
+dialog:modal::backdrop {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+{% endcss %}
 
 {% js %}
 console.log('Hello world!');
