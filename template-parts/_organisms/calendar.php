@@ -76,6 +76,47 @@ $year_range = range($today_year - 1, $today_year + 1);
           >
 
         <?php wp_nonce_field('calendar_selection', 'calendar_nonce'); ?>
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" role="group" aria-describedby="calendar-single-hint">
+
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h2 class="govuk-fieldset__heading">Select a single date</h2>
+                </legend>
+
+                <div id="calendar-single-hint" class="govuk-hint">
+                For example, 27 3 2007
+                </div>
+        
+                <div class="govuk-date-input" id="calendar-single">
+                    <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="calendar-single-day">
+                            Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="calendar-single-day" name="calendar-single-day" type="text" inputmode="numeric">
+                        </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="calendar-single-month">
+                            Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="calendar-single-month" name="calendar-single-month" type="text" inputmode="numeric">
+                        </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="calendar-single-year">
+                            Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="calendar-single-year" name="calendar-single-year" type="text" inputmode="numeric">
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+        </div>
         
         <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" aria-describedby="calendar-hint">
@@ -85,6 +126,7 @@ $year_range = range($today_year - 1, $today_year + 1);
                         <?php echo esc_html($month_name); ?>
                     </h2>
                 </legend>
+
                 <div id="calendar-hint" class="govuk-hint">
                     Select the dates you want to book.
                 </div>
@@ -105,7 +147,7 @@ $year_range = range($today_year - 1, $today_year + 1);
                 <?php endif; ?>
 
                 <div class="dgwltd-calendar-grid__container">
-                    <!-- Day headers -->
+
                     <div class="dgwltd-calendar__header dgwltd-calendar__grid">
                         <?php 
                         $day_headers = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -115,7 +157,6 @@ $year_range = range($today_year - 1, $today_year + 1);
                         ?>
                     </div>
 
-                    <!-- Calendar days -->
                     <div class="dgwltd-calendar__body dgwltd-calendar__grid">
                         <?php
                         // Empty cells for days before month starts
@@ -148,9 +189,10 @@ $year_range = range($today_year - 1, $today_year + 1);
                         ?>
                     </div>
                 </div>
-        </fieldset>
+                  
+            </fieldset>
+        </div>
 
-        
         <nav class="govuk-pagination" role="navigation" aria-label="Calendar navigation">
             <div class="govuk-pagination__prev">
                 <a class="govuk-link govuk-pagination__link" href="<?php echo esc_url($prev_url); ?>" rel="prev">
@@ -186,6 +228,55 @@ $year_range = range($today_year - 1, $today_year + 1);
             </div>
         </nav>
 
+        <div class="govuk-form-group cluster">
+            <fieldset class="govuk-fieldset" aria-describedby="time-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                    <h3 class="govuk-fieldset__heading">
+                        Select time
+                    </h3>
+                </legend>
+                <div id="time-hint" class="govuk-hint">
+                    Choose your preferred time slot (9 AM - 6 PM)
+                </div>
+                
+                <div class="govuk-date-input" id="time-selection">
+                    <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="time">
+                                Time
+                            </label>
+                            <select class="govuk-select govuk-date-input__input govuk-input--width-4" id="time" name="time">
+                                <option value="">Select time</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="9">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-date-input__label" for="ampm">
+                                AM/PM
+                            </label>
+                            <select class="govuk-select govuk-date-input__input govuk-input--width-4" id="ampm" name="ampm">
+                                <option value="">Select</option>
+                                <option value="am">AM</option>
+                                <option value="pm">PM</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
         <div class="dgwltd-calendar__actions govuk-button-group">
             <button type="submit" class="govuk-button" data-module="govuk-button">
                 Select dates
@@ -199,6 +290,7 @@ $year_range = range($today_year - 1, $today_year + 1);
         </div>
 
     </form>
+
 </div>
 <?php
 // Handle form submission

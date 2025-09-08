@@ -12,7 +12,7 @@
 get_header();
 ?>
 
-	<div id="primary" class="dgwltd-content-wrapper">
+<div id="primary" class="dgwltd-content-wrapper">
 
 			<div class="entry-header">
 				<div class="stack">
@@ -37,7 +37,6 @@ get_header();
 				<script type="module" src="<?php echo get_template_directory_uri(); ?>/dist/js/calendar.min.js"></script>
 			</div>
 
-		</div>	
 
 </div><!-- #primary -->
 <?php get_footer();

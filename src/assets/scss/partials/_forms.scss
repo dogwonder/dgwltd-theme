@@ -37,6 +37,7 @@ select {
   height: var(--wp--custom--height--input);
   line-height: var(--wp--custom--typography--line-height--small);
   border: 2px solid var(--wp--custom--color--text, currentColor);
+  background-color: transparent;
   border-radius: 0;
   padding: 0 0.2em;
   font: inherit; //Inherit font family, size, and line height
@@ -50,6 +51,9 @@ select {
   &:focus-visible {
     outline: 0.15em solid var(--wp--preset--color--focus);
     box-shadow: 0 0 0.2em var(--wp--preset--color--focus);
+  }
+  &.govuk-select--width-sm {
+    width: 4ch;
   }
 }
 
