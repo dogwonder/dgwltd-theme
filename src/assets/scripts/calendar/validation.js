@@ -1,4 +1,4 @@
-import { parseDate, toDateString, isDateInRange } from './date-utils.js';
+import { parseDate, toDateString, isDateInRange, getToday, formatDateUK } from './date-utils.js';
 
 /**
  * Calendar Date Validation System
@@ -7,8 +7,8 @@ import { parseDate, toDateString, isDateInRange } from './date-utils.js';
 export class CalendarValidator {
     constructor(formElement) {
         this.form = formElement;
-        this.validationType = this.form.dataset.validation || 'none';
-        this.today = parseDate(new Date()); // Use unified date handling
+        this.validationType = this.form.dataset.validation;
+        this.today = getToday(); // Use unified today calculation
     }
 
     /**

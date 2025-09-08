@@ -68,7 +68,7 @@ $year_range = range($today_year - 1, $today_year + 1);
 ?>
 
 <div class="dgwltd-calendar">
-    <form method="post" action="<?php echo esc_url($_SERVER['REQUEST_URI']); ?>" class="dgwltd-calendar__form" data-range-selection="true">
+    <form method="post" action="<?php echo esc_url($_SERVER['REQUEST_URI']); ?>" class="dgwltd-calendar__form" data-navigation="true">
 
         <?php wp_nonce_field('calendar_selection', 'calendar_nonce'); ?>
         
@@ -195,35 +195,6 @@ $year_range = range($today_year - 1, $today_year + 1);
 
     </form>
 </div>
-
-<style>
-.dgwltd-calendar__grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-.govuk-pagination {
-    margin-block-start: 1rem;
-    justify-content: space-between;
-}
-.govuk-pagination__link:hover {
-    text-decoration-color: inherit;
-}
-.govuk-pagination__item--current .govuk-pagination__link {
-    color: white;
-}
-.govuk-notification-banner {
-    margin-block-start: 2rem;
-}
-.govuk-button:not(.govuk-button--secondary) {
-    background-color: #1d70b8;
-}
-.govuk-button:not(.govuk-button--secondary):hover {
-    background-color: #003078;
-}
-</style>
-
 <?php
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && wp_verify_nonce($_POST['calendar_nonce'], 'calendar_selection')) {

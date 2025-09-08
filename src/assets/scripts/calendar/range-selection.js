@@ -12,13 +12,22 @@ export class DateRangeSelector {
         this.isRangeMode = false;
         this.previewRange = [];
         
+        // Cache DOM elements to avoid repeated queries
+        this.elements = this.cacheElements();
+        
         this.init();
     }
     
+    cacheElements() {
+        return {
+            checkboxes: this.form.querySelectorAll('input[name="selected_dates[]'),
+            hint: this.form.querySelector('#calendar-hint')
+        };
+    }
+    
     init() {
-        const checkboxes = this.form.querySelectorAll('input[name="selected_dates[]"]');
-        
-        checkboxes.forEach(checkbox => {
+        // Use cached elements instead of re-querying
+        this.elements.checkboxes.forEach(checkbox => {
             // Add click handler for range selection
             checkbox.addEventListener('click', (e) => this.handleDateClick(e, checkbox));
             
@@ -28,11 +37,19 @@ export class DateRangeSelector {
         });
         
         // Clear range mode on outside click
-        document.addEventListener('click', (e) => {
-            if (!this.form.contains(e.target)) {
-                this.exitRangeMode();
-            }
-        });
+        this.boundExitHandler = this.handleOutsideClick.bind(this);
+        document.addEventListener('click', this.boundExitHandler);
+    }
+    
+    handleOutsideClick(e) {
+        if (!this.form.contains(e.target)) {
+            this.exitRangeMode();
+        }
+    }
+    
+    destroy() {
+        // Clean up event listeners to prevent memory leaks
+        document.removeEventListener('click', this.boundExitHandler);
     }
     
     handleDateClick(event, checkbox) {
@@ -45,15 +62,11 @@ export class DateRangeSelector {
         
         // If we're in range mode and have a start date
         if (this.isRangeMode && this.lastSelectedDate) {
-            event.preventDefault();
-            
-            // Ensure the clicked checkbox is checked (since we prevented default)
-            checkbox.checked = true;
-            
+            // Let the browser handle the checkbox state naturally
             // Complete the range selection
             this.selectDateRange(this.lastSelectedDate, currentDate, checkbox);
             this.exitRangeMode();
-            return false;
+            return;
         }
         
         // First click or regular selection
@@ -77,56 +90,40 @@ export class DateRangeSelector {
     }
     
     selectDateRange(startDate, endDate) {
-        // Ensure correct order
-        if (startDate > endDate) {
+        // Ensure correct order using Day.js comparison
+        if (startDate.isAfter(endDate)) {
             [startDate, endDate] = [endDate, startDate];
         }
         
-        // Get all dates in range using unified utility
-        const datesInRange = getDateRange(startDate, endDate);
+        // Use Set for O(1) lookup instead of O(n) array search
+        const datesInRangeSet = new Set(getDateRange(startDate, endDate));
         
-        // Debug logging
-        console.log('Range selection debug:', {
-            startDate: toDateString(startDate),
-            endDate: toDateString(endDate), 
-            datesInRange: datesInRange
-        });
-        
-        // Select all valid dates in range
-        const checkboxes = this.form.querySelectorAll('input[name="selected_dates[]"]');
-        
+        // Use cached checkboxes instead of re-querying DOM
         let selectedCount = 0;
-        checkboxes.forEach(checkbox => {
-            const checkboxValue = checkbox.value; // This is already a YYYY-MM-DD string
-            const inRange = isDateInArray(checkboxValue, datesInRange);
-            const isDisabled = checkbox.disabled;
-            
-            console.log('Checkbox check:', {
-                value: checkboxValue,
-                inRange: inRange,
-                disabled: isDisabled,
-                willSelect: inRange && !isDisabled
-            });
-            
-            if (inRange && !isDisabled) {
-                checkbox.checked = true;
-                checkbox.dispatchEvent(new Event('change', { bubbles: true }));
+        this.elements.checkboxes.forEach(checkbox => {
+            if (datesInRangeSet.has(checkbox.value) && !checkbox.disabled) {
+                this.setCheckboxSelected(checkbox);
                 selectedCount++;
-                console.log('✅ Selected checkbox:', checkboxValue);
             }
         });
         
-        console.log(`Total selected: ${selectedCount} out of ${datesInRange.length} dates in range`);
         
         this.clearRangePreview();
+    }
+    
+    setCheckboxSelected(checkbox) {
+        // Centralize checkbox selection logic
+        checkbox.checked = true;
+        checkbox.setAttribute('checked', 'checked');
+        checkbox.dispatchEvent(new Event('change', { bubbles: true }));
     }
     
     
     showRangePreview(startDate, endDate) {
         this.clearRangePreview();
         
-        // Ensure correct order
-        if (startDate > endDate) {
+        // Ensure correct order using Day.js comparison
+        if (startDate.isAfter(endDate)) {
             [startDate, endDate] = [endDate, startDate];
         }
         

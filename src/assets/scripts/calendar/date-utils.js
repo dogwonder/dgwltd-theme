@@ -118,14 +118,40 @@ export function isDateInArray(date, dateArray) {
 }
 
 /**
- * Format a date for display
+ * Format a date for display with multiple format options
  * @param {string|Date|dayjs} date - Date to format
- * @param {string} format - Day.js format string (default: 'MMMM D, YYYY')
+ * @param {string|Object} format - Day.js format string or Intl.DateTimeFormat options
  * @returns {string} Formatted date string
  */
 export function formatDate(date, format = 'MMMM D, YYYY') {
     const parsed = parseDate(date);
-    return parsed ? parsed.format(format) : '';
+    if (!parsed) return '';
+    
+    // Handle Intl.DateTimeFormat options (for UK locale formatting)
+    if (typeof format === 'object') {
+        return new Intl.DateTimeFormat('en-GB', format).format(parsed.toDate());
+    }
+    
+    // Handle Day.js format strings
+    return parsed.format(format);
+}
+
+/**
+ * Format date for validation messages (UK format)
+ * @param {string|Date|dayjs} date - Date to format
+ * @returns {string} UK formatted date string
+ */
+export function formatDateUK(date) {
+    return formatDate(date, { day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+/**
+ * Format date for navigation display (UK format with weekday)
+ * @param {string|Date|dayjs} date - Date to format
+ * @returns {string} UK formatted date string with weekday
+ */
+export function formatDateUKLong(date) {
+    return formatDate(date, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
 }
 
 /**
