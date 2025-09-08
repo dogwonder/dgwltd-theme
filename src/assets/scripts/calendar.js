@@ -2,6 +2,7 @@
 import { CalendarValidator, disableDateCheckbox, enableDateCheckbox, revalidateAllDates } from './calendar/validation.js';
 import { DateRangeSelector, addRangeInstructions } from './calendar/range-selection.js';
 import { CalendarNavigation, initializeHighlighting } from './calendar/navigation.js';
+import { CalendarAPI } from './calendar/api.js';
 
 /**
  * Enhanced Calendar System
@@ -44,6 +45,10 @@ import { CalendarNavigation, initializeHighlighting } from './calendar/navigatio
  * - Next Available Date finder (N key shortcut)  
  * - Keyboard navigation (Arrow keys for month navigation)
  * - URL-based date highlighting (always available)
+ * 
+ * API Integration (Optional):
+ * <form data-api-enabled="true"> - Enable API integration
+ * 
  * 
  * UX Behavior:
  * - Invalid dates are proactively DISABLED (not selectable)
@@ -96,6 +101,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize URL-based highlighting (always available)
     initializeHighlighting(calendarForm);
 
+    // Initialize API integration if enabled
+    const apiEnabled = calendarForm.dataset.apiEnabled === 'true';
+    let calendarAPI = null;
+    
+    if (apiEnabled) {
+        calendarAPI = new CalendarAPI(calendarForm, validator);
+        // Fetch and apply blackout dates from API
+        calendarAPI.init();
+    }
+
     // Re-validate when dynamic conditions might change
     calendarForm.addEventListener('change', function() {
         if (validator.needsRevalidation()) {
@@ -108,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
         validation: validator.validationType,
         rangeSelection: rangeSelectionEnabled,
         navigation: navigationEnabled,
+        apiIntegration: apiEnabled,
         totalDates: dateCheckboxes.length,
         validDates: Array.from(dateCheckboxes).filter(cb => !cb.disabled).length
     });

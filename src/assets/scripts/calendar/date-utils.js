@@ -1,14 +1,4 @@
 import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
-import timezone from 'dayjs/plugin/timezone';
-import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
-import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
-
-// Enable plugins for consistent timezone handling and comparisons
-dayjs.extend(utc);
-dayjs.extend(timezone);
-dayjs.extend(isSameOrBefore);
-dayjs.extend(isSameOrAfter);
 
 /**
  * Unified Date Utilities for Calendar System
@@ -81,7 +71,7 @@ export function getDateRange(startDate, endDate) {
     let current = rangeStart;
     
     // Include both start and end dates
-    while (current.isSameOrBefore(rangeEnd)) {
+    while (!current.isAfter(rangeEnd)) {
         dates.push(current.format('YYYY-MM-DD'));
         current = current.add(1, 'day');
     }
@@ -103,7 +93,7 @@ export function isDateInRange(date, startDate, endDate) {
     
     if (!target || !start || !end) return false;
     
-    return target.isSameOrAfter(start) && target.isSameOrBefore(end);
+    return !target.isBefore(start) && !target.isAfter(end);
 }
 
 /**

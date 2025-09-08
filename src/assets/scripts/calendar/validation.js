@@ -58,14 +58,14 @@ export class CalendarValidator {
     }
 
     validateFuture(date) {
-        if (date.isSameOrAfter(this.today)) {
+        if (!date.isBefore(this.today)) {
             return { valid: true, reason: '' };
         }
         return { valid: false, reason: 'Only future dates are allowed' };
     }
 
     validatePast(date) {
-        if (date.isSameOrBefore(this.today)) {
+        if (!date.isAfter(this.today)) {
             return { valid: true, reason: '' };
         }
         return { valid: false, reason: 'Only past dates are allowed' };
@@ -166,7 +166,7 @@ export class CalendarValidator {
             if (startStr && endStr) {
                 const startDate = parseDate(startStr);
                 const endDate = parseDate(endStr);
-                if (date.isSameOrAfter(startDate) && date.isSameOrBefore(endDate)) {
+                if (!date.isBefore(startDate) && !date.isAfter(endDate)) {
                     return { valid: false, reason: 'Date is in blackout period' };
                 }
             }
@@ -179,7 +179,7 @@ export class CalendarValidator {
         const minAdvanceDays = parseInt(this.form.dataset.minAdvanceDays) || 0;
         const minDate = this.today.add(minAdvanceDays, 'day');
 
-        if (date.isSameOrAfter(minDate)) {
+        if (!date.isBefore(minDate)) {
             return { valid: true, reason: '' };
         }
 
@@ -190,7 +190,7 @@ export class CalendarValidator {
         const maxAdvanceDays = parseInt(this.form.dataset.maxAdvanceDays) || 365;
         const maxDate = this.today.add(maxAdvanceDays, 'day');
 
-        if (date.isSameOrBefore(maxDate)) {
+        if (!date.isAfter(maxDate)) {
             return { valid: true, reason: '' };
         }
 

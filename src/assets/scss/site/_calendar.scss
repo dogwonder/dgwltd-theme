@@ -5,8 +5,14 @@
         gap: 0.5rem;
         margin-bottom: 0.5rem;
     }
-    &__day--highlight-today {
-
+    &__day--highlight {
+        label:before {
+            box-shadow: 0 0 0 3px var(--wp--preset--color--focus);
+        }
+    }
+    
+    &__quick-nav {
+         margin-block-start: var(--wp--custom--spacing--sm);
     }
 
     //Gov.uk specifi styles
@@ -18,17 +24,22 @@
                 text-decoration-color: inherit;
             }
         }
-        &-pagination__link {
-            color: white;
+        &__item--current {
+            .govuk-pagination__link {
+                color: white;
+            }
         }
     }
     .govuk-notification-banner {
         margin-block-start: 2rem;
     }
-    .govuk-button:not(.govuk-button--secondary) {
-        background-color: #1d70b8;
-    }
-    .govuk-button:not(.govuk-button--secondary):hover {
-        background-color: #003078;
+    .govuk-button {
+        margin-block-end: 0;
+        &:not(.govuk-button--secondary) {
+            background-color: #1d70b8;
+            &:hover {
+                background-color: #003078;
+            }
+        }
     }
 }

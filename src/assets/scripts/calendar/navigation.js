@@ -27,13 +27,20 @@ export class CalendarNavigation {
         const navControls = document.createElement('div');
         navControls.className = 'dgwltd-calendar__quick-nav';
         
+        // Create button group container
+        const buttonGroup = document.createElement('div');
+        buttonGroup.className = 'govuk-button-group';
+        
         // Jump to today button
         const todayButton = this.createTodayButton();
-        navControls.appendChild(todayButton);
+        buttonGroup.appendChild(todayButton);
         
         // Next available date button
         const nextAvailableButton = this.createNextAvailableButton();
-        navControls.appendChild(nextAvailableButton);
+        buttonGroup.appendChild(nextAvailableButton);
+        
+        // Add button group to nav controls
+        navControls.appendChild(buttonGroup);
         
         // Add keyboard shortcuts hint
         const shortcutsHint = this.createShortcutsHint();
@@ -202,12 +209,10 @@ export class CalendarNavigation {
         const dayContainer = checkbox.closest('.dgwltd-calendar__day');
         
         // Remove any existing highlight
-        dayContainer.classList.remove('dgwltd-calendar__day--highlight-today', 'dgwltd-calendar__day--highlight-next');
+        dayContainer.classList.remove('dgwltd-calendar__day--highlight');
         
         // Add appropriate highlight
-        const highlightClass = type === 'today' 
-            ? 'dgwltd-calendar__day--highlight-today'
-            : 'dgwltd-calendar__day--highlight-next';
+        const highlightClass = 'dgwltd-calendar__day--highlight';
             
         dayContainer.classList.add(highlightClass);
         
@@ -330,14 +335,14 @@ export function initializeHighlighting(form) {
         const checkbox = form.querySelector(`input[value="${highlightDate}"]`);
         if (checkbox) {
             const dayContainer = checkbox.closest('.dgwltd-calendar__day');
-            dayContainer.classList.add('dgwltd-calendar__day--highlight-next');
+            dayContainer.classList.add('dgwltd-calendar__day--highlight');
             
             // Scroll into view
             checkbox.scrollIntoView({ behavior: 'smooth', block: 'center' });
             
             // Remove highlight after 5 seconds
             setTimeout(() => {
-                dayContainer.classList.remove('dgwltd-calendar__day--highlight-next');
+                dayContainer.classList.remove('dgwltd-calendar__day--highlight');
             }, 5000);
         }
     }
