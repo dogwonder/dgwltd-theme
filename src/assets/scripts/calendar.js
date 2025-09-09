@@ -3,6 +3,7 @@ import { CalendarValidator, disableDateCheckbox, enableDateCheckbox, revalidateA
 import { DateRangeSelector, addRangeInstructions } from './calendar/range-selection.js';
 import { CalendarNavigation, initializeHighlighting } from './calendar/navigation.js';
 import { CalendarAPI } from './calendar/api.js';
+import { initializeFormValidation } from './calendar/form-validation.js';
 
 /**
  * Enhanced Calendar System
@@ -49,6 +50,8 @@ import { CalendarAPI } from './calendar/api.js';
  * API Integration (Optional):
  * <form data-api-enabled="true"> - Enable API integration
  * 
+ * * Form Validation
+ * <form data-required="time"> - Enable Form validation
  * 
  * UX Behavior:
  * - Invalid dates are proactively DISABLED (not selectable)
@@ -100,6 +103,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize URL-based highlighting (always available)
     initializeHighlighting(calendarForm);
+
+    // Initialize form validation (always available)
+    initializeFormValidation();
 
     // Initialize API integration if enabled
     const apiEnabled = calendarForm.dataset.apiEnabled === 'true';

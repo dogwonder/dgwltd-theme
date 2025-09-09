@@ -33,6 +33,19 @@ function dgwltd_format_dates_for_display($dates) {
     return $formatted;
 }
 
+function dgwltd_format_dates_with_time_for_display($dates, $time = '') {
+    $formatted = array();
+    $time_prefix = !empty($time) ? $time . ' on ' : '';
+    
+    foreach ($dates as $date) {
+        $timestamp = strtotime($date);
+        if ($timestamp) {
+            $formatted[] = $time_prefix . date('j F Y', $timestamp);
+        }
+    }
+    return $formatted;
+}
+
 function dgwltd_calculate_nav_month($current_month, $current_year, $direction) {
     if ($direction === 'prev') {
         return $current_month === 1 ? [12, $current_year - 1] : [$current_month - 1, $current_year];
@@ -45,6 +58,19 @@ $current_month = isset($_GET['cal_month']) ? intval($_GET['cal_month']) : date('
 $current_year = isset($_GET['cal_year']) ? intval($_GET['cal_year']) : date('Y');
 $selected_dates = dgwltd_get_selected_dates();
 
+// Process single date input - convert to cal_dates format
+if (isset($_POST['cal_day_single'], $_POST['cal_month_single'], $_POST['cal_year_single'])) {
+    $day = intval($_POST['cal_day_single']);
+    $month = intval($_POST['cal_month_single']);
+    $year = intval($_POST['cal_year_single']);
+    
+    if ($day > 0 && $month > 0 && $year > 0 && checkdate($month, $day, $year)) {
+        $single_date = sprintf('%04d-%02d-%02d', $year, $month, $day);
+        $_GET['cal_dates'] = [$single_date];
+        $selected_dates = [$single_date];
+    }
+}
+
 // Calendar generation
 $first_day = mktime(0, 0, 0, $current_month, 1, $current_year);
 $days_in_month = date('t', $first_day);
@@ -55,10 +81,10 @@ $start_day = date('w', $first_day); // 0 = Sunday, 6 = Saturday
 [$prev_month, $prev_year] = dgwltd_calculate_nav_month($current_month, $current_year, 'prev');
 [$next_month, $next_year] = dgwltd_calculate_nav_month($current_month, $current_year, 'next');
 
-// Base URL for navigation (preserve selected dates)
+// Base URL for navigation (preserve selected dates and time)
 $base_url = remove_query_arg(['cal_month', 'cal_year'], $_SERVER['REQUEST_URI']);
 
-// Previous/next month URLs (preserve selected dates)
+// Previous/next month URLs (preserve selected dates and time)
 $prev_url = add_query_arg(['cal_month' => $prev_month, 'cal_year' => $prev_year], $base_url);
 $next_url = add_query_arg(['cal_month' => $next_month, 'cal_year' => $next_year], $base_url);
 
@@ -77,205 +103,33 @@ $year_range = range($today_year - 1, $today_year + 1);
 
         <?php wp_nonce_field('calendar_selection', 'calendar_nonce'); ?>
 
-        <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset" role="group" aria-describedby="calendar-single-hint">
-
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                    <h2 class="govuk-fieldset__heading">Select a single date</h2>
-                </legend>
-
-                <div id="calendar-single-hint" class="govuk-hint">
-                For example, 27 3 2007
-                </div>
-        
-                <div class="govuk-date-input" id="calendar-single">
-                    <div class="govuk-date-input__item">
-                        <div class="govuk-form-group">
-                        <label class="govuk-label govuk-date-input__label" for="calendar-single-day">
-                            Day
-                        </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="calendar-single-day" name="calendar-single-day" type="text" inputmode="numeric">
-                        </div>
-                    </div>
-                    <div class="govuk-date-input__item">
-                        <div class="govuk-form-group">
-                        <label class="govuk-label govuk-date-input__label" for="calendar-single-month">
-                            Month
-                        </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="calendar-single-month" name="calendar-single-month" type="text" inputmode="numeric">
-                        </div>
-                    </div>
-                    <div class="govuk-date-input__item">
-                        <div class="govuk-form-group">
-                        <label class="govuk-label govuk-date-input__label" for="calendar-single-year">
-                            Year
-                        </label>
-                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="calendar-single-year" name="calendar-single-year" type="text" inputmode="numeric">
-                        </div>
-                    </div>
-                </div>
-
-            </fieldset>
-        </div>
-        
-        <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset" aria-describedby="calendar-hint">
-
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                    <h2 class="govuk-fieldset__heading">
-                        <?php echo esc_html($month_name); ?>
+        <?php if (!empty($selected_dates)) : 
+            $selected_time = isset($_GET['cal_time']) ? sanitize_text_field($_GET['cal_time']) : '';
+            $formatted_dates = dgwltd_format_dates_with_time_for_display($selected_dates, $selected_time);
+        ?>
+            <div class="govuk-notification-banner" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                <div class="govuk-notification-banner__header">
+                    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                        Selected dates
                     </h2>
-                </legend>
-
-                <div id="calendar-hint" class="govuk-hint">
-                    Select the dates you want to book.
                 </div>
-
-                <?php if (!empty($selected_dates)) : ?>
-                    <div class="govuk-notification-banner" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-                        <div class="govuk-notification-banner__header">
-                            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-                                Selected dates
-                            </h2>
-                        </div>
-                        <div class="govuk-notification-banner__content">
-                            <h3 class="govuk-notification-banner__heading">
-                                <?php echo esc_html(implode(', ', dgwltd_format_dates_for_display($selected_dates))); ?>
-                            </h3>
-                        </div>
-                    </div>
-                <?php endif; ?>
-
-                <div class="dgwltd-calendar-grid__container">
-
-                    <div class="dgwltd-calendar__header dgwltd-calendar__grid">
-                        <?php 
-                        $day_headers = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-                        foreach ($day_headers as $day) {
-                            echo '<span class="dgwltd-calendar-day-header has-lg-font-size">' . esc_html($day) . '</span>';
-                        }
-                        ?>
-                    </div>
-
-                    <div class="dgwltd-calendar__body dgwltd-calendar__grid">
-                        <?php
-                        // Empty cells for days before month starts
-                        for ($i = 0; $i < $start_day; $i++) {
-                            echo '<div class="dgwltd-calendar__empty"></div>';
-                        }
-
-                        // Days of the month
-                        for ($day = 1; $day <= $days_in_month; $day++) {
-                            $date_value = sprintf('%04d-%02d-%02d', $current_year, $current_month, $day);
-                            $is_checked = in_array($date_value, $selected_dates);
-                            $checkbox_id = 'date-' . $date_value;
-                            ?>
-                            <div class="dgwltd-calendar__day">
-                                <div class="govuk-checkboxes__item">
-                                    <input class="govuk-checkboxes__input" 
-                                        id="<?php echo esc_attr($checkbox_id); ?>" 
-                                        name="selected_dates[]" 
-                                        type="checkbox" 
-                                        value="<?php echo esc_attr($date_value); ?>"
-                                        <?php checked($is_checked); ?>>
-                                    <label class="govuk-label govuk-checkboxes__label" 
-                                        for="<?php echo esc_attr($checkbox_id); ?>">
-                                        <?php echo esc_html($day); ?>
-                                    </label>
-                                </div>
-                            </div>
-                            <?php
-                        }
-                        ?>
-                    </div>
-                </div>
-                  
-            </fieldset>
-        </div>
-
-        <nav class="govuk-pagination" role="navigation" aria-label="Calendar navigation">
-            <div class="govuk-pagination__prev">
-                <a class="govuk-link govuk-pagination__link" href="<?php echo esc_url($prev_url); ?>" rel="prev">
-                    <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
-                        <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
-                    </svg>
-                    <span class="govuk-pagination__link-title"><?php echo esc_html(date('F Y', mktime(0, 0, 0, $prev_month, 1, $prev_year))); ?></span>
-                </a>
-            </div>
-            
-            <ul class="govuk-pagination__list">
-                <?php foreach ($year_range as $year) : 
-                    $is_current = ($year == $current_year);
-                    $year_url = add_query_arg(['cal_year' => $year, 'cal_month' => ($is_current ? $current_month : 1)], $base_url);
-                ?>
-                    <li class="govuk-pagination__item <?php echo $is_current ? 'govuk-pagination__item--current' : ''; ?>">
-                        <?php if ($is_current) : ?>
-                            <span class="govuk-pagination__link" aria-current="page"><?php echo esc_html($year); ?></span>
-                        <?php else : ?>
-                            <a class="govuk-link govuk-pagination__link" href="<?php echo esc_url($year_url); ?>"><?php echo esc_html($year); ?></a>
-                        <?php endif; ?>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-
-            <div class="govuk-pagination__next">
-                <a class="govuk-link govuk-pagination__link" href="<?php echo esc_url($next_url); ?>" rel="next">
-                    <span class="govuk-pagination__link-title"><?php echo esc_html(date('F Y', mktime(0, 0, 0, $next_month, 1, $next_year))); ?></span>
-                    <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
-                        <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
-                    </svg>
-                </a>
-            </div>
-        </nav>
-
-        <div class="govuk-form-group cluster">
-            <fieldset class="govuk-fieldset" aria-describedby="time-hint">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                    <h3 class="govuk-fieldset__heading">
-                        Select time
+                <div class="govuk-notification-banner__content">
+                    <h3 class="govuk-notification-banner__heading">
+                        <?php echo esc_html(implode(', ', $formatted_dates)); ?>
                     </h3>
-                </legend>
-                <div id="time-hint" class="govuk-hint">
-                    Choose your preferred time slot (9 AM - 6 PM)
                 </div>
-                
-                <div class="govuk-date-input" id="time-selection">
-                    <div class="govuk-date-input__item">
-                        <div class="govuk-form-group">
-                            <label class="govuk-label govuk-date-input__label" for="time">
-                                Time
-                            </label>
-                            <select class="govuk-select govuk-date-input__input govuk-input--width-4" id="time" name="time">
-                                <option value="">Select time</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="9">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="govuk-date-input__item">
-                        <div class="govuk-form-group">
-                            <label class="govuk-label govuk-date-input__label" for="ampm">
-                                AM/PM
-                            </label>
-                            <select class="govuk-select govuk-date-input__input govuk-input--width-4" id="ampm" name="ampm">
-                                <option value="">Select</option>
-                                <option value="am">AM</option>
-                                <option value="pm">PM</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-        </div>
+            </div>
+        <?php endif; ?>
+
+        <?php include locate_template( 'template-parts/_calendar/calendar-error.php' ); ?>      
+
+        <?php //include locate_template( 'template-parts/_calendar/calendar-day.php' ); ?>      
+
+        <?php include locate_template( 'template-parts/_calendar/calendar-time.php' ); ?>    
+
+        <?php include locate_template( 'template-parts/_calendar/calendar-grid.php' ); ?>   
+
+        <?php include locate_template( 'template-parts/_calendar/calendar-pagination.php' ); ?>    
 
         <div class="dgwltd-calendar__actions govuk-button-group">
             <button type="submit" class="govuk-button" data-module="govuk-button">
@@ -298,7 +152,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && wp_verify_nonce($_POST['calendar_no
     $base_redirect_url = remove_query_arg(['cal_dates'], $_SERVER['REQUEST_URI']);
     
     if (isset($_POST['clear_selection'])) {
-        wp_redirect($base_redirect_url);
+        $clear_url = remove_query_arg(['cal_dates', 'cal_time'], $_SERVER['REQUEST_URI']);
+        wp_redirect($clear_url);
         exit;
     }
     
@@ -316,9 +171,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && wp_verify_nonce($_POST['calendar_no
     // Combine with current month's selection
     $final_dates = array_merge($dates_from_other_months, $form_dates);
 
+    // Build redirect URL with dates
     $redirect_url = !empty($final_dates) 
         ? add_query_arg('cal_dates', $final_dates, $base_redirect_url)
         : $base_redirect_url;
+        
+    // Add time selection if provided
+    if (isset($_POST['cal_time']) && !empty($_POST['cal_time'])) {
+        $selected_time = sanitize_text_field($_POST['cal_time']);
+        $redirect_url = add_query_arg('cal_time', $selected_time, $redirect_url);
+    }
 
     /*
     $proceed_to_booking = !empty($final_dates);
