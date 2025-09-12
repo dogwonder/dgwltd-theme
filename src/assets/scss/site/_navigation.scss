@@ -1,141 +1,149 @@
 
 .dgwltd-nav {
-    display: flex;
     z-index: $z-low;
+    display: flex;
+    
     .dgwltd-menu {
-        display: flex;
-        flex-direction: column;
-        gap: var(--wp--custom--spacing--sm);
-        margin:0;
-        padding: var(--wp--custom--spacing--sm);
+      margin:0;
+      padding: var(--wp--custom--spacing--sm);
+      display: flex;
+      flex-direction: column;
+      gap: var(--wp--custom--spacing--sm);
+
       @include mq($from: lg) {
-          flex-direction: row;
-          justify-content: flex-start;
-          align-items: center;
-          flex: 1;
-          padding: 0;
+        flex: 1;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0;
       }
       .menu-item {
-          position: relative;
-          margin: 0;
-          padding: 0;
-          line-height: 1;
-          text-align: left;
-          list-style-type: none;
+        list-style-type: none;
+        @extend %dgwltd-navigation;
+        line-height: 1;
+        text-align: left;
+        position: relative;
+        padding: 0;
+        margin: 0;
         @include mq($until: lg) {
-            font-size: var(--wp--preset--font-size--xl);
-            line-height: var(--button-height);
+          font-size: var(--wp--preset--font-size--xl);
+          line-height: var(--button-height);
+          &.current-menu-item > a, 
           &.current-page-ancestor > a {
-              width: calc(100% - var(--button-height)) !important;
+            width: calc(100% - var(--button-height)) !important;
           }
           .button-show-subnav {
-              appearance: none;
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              position: absolute;
-              top: 0;
-              right: 0;
-              width: 2.5rem;
-              height: 2.5rem;
-              padding: 0;
-              background-color: transparent;
-              border: 0;
+            position: absolute;
+            height: 2.5rem;
+            width: 2.5rem;
+            right: 0;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            appearance: none;
+            border: 0;
+            background-color: transparent;
+            padding: 0;
             &:after {
-                content: "";
-                display: block;
-                transform: rotate(45deg);
-                box-sizing: border-box;
-                width: 0;
-                height: 0;
-                margin: 0 auto;
-                border-right: 3px solid var(--wp--preset--color--light);
-                border-bottom: 3px solid var(--wp--preset--color--light);
+              //Chevron down
+              content: "";
+              display: block;
+              box-sizing: border-box;
+              width: 0;
+              height: 0;
+              width: 1ex;
+              height: 1ex;
+              border-bottom: 3px solid var(--wp--preset--color--light);
+              border-right: 3px solid var(--wp--preset--color--light);
+              transform: rotate(45deg);
+              margin: 0 auto;
             }
             &[aria-expanded="true"] {
               &:after {
-                  border-top: 3px solid var(--wp--preset--color--light);
-                  border-right: transparent;
-                  border-bottom: transparent;
-                  border-left: 3px solid var(--wp--preset--color--light);
+                border-bottom: transparent;
+                border-right: transparent;
+                border-top: 3px solid var(--wp--preset--color--light);
+                border-left: 3px solid var(--wp--preset--color--light);
               }
             }
             @include mq($until: lg) {
-                justify-content: center;
+              justify-content: center;
               &:before {
                   content: "";
                   display: block;
+                  border-radius: 50%;
+                  border: 1px solid var(--wp--preset--color--light);
                   width: var(--button-height);
                   height: var(--button-height);
-                  border: 1px solid var(--wp--preset--color--light);
-                  border-radius: 50%;
               }
               &:after {
-                  position: absolute;
-                  top: 10px;
-                  right: 14px;
+                position: absolute;
+                top: 10px;
+                right: 14px;
               }
               &[aria-expanded="true"] {
                 &:after {
-                    top: 16px;
+                  top: 16px;
                 }
               }
             }
             a {
+  
             }
             span {
-                display: none;
+              display: none;  
             }
             
           }
         }
         @include mq($from: lg) {
-            line-height: $nav-height;
+          line-height: $nav-height;
           .button-show-subnav {
-              display: none;
+            display: none;
           }
            //A11y menu active state
           .button-show-subnav:focus-visible {
-              position: relative;
-              top: 100%;
+            position: relative;
+            top: 100%;
           }
         }
         &:first-of-type {
           @include mq($from: lg) {
             a {
-                padding-inline-start: 0;
+              padding-left: 0;
             }
           }
         }
         &:last-of-type {
-            margin: 0;
+          margin: 0;
         }
         a {
-            display: inline-block;
-            width: 100%;
-            padding: 0;
-            text-decoration: none;
+          display: inline-block;
+          text-decoration: none;
+          padding: 0;
+          width: 100%;
           @include mq($until: lg) {
-              color: var(--wp--preset--color--light);
+            color: var(--wp--preset--color--light);
           }
           @include mq($from: lg) {
-              margin:0;
-              padding:0 var(--wp--custom--spacing--sm);
+            padding:0 var(--wp--custom--spacing--sm);
+            margin:0;
           }
           &:hover {
-              text-decoration: underline;
+            text-decoration: underline;
           }
           &:focus-visible {
-              box-shadow: none;
-              outline: 0;
-              text-decoration-color: white !important;
-              background-color: transparent;
-              border: 0;
-              color: white !important;
-              text-decoration: underline;
+            border: 0;
+            background-color: transparent;
+            box-shadow: none;
+            text-decoration: underline;
+            outline: 0;
+            color: white !important;
+            text-decoration-color: white !important;
             @include mq($from: lg) {
-                text-decoration-color: var(--wp--preset--color--primary) !important;
-                color: var(--wp--custom--color--text) !important;
+              color: var(--wp--custom--color--text) !important;
+              text-decoration-color: var(--wp--preset--color--primary) !important;
             }
           }
         }
@@ -144,32 +152,35 @@
         &.current_page_item, 
         &.current_page_ancestor {
           > a {
-              text-decoration-thickness: max(3px, .1875rem, .12em);
-              text-decoration: underline;
+            text-decoration: underline;
+            text-decoration-thickness: max(3px, .1875rem, .12em);
           }
         }
   
         &.menu-item-has-children {
           @include mq($from: lg) {
+            display: flex;
+            align-items: center;
+            > a {
+              padding-inline-end:0;
+              margin-inline-end:0;
               display: flex;
               align-items: center;
-            > a {
-                padding-inline-end:0;
-                margin-inline-end:0;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+              justify-content: space-between;
               &:after {
-                  margin-inline-start: var(--wp--custom--spacing--sm);
-                  margin-block-start: -0.4ex;
-                  content: "";
-                  display: block;
-                  transform: rotate(45deg);
-                  box-sizing: border-box;
-                  width: 0;
-                  height: 0;
-                  border-right: 2px solid var(--wp--preset--color--dark);
-                  border-bottom: 2px solid var(--wp--preset--color--dark);
+                //Chevron down
+                content: "";
+                display: block;
+                box-sizing: border-box;
+                width: 0;
+                height: 0;
+                width: 0.8ex;
+                height: 0.8ex;
+                border-bottom: 2px solid;
+                border-right: 2px solid;
+                transform: rotate(45deg);
+                margin-inline-start: var(--wp--custom--spacing--sm);
+                margin-block-start: -0.4ex;
               }
             }
           }
@@ -179,11 +190,11 @@
         //Hover/Click method (including class name for JS to target)
         &.menu-item-has-children.menu-open {
           .sub-menu {
-              display: block;
+            display: block;
             @include mq($from: lg) {
-                display: flex;
-                flex-direction: column;
-                gap: var(--wp--custom--spacing--sm);
+              display: flex;
+              flex-direction: column;
+              gap: var(--wp--custom--spacing--sm);
             }
           }
         }
@@ -193,18 +204,19 @@
         &.menu-item-has-children:hover {
           .sub-menu {
             @include mq($from: lg) {
-                display: flex;
-                transition-delay: 0s; /* react immediately on hover */;
+              display: flex;
+              transition-delay: 0s; /* react immediately on hover */
             }
           }
         }
   
         &.menu-item-has-children.menu-open {
+          //a11y menu for opening menu via button
           @include mq($from: lg) {
             .sub-menu {
-                visibility: visible;
-                opacity: 1;
-                transition-delay: 250ms;
+              opacity: 1;
+              visibility: visible;
+              transition-delay: 250ms;
             }
           }
         }
@@ -213,44 +225,44 @@
   
       //Sub menu
       .sub-menu {
-          display: none;
+        display: none;
         @include mq($until: lg) {
-            margin: var(--wp--custom--spacing--sm) 0 0;
-            padding: 0;
+          margin: var(--wp--custom--spacing--sm) 0 0;
+          padding: 0;
           li {
-              margin: 0 0 var(--wp--custom--spacing--sm);
-              padding: 0;
+            margin: 0 0 var(--wp--custom--spacing--sm);
+            padding: 0;
             &:last-of-type {
                 margin: 0;
             }
             a {
-                padding: 0;
+              padding: 0;
             }
           }
         }
         @include mq($from: lg) {
-            box-shadow: var(--wp--preset--shadow--shadow-low);
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            z-index: $z-high;
-            top: 100%;
-            left: auto;
-            right: 0;
-            visibility: hidden;
-            opacity: 0;
-            width: auto;
-            min-width: 24rem;
-            margin:0;
-            padding: var(--wp--custom--spacing--sm) 0;
-            transition: visibility .25s cubic-bezier(.24,.26,.2,1),opacity .25s cubic-bezier(.24,.26,.2,1);
-            background-color: var(--wp--preset--color--alt);
+          display: flex;
+          flex-direction: column;
+          opacity: 0;
+          visibility: hidden;
+          transition: visibility .25s cubic-bezier(.24,.26,.2,1),opacity .25s cubic-bezier(.24,.26,.2,1);
+          box-shadow: var(--wp--preset--shadow-low);
+          z-index: $z-high;
+          position: absolute;
+          left: auto;
+          right: 0;
+          top: 100%;
+          margin:0;
+          padding: var(--wp--custom--spacing--sm) 0;
+          width: auto;
+          background-color: var(--wp--preset--color--alt);
+          min-width: 24rem;
           .menu-item {
               line-height: 1;
               a {
-                  display: block;
-                  padding: 0 var(--wp--custom--spacing--sm);
-                  color: var(--wp--preset--color--dark);
+                color: var(--wp--preset--color--dark);
+                padding: 0 var(--wp--custom--spacing--sm);
+                display: block;
               }
           }
         }
@@ -262,24 +274,24 @@
   
   //Navigation Toggle
   .nav-toggle {
-      box-shadow: none;
-      display: none;
-      width: toRem(44);
-      height: toRem(44);
-      margin: 0 0 0 auto;
-      padding: 0;
-      background-color: transparent;
-      border:0;
+    margin: 0 0 0 auto;
+    padding: 0;
+    display: none;
+    box-shadow: none;
+    background-color: transparent;
+    border:0;
+    width: toRem(44);
+    height: toRem(44);
     &:focus-visible {
-        box-shadow: none;
-        outline: var(--wp--custom--color--text) solid var(--outline-size);
-        background-color: transparent;
+      background-color: transparent;
+      box-shadow: none;
+      outline: var(--wp--custom--color--text) solid var(--outline-size);
     }
     svg {
-        fill: var(--wp--custom--color--text);
-        height: toRem(44);
+      fill: var(--wp--custom--color--text);
+      height: toRem(44);
       &.close {
-          fill: var(--wp--preset--color--light);
+        fill: var(--wp--preset--color--light);
       }
     }
   }
@@ -287,29 +299,38 @@
   
   //Attempt at fixing Cumulative Layout Shift issue with menu before JS kicks in
   .no-js {
+  
     .dgwltd-masthead {
-        overscroll-behavior-x: contain;
-        scroll-snap-type: x mandatory;
-        overflow: visible;
+      /* browser decide if x is ok to scroll and show bars on, y hidden */
+      overflow: visible;
+      /* prevent scroll chaining on x scroll */
+      overscroll-behavior-x: contain;
+      /* scrolling should snap children on x */
+      scroll-snap-type: x mandatory;
+      
       @media (hover: none) {
-          scrollbar-width: none;
+        scrollbar-width: none;
+    
         &::-webkit-scrollbar {
-            width: 0;
-            height: 0;
+          width: 0;
+          height: 0;
         }
       }
     
       .dgwltd-nav {
-          min-block-size: fit-content;
-          display: flex;
-          flex-shrink: 0;
+        display: flex;
+        /* defend against <main> needing 100% */
+        flex-shrink: 0;
+        /* fixes cross browser quarks */
+        min-block-size: fit-content;
+  
         .dgwltd-menu {
           .menu-item > a {
               color: var(--wp--custom--color--text);
           }
           .button-show-subnav {
             &:before, &:after {
-                border-color: var(--wp--custom--color--text);
+              border-color: var(--wp--custom--color--text);
             }
           }
         }
@@ -321,98 +342,104 @@
   
   //JS progressive enhancement
   .js-enabled {
+  
+    //Desktop menu is open
     &.masthead-expanded {
       .dgwltd-wrapper {
-          position: relative;
+        position: relative;
         &:before {
-            visibility: visible;
-            opacity: 1;
+          visibility: visible;
+          opacity: 1;
         }
       }
       .sub-menu {
-          z-index: $z-highest;
+        z-index: $z-highest;
       }
     }
   
     //Mobile menu is open
     &.nav-open {
       .dgwltd-wrapper {
-          position: relative;
+        position: relative;
         &:before {
-            visibility: visible;
-            opacity: 1;
+          visibility: visible;
+          opacity: 1;
         }
       }
       .logo {
         &__line {
-            fill: var(--wp--preset--color--light);
+          fill: var(--wp--preset--color--light);
         }
       }
     }
   
   
-    .dgwltd-nav__wrapper {
-        display: none;
+    .dgwltd-nav__wrapper { 
+      //Cumulative Layout Shift fix - hide the menu if JS is enabled to avoid layout shift, maybe becuase ResizeObserver is too slow? 🤷
+      display: none;  
       @include mq($from: lg) {
-          display: flex;
-          width: 100%;
+        display: flex;  
+        width: 100%;
       }
     }
   
     .dgwltd-masthead {
+    
+      //If we are in the mobile view (<769px), we need to show the burger menu
       &[data-enabled="true"] {
+  
         .dgwltd-nav {
-            align-items: center;
+          align-items: center;
         }
   
-        .nav-toggle {
-            display: block;
+        .nav-toggle { 
+          display: block; 
           .open {display: block;}
           .close {display: none;}
         }    
   
-        .dgwltd-nav__wrapper {
-            content-visibility: hidden;
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
+        .dgwltd-nav__wrapper { 
+          display: none;  
+          content-visibility: hidden;
+          position: absolute;
+          width: 100%;
+          top: 100%;
+          left: 0;
         }
         
       }
   
       //Switch the menu icons
       &.masthead-is-open {
-          position: relative;
-          z-index: $z-highest;
-          background-color: var(--wp--custom--color--dark);
+        z-index: $z-highest;
+        position: relative;
+        background-color: var(--wp--custom--color--dark);
         .dgwltd-nav__wrapper {
-            content-visibility: visible;
-            display: block;
+          content-visibility: visible;
+          display: block;
           .dgwltd-menu {
-              display: flex;
+            display: flex;
           }
         }
         .dgwltd-masthead__logo > a {
           &:focus-visible {
             .logo {
-                fill: var(--wp--preset--color--focus);
+              fill: var(--wp--preset--color--focus);
             }
           }
         }
         .nav-toggle {
-            display: flex;
-            justify-content: center;
-            position: relative;
-            z-index: $z-highest;
+          position: relative;
+          z-index: $z-highest;
+          display: flex;
+          justify-content: center;
           .open {display: none;}
           .close {display: block;}
           &:focus-visible {
-              box-shadow: none;
-              outline: var(--wp--preset--color--light) solid var(--outline-size);
-              outline-offset: var(--outline-offset, var(--outline-size));
-              background-color: transparent;
+            background-color: transparent;
+            box-shadow: none;
+            outline: var(--wp--preset--color--light) solid var(--outline-size);
+            outline-offset: var(--outline-offset, var(--outline-size));
           }
         }
       }

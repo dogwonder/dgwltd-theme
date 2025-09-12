@@ -1,9 +1,9 @@
 //404
 .error404 {
   .dgwltd-menu-404 {
-      margin-inline-start: var(--wp--custom--spacing--md);
+    margin-inline-start: var(--wp--custom--spacing--md);
     ul {
-        margin-inline-start: var(--wp--custom--spacing--md);
+      margin-inline-start: var(--wp--custom--spacing--md);
     }
   }
 }
@@ -12,27 +12,29 @@
 .search-results,
 .search-no-results {
   .site-search__form {
-      display: flex;
+    display: flex;
     .govuk-input {
-        height: 45px;
+      height: 45px;
     }
     .govuk-button {
-        padding-block:0;
-        display: flex;
-        align-items: center;
-        height: 45px;
-        line-height: 45px;
+      height: 45px;
+      @extend %dgwltd-button;
+      line-height: 45px;
+      padding-top:0;
+      padding-bottom:0;
+      display: flex;
+      align-items: center;
     }
     .icon-search {
-        fill: white;
-        display: inline-block;
-        width: 20px;
+      width: 20px;
+      fill: white;
+      display: inline-block;
     }
   }
 }
 
 .no-results {
   ul {
-      margin-inline-start: var(--wp--custom--spacing--md);
+    margin-inline-start: var(--wp--custom--spacing--md);
   }
 }

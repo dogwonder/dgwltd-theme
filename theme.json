@@ -271,7 +271,7 @@
 				{
 					"name": "Shadow low",
 					"slug": "shadow-low",
-					"shadow": "0 var(--wp--custom--spacing--sm) var(--wp--custom--spacing--sm) rgba(0, 0, 0, 1)"
+					"shadow": "0 var(--wp--custom--spacing--sm) var(--wp--custom--spacing--sm) rgba(0, 0, 0, 0.2)"
 				}
 			]
 		}, 

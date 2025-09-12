@@ -1,26 +1,31 @@
 //Banner block
 .dgwltd-banner {
+
+    @extend %align-full;
+
+    &.has-background, 
     &.has-image {
-        justify-content: center;
-        align-items: center;
-        position: relative;
+      justify-content: center;
+      align-items: center;
+      position: relative;
       h2 {
+        @extend %dgwltd-heading-lg;
       }
 
       h2, h3, p {
-          color:inherit;
+        color:inherit;
       }
 
       p, li {
-          max-width: var(--wp--custom--width--character);
+        max-width: var(--wp--custom--width--character);
       }
 
       .dgwltd-banner__wrapper {
-          grid-column: 2 / span 1;
-          position: relative;
-          z-index:2;
+        position: relative;
+        z-index:2;
+        grid-column: 2 / span 1;
         .dgwltd-banner__inner {
-            padding-block:var(--wp--custom--spacing--lg);
+          padding-block:var(--wp--custom--spacing--lg);
         }
       }
       
@@ -29,7 +34,7 @@
     //Block style varients - styles in block.json
     &.is-style-monochrome {
       .dgwltd-block__background img {
-          filter: grayscale(100%) contrast(200%);
+        filter: grayscale(100%) contrast(200%);
       }
     }
     

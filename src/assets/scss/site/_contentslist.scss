@@ -1,30 +1,35 @@
 //Page list
 .dgwltd-contents-list {
   &__title {
-      margin: 0;
-      font-weight: normal;
+    margin: 0;
+    font-weight: normal;
   }
   ol.dgwltd-contents-list__list {
-      margin: var(--wp--custom--spacing--gap) 0 var(--wp--custom--spacing--gap);
-      padding: 0;
-      list-style-type: none;
+    list-style-type: none;
+    margin: var(--wp--custom--spacing--gap) 0 var(--wp--custom--spacing--gap);
+    padding: 0;
     li {
       &:before {
-          margin-inline-end: var(--wp--custom--spacing--sm);
-          content: "—";
-          display: inline-block;
-          font-weight: normal;
+        display: inline-block;
+        content: "—";
+        font-weight: normal;
+        margin-inline-end: var(--wp--custom--spacing--sm);
       }
       &.current_page_item {
         > a {
-            font-weight: bold;
-            text-decoration: none;
+          text-decoration: none;
+          font-weight: bold;
           &:visited {
-              color: var(--wp--custom--color--text);
+            color: var(--wp--custom--color--text);
           }
         }
         color: var(--wp--custom--color--text);
       }
     }
   }
+}
+
+//Content
+.dgwltd-content-wrapper .entry-content > .entry-content > * {
+  padding: 0;
 }

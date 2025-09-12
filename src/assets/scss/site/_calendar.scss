@@ -1,10 +1,10 @@
 .dgwltd-calendar {
     padding-block-end: var(--wp--custom--spacing--lg);
     &__grid {
-        margin-block-end: 0.5rem;
         display: grid;
-        gap: 0.5rem;
         grid-template-columns: repeat(7, 1fr);
+        gap: 0.5rem;
+        margin-block-end: 0.5rem;
     }
     &__day--highlight {
         label:before {
@@ -13,7 +13,7 @@
     }
     
     &__quick-nav {
-        margin-block-start: var(--wp--custom--spacing--sm);
+         margin-block-start: var(--wp--custom--spacing--sm);
     }
 
     //Gov.uk specifi styles

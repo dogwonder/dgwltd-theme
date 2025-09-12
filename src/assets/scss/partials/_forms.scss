@@ -1,6 +1,6 @@
 //Fallback for forms
 label {
-    line-height: var(--wp--custom--typography--line-height--input);
+  line-height: var(--wp--custom--typography--line-height--input);
 }
 
 input[type="text"],
@@ -9,156 +9,164 @@ input[type="tel"],
 input[type="search"],
 input[type="url"],
 textarea {
-    appearance: none;
-    width: 100%;
-    height: var(--wp--custom--height--input);
-    margin: 0;
-    padding: var(--wp--custom--spacing--xs);
-    background-color: transparent;
-    border: 2px solid var(--wp--custom--color--text, currentColor);
-    border-radius: 0;
-    font-size: var(--wp--preset--font-size--sm);
-    line-height: var(--wp--custom--typography--line-height--input);
+  font-size: var(--wp--preset--font-size--sm);
+  line-height: var(--wp--custom--typography--line-height--input);
+  width: 100%;
+  height: var(--wp--custom--height--input);
+  margin: 0;
+  padding: var(--wp--custom--spacing--xs);
+  background-color: transparent;
+  border: 2px solid var(--wp--custom--color--text, currentColor);
+  border-radius: 0;
+  appearance: none;
   &:focus-visible {
-      outline: 0.2em solid var(--wp--preset--color--focus);
-      outline-offset: 0;
-      box-shadow: inset 0 0 0 2px;
-      background-color: transparent;
+    outline: 0.2em solid var(--wp--preset--color--focus);
+    outline-offset: 0;
+    box-shadow: inset 0 0 0 2px;
+    background-color: transparent;
   }
   &.dgwltd-input--wp--custom--color--error {
-      outline: 0;
-      border: 0.2em solid var(--wp--custom--color--error);
+    border: 0.2em solid var(--wp--custom--color--error);
+    outline: 0;
   }
 }
 
 // Selects
 select {
-    -moz-appearance: menulist;
-    -webkit-appearance: menulist;
-    appearance: menulist;
-    width: 100%;
-    height: var(--wp--custom--height--input);
-    margin: 0;
-    padding: 0 0.2em;
-    background-color: transparent;
-    border: 2px solid var(--wp--custom--color--text, currentColor);
-    border-radius: 0;
-    font: inherit; //Inherit font family, size, and line height;
-    line-height: var(--wp--custom--typography--line-height--small);
-    letter-spacing: inherit;
-    word-spacing: inherit;
+  width: 100%;
+  height: var(--wp--custom--height--input);
+  line-height: var(--wp--custom--typography--line-height--small);
+  border: 2px solid var(--wp--custom--color--text, currentColor);
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0 0.2em;
+  font: inherit; //Inherit font family, size, and line height
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  margin: 0;
+  padding: 0.2em;
+  -moz-appearance: menulist;
+  -webkit-appearance: menulist;
+  appearance: menulist;
   &:focus-visible {
-      outline: 0.15em solid var(--wp--preset--color--focus);
-      box-shadow: 0 0 0.2em var(--wp--preset--color--focus);
+    outline: 0.15em solid var(--wp--preset--color--focus);
+    box-shadow: 0 0 0.2em var(--wp--preset--color--focus);
   }
   &.govuk-select--width-sm {
-      width: 4ch;
+    width: 4ch;
   }
 }
 
 textarea {
-    height: auto;
-    min-height: 40px;
-    line-height: var(--wp--custom--typography--line-height--body);
+  line-height: var(--wp--custom--typography--line-height--body);
+  min-height: 40px;
+  height: auto;
 }
 
 input[type="submit"] {
-    -webkit-appearance: none;
-    cursor: pointer;
+  @extend %dgwltd-button;
+  cursor: pointer;
+  -webkit-appearance: none;
   &:hover {
-      background-color: var(--wp--preset--color--secondary);
+    background-color: var(--wp--preset--color--secondary);
   }
 }
 
 //Gravity forms
 .gform_wrapper {
+
+  @include stack($gap);
+
+  //General styles and resets - (needs ul due to inheritance over .entry-content)
   .gform_fields {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
     .gfield {
-        padding: 0;
+      padding: 0;
     }
 
     fieldset {
-        width: 100%;
-        padding: 0;
-        border: 0;
+      border: 0;
+      padding: 0;
+      width: 100%;
     }
 
     //Spacing
     > * + * {
-        margin-block-start: var(--wp--custom--spacing--gap);
+      margin-block-start: var(--wp--custom--spacing--gap);
     }
   }
 
   .gform_footer {
-      margin-block-start: var(--wp--custom--spacing--gap);
+    margin-block-start: var(--wp--custom--spacing--gap);
   }
 
   //Labels
   .gfield_label {
-      margin-block-end: var(--wp--custom--spacing--3-xs);
-      display: inline-block;
+    display: inline-block;
+    margin-block-end: var(--wp--custom--spacing--3-xs);
+    @extend %dgwltd-body;
   }
 
   //Input description - placed above input
   .gfield_description {
-      margin-block-end: var(--wp--custom--spacing--sm);
+    margin-block-end: var(--wp--custom--spacing--sm);
   }
 
   //Choices
   .gchoice {
-      display: flex;
-      flex-wrap: nowrap;
-      align-items: center;
-      gap: 0.2ch;
-      position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+    align-items: center;
+    gap: 0.2ch;
   }
 
   //Radio choices order
   .gfield--type-radio:has(.gfield_description) {
-      display: flex;
-      flex-direction: column;
+    display: flex;
+    flex-direction: column;
     .gfield_label {
-        order: 1;
+      order: 1;
     }
     .gfield_description {
-        margin-block-end: var(--wp--custom--spacing--2-xs);
-        order: 2;
+      order: 2;
+      margin-block-end: var(--wp--custom--spacing--2-xs);
     }
     .ginput_container {
-        order: 3;
+      order: 3;
     }
   }
 
   //Checkboxes & Radios
   .gfield_checkbox,
   .gfield_radio {
-      display: flex;
-      flex-direction: column;
+    display: flex;
+    flex-direction: column;
     li {
-        position: relative;
-        margin: 0 0 var(--wp--custom--spacing--sm);
-        padding: 0 0 0 var(--wp--custom--spacing--lg);
-        line-height: 1;
+      position: relative;
+      padding: 0 0 0 var(--wp--custom--spacing--lg);
+      margin: 0 0 var(--wp--custom--spacing--sm);
+      line-height: 1;
     }
     label {
-        display: inline-block;
-        padding: 0;
+      padding: 0;
+      display: inline-block;
       &:hover {
-          cursor: pointer;
+        cursor: pointer;
       }
       &:before {
-          content: "";
-          position: absolute;
-          top: 8px;
-          left: 0;
-          width: 24px;
-          height: 24px;
-          background-color: white;
-          border: 2px solid currentColor;
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 0;
+        width: 24px;
+        height: 24px;
+        border: 2px solid currentColor;
+        background-color: white;
       }
     }
   }
@@ -166,80 +174,81 @@ input[type="submit"] {
   //Checkboxes
   .gfield_checkbox {
     input[type="checkbox"] {
-        z-index: 1;
-        opacity: 0;
-        width: 40px;
-        min-width: 40px;
-        height: 40px;
-        margin: 0 0 0 -10px;
-        cursor: pointer;
+      cursor: pointer;
+      z-index: 1;
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      margin: 0 0 0 -10px;
+      opacity: 0;
     }
     label:after {
-        content: "";
-        position: absolute;
-        top: 15px;
-        left: 6px;
-        opacity: 0;
-        transform: rotate(-45deg);
-        width: 12px;
-        height: 6.5px;
-        background: transparent;
-        border: solid;
-        border-width: 0 0 3px 3px;
-        border-top-color: transparent;
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 6px;
+      width: 12px;
+      height: 6.5px;
+      transform: rotate(-45deg);
+      border: solid;
+      border-width: 0 0 3px 3px;
+      border-top-color: transparent;
+      opacity: 0;
+      background: transparent;
     }
     input[type="checkbox"]:focus-visible + label::before {
-        box-shadow: 0 0 0 3px var(--wp--preset--color--focus);
-        border-width: 4px;
+      border-width: 4px;
+      box-shadow: 0 0 0 3px var(--wp--preset--color--focus);
     }
     input[type="checkbox"]:checked + label:after {
-        opacity: 1;
+      opacity: 1;
     }
   }
 
   //Radios
   .gfield_radio {
     input[type="radio"] {
-        opacity: 0;
-        width: 40px;
-        min-width: 40px;
-        height: 40px;
-        margin: 0 0 0 -10px;
-        cursor: pointer;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      margin: 0 0 0 -10px;
+      opacity: 0;
     }
     label:before {
-        border-radius: 50%;
+      border-radius: 50%;
     }
     label:after {
-        content: "";
-        position: absolute;
-        top: 15px;
-        left: 7px;
-        opacity: 0;
-        width: 0;
-        height: 0;
-        background: currentColor;
-        border: 5px solid currentColor;
-        border-radius: 50%;
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 7px;
+      width: 0;
+      height: 0;
+      border: 5px solid currentColor;
+      border-radius: 50%;
+      opacity: 0;
+      background: currentColor;
     }
     input[type="radio"]:focus + label::before {
-        box-shadow: 0 0 0 3px var(--wp--preset--color--focus);
-        border-width: 4px;
+      border-width: 4px;
+      box-shadow: 0 0 0 3px var(--wp--preset--color--focus);
     }
     input[type="radio"]:checked + label:after {
-        opacity: 1;
+      opacity: 1;
     }
   }
 
   //Buttons
   .gform_button {
-      background-color: var(--wp--preset--color--primary);
-      line-height: 1 !important; //Overrule theme;
+    @extend %dgwltd-button;
+    background-color: var(--wp--preset--color--primary);
+    line-height: 1 !important; //Overrule theme
     &:hover {
-        background-color: var(--wp--preset--color--secondary);
+      background-color: var(--wp--preset--color--secondary);
     }
     &:focus-visible {
-        background-color: var(--button-focus);
+      background-color: var(--button-focus);
     }
   }
 
@@ -247,29 +256,32 @@ input[type="submit"] {
 
 //Error handling
 .gform_wrapper.gform_validation_error {
+
   .gfield_error {
-      margin-inline-start: 0;
-      padding-inline-start: var(--wp--custom--spacing--sm);
-      display: flex;
-      flex-direction: column;
-      border-left: 3px solid var(--wp--custom--color--error);
+    display: flex;
+    flex-direction: column;
+    margin-inline-start: 0;
+    padding-left: var(--wp--custom--spacing--sm);
+    border-left: 3px solid var(--wp--custom--color--error);
+
+    //Order of fields
     .gfield_label {
-        order: 1;
+      order: 1;
     }
 
     .gfield_description {
-        margin-block-end: var(--wp--custom--spacing--sm);
-        order: 2;
+      order: 2;
+      margin-block-end: var(--wp--custom--spacing--sm);
     }
 
     .ginput_container {
-        order: 3;
+      order: 3;
     }
 
     input, textarea {
-        border-color: var(--wp--custom--color--error);
+      border-color: var(--wp--custom--color--error);
       &:focus-visible {
-          outline: 0.1em solid var(--wp--custom--color--error);
+        outline: 0.1em solid var(--wp--custom--color--error);
       }
     }
 
@@ -278,21 +290,21 @@ input[type="submit"] {
 
   //Field error message
   .gfield_validation_message {
-      margin-block-end: var(--wp--custom--spacing--sm);
-      font-weight: bold;
-      color: var(--wp--custom--color--error);
+    font-weight: bold;
+    color: var(--wp--custom--color--error);
+    margin-block-end: var(--wp--custom--spacing--sm);
   }
   
   //Govuk integration
   .govuk-error-summary {
-      margin-block: 0 var(--wp--custom--spacing--lg);
+    margin-block: 0 var(--wp--custom--spacing--lg);
     &__title {
-        font-weight: bold;
+      font-weight: bold;
     }
     &__list {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
     }
   }
 
@@ -301,110 +313,111 @@ input[type="submit"] {
 //Utility classes / other
 .gfield--type-honeypot, 
 .gfield_visibility_hidden {
-    position: absolute !important;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-    width: 1px;
-    height: 1px;
-    word-wrap: normal !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+  /* many screen reader and browser combinations announce broken words as they would appear visually */
+  word-wrap: normal !important;
 }
 
 .gfield_required {
-    margin-inline-start: 0.25ch;
-    font-size: 0.9em;
-    font-weight: normal;
-    color: var(--wp--custom--color--error);
+  margin-inline-start: 0.25ch;
+  font-size: 0.9em;
+  color: var(--wp--custom--color--error);
+  font-weight: normal;
 }
 
 //Columns
 .ginput_container:has(.gform-grid-col) {
-    display: flex;
-    gap: var(--wp--custom--spacing--md);
-    width: 100%;
+  display: flex;
+  width: 100%;
+  gap: var(--wp--custom--spacing--md);
   .gform-grid-col {
-      flex: 1 1 auto;
-      max-width: 50%;
+    flex: 1 1 auto;
+    max-width: 50%;
   }
 }
 
 //Lists
 .ginput_list {
-    display: block !important;
+  display: block !important;
 }
 
 .gfield_list_group {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--wp--custom--spacing--xs);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--wp--custom--spacing--xs);
+  align-items: center;
   &:not(:first-of-type) {
-      margin-block-start: var(--wp--custom--spacing--xs);
+    margin-block-start: var(--wp--custom--spacing--xs);
   }
   &:not(:last-of-type) {
     .add_list_item {
-        display: none !important;
+      display: none !important;
     }  
   }
   &:last-of-type:not(:first-of-type) {
     .add_list_item {
-        order: 2;
+      order: 2;
     }  
     .delete_list_item {
-        order: 1;
+      order: 1
     }
   }
 }
 
 //Buttons
 .gfield_list_icons {
-    display: flex;
-    align-items: center;
-    gap: var(--wp--custom--spacing--xs);
-    margin: 0;
+  margin: 0;
+  display: flex;
+  gap: var(--wp--custom--spacing--xs);
+  align-items: center;
   button {
-      margin: 0;
-      padding: 0;
-      background-color: transparent;
-      border:0;
+    border:0;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
     &:before {
-        margin-inline-end: 0.25em;
-        content: "+";
+      content: "+";
+      margin-inline-end: 0.25em;
     }
   }
   .add_list_item  {
     &:before {
-        content: "+";
+      content: "+";
     }
   }
   .delete_list_item {
     &:before {
-        content: "-";
+      content: "-";
     }
   }
 }
 
 //Progress bar
 .dgwltd-progress {
-    --bar-height: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  --bar-height: 1.5rem;
   &__bar {
-      margin-block: var(--wp--custom--spacing--xs);
-      padding-inline: calc(var(--bar-height) / 3);
-      display: flex;
-      align-items: center;
-      position: relative;
-      width: 100%;
-      height: var(--bar-height);
-      background-color: transparent;
-      border: 2px solid var(--wp--custom--color--text);
-      border-radius: calc(var(--bar-height) / 2);
+    width: 100%;
+    height: var(--bar-height);
+    border: 2px solid var(--wp--custom--color--text);
+    background-color: transparent;
+    position: relative;
+    margin-block: var(--wp--custom--spacing--xs);
+    padding-inline: calc(var(--bar-height) / 3);
+    border-radius: calc(var(--bar-height) / 2);
+    display: flex;
+    align-items: center;
     span {
-        display: inline-block;
-        height: calc(var(--bar-height) / 2);
-        background-color: var(--wp--custom--color--text);
-        border-radius: calc(var(--bar-height) / 3);
+      display: inline-block;
+      height: calc(var(--bar-height) / 2);
+      background-color: var(--wp--custom--color--text);
+      border-radius: calc(var(--bar-height) / 3);
     }
   }
 }

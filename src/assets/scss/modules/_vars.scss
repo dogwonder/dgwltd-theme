@@ -60,6 +60,9 @@ $colors: (
   --baseline: calc(var(--wp--preset--font-size--body) * var(--wp--custom--typography--line-height--body));
   --baseline-multiplier: 1;
 
+  //System font as default
+  --body: system-ui, sans-serif;
+
   //Menu height
   --submenu-offset: 0;
 

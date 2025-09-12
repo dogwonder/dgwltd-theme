@@ -13,9 +13,11 @@
         gap: 0.5ch;
     }
     .comment-body {
+        @include stack($gap-sm);
     }
 }
 
 .comment-respond, 
 .comment-form {
+    @include stack($gap-sm);
 }

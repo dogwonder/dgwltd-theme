@@ -3,25 +3,25 @@
 //Usage <ul class="grid" data-rows="3-col">
 //<div class="grid" style="--grid-min-item-size: 10ch">
 .grid {
-    display: grid;
-    gap: var(--gutter,var(--wp--custom--spacing--md));
-    grid-template-columns: repeat(var(--grid-placement,auto-fit), minmax(min(var(--grid-min-item-size, 16rem), 100%), 1fr));
+  display: grid;
+  gap: var(--gutter,var(--wp--custom--spacing--md));
+  grid-template-columns: repeat(var(--grid-placement,auto-fit), minmax(min(var(--grid-min-item-size, 16rem), 100%), 1fr));
 }
 
 //Masonry grid
 .grid[data-rows='masonry'] {
-    align-items: start;
-    grid-template-rows: masonry;
+  grid-template-rows: masonry;
+  align-items: start;
 }
 
 //2 col grid
 .grid[data-layout='50-50'] {
-    --grid-placement: auto-fit;
-    --grid-min-item-size: clamp(8rem, 50vw, 16rem);
+  --grid-placement: auto-fit;
+  --grid-min-item-size: clamp(8rem, 50vw, 16rem);
 }
 
 //3 col grid
 .grid[data-rows='3-col'] {
-    --grid-placement: auto-fit;
-    --grid-min-item-size: clamp(8rem, 33%, 16rem);
+  --grid-placement: auto-fit;
+  --grid-min-item-size: clamp(8rem, 33%, 16rem);
 }

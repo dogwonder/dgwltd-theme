@@ -1,50 +1,50 @@
 //For lists blogs / team etc
 .dgwltd-list {
   &__item {
-      padding-block-end: var(--wp--custom--spacing--gap);
-      margin: 0 0 var(--wp--custom--spacing--gap);
-      border-bottom: 1px solid var(--wp--custom--color--border);
+    margin: 0 0 var(--wp--custom--spacing--gap);
+    padding-bottom: var(--wp--custom--spacing--gap);
+    border-bottom: 1px solid var(--wp--custom--color--border);
     &:last-child {
-        border: 0;
+      border: 0;
     }
   }
   //Furniture
   &__content {
-      order: 2;
-      flex: 1;
+    flex: 1;
+    order: 2;
     @include mq($from: md) {
-        order: 1;
+      order: 1;
     }
   }
   &__figure {
-      order: 1;
-      flex: 0 1 100%;
-      margin: 0 0 var(--wp--custom--spacing--gap) 0;
+    flex: 0 1 100%;
+    order: 1;
+    margin: 0 0 var(--wp--custom--spacing--gap) 0;
     @include mq($from: md) {
-        order: 2;
-        flex: 0 1 30%;
-        margin: var(--wp--custom--spacing--gap) 0 0 var(--wp--custom--spacing--gap);
+      order: 2;
+      flex: 0 1 30%;
+      margin: var(--wp--custom--spacing--gap) 0 0 var(--wp--custom--spacing--gap);
     }
     .post-thumbnail {
-        display: block;
+      display: block;
     }
     img {
-        object-fit: cover;
-        object-position: 50% 50%;
-        width: 100%;
-        height: inherit;
+      width: 100%;
+      height: inherit;
+      object-fit: cover;
+      object-position: 50% 50%;
     }
   }
   //Details
   &__title {
-      margin: 0 0 var(--wp--custom--spacing--sm);
+    margin: 0 0 var(--wp--custom--spacing--sm);
   }
   &__meta {
     .posted-on {
-        margin-inline-end: var(--wp--custom--spacing--md);
+      margin-inline-end: var(--wp--custom--spacing--md);
     }
   }
   .dgwltd-button {
-      text-decoration: none;
+    text-decoration: none;
   }
 }
