@@ -33,10 +33,14 @@ a {
 
 //Set a global default for focus visible styles
 :is(a, button, input, textarea, summary):focus-visible {
-    outline:;
+     outline:
+    var(--outline-color)
+    var(--outline-style)
+    var(--outline-size)
+    var(--outline-width);
     outline-offset: var(--outline-offset, var(--outline-size));
-    box-shadow: var(--box-shadow);
     background-color: var(--background-color);
+    box-shadow: var(--box-shadow);
     text-decoration: none;
 }
 
@@ -72,8 +76,8 @@ hr {
 /* Remove all animations and transitions
 for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
-    *::before,;
-  *::after {
+    *::before,
+    *::after {
       scroll-behavior: auto !important;
       transition-duration: 0.01ms !important;
       animation-duration: 0.01ms !important;

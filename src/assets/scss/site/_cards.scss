@@ -80,6 +80,7 @@
       width: 100%;
       margin: 0 0 var(--wp--custom--spacing--sm);
       text-decoration: none;
+      @extend %dgwltd-heading-md;
     > a {
         color:inherit;
         text-decoration: underline;
