@@ -77,6 +77,18 @@ permalink: '../src/assets/scss/wp.scss'
 
 {%- endif -%}
 
+{%- if theme.settings.border -%}
+    {%- for radius in theme.settings.border.radiusSizes %}
+        --wp--preset--border-radius--{{ radius.slug }}: {{ radius.size }};
+    {%- endfor -%}   
+{%- endif -%}
+
+{%- if theme.settings.shadow -%}
+    {%- for preset in theme.settings.shadow.presets %}
+        --wp--preset--shadow--{{ preset.slug }}: {{ preset.shadow }};
+    {%- endfor -%}   
+{%- endif -%}
+
 {%- for key, value in theme.settings.custom.width %}
         --wp--custom--width--{{ key }}: {{ value }};
 {%- endfor %}  

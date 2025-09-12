@@ -260,7 +260,7 @@ and from the bottom of the preceding element */
   }
   .alert__message {
     flex: 1;
-    padding-left: var(--wp--custom--spacing--sm);
+    padding-inline-start: var(--wp--custom--spacing--sm);
     > * {
       color:inherit;
     }

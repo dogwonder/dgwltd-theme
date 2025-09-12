@@ -1,16 +1,16 @@
 //Sticky footer
 .dgwltd-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 //Anchor the footer to the bottom of the page
 .dgwltd-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
 }
 
 //Page layout
@@ -21,54 +21,54 @@
 .entry-comments, 
 .entry-share, 
 .entry-wrapper {
-  padding:0;
-  max-width: 100%;
-  display: grid;
-  grid-template-columns: $fluid-container;
+    display: grid;
+    grid-template-columns: $fluid-container;
+    max-width: 100%;
+    padding:0;
   > * {
-    grid-column: 2 / span 1;
+      grid-column: 2 / span 1;
   }
 }
 
 //Full width align group
 .wp-block-group.alignfull {
-  grid-column: 1 / -1;
-  padding: var(--wp--custom--spacing--lg) var(--wp--custom--spacing--md);
+    grid-column: 1 / -1;
+    padding: var(--wp--custom--spacing--lg) var(--wp--custom--spacing--md);
 }
 
 //Reset Wordpress' display: flow-root
 .entry-content.wp-block-post-content {
-  display: grid;
+    display: grid;
 }
 
 //Page layout
 .dgwltd-content-wrapper {
-  padding:0;
-  max-width: 100%;
+    max-width: 100%;
+    padding:0;
   .entry-header {
     > * {
-      margin-block-start: 0;
-      margin-block-end: var(--wp--custom--spacing--gap);
+        margin-block-start: 0;
+        margin-block-end: var(--wp--custom--spacing--gap);
     }
   }
 }
 
 //Add a little space to the content block
 .entry-content, .entry-footer {
-  padding-block-end: var(--wp--custom--spacing--lg);
+    padding-block-end: var(--wp--custom--spacing--lg);
 }
 
 .dgwltd-content-wrapper:has(.entry-footer) {
   .entry-content {
-    padding-block-end: 0;
+      padding-block-end: 0;
   }
 }
 
 
 //Blocks page - add some extra spacing for the stack
 .dgwltd-content-wrapper:has(.dgwltd-hero) {
-  --buffer: var(--wp--custom--spacing--xl);
+    --buffer: var(--wp--custom--spacing--xl);
   p {
-    --buffer: var(--wp--custom--spacing--gap);
+      --buffer: var(--wp--custom--spacing--gap);
   }
 }

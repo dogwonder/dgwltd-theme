@@ -261,7 +261,7 @@ input[type="submit"] {
     display: flex;
     flex-direction: column;
     margin-inline-start: 0;
-    padding-left: var(--wp--custom--spacing--sm);
+    padding-inline-start: var(--wp--custom--spacing--sm);
     border-left: 3px solid var(--wp--custom--color--error);
 
     //Order of fields

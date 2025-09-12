@@ -6,8 +6,8 @@
     li {
       color: var(--wp--custom--color--text);
       &:not(:first-of-type) {
-        margin-left: .625em;
-        padding-left: .9784375em;
+        margin-inline-start: .625em;
+        padding-inline-start: .9784375em;
       }
     }
   }

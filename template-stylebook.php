@@ -82,7 +82,7 @@ code.language-html {
 	font-size: var(--wp--preset--font-size--sm);
 	padding: 0.4rem;
 	text-shadow: none;
-	font-family: var(--body);
+	font-family: var(--wp--preset--font-family--system-font);
 	border: 0;
 }
 .swatch {

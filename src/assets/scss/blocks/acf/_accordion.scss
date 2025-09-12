@@ -19,7 +19,7 @@
     .govuk-accordion__section-button {
       @extend %dgwltd-heading-md;
       margin: 0;
-      padding-bottom: 0;
+      padding-block-end: 0;
       &:hover {
         .govuk-accordion__section-heading-text-focus {
           color: var(--wp--custom--color--background);
@@ -40,6 +40,6 @@
       color: var(--wp--custom--color--text);
     }
     .govuk-accordion__section-content {
-      padding-top: 0;
+      padding-block-start: 0;
     }
 }

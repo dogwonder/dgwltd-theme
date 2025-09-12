@@ -20,8 +20,7 @@
       height: 45px;
       @extend %dgwltd-button;
       line-height: 45px;
-      padding-top:0;
-      padding-bottom:0;
+      padding-block:0;
       display: flex;
       align-items: center;
     }

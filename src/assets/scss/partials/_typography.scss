@@ -1,44 +1,43 @@
-html { font-family: var(--body), Helvetica, Arial, sans-serif; }
+html { font-family: var(--wp--preset--font-family--system-font); }
 
 //Global
 html {
-  font-size: 100%;
+    font-size: 100%;
 }
 
 body {
-  font-family: var(--body);
-  font-weight: normal;
-  font-size: var(--wp--preset--font-size--body); 
-  line-height: var(--wp--custom--typography--line-height--body);
-  letter-spacing: 1rem * 0.02;
-  word-spacing: 1rem * 0.04;
-  text-align: left;
-  background-color: var(--wp--custom--color--background);
-  color: var(--wp--custom--color--text);
-  overflow-y: scroll;
-  overflow-x: hidden;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  font-optical-sizing: auto;
-  font-variant-ligatures: common-ligatures no-discretionary-ligatures no-historical-ligatures contextual;
-  font-kerning: normal;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-optical-sizing: auto;
+    font-variant-ligatures: common-ligatures no-discretionary-ligatures no-historical-ligatures contextual;
+    font-kerning: normal;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: var(--wp--custom--color--background);
+    font-size: var(--wp--preset--font-size--body);
+    font-family: var(--wp--preset--font-family--system-font);
+    font-weight: normal;
+    line-height: var(--wp--custom--typography--line-height--body);
+    color: var(--wp--custom--color--text);
+    text-align: left;
+    letter-spacing: 1rem * 0.02;
+    word-spacing: 1rem * 0.04;
 }
 
 //Note some of the typographic defaults have originated from here https://github.com/clagnut/TODS
 
 //Reset all the margins
 body, h1, h2, h3, h4, h5, h6, address, p, hr, pre, blockquote, ol, ul, li, dl, dt, dd, figure, figcaption, div, table, caption, form, fieldset {
-  margin: 0;
+    margin: 0;
 }
 
 //Margin-block-start approach
 :is( h1, h2, h3, h4, h5, h6 ) {
-  //Reset browser defaults - we avoid reseting the top margin as this is coverted by template literals
-  margin-block: 0;
-  font-variant-numeric: lining-nums;
+    margin-block: 0;
+    font-variant-numeric: lining-nums;
   + p:not(.entry-meta) {
-    margin-block-start: var(--wp--custom--spacing--sm);
+      margin-block-start: var(--wp--custom--spacing--sm);
   }
 }
 
@@ -55,59 +54,59 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
 */
 
 // .dgwltd-heading-stepper {
-//   font-family: var(--wp--preset--font-family--primary);
-//   @include clamp-calc-step('font-size', (sm: $type-2, lg: $type-6, xxl: $type-10));
+    //   font-family: var(--wp--preset--font-family--primary);
+    //   @include clamp-calc-step('font-size', (sm: $type-2, lg: $type-6, xxl: $type-10));
 // }
 
 // H1
 .dgwltd-heading-xl, 
 %dgwltd-heading-xl {
-  font-family: var(--wp--preset--font-family--primary);
-  font-size: var(--wp--preset--font-size--3-xl);
-  font-variant-ligatures: discretionary-ligatures; 
-  line-height: var(--wp--custom--typography--line-height--heading--lg);
-  letter-spacing: var(--wp--custom--typography--letter-spacing--gigantic);
-  margin: 0;
+    font-variant-ligatures: discretionary-ligatures;
+    margin: 0;
+    font-size: var(--wp--preset--font-size--3-xl);
+    font-family: var(--wp--preset--font-family--primary);
+    line-height: var(--wp--custom--typography--line-height--heading--lg);
+    letter-spacing: var(--wp--custom--typography--letter-spacing--gigantic);
 }
 
 // H2
 .dgwltd-heading-lg, 
 %dgwltd-heading-lg {
-  font-family: var(--wp--preset--font-family--secondary);
-  font-size: var(--wp--preset--font-size--2-xl);
-  line-height: var(--wp--custom--typography--line-height--heading--lg);
-  letter-spacing: var(--wp--custom--typography--letter-spacing--gigantic);
-  margin: 0;
+    margin: 0;
+    font-size: var(--wp--preset--font-size--2-xl);
+    font-family: var(--wp--preset--font-family--secondary);
+    line-height: var(--wp--custom--typography--line-height--heading--lg);
+    letter-spacing: var(--wp--custom--typography--letter-spacing--gigantic);
 }
 
 // H3
 .dgwltd-heading-md, 
 %dgwltd-heading-md {
-  font-family: var(--wp--preset--font-family--secondary);
-  font-size: var(--wp--preset--font-size--xl);
-  line-height: var(--wp--custom--typography--line-height--heading--lg);
-  letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
-  margin: 0;
+    margin: 0;
+    font-size: var(--wp--preset--font-size--xl);
+    font-family: var(--wp--preset--font-family--secondary);
+    line-height: var(--wp--custom--typography--line-height--heading--lg);
+    letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
 }
 
 // H4
 .dgwltd-heading-sm, 
 %dgwltd-heading-sm {
-  font-family: var(--wp--preset--font-family--tertiary);
-  font-size: var(--wp--preset--font-size--lg);
-  line-height: var(--wp--custom--typography--line-height--heading--sm);
-  letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
-  margin: 0;
+    margin: 0;
+    font-size: var(--wp--preset--font-size--lg);
+    font-family: var(--wp--preset--font-family--tertiary);
+    line-height: var(--wp--custom--typography--line-height--heading--sm);
+    letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
 }
 
 // H5 / H6
 %dgwltd-heading-xs,
 .dgwltd-heading-xs {
-  font-family: var(--wp--preset--font-family--tertiary);
-  font-size: var(--wp--preset--font-size--md);
-  line-height: var(--wp--custom--typography--line-height--body);
-  letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
-  margin: 0;
+    margin: 0;
+    font-size: var(--wp--preset--font-size--md);
+    font-family: var(--wp--preset--font-family--tertiary);
+    line-height: var(--wp--custom--typography--line-height--body);
+    letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
 }
 
 /*
@@ -120,61 +119,61 @@ has-lg-font-size
 .dgwltd-body, 
 %dgwltd-body,
 .govuk-body {
-  font-weight: normal;
-  font-size: var(--wp--preset--font-size--body); 
-  line-height: var(--wp--custom--typography--line-height--body);
+    font-size: var(--wp--preset--font-size--body);
+    font-weight: normal;
+    line-height: var(--wp--custom--typography--line-height--body);
 }
 
 .dgwltd-body-lg, 
 %dgwltd-body-lg {
-  font-size: var(--wp--preset--font-size--lg);
-  line-height: var(--wp--custom--typography--line-height--heading--lg);
+    font-size: var(--wp--preset--font-size--lg);
+    line-height: var(--wp--custom--typography--line-height--heading--lg);
 }
 
 .dgwltd-body-md, 
 %dgwltd-body-md {
-  font-size: var(--wp--preset--font-size--md);
-  line-height: var(--wp--custom--typography--line-height--body);
+    font-size: var(--wp--preset--font-size--md);
+    line-height: var(--wp--custom--typography--line-height--body);
 }
 
 .dgwltd-body-sm, 
 %dgwltd-body-sm {
-  font-size: var(--wp--preset--font-size--sm);
-  line-height: var(--wp--custom--typography--line-height--body);
+    font-size: var(--wp--preset--font-size--sm);
+    line-height: var(--wp--custom--typography--line-height--body);
 }
 
 .dgwltd-body-xs, 
 %dgwltd-body-xs {
-  font-size: var(--wp--preset--font-size--xs);
-  line-height: var(--wp--custom--typography--line-height--body);
+    font-size: var(--wp--preset--font-size--xs);
+    line-height: var(--wp--custom--typography--line-height--body);
 }
 
 .dgwltd-navigation, 
 %dgwltd-navigation {
-  font-family: var(--wp--preset--font-family--secondary);
-  font-size: var(--wp--preset--font-size--md);
-  line-height: 1;
+    font-size: var(--wp--preset--font-size--md);
+    font-family: var(--wp--preset--font-family--secondary);
+    line-height: 1;
 } 
 
 ul,
 ol {
-  padding-left: 0;
-  list-style-position: outside;
+    padding-inline-start: 0;
+    list-style-position: outside;
 }
 
 blockquote p {
-  hanging-punctuation: first;
-  text-indent: -5px;
+    hanging-punctuation: first;
+    text-indent: -5px;
 }
 
 //Swiss school
 .swiss-shift {
-  text-wrap: auto;
+    text-wrap: auto;
   span.background {
-    opacity: 0.7;
+      opacity: 0.7;
   }
   span.foreground {
-    opacity: 1;
-    margin-inline-start: -1ch;
+      margin-inline-start: -1ch;
+      opacity: 1;
   }
 }

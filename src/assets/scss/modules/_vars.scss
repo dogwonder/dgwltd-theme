@@ -60,15 +60,8 @@ $colors: (
   --baseline: calc(var(--wp--preset--font-size--body) * var(--wp--custom--typography--line-height--body));
   --baseline-multiplier: 1;
 
-  //System font as default
-  --body: system-ui, sans-serif;
-
   //Menu height
   --submenu-offset: 0;
-
-  //Border radius
-  --radius: 0.25rem;
-  --radius-outer: 0.5rem;
 
   //Misc
   --button-height: 2.5rem;
@@ -79,10 +72,5 @@ $colors: (
   //Typography
   --opentype-case: "case" off;
   --opentype-sinf: "sinf" off;
-
-  //Shadows
-  --shadow-color: rgba(0,0,0, 0.2);
-  --shadow-high: 0 var(--wp--custom--spacing--md) var(--wp--custom--spacing--md) var(--shadow-color);
-  --shadow-low: 0 var(--wp--custom--spacing--sm) var(--wp--custom--spacing--sm) var(--shadow-color);
 
 }

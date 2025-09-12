@@ -111,7 +111,7 @@
         &:first-of-type {
           @include mq($from: lg) {
             a {
-              padding-left: 0;
+              padding-inline-start: 0;
             }
           }
         }
@@ -246,8 +246,7 @@
           opacity: 0;
           visibility: hidden;
           transition: visibility .25s cubic-bezier(.24,.26,.2,1),opacity .25s cubic-bezier(.24,.26,.2,1);
-          //Add some shadow 
-          box-shadow: var(--shadow-low);
+          box-shadow: var(--wp--preset--shadow--shadow-low);
           z-index: $z-high;
           position: absolute;
           left: auto;

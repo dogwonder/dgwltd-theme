@@ -1,93 +1,87 @@
 //Links
 a {
-  color: var(--wp--custom--color--text, inherit);
-  text-decoration: underline;
-  //Break long urls
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  text-decoration-thickness: max(1px, .025em);
-  text-underline-offset: .1578em;
+    overflow-wrap: break-word;
+    text-decoration-thickness: max(1px, .025em);
+    text-underline-offset: .1578em;
+    color: var(--wp--custom--color--text, inherit);
+    text-decoration: underline;
+    word-wrap: break-word;
   &:visited {
-    color: var(--wp--custom--color--text);
+      color: var(--wp--custom--color--text);
   }
   &:hover {
-    color: var(--wp--custom--color--text);
-    text-decoration-color: var(--highlight, --wp--preset--color--primary);
-    text-decoration-thickness: max(3px, .1875rem, .1em);
+      text-decoration-color: var(--highlight, --wp--preset--color--primary);
+      text-decoration-thickness: max(3px, .1875rem, .1em);
+      color: var(--wp--custom--color--text);
   }
   &:active {
-    color: var(--wp--custom--color--text);
-    text-decoration: none;
+      color: var(--wp--custom--color--text);
+      text-decoration: none;
   }
 }
 
 //Focus styles  - via https://www.youtube.com/watch?v=FfQ-JuaNO68
 :is(a, button, input, textarea, summary) {
-  --outline-color: transparent;
-  --outline-style: solid;
-  --outline-size: .25rem;
-  --outline-width: .25rem;
-  --background-color: var(--wp--preset--color--focus);
-  --box-shadow-color: var(--wp--preset--color--focus);
-  --box-shadow: 0 -2px var(--box-shadow-color), 0 4px currentColor;
+    --outline-color: transparent;
+    --outline-style: solid;
+    --outline-size: .25rem;
+    --outline-width: .25rem;
+    --background-color: var(--wp--preset--color--focus);
+    --box-shadow-color: var(--wp--preset--color--focus);
+    --box-shadow: 0 -2px var(--box-shadow-color), 0 4px currentColor;
 }
 
 //Set a global default for focus visible styles
 :is(a, button, input, textarea, summary):focus-visible {
-  outline:
-    var(--outline-color)
-    var(--outline-style)
-    var(--outline-size)
-    var(--outline-width);
-  outline-offset: var(--outline-offset, var(--outline-size));
-  background-color: var(--background-color);
-  box-shadow: var(--box-shadow);
-  text-decoration: none;
+    outline:;
+    outline-offset: var(--outline-offset, var(--outline-size));
+    box-shadow: var(--box-shadow);
+    background-color: var(--background-color);
+    text-decoration: none;
 }
 
 //Reset the outline - :is won't work in IE11 etc so it won't be applied and will get the browser default outlines
 :is(a, button, input, textarea, summary):focus:not(:focus-visible) {
-  outline: none;
+    outline: none;
 }
 
 svg:has(use) {
-  width: 2rem;
-  height: 2rem;
+    width: 2rem;
+    height: 2rem;
 }
 
 //Custom inset for buttons, using the optional --outline-offset variable
 // button {
-//   --outline-offset: -0.15em;
+    //   --outline-offset: -0.15em;
 // }
 
 // .link {
 //   &:focus-visible {
-//     --background-color: var(--wp--preset--color--primary);
-//     --box-shadow-color: var(--wp--preset--color--primary);
+    //     --background-color: var(--wp--preset--color--primary);
+    //     --box-shadow-color: var(--wp--preset--color--primary);
 //   }
 // }
 
 hr {
-  margin: var(--wp--custom--spacing--gap) 0;
-  height: 1px;
-  border: 0;
-  border-bottom: 1px solid var(--wp--custom--color--dark);
+    height: 1px;
+    margin: var(--wp--custom--spacing--gap) 0;
+    border: 0;
+    border-bottom: 1px solid var(--wp--custom--color--dark);
 }
 
 /* Remove all animations and transitions
 for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
+    *::before,;
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
   }
 }
 
 /* Cross-document view transition */
 @view-transition {
-  navigation: auto;
+    navigation: auto;
 }

@@ -41,7 +41,7 @@ lite-youtube:hover::before {
 lite-youtube::after {
     content: "";
     display: block;
-    padding-bottom: calc(100% / (16 / 9));
+    padding-block-end: calc(100% / (16 / 9));
 }
 lite-youtube > iframe {
     width: 100%;
