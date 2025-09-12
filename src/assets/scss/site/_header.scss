@@ -3,101 +3,95 @@ $nav-height: toRem(60);
 //Skip link
 .govuk-skip-link:link, 
 .govuk-skip-link:focus-visible {
-  color: black !important;
-  text-decoration: underline;
+    color: black !important;
+    text-decoration: underline;
 }
 
 #skiplink-container {
-  grid-column: 1 / -1;
+    grid-column: 1 / -1;
 }
 
 //Masthead
 .dgwltd-masthead {
-  margin: 0;
-  padding: 0;
-  z-index: 9999;
-  background-color: var(--wp--custom--color--background);
+    z-index: 9999;
+    margin: 0;
+    padding: 0;
+    background-color: var(--wp--custom--color--background);
 }
 
 //Overlay
 .dgwltd-wrapper {
-  height: 100vh;
+    height: 100vh;
   &:before {
-    content: "";
-    position: absolute;
-    z-index: $z-highest-1; 
-    width: 100%;
-    height: 100%;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility .25s cubic-bezier(.24,.26,.2,1),opacity .25s cubic-bezier(.24,.26,.2,1);
-
+      content: "";
+      position: absolute;
+      z-index: $z-highest-1;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      visibility: hidden;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      transition: visibility .25s cubic-bezier(.24,.26,.2,1),opacity .25s cubic-bezier(.24,.26,.2,1);
     @include mq($until: lg) {
-      background-color: rgba(0,0,0,.9);
+        background-color: rgba(0,0,0,.9);
     }
 
   }
 }
 
 .dgwltd-masthead-container {
-
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-
-  //Align full
-  max-width: 100%;
-  grid-column: 1 / -1 !important;
-  padding: var(--wp--custom--spacing--md);
-
-  //Logo
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    grid-column: 1 / -1 !important;
+    position: relative;
+    max-width: 100%;
+    padding: var(--wp--custom--spacing--md);
   .dgwltd-masthead__logo {
-    line-height: 1;
+      line-height: 1;
     @include mq($until: lg) {
-      flex: 1;
+        flex: 1;
     }
     > a {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
       &:visited {
-        color: inherit;
+          color: inherit;
       }
       &:focus-visible {
-        outline: none;
-        box-shadow: none;
-        background-color: transparent;
+          outline: none;
+          box-shadow: none;
+          background-color: transparent;
         svg {
-          fill: var(--highlight, --wp--preset--color--primary); 
+            fill: var(--highlight, --wp--preset--color--primary);
           > * {
-            fill: inherit;
+              fill: inherit;
           }
         }
       }
     }
 
     svg {
-      width: $nav-height;
-      height: auto;
-      margin:0 var(--wp--custom--spacing--sm) 0 0;
+        width: $nav-height;
+        height: auto;
+        margin:0 var(--wp--custom--spacing--sm) 0 0;
       &:hover {
-          fill: var(--highlight, --wp--preset--color--primary); 
+          fill: var(--highlight, --wp--preset--color--primary);
       }
     }
 
     //Custom styling
     .logo {
       &__angle-bracket {
-        fill: var(--highlight, --wp--preset--color--primary); 
+          fill: var(--highlight, --wp--preset--color--primary);
       }
       &__line {
-        fill: var(--wp--custom--color--text);
+          fill: var(--wp--custom--color--text);
       }
     }
     

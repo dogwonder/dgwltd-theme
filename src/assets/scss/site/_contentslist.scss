@@ -1,26 +1,26 @@
 //Page list
 .dgwltd-contents-list {
   &__title {
-    margin: 0;
-    font-weight: normal;
+      margin: 0;
+      font-weight: normal;
   }
   ol.dgwltd-contents-list__list {
-    list-style-type: none;
-    margin: var(--wp--custom--spacing--gap) 0 var(--wp--custom--spacing--gap);
-    padding: 0;
+      margin: var(--wp--custom--spacing--gap) 0 var(--wp--custom--spacing--gap);
+      padding: 0;
+      list-style-type: none;
     li {
       &:before {
-        display: inline-block;
-        content: "—";
-        font-weight: normal;
-        margin-inline-end: var(--wp--custom--spacing--sm);
+          margin-inline-end: var(--wp--custom--spacing--sm);
+          content: "—";
+          display: inline-block;
+          font-weight: normal;
       }
       &.current_page_item {
         > a {
-          text-decoration: none;
-          font-weight: bold;
+            font-weight: bold;
+            text-decoration: none;
           &:visited {
-            color: var(--wp--custom--color--text);
+              color: var(--wp--custom--color--text);
           }
         }
         color: var(--wp--custom--color--text);

@@ -1,15 +1,11 @@
 
 //Promo card block
 .dgwltd-promo-card {
-
-    @extend %align-full;
-
     &__wrapper {
-        position: relative;
-        grid-column: 2 / span 1;
         padding-block: var(--wp--custom--spacing--xl);
-        //Create a new stacking context - allows the element we want to go to the back to be positioned relative to this
-        isolation: isolate; 
+        isolation: isolate;
+        grid-column: 2 / span 1;
+        position: relative;
     }
 
     &__inner {
@@ -23,18 +19,17 @@
     }
 
     &__content {
-        background-color: var(--wp--preset--color--primary);
-        padding: var(--wp--custom--spacing--md);
+        --buffer: var(--wp--custom--spacing--sm);
         position: relative;
         z-index: 2;
-        --buffer: var(--wp--custom--spacing--sm);
+        padding: var(--wp--custom--spacing--md);
+        background-color: var(--wp--preset--color--primary);
         @include mq($from: lg) {
-            max-width: var(--wp--custom--width--content-small);
             padding-block: var(--wp--custom--spacing--lg);
-            position: relative; 
+            position: relative;
+            max-width: var(--wp--custom--width--content-small);
         }
         .acf-innerblocks-container {
-            @include stack($gap-sm);
         }
         .dgwltd-promo-card__kicker {
             font-weight: bold;
@@ -43,40 +38,40 @@
             --buffer: var(--wp--custom--spacing--md);
         }
         .wp-element-button {
-            color: var(--wp--custom--color--text);
-            border-color: var(--wp--custom--color--text);
-            background-color: transparent;
             margin: 0;
+            background-color: transparent;
+            border-color: var(--wp--custom--color--text);
+            color: var(--wp--custom--color--text);
         }
     }
 
     &__image {
         @include mq($from: lg) {
-            flex: 1;   
-            position: relative; 
-            z-index: 1;
             margin-inline-start: calc(var(--wp--custom--spacing--xl) * -1);
+            flex: 1;
+            position: relative;
+            z-index: 1;
         }
         img {
-            width: 100%;
             aspect-ratio: 16 / 9;
             object-fit: cover;
+            width: 100%;
         }
     }
 
     &__video {
         width: 100%;
         @include mq($from: lg) {
-            flex: 1;   
-            position: relative; 
-            z-index: 1;
             margin-inline-start: calc(var(--wp--custom--spacing--xl) * -1);
+            flex: 1;
+            position: relative;
+            z-index: 1;
         }
         lite-youtube, 
         lite-vimeo {
+            aspect-ratio: 16 / 9;
             width: 100%;
             height: auto;
-            aspect-ratio: 16 / 9;
         }
     }
 
@@ -84,7 +79,7 @@
     &[data-state='reversed'] {
         .dgwltd-promo-card__inner {
           @include mq($from: lg) {
-            flex-direction: row-reverse;
+              flex-direction: row-reverse;
           }
         }
         .dgwltd-promo-card__image {
@@ -113,8 +108,8 @@
             background-color: var(--wp--preset--color--dark);
             color: var(--wp--preset--color--light);
             .wp-element-button {
-                color: var(--wp--preset--color--primary);
                 border-color: var(--wp--preset--color--primary);
+                color: var(--wp--preset--color--primary);
             }
         }
     } 

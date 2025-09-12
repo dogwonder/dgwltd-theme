@@ -39,6 +39,22 @@ For the Javascript we need to [manually download](https://frontend.design-system
 - [Youtube](https://github.com/paulirish/lite-youtube-embed) and [Vimeo](https://github.com/slightlyoff/lite-vimeo) lite plugins (render the video as a screenshot until a user interacts with the video to save bandwidth) -- note we changed the defulat thumbnail size to 1280px `https://i.ytimg.com/vi/${this.videoId}/maxresdefault.jpg`;
 - [Fontawesome](https://fontawesome.com)
 
+
+## CSS Sorting
+
+This project uses the following sorting standard:
+
+- flexbox properties
+- grid properties
+- positionning properties
+- visibility properties
+- cliping properties
+- box properties
+- animation properties
+- background properties
+- border properties
+- typography properties
+
 ## Custom typeface (optional)
 
 This theme uses the [Söhne typeface](https://klim.co.nz/collections/soehne/) by Klim Type Foundry, this is a licensed font for use on my own url (dgw.ltd). If you wish to use this on your own website then you will need to [purchase a license](https://klim.co.nz/buy/soehne/). You can remove these from fontFamilies[] in theme.json, functions.php and typography.scss. These fonts are not included in the repo. 

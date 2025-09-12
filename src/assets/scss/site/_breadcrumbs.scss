@@ -1,13 +1,13 @@
 .govuk-breadcrumbs {
   ol.govuk-breadcrumbs__list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
     li {
-      color: var(--wp--custom--color--text);
+        color: var(--wp--custom--color--text);
       &:not(:first-of-type) {
-        margin-inline-start: .625em;
-        padding-inline-start: .9784375em;
+          margin-inline-start: .625em;
+          padding-inline-start: .9784375em;
       }
     }
   }

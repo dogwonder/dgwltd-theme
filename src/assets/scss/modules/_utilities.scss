@@ -3,55 +3,53 @@
 //Text meant only for screen readers
 .visually-hidden, 
 %visually-hidden {
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
-  border: 0;
-  /* many screen reader and browser combinations announce broken words as they would appear visually */
-  word-wrap: normal !important;
-  white-space: nowrap;
+    -webkit-clip-path: inset(50%);
+    position: absolute !important;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    word-wrap: normal !important;
+    white-space: nowrap;
 }
 
 .visually-hidden-focusable, 
 %visually-hidden-focusable {
-  @extend %visually-hidden;
-  &:active,
+    &:active,;
   &:focus {
-    position: static !important;
-    width: auto;
-    height: auto;
-    padding: inherit;
-    margin: inherit;
-    overflow: visible;
-    clip: auto;
-    -webkit-clip-path: none;
-    clip-path: none;
-    white-space: inherit;
+      -webkit-clip-path: none;
+      position: static !important;
+      overflow: visible;
+      clip: auto;
+      clip-path: none;
+      width: auto;
+      height: auto;
+      margin: inherit;
+      padding: inherit;
+      white-space: inherit;
   }
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
 //For SVG patterns and sprites
 .defs-only {
-	position: absolute !important;
-	height: 0 !important; 
-  width: 0 !important;
-	overflow: none !important;
-	left: -100% !important;
+    position: absolute !important;
+    left: -100% !important;
+    overflow: none !important;
+    width: 0 !important;
+    height: 0 !important;
 }
 
 //Add a little margin (2 x x-height) to jump links - https://piccalil.li/quick-tip/add-scroll-margin-to-all-elements-which-can-be-targeted
 [id] {
-  scroll-margin-block-start: 2ex;
+    scroll-margin-block-start: 2ex;
 }
 
 //Container
@@ -59,11 +57,11 @@
 //Include the padding on the clamp ideal value so we always have that buffer
 %dgwltd-container, 
 .dgwltd-container {
-  width: 100%;
-  max-width: clamp(16rem,calc(var(--wp--custom--width--container) + calc(var(--wp--custom--spacing--md) * 2)),100vw);
-  margin-inline: auto;
-  padding-inline: var(--wp--custom--spacing--md);
-  position: relative;
+    margin-inline: auto;
+    padding-inline: var(--wp--custom--spacing--md);
+    position: relative;
+    width: 100%;
+    max-width: clamp(16rem,calc(var(--wp--custom--width--container) + calc(var(--wp--custom--spacing--md) * 2)),100vw);
 }
 
 /* 
@@ -72,29 +70,27 @@ Like the Every Layout stack: https://every-layout.dev/layouts/stack/
 Info about this implementation: https://piccalil.li/quick-tip/flow-utility/ 
 */
 .stack {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 .stack > * {
-  /* ↓ Any extant vertical margins are removed */
-  margin-block-start: 0 !important;
-  margin-block-end: 0 !important;
+    margin-block-start: 0 !important;
+    margin-block-end: 0 !important;
 }
 
 //Use line height for spacing 
 .stack > * + * {
-  /* ↓ Top margin is only applied to successive elements */
-  margin-block-start: var(--space, var(--wp--custom--spacing--gap)) !important;
+    margin-block-start: var(--space, var(--wp--custom--spacing--gap)) !important;
 }
 
 .stack-small > * + * {
-  --space: calc(var(--wp--custom--spacing--gap) * 0.75) !important;
+    --space: calc(var(--wp--custom--spacing--gap) * 0.75) !important;
 }
 
 .stack-large > * + * {
-  --space: calc(var(--wp--custom--spacing--gap) * 2) !important;
+    --space: calc(var(--wp--custom--spacing--gap) * 2) !important;
 }
 
 /*
@@ -115,93 +111,90 @@ Can be any acceptable flexbox alignment value.
 */
 
 .cluster {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gutter, var(--wp--custom--spacing--gap));
-  justify-content: var(--cluster-horizontal-alignment, flex-start);
-  align-items: var(--cluster-vertical-alignment, center);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: var(--cluster-horizontal-alignment, flex-start);
+    align-items: var(--cluster-vertical-alignment, center);
+    gap: var(--gutter, var(--wp--custom--spacing--gap));
 }
 
 //Flex push items apart
 .repel, 
 %repel {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gap,var(--wp--custom--spacing--md));
-  justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--gap,var(--wp--custom--spacing--md));
 }
 
 //Align full using subgrid
 .align-full, 
 %align-full {
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
 }
 
 .flex-center, 
 %flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 //Sidebar - based on Every Layout
 :has(> .sidebar) {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--sidebar-gap, 1rem);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sidebar-gap, 1rem);
 }
 
 .sidebar {
-  /* ↓ The width when the sidebar *is* a sidebar */
-  flex-basis: var(--sidebar-size, 20rem);
-  flex-grow: 1;
+    flex-grow: 1;
+    flex-basis: var(--sidebar-size, 20rem);
 }
 
 :has(> .sidebar) > :not(.sidebar) {
-  /* ↓ Grow from nothing */
-  flex-basis: 0;
-  flex-grow: 999;
-  /* ↓ Wrap when the elements are of equal width */
-  min-inline-size: var(--sidebar-wrap-at, 50%);
+    min-inline-size: var(--sidebar-wrap-at, 50%);
+    flex-grow: 999;
+    flex-basis: 0;
 }
 
 .sticky {
-  position: sticky;
-  top: var(--wp--custom--spacing--md);
+    position: sticky;
+    top: var(--wp--custom--spacing--md);
 }
 
 //More modern aspect ratio
 %frame, 
 .frame {
-  aspect-ratio: 3 / 2;
+    aspect-ratio: 3 / 2;
   img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+      object-fit: cover;
+      display: block;
+      width: 100%;
+      height: 100%;
   }
 }
 
 //Typography
 %centered, 
 .centered {
-  text-align: center;
-  text-wrap: balance;
+    text-align: center;
+    text-wrap: balance;
 }
 
 %uppercase, 
 .uppercase {
-  text-transform: uppercase;
-  --opentype-case: "case" on;
+    --opentype-case: "case" on;
+    text-transform: uppercase;
 }
 
 %smallcaps, 
 .smallcaps {
-  font-variant-caps: all-small-caps;
-  font-variant-numeric: oldstyle-nums;    
+    font-variant-caps: all-small-caps;
+    font-variant-numeric: oldstyle-nums;
 }
 
 
@@ -209,34 +202,33 @@ Can be any acceptable flexbox alignment value.
 and from the bottom of the preceding element */
 %subheading, 
 .subheading {
-	margin-block-start: 0;
-	*:has(+ &) {
-		margin-block-end: 0;
+    margin-block-start: 0;
+ *:has(+ &) {
+     margin-block-end: 0;
 	}
 }
 
 //Based on .govuk-\!-text-break-word
 %break-word, 
 .break-word {
-  word-wrap: break-word !important;
-  overflow-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
 }
 
 %prose, 
 .prose {
-  text-wrap: pretty;
-  font-variant-numeric: oldstyle-nums proportional-nums;
-  font-size-adjust: 0.507;
-  -webkit-hyphens: auto;
-  -webkit-hyphenate-limit-before: 4;
-  -webkit-hyphenate-limit-after: 3;
-  -webkit-hyphenate-limit-lines: 2;
-
-  hyphens: auto;
-  hyphenate-limit-chars: 7 4 3;
-  hyphenate-limit-lines: 2;    
-  hyphenate-limit-zone: 8%;
-  hyphenate-limit-last: always;
+    font-variant-numeric: oldstyle-nums proportional-nums;
+    -webkit-hyphens: auto;
+    -webkit-hyphenate-limit-before: 4;
+    -webkit-hyphenate-limit-after: 3;
+    -webkit-hyphenate-limit-lines: 2;
+    hyphenate-limit-chars: 7 4 3;
+    hyphenate-limit-lines: 2;
+    hyphenate-limit-zone: 8%;
+    hyphenate-limit-last: always;
+    font-size-adjust: 0.507;
+    text-wrap: pretty;
+    hyphens: auto;
 }
 
 .prose pre, .prose code, .prose var, .prose samp, .prose kbd,
@@ -248,53 +240,53 @@ and from the bottom of the preceding element */
 //Alerts
 %alert, 
 .alert {
-  padding:1rem;
-  border-radius: 0.5rem;
-  background-color: var(--wp--custom--color--border);
-  color: var(--wp--preset--color--dark);
-  display: flex;
+    display: flex;
+    padding:1rem;
+    background-color: var(--wp--custom--color--border);
+    border-radius: 0.5rem;
+    color: var(--wp--preset--color--dark);
   .alert__icon {
-    width: 40px;
-    height:40px;
-    margin-block-start:0.5rem;
+      margin-block-start:0.5rem;
+      width: 40px;
+      height:40px;
   }
   .alert__message {
-    flex: 1;
-    padding-inline-start: var(--wp--custom--spacing--sm);
+      padding-inline-start: var(--wp--custom--spacing--sm);
+      flex: 1;
     > * {
-      color:inherit;
+        color:inherit;
     }
   }
   &.warning {
-    background-color: rgb(255, 251, 235);
-    color: rgb(146, 64, 13);
+      background-color: rgb(255, 251, 235);
+      color: rgb(146, 64, 13);
   }
   &.error {
-    background-color: rgb(254, 242, 242);
-    color:rgb(153, 27, 26);
+      background-color: rgb(254, 242, 242);
+      color:rgb(153, 27, 26);
   }
   &.success {
-    background-color: rgb(236, 253, 245);
-    color: rgb(6, 95, 70);
+      background-color: rgb(236, 253, 245);
+      color: rgb(6, 95, 70);
   }
 }
 
 //Badge
 %dgwltd-tag,
 .dgwltd-tag {
-  width: fit-content;
-  border-radius: 9999px;
-  color: var(--wp--custom--color--background);
-  background-color: var(--wp--custom--color--text);
-  padding:.25rem .625rem;
-  font-size: var(--wp--preset--font-size--xs);
+    width: fit-content;
+    padding:.25rem .625rem;
+    background-color: var(--wp--custom--color--text);
+    border-radius: 9999px;
+    font-size: var(--wp--preset--font-size--xs);
+    color: var(--wp--custom--color--background);
   a {
-    text-decoration: none;
+      text-decoration: none;
   }
   &:hover {
-    cursor: pointer;
+      cursor: pointer;
     a {
-      color: var(--wp--preset--color--secondary);
+        color: var(--wp--preset--color--secondary);
     }
   }
 }
@@ -302,13 +294,12 @@ and from the bottom of the preceding element */
 // LQIP (Low Quality Image Placeholder) System 
 //Base LQIP class using CSS custom properties
 .dgwltd-lqip {
-    background-image: var(--dgwltd-lqip-image, none);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    /* Blur effect for base64 LQIP */
     filter: blur(1px);
     transition: filter 0.3s ease;
+    background-image: var(--dgwltd-lqip-image, none);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 //Remove blur when image loads
@@ -319,20 +310,9 @@ and from the bottom of the preceding element */
 //Glass effect https://www.tyleo.com/html-glass.html
 %glass,
 .glass {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  box-shadow:
-    /* Bottom and right depth effect */
-    inset -0.75px -0.5px rgba(255, 255, 255, 0.1),
-    /* Top and left depth effect */
-    inset 0.75px 0.5px rgba(255, 255, 255, 0.025),
-    /* Shadow effect */
-    3px 2px 10px rgba(0, 0, 0, 0.25),
-    /* Short subsurface effect */
-    inset 0px 0px 10px 5px rgba(255, 255, 255, 0.025),
-    /* Long subsurface effect */
-    inset 0px 0px 40px 5px rgba(255, 255, 255, 0.025);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow:;
 }
 
 // Define the map with sizes and their corresponding values
@@ -345,23 +325,22 @@ $sizes: (
 
 // Loop through the map to generate utility classes for margins and paddings
 @each $size, $value in $sizes {
-  // Margin Block Start
   .dgwltd-mbs-#{$size} {
-    margin-block-start: #{$value};
+      margin-block-start: #{$value};
   }
 
   // Margin Block End
   .dgwltd-mbe-#{$size} {
-    margin-block-end: #{$value};
+      margin-block-end: #{$value};
   }
 
   // Padding Block Start
   .dgwltd-pbs-#{$size} {
-    padding-block-start: #{$value};
+      padding-block-start: #{$value};
   }
 
   // Padding Block End
   .dgwltd-pbe-#{$size} {
-    padding-block-end: #{$value};
+      padding-block-end: #{$value};
   }
 }
