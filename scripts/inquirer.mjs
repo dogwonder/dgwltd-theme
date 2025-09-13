@@ -81,7 +81,6 @@ inquirer
                     message: 'How would you like to select content?',
                     choices: [
                       { name: 'Export all posts', value: 'all' },
-                      { name: 'Use export profile', value: 'profile' },
                       { name: 'Filter by search term', value: 'search' },
                       { name: 'Filter by date range', value: 'date' },
                       { name: 'Filter by category', value: 'category' },
@@ -97,24 +96,7 @@ inquirer
                 // Build filtering options based on selection
                 let filterOptions = [];
                 
-                if (exportMode === 'profile') {
-                  const profileAnswer = await inquirer.prompt([
-                    {
-                      type: 'list',
-                      name: 'profile',
-                      message: 'Select export profile:',
-                      choices: [
-                        { name: 'Blog posts (published, with featured images)', value: 'blog' },
-                        { name: 'All pages', value: 'pages' },
-                        { name: 'Documentation (published content)', value: 'docs' },
-                        { name: 'Migration (all content)', value: 'migration' },
-                        { name: 'Content audit (metadata focus)', value: 'audit' },
-                        { name: 'API export (structured data)', value: 'api' }
-                      ]
-                    }
-                  ]);
-                  filterOptions.push(`--profile="${profileAnswer.profile}"`);
-                } else if (exportMode === 'search') {
+                if (exportMode === 'search') {
                   const searchAnswer = await inquirer.prompt([
                     {
                       type: 'input',
@@ -225,7 +207,7 @@ inquirer
                   if (advancedAnswers.categories.trim()) filterOptions.push(`--category="${advancedAnswers.categories}"`);
                   if (advancedAnswers.tags.trim()) filterOptions.push(`--tag="${advancedAnswers.tags}"`);
                   if (advancedAnswers.excludeEmpty) filterOptions.push('--exclude-empty');
-                  if (advancedAnswers.requireFeaturedImage) filterOptions.push('--require-featured-image');
+                  if (advancedAnswers.requireFeaturedImage) filterOptions.push('--require-featured');
                 }
 
                 // Ask about dry run
