@@ -5,19 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <meta name="generator" content="Eleventy v3.1.2" />
-    <title>DGW.ltd Offline</title>
+    <title>DGW.ltd</title>
     <meta name="description" content />
     <style>
-      .alert h1 {
-          display: flex;
-          align-items: center;
-      }
-      .alert svg {
-          width: 1em;
-          height: 1em;
-          color: red;
-          margin-inline-end: 0.5ch;
-      }
       @font-face {
               font-family: 'Söhne Dreiviertelfett';
               font-style: normal;
@@ -99,19 +89,100 @@
       <main id="content" tabindex="-1" class="dgwltd-body">
         <div id="primary" class="dgwltd-content-wrapper">
           <div class="entry-content wp-block-post-content is-layout-flow">
-            <div class="entry-content is-layout-flow">
-              <div class="alert error">
-                <div class="alert__message">
-                  <h1 id="offline">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="alert__icon">
-                      <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-                    </svg>
-                    Offline
-                  </h1>
-                  <p>You appear to be offline, please try again later</p>
-                </div>
-              </div>
-            </div>
+            <h1 id="image-map">Image Map</h1>
+
+            <svg viewBox="0 0 1024 1024" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+              <title id="title">Radial menu with five linked circles</title>
+              <desc id="desc">A large central circle surrounded by five smaller circles. Hover or focus the outer circles to follow their links.</desc>
+
+              <style>
+                .center { fill: #ECECEC; stroke: #222; stroke-width: 4; }
+                .node   { stroke: #222; stroke-width: 4; }
+                .label  {
+                    font-size: 16px;
+                    fill: #111;
+                    text-anchor: middle;
+                    dominant-baseline: middle;
+                    text-wrap: wrap;
+                    display: inline-block;
+                    max-width: 10ch;
+                }
+
+                /* Clickable overlay styling per the article */
+                #links a { cursor: pointer; }
+                #links a .hotspot {
+                  opacity: 0;
+                  transition: opacity .25s ease-in-out;
+                  pointer-events: all;
+                }
+                #links a:hover .hotspot,
+                #links a:focus .hotspot {
+                  opacity: .35;
+                }
+
+                /* Visible focus ring for keyboard users */
+                #links a:focus .hotspot {
+                  stroke: #000;
+                  stroke-width: 4;
+                  stroke-dasharray: 6 6;
+                  outline: none;
+                }
+              </style>
+
+              <!-- Geometry helpers -->
+              <!-- Layout: center at (512,512). Outer nodes sit on a radius of 360px, spaced by 72° -->
+              <!-- Precomputed positions (x,y): 
+       N: (512.0,152.0) | NE: (854.4,400.8) | SE: (723.6,803.2) | SW: (300.4,803.2) | NW: (169.6,400.8) -->
+
+              <!-- Visible content -->
+              <g id="visible">
+                <!-- Central large circle -->
+                <circle cx="512" cy="512" r="180" class="center"></circle>
+
+                <!-- Five visible outer circles (non-clickable visuals) -->
+                <circle cx="512.0" cy="152.0" r="110" fill="#007bff" class="node"></circle>
+                <circle cx="854.4" cy="400.8" r="110" fill="#e83e8c" class="node"></circle>
+                <circle cx="723.6" cy="803.2" r="110" fill="#fd7e14" class="node"></circle>
+                <circle cx="300.4" cy="803.2" r="110" fill="#28a745" class="node"></circle>
+                <circle cx="169.6" cy="400.8" r="110" fill="#6f42c1" class="node"></circle>
+
+                <!-- Optional labels -->
+                <text x="512.0" y="152.0" class="label">Equity and Inclusion</text>
+                <text x="854.4" y="400.8" class="label">Trust and Data Protection</text>
+                <text x="723.6" y="803.2" class="label">AI and Emerging Tech</text>
+                <text x="300.4" y="803.2" class="label">Financing and Investment</text>
+                <text x="169.6" y="400.8" class="label">Policy and Governance</text>
+              </g>
+
+              <!-- Clickable areas (placed after visible content) -->
+              <g id="links">
+                <!-- Slightly larger invisible circles improve the hit area (r=140) -->
+                <a href="/theme#equity-and-inclusion" tabindex="0" role="link" aria-label="Go to Equity and Inclusion">
+                  <title>Equity and Inclusion</title>
+                  <circle cx="512.0" cy="152.0" r="140" fill="#007bff" class="hotspot"></circle>
+                </a>
+
+                <a href="/theme#trust-and-data-protection" tabindex="0" role="link" aria-label="Go to Trust and Data Protection">
+                  <title>Trust and Data Protection</title>
+                  <circle cx="854.4" cy="400.8" r="140" fill="#e83e8c" class="hotspot"></circle>
+                </a>
+
+                <a href="/theme#ai-and-emerging-tech" tabindex="0" role="link" aria-label="Go to AI and Emerging Tech">
+                  <title>AI and Emerging Tech</title>
+                  <circle cx="723.6" cy="803.2" r="140" fill="#fd7e14" class="hotspot"></circle>
+                </a>
+
+                <a href="/theme#financing-and-investment" tabindex="0" role="link" aria-label="Go to Financing and Investment">
+                  <title>Financing and Investment</title>
+                  <circle cx="300.4" cy="803.2" r="140" fill="#28a745" class="hotspot"></circle>
+                </a>
+
+                <a href="/theme#policy-and-governance" tabindex="0" role="link" aria-label="Go to Policy and Governance">
+                  <title>Policy and Governance</title>
+                  <circle cx="169.6" cy="400.8" r="140" fill="#6f42c1" class="hotspot"></circle>
+                </a>
+              </g>
+            </svg>
           </div>
         </div>
       </main>
@@ -123,7 +194,7 @@
         </div>
       </footer>
     </div>
-    <!-- This page `/offline.html` was built on 2025-09-15T16:50:38.255Z -->
+    <!-- This page `/image-map.html` was built on 2025-09-15T16:50:38.255Z -->
 
     <script type="module" src="./js/app.min.js"></script>
   </body>

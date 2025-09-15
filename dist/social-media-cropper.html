@@ -5,19 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <meta name="generator" content="Eleventy v3.1.2" />
-    <title>DGW.ltd Offline</title>
+    <title>Tools - Social Media Cropper</title>
     <meta name="description" content />
     <style>
-      .alert h1 {
-          display: flex;
-          align-items: center;
-      }
-      .alert svg {
-          width: 1em;
-          height: 1em;
-          color: red;
-          margin-inline-end: 0.5ch;
-      }
       @font-face {
               font-family: 'Söhne Dreiviertelfett';
               font-style: normal;
@@ -99,19 +89,88 @@
       <main id="content" tabindex="-1" class="dgwltd-body">
         <div id="primary" class="dgwltd-content-wrapper">
           <div class="entry-content wp-block-post-content is-layout-flow">
-            <div class="entry-content is-layout-flow">
-              <div class="alert error">
-                <div class="alert__message">
-                  <h1 id="offline">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="alert__icon">
-                      <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-                    </svg>
-                    Offline
-                  </h1>
-                  <p>You appear to be offline, please try again later</p>
-                </div>
+            <h1 id="tools-social-media-cropper">Tools - Social Media Cropper</h1>
+            <p>Drop an image or click to select. Create perfect social media cards with custom backgrounds.</p>
+
+            <div class="govuk-form-group controls">
+              <div class="options-container stack">
+                <fieldset class="govuk-fieldset stack">
+                  <p>Aspect Ratio:</p>
+                  <div data-module="govuk-radios" class="govuk-radios aspect-controls">
+                    <div class="govuk-radios__item">
+                      <input id="aspectRatio-2" type="radio" name="aspectRatio" value="2" checked class="govuk-radios__input" />
+                      <label for="aspectRatio-2" class="govuk-label govuk-radios__label">2:1 (Twitter/LinkedIn)</label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input id="aspectRatio-1.91" type="radio" name="aspectRatio" value="1.91" class="govuk-radios__input" />
+                      <label for="aspectRatio-1.91" class="govuk-label govuk-radios__label">1.91:1 (Facebook)</label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input id="aspectRatio-1.4" type="radio" name="aspectRatio" value="1.4" class="govuk-radios__input" />
+                      <label for="aspectRatio-1.4" class="govuk-label govuk-radios__label">1.4:1 (Substack)</label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input id="aspectRatio-1" type="radio" name="aspectRatio" value="1" class="govuk-radios__input" />
+                      <label for="aspectRatio-1" class="govuk-label govuk-radios__label">1:1 (Instagram)</label>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <fieldset class="govuk-fieldset stack">
+                  <div class="color-picker">
+                    <label for="backgroundColor">Background color:</label>
+                    <input type="color" id="backgroundColor" value="#ffffff" />
+                  </div>
+
+                  <div>
+                    <button id="resetBtn" class="govuk-button control-btn">Reset Image</button>
+                    <span id="zoomValue" style="margin-left: 10px" class="zoom-value">100%</span>
+                  </div>
+                </fieldset>
               </div>
             </div>
+
+            <div id="dropZone" class="govuk-form-group drop-zone stack">
+              <div class="govuk-inset-text">
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="color: #999; margin-bottom: 10px">
+                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"></path>
+                    <line x1="16" y1="5" x2="22" y2="5"></line>
+                    <line x1="19" y1="2" x2="19" y2="8"></line>
+                    <circle cx="9" cy="9" r="2"></circle>
+                    <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
+                  </svg>
+                </div>
+                <p>Drop image here, click to select, or paste from clipboard</p>
+                <div class="help-text">Supports JPG, PNG, GIF, and WebP formats</div>
+              </div>
+
+              <label for="fileInput" class="govuk-label"> Upload a file </label>
+              <input type="file" id="fileInput" accept="image/*" class="govuk-file-upload" />
+            </div>
+
+            <div class="img-container">
+              <img id="image" class="hidden" />
+            </div>
+
+            <div id="zoomControlsContainer" class="govuk-form-group zoom-controls hidden">
+              <fieldset class="govuk-fieldset">
+                <button id="zoomOutBtn" class="control-btn">−</button>
+                <button id="zoomInBtn" class="control-btn">+</button>
+              </fieldset>
+            </div>
+
+            <div id="previewContainer" class="preview-container hidden">
+              <h3 id="preview-2">Preview</h3>
+              <img id="preview" />
+              <div id="dimensionsInfo" style="text-align: center; margin-top: 10px; font-size: 14px; color: #666"></div>
+              <div style="text-align: center; margin-top: 15px">
+                <a href="#" id="downloadBtn" class="download-btn">Download Social Media Card</a>
+              </div>
+            </div>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" />
           </div>
         </div>
       </main>
@@ -123,8 +182,8 @@
         </div>
       </footer>
     </div>
-    <!-- This page `/offline.html` was built on 2025-09-15T16:50:38.255Z -->
-
+    <!-- This page `/social-media-cropper.html` was built on 2025-09-15T16:50:38.256Z -->
+    <script type="module" src="/dist/cxBfaeTLrH.js"></script>
     <script type="module" src="./js/app.min.js"></script>
   </body>
 </html>

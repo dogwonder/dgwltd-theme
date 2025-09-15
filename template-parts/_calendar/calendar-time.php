@@ -1,6 +1,7 @@
 <?php
-// Time selection logic - determine if weekday or weekend based on selected dates
+// Time selection logic - intersection approach: only show times available for ALL selected dates
 function dgwltd_get_time_slots($selected_dates) {
+    
     $weekday_hours = range(9, 20);
     $weekend_hours = range(8, 22);
     
@@ -9,22 +10,32 @@ function dgwltd_get_time_slots($selected_dates) {
         return ['hours' => $weekday_hours, 'type' => 'weekday'];
     }
     
-    $is_weekend = false;
+    $all_weekend = true;
+    $all_weekday = true;
+    
     foreach ($selected_dates as $date) {
         $timestamp = strtotime($date);
         if ($timestamp) {
             $day_of_week = date('w', $timestamp); // 0 = Sunday, 6 = Saturday
-            if ($day_of_week == 0 || $day_of_week == 6) {
-                $is_weekend = true;
-                break;
+            $is_weekend_day = ($day_of_week == 0 || $day_of_week == 6);
+            
+            if ($is_weekend_day) {
+                $all_weekday = false;
+            } else {
+                $all_weekend = false;
             }
         }
     }
     
-    return [
-        'hours' => $is_weekend ? $weekend_hours : $weekday_hours,
-        'type' => $is_weekend ? 'weekend' : 'weekday'
-    ];
+    // Intersection logic: only show weekend hours if ALL dates are weekends
+    if ($all_weekend) {
+        return ['hours' => $weekend_hours, 'type' => 'weekend'];
+    } elseif ($all_weekday) {
+        return ['hours' => $weekday_hours, 'type' => 'weekday'];
+    } else {
+        // Mixed dates - use intersection (most restrictive)
+        return ['hours' => $weekday_hours, 'type' => 'mixed'];
+    }
 }
 
 $time_config = dgwltd_get_time_slots($selected_dates);
@@ -41,9 +52,11 @@ $selected_time = isset($_GET['cal_time']) ? sanitize_text_field($_GET['cal_time'
         <div id="time-hint" class="govuk-hint">
             Choose your preferred time slot 
             <?php if ($time_config['type'] === 'weekend') : ?>
-                (8 AM - 10 PM weekends)
+                (8 AM - 10 PM for all weekend dates)
+            <?php elseif ($time_config['type'] === 'mixed') : ?>
+                (9 AM - 8 PM available for all selected dates)
             <?php else : ?>
-                (9 AM - 8 PM weekdays)
+                (9 AM - 8 PM for all weekday dates)
             <?php endif; ?>
         </div>
         

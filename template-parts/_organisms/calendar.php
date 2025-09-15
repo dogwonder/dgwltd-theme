@@ -91,6 +91,9 @@ $next_url = add_query_arg(['cal_month' => $next_month, 'cal_year' => $next_year]
 // Year navigation
 $today_year = date('Y');
 $year_range = range($today_year - 1, $today_year + 1);
+
+// Time 
+$time_required = true;
 ?>
 
 <div class="dgwltd-calendar">
@@ -125,15 +128,24 @@ $year_range = range($today_year - 1, $today_year + 1);
 
         <?php //include locate_template( 'template-parts/_calendar/calendar-day.php' ); ?>      
 
-        <?php include locate_template( 'template-parts/_calendar/calendar-time.php' ); ?>    
-
-        <?php include locate_template( 'template-parts/_calendar/calendar-grid.php' ); ?>   
-
-        <?php include locate_template( 'template-parts/_calendar/calendar-pagination.php' ); ?>    
+        <?php if (!empty($selected_dates) && $time_required) : ?>
+            <?php include locate_template( 'template-parts/_calendar/calendar-time.php' ); ?>
+        <?php else : ?>
+            <?php include locate_template( 'template-parts/_calendar/calendar-grid.php' ); ?>
+            <?php include locate_template( 'template-parts/_calendar/calendar-pagination.php' ); ?>
+        <?php endif; ?>    
 
         <div class="dgwltd-calendar__actions govuk-button-group">
             <button type="submit" class="govuk-button" data-module="govuk-button">
-                Select dates
+                <?php 
+                if (!empty($selected_dates) && $time_required) {
+                    echo 'Select time';
+                } elseif (!empty($selected_dates) && !$time_required) {
+                    echo 'Continue';
+                } else {
+                    echo 'Select dates';
+                }
+                ?>
             </button>
             
             <?php if (!empty($selected_dates)) : ?>
@@ -165,11 +177,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && wp_verify_nonce($_POST['calendar_no
         ? array_map('sanitize_text_field', $_GET['cal_dates']) 
         : [];
     
-    // Preserve dates from other months
-    $dates_from_other_months = dgwltd_get_dates_from_other_months($existing_url_dates, $current_year, $current_month);
-    
-    // Combine with current month's selection
-    $final_dates = array_merge($dates_from_other_months, $form_dates);
+    // If we're in time selection mode (dates already selected but no form dates), preserve existing dates
+    if (empty($form_dates) && !empty($existing_url_dates)) {
+        $final_dates = $existing_url_dates;
+    } else {
+        // Normal date selection flow - preserve dates from other months and combine with form dates
+        $dates_from_other_months = dgwltd_get_dates_from_other_months($existing_url_dates, $current_year, $current_month);
+        $final_dates = array_merge($dates_from_other_months, $form_dates);
+    }
 
     // Build redirect URL with dates
     $redirect_url = !empty($final_dates) 

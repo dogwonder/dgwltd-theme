@@ -71,6 +71,7 @@ export const toggleNav = (button, elem, masthead) => {
 
 export const toggleTheme = () => {
   const themeSwitcher = document.getElementById("theme-switcher");
+  if (!themeSwitcher) return;
   const switchTheme = theme => {
     if (theme === "light") {
       document.documentElement.dataset.colorScheme = "light";
