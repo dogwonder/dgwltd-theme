@@ -66,7 +66,6 @@ if (isset($_POST['cal_day_single'], $_POST['cal_month_single'], $_POST['cal_year
     
     if ($day > 0 && $month > 0 && $year > 0 && checkdate($month, $day, $year)) {
         $single_date = sprintf('%04d-%02d-%02d', $year, $month, $day);
-        $_GET['cal_dates'] = [$single_date];
         $selected_dates = [$single_date];
     }
 }
