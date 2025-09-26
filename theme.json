@@ -265,12 +265,12 @@
 			"presets": [
 				{
 					"name": "Shadow high",
-					"slug": "shadow-high",
+					"slug": "high",
 					"shadow": "0 var(--wp--custom--spacing--md) var(--wp--custom--spacing--md) rgba(0, 0, 0, 0.2)"
 				},
 				{
 					"name": "Shadow low",
-					"slug": "shadow-low",
+					"slug": "low",
 					"shadow": "0 var(--wp--custom--spacing--sm) var(--wp--custom--spacing--sm) rgba(0, 0, 0, 0.2)"
 				}
 			]

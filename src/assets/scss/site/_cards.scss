@@ -8,7 +8,6 @@
     display: grid;
     gap: var(--gutter,var(--wp--custom--spacing--lg));
     grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-item-size), 1fr));
-
     list-style-type: none !important;
     
     @include mq($from: lg) {

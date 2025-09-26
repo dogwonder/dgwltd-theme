@@ -1,6 +1,6 @@
 {
   "name": "dgwltd",
-  "version": "1.2.423",
+  "version": "1.2.430",
   "type": "module",
   "main": "",
   "scripts": {
@@ -23,7 +23,8 @@
     "cms": "npx tinacms dev -c \"npm run watch\"",
     "favicon": "node ./scripts/favicon.js",
     "inquirer": "node ./scripts/inquirer.mjs",
-    "build": "cross-env NODE_ENV=production npm run clean && npm run-s css scripts && npx eleventy && npm run favicon"
+    "utopia:build": "esbuild src/utils/utopia.ts --outfile=src/utils/utopia-compiled.js --format=esm --target=es2020",
+    "build": "cross-env NODE_ENV=production npm run clean && npm run utopia:build && npm run-s css scripts && npx eleventy && npm run favicon"
   },
   "author": "",
   "license": "ISC",

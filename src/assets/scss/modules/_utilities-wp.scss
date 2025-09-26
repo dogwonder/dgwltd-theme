@@ -1,0 +1,88 @@
+
+/* Padding utilities - xs */
+.pt-xs { padding-block-start: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem); }
+.pb-xs { padding-block-end: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem); }
+.pl-xs { padding-inline-start: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem); }
+.pr-xs { padding-inline-end: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem); }
+.px-xs { padding-inline: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem); }
+.py-xs { padding-block: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem); }
+.p-xs { padding: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem); }
+
+/* Margin utilities - xs */
+.mt-xs { margin-block-start: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem); }
+.mb-xs { margin-block-end: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem); }
+.ml-xs { margin-inline-start: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem); }
+.mr-xs { margin-inline-end: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem); }
+.mx-xs { margin-inline: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem); }
+.my-xs { margin-block: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem); }
+.m-xs { margin: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem); }
+/* Padding utilities - sm */
+.pt-sm { padding-block-start: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
+.pb-sm { padding-block-end: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
+.pl-sm { padding-inline-start: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
+.pr-sm { padding-inline-end: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
+.px-sm { padding-inline: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
+.py-sm { padding-block: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
+.p-sm { padding: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
+
+/* Margin utilities - sm */
+.mt-sm { margin-block-start: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
+.mb-sm { margin-block-end: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
+.ml-sm { margin-inline-start: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
+.mr-sm { margin-inline-end: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
+.mx-sm { margin-inline: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
+.my-sm { margin-block: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
+.m-sm { margin: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
+/* Padding utilities - md */
+.pt-md { padding-block-start: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
+.pb-md { padding-block-end: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
+.pl-md { padding-inline-start: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
+.pr-md { padding-inline-end: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
+.px-md { padding-inline: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
+.py-md { padding-block: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
+.p-md { padding: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
+
+/* Margin utilities - md */
+.mt-md { margin-block-start: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
+.mb-md { margin-block-end: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
+.ml-md { margin-inline-start: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
+.mr-md { margin-inline-end: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
+.mx-md { margin-inline: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
+.my-md { margin-block: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
+.m-md { margin: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
+/* Padding utilities - lg */
+.pt-lg { padding-block-start: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
+.pb-lg { padding-block-end: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
+.pl-lg { padding-inline-start: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
+.pr-lg { padding-inline-end: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
+.px-lg { padding-inline: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
+.py-lg { padding-block: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
+.p-lg { padding: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
+
+/* Margin utilities - lg */
+.mt-lg { margin-block-start: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
+.mb-lg { margin-block-end: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
+.ml-lg { margin-inline-start: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
+.mr-lg { margin-inline-end: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
+.mx-lg { margin-inline: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
+.my-lg { margin-block: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
+.m-lg { margin: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }/* Auto margins */
+.mx-auto { margin-inline: auto; }
+.my-auto { margin-block: auto; }
+.m-auto { margin: auto; }
+.ml-auto { margin-inline-start: auto; }
+.mr-auto { margin-inline-end: auto; }
+.mt-auto { margin-block-start: auto; }
+.mb-auto { margin-block-end: auto; }
+
+/* Zero spacing */
+.p-0 { padding: 0; }
+.m-0 { margin: 0; }
+.pt-0 { padding-block-start: 0; }
+.pb-0 { padding-block-end: 0; }
+.pl-0 { padding-inline-start: 0; }
+.pr-0 { padding-inline-end: 0; }
+.mt-0 { margin-block-start: 0; }
+.mb-0 { margin-block-end: 0; }
+.ml-0 { margin-inline-start: 0; }
+.mr-0 { margin-inline-end: 0; }

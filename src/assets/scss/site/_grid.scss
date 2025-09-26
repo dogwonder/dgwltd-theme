@@ -4,8 +4,11 @@
 //<div class="grid" style="--grid-min-item-size: 10ch">
 .grid {
   display: grid;
-  gap: var(--gutter,var(--wp--custom--spacing--md));
-  grid-template-columns: repeat(var(--grid-placement,auto-fit), minmax(min(var(--grid-min-item-size, 16rem), 100%), 1fr));
+  grid-template-columns: repeat(
+    var(--grid-placement, auto-fill),
+    minmax(var(--grid-min-item-size, 16rem), 1fr)
+  );
+  
 }
 
 //Masonry grid

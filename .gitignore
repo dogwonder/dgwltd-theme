@@ -49,3 +49,6 @@ dist/fonts/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# Generated TypeScript compilation
+src/utils/utopia-compiled.js

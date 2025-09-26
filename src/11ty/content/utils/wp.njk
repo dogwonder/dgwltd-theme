@@ -5,6 +5,33 @@ permalink: '../src/assets/scss/wp.scss'
 {% set minWidth = 320 %}
 {% set maxWidth = 1500 %}
 
+{# 
+{%- if value is mapping -%}
+
+checks whether the value is a nested object/dictionary
+
+nested:
+"spacing": {
+  "gutter": {
+    "xs": "0.5rem",
+    "sm": "1rem",
+    "md": "2rem"
+  },
+  "section": {
+    "sm": "2rem",
+    "lg": "4rem"
+  }
+}
+
+else:
+"spacing": {
+  "sm": "1rem",
+  "md": "2rem", 
+  "lg": "3rem"
+} 
+#}
+
+
 {# {%- if theme.settings.typography %}
         {%- for family in theme.settings.typography.fontFamilies %}
             {%- if 'fontFace' in family %}

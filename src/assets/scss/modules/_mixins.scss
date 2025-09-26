@@ -82,6 +82,33 @@
 }
 
 
+// Chevron helper
+@mixin chevron($size: 1ex, $thickness: 3px, $color: currentColor, $direction: down) {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  width: $size;
+  height: $size;
+
+  border: 0;
+  border-bottom: $thickness solid $color;
+  border-right:  $thickness solid $color;
+
+  // base rotation
+  $angle: 45deg;
+
+  @if $direction == down {
+    transform: rotate(45deg);
+  } @else if $direction == up {
+    transform: rotate(-135deg);
+  } @else if $direction == left {
+    transform: rotate(135deg);
+  } @else if $direction == right {
+    transform: rotate(-45deg);
+  }
+}
+
+
 // The stack
 // Usage <div class="stack"><div><!-- child --></div><div><!-- child --></div></div>
 // The mixin @include stack(1rem);

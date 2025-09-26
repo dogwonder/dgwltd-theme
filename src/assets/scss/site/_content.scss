@@ -96,9 +96,6 @@
   //Seperator
   .wp-block-separator {
     margin: var(--wp--custom--spacing--md) 0;
-    @include mq($from: md) {
-      margin: var(--wp--custom--spacing--lg) 0;
-    }
     height: 1px;
     border: 0;
     border-bottom: 1px solid var(--wp--custom--color--border);

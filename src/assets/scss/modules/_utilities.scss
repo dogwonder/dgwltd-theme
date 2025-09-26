@@ -334,34 +334,3 @@ and from the bottom of the preceding element */
     /* Long subsurface effect */
     inset 0px 0px 40px 5px rgba(255, 255, 255, 0.025);
 }
-
-// Define the map with sizes and their corresponding values
-$sizes: (
-  sm: var(--wp--custom--spacing--xs),
-  md: var(--wp--custom--spacing--md),
-  lg: var(--wp--custom--spacing--lg),
-  xl: var(--wp--custom--spacing--xl)
-);
-
-// Loop through the map to generate utility classes for margins and paddings
-@each $size, $value in $sizes {
-  // Margin Block Start
-  .dgwltd-mbs-#{$size} {
-    margin-block-start: #{$value};
-  }
-
-  // Margin Block End
-  .dgwltd-mbe-#{$size} {
-    margin-block-end: #{$value};
-  }
-
-  // Padding Block Start
-  .dgwltd-pbs-#{$size} {
-    padding-block-start: #{$value};
-  }
-
-  // Padding Block End
-  .dgwltd-pbe-#{$size} {
-    padding-block-end: #{$value};
-  }
-}

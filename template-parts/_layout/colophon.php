@@ -78,7 +78,7 @@
 
 		</div>
 		<?php /* ?>
-		<div class="dgwltd-footer__section repel dgwltd-mbs-sm">
+		<div class="dgwltd-footer__section repel">
 			<div class="dgwltd-status-bar">
         		<?php include(locate_template( 'dist/power-mix.php' )) ; ?>
         		<?php include(locate_template( 'dist/carbon-intensity.php' )) ; ?>
