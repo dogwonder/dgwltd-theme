@@ -12,9 +12,9 @@ $pkgVersion = dgwltd_version();
 $theme = wp_get_theme();
 $theme_slug = $theme->get_template();
 ?>
-	</main><!-- #content -->
-	<?php include(locate_template( 'template-parts/_layout/colophon.php')); ?><!-- #colophon -->
-</div><!-- #page -->
+	</main>
+	<?php include(locate_template( 'template-parts/_layout/colophon.php')); ?>
+</div>
 <?php include(locate_template( 'template-parts/_molecules/sprite.php' )); ?>
 <?php wp_footer(); ?>
 <script type="module" src="<?php echo get_template_directory_uri(); ?>/dist/js/app.min.js"></script>
