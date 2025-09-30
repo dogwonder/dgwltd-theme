@@ -3,7 +3,7 @@ permalink: '../src/assets/scss/modules/_tokens.scss'
 ---
 
 {% set minWidth = 320 %}
-{% set maxWidth = 1280 %}
+{% set maxWidth = 1400 %}
 
 
 :root {
@@ -12,6 +12,7 @@ permalink: '../src/assets/scss/modules/_tokens.scss'
   --title: {% calculateClamp 28, 44, minWidth, maxWidth %}
   --text: {% calculateClamp 32, 48, minWidth, maxWidth %}
   --image {% calculateClamp 120, 220, minWidth, maxWidth %}
+  --spacer: {% calculateClamp 24, 64, minWidth, maxWidth, false, 'container' %}
 
   /*Utopia generated tokens*/
   {%- for size in utopia.resultsSpace %}

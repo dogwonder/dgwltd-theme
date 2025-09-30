@@ -66,8 +66,7 @@ $colors: (
   //Menu height
   --submenu-offset: 0;
 
-  //Highlight
-  --highlight: oklch(63.96% 0.2601 358.46);
+  --highlight: var(--wp--preset--color--primary, oklch(63.96% 0.2601 358.46));
 
   //Typography
   --opentype-case: "case" off;

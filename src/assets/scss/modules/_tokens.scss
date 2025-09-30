@@ -5,10 +5,11 @@
 
 :root {
 
-  --logo: clamp(24rem, 5.3333rem + 93.3333vi, 80rem)
-  --title: clamp(1.75rem, 1.4167rem + 1.6667vi, 2.75rem)
-  --text: clamp(2rem, 1.6667rem + 1.6667vi, 3rem)
-  --image clamp(7.5rem, 5.4167rem + 10.4167vi, 13.75rem)
+  --logo: clamp(24rem, 7.4074rem + 82.963vi, 80rem)
+  --title: clamp(1.75rem, 1.4537rem + 1.4815vi, 2.75rem)
+  --text: clamp(2rem, 1.7037rem + 1.4815vi, 3rem)
+  --image clamp(7.5rem, 5.6481rem + 9.2593vi, 13.75rem)
+  --spacer: clamp(1.5rem, 0.7593rem + 3.7037cqi, 4rem)
 
   /*Utopia generated tokens*/
   --space-3xs: clamp(0.25rem, 0.2331rem + 0.0847vw, 0.3125rem); //4px - 5px

@@ -8,6 +8,9 @@
   font-size: var(--wp--preset--font-size--body);
   line-height: 1;
   padding: var(--wp--custom--spacing--xs) var(--wp--custom--spacing--sm);
+  //Trim the space at the cap height for alphabetic characters
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
   margin: 0;
   color: var(--wp--custom--color--background);
   background-color: var(--wp--custom--color--text);
