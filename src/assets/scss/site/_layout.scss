@@ -66,7 +66,8 @@
 
 
 //Blocks page - add some extra spacing for the stack
-.dgwltd-content-wrapper:has(.dgwltd-hero) {
+.dgwltd-content-wrapper:has(.dgwltd-hero), 
+.dgwltd-content-wrapper:has(.dgwltd-block-cover) {
   --buffer: var(--wp--custom--spacing--xl);
   p {
     --buffer: var(--wp--custom--spacing--gap);
