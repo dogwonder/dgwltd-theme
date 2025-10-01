@@ -100,10 +100,10 @@
     grid-template-columns: 4ch 1fr;
     grid-template-rows: auto;
     &:before {
-      font-family: 'Times New Roman', Times, serif;
+      font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
       color: var(--wp--custom--color--text);
       content: open-quote;
-      font-size: var(--wp--preset--font-size--xl);
+      font-size: var(--wp--preset--font-size--3-xl);
       line-height: 1;
       grid-column: 1;
     }
