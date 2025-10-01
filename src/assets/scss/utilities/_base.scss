@@ -45,16 +45,6 @@ a {
   text-decoration: none;
 }
 
-//Reset the outline - :is won't work in IE11 etc so it won't be applied and will get the browser default outlines
-:is(a, button, input, textarea, summary):focus:not(:focus-visible) {
-  outline: none;
-}
-
-svg:has(use) {
-  width: 2rem;
-  height: 2rem;
-}
-
 //Custom inset for buttons, using the optional --outline-offset variable
 // button {
 //   --outline-offset: -0.15em;
@@ -67,11 +57,97 @@ svg:has(use) {
 //   }
 // }
 
+
+//Reset the outline - :is won't work in IE11 etc so it won't be applied and will get the browser default outlines
+:is(a, button, input, textarea, summary):focus:not(:focus-visible) {
+  outline: none;
+}
+
+:target {
+  scroll-margin-block: 5lh;
+}
+
+//SVGs
+svg:not([class]) {
+  width: auto;
+  height: 1lh;
+}
+
+svg {
+  flex-shrink: 0;
+}
+
 hr {
-  margin: var(--wp--custom--spacing--gap) 0;
-  height: 1px;
-  border: 0;
-  border-bottom: 1px solid var(--wp--custom--color--dark);
+  margin-block: var(--flow-space, --wp--custom--spacing--gap);
+  border: none;
+  border-block-start: var(--wp--custom--color--dark);
+}
+
+ul:not([class]) {
+  padding-inline-start: 1.7ch;
+  list-style-type: disc;
+  > li {
+    padding-inline-start: var(--wp--custom--spacing--xs);
+  }
+}
+
+ul ::marker {
+  font-size: 0.8lh;
+}
+
+ol:not([class]) {
+    padding-inline-start: 1.7ch;
+    list-style-type: decimal;
+}
+
+ol ::marker {
+  font-size: 1em;
+  font-weight: var(--font-bold);
+}
+
+:is(ol, ul):not([class]) li + * {
+  margin-block-start: var(--flow-space, var(--wp--custom--spacing--xs));
+}
+
+blockquote p {
+  hanging-punctuation: first;
+  text-indent: -5px;
+}
+
+small {
+  font-size: var(--wp--preset--font-size--sm);
+}
+
+:is(code, kbd, samp) {
+  font-family: var(--wp--preset--font-family--monospace);
+  padding: 0.2em 0.2em 0.05em 0.2em;
+  hyphens: none;
+  tab-size: 2;
+  text-align: left;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  box-decoration-break: clone;
+}
+
+
+/* This is quite a new property, so we want code styles to at least, not be huge or tiny */
+@supports not (font-size-adjust: from-font) {
+  :is(code, kbd, samp) {
+    font-size: 0.8em;
+  }
+}
+
+pre:has(code) {
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+pre code {
+  border: none;
+  background: none;
+  padding: 0;
 }
 
 /* Remove all animations and transitions

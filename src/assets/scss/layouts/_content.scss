@@ -2,33 +2,17 @@
 @use "sass:math";
 
 .entry-content {
-  //Hide empty paragraphs
-  p:empty {
+   p:empty {
     display:none;
   }
-  //Lists
-  ul,
-  ol {
-    padding: 0;
-    margin-inline-start: 0;
-    list-style-type: disc;
-    list-style-position: inside;
-    li {
-      margin: 0;
-      padding: 0;
-      ul, 
-      ol {
-        margin-block-start: 0;
+  //Headings
+  :is(h1, h2, h3) {
+      @include mq($from: lg) {
+        overflow-wrap: anywhere;
+        hyphens: auto;
       }
-    }
   }
-  ol {
-    list-style-type: decimal;
-  }
-  img {
-    max-width: 100%;
-    height: auto;
-  }
+  
   //Images
   .wp-block-image {
     width: 100%;
@@ -95,10 +79,14 @@
   }
   //Seperator
   .wp-block-separator {
-    margin: var(--wp--custom--spacing--md) 0;
+    --flow-space: var(--wp--custom--spacing--lg);
     height: 1px;
-    border: 0;
+    border: none;
     border-bottom: 1px solid var(--wp--custom--color--border);
+    width:  100% !important;
+    & + * {
+      --flow-space: var(--wp--custom--spacing--lg);
+    }
   }
   //Blockquote
   .wp-block-quote {
@@ -131,6 +119,7 @@
       z-index: 2;
       position: relative;
       text-indent: 0;
+      font-style: normal;
       font-family: var(--wp--preset--font-family--tertiary);
       @extend %dgwltd-body-md;
       &:last-child {

@@ -27,10 +27,9 @@ $fluid-container: minmax(var(--wp--custom--spacing--md), 1fr) minmax(min-content
 //Redeclare from vendor/_mq.scss -- https://github.com/sass-mq/sass-mq
 $mq-breakpoints: (
   sm: 320px,
-  md: 768px,
-  lg: 1024px, 
-  xl: 1440px, 
-  xxl: 1920px
+  md: 760px,
+  lg: 940px, 
+  xl: 1350px
 );
 
 $colors: (
@@ -59,11 +58,8 @@ $colors: (
 
   --sentinel-margin: -1px 0px 0px 0px;
 
-  --baseline: calc(var(--wp--preset--font-size--body) * var(--wp--custom--typography--line-height--body));
+  --baseline: calc(var(--wp--preset--font-size--body) * var(--wp--custom--typography--line-height--standard));
   --baseline-multiplier: 1;
-
-  //System font as default
-  --body: system-ui, sans-serif;
 
   //Menu height
   --submenu-offset: 0;

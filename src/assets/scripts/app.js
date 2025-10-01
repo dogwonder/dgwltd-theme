@@ -1,8 +1,7 @@
 import "invokers-polyfill";
 import "./share.js"; 
-// import "../../../node_modules/@11ty/is-land/is-land.js"; 
 import Konami from 'konami';
-import { initializeCarbonComponents } from './components/carbon-components.js';
+// import { initializeCarbonComponents } from './components/carbon-components.js';
 
 const desktopWidth = 992;
 
@@ -241,5 +240,4 @@ document.addEventListener("DOMContentLoaded", () => {
   new TextareaHandler('textarea');
   konami();
   // initializeCarbonComponents();
-  
 });

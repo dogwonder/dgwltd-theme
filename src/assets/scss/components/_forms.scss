@@ -1,16 +1,15 @@
 //Fallback for forms
 label {
-  line-height: var(--wp--custom--typography--line-height--input);
+  line-height: var(--wp--custom--typography--line-height--fine);
 }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="search"],
-input[type="url"],
-textarea {
+:is(input, select, textarea) {
+  accent-color: var(--wp--preset--color--primary);
+}
+
+:is(input:not([type='checkbox'], [type='radio'], [type='color']), textarea) {
   font-size: var(--wp--preset--font-size--sm);
-  line-height: var(--wp--custom--typography--line-height--input);
+  line-height: var(--wp--custom--typography--line-height--fine);
   width: 100%;
   height: var(--wp--custom--height--input);
   margin: 0;
@@ -25,6 +24,10 @@ textarea {
     box-shadow: inset 0 0 0 2px;
     background-color: transparent;
   }
+  &::placeholder {
+    color: var(--wp--custom--color--text, currentColor);
+    opacity: 1;
+  }
   &.dgwltd-input--wp--custom--color--error {
     border: 0.2em solid var(--wp--custom--color--error);
     outline: 0;
@@ -35,12 +38,12 @@ textarea {
 select {
   width: 100%;
   height: var(--wp--custom--height--input);
-  line-height: var(--wp--custom--typography--line-height--small);
+  line-height: var(--wp--custom--typography--line-height--fine);
   border: 2px solid var(--wp--custom--color--text, currentColor);
   background-color: transparent;
   border-radius: 0;
   padding: 0 0.2em;
-  font: inherit; //Inherit font family, size, and line height
+  font: inherit; 
   letter-spacing: inherit;
   word-spacing: inherit;
   margin: 0;
@@ -58,7 +61,7 @@ select {
 }
 
 textarea {
-  line-height: var(--wp--custom--typography--line-height--body);
+  line-height: var(--wp--custom--typography--line-height--standard);
   min-height: 40px;
   height: auto;
 }

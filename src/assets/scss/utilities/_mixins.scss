@@ -125,7 +125,7 @@
   }
 
 	& > * + * {
-		margin-block-start: var(--buffer, $measure) !important;
+		margin-block-start: var(--flow-space, $measure) !important;
 	}
 
 }

@@ -86,16 +86,24 @@ Info about this implementation: https://piccalil.li/quick-tip/flow-utility/
 //Use line height for spacing 
 .stack > * + * {
   /* ↓ Top margin is only applied to successive elements */
-  margin-block-start: var(--space, var(--wp--custom--spacing--gap)) !important;
+  margin-block-start: var(--flow-space, var(--wp--custom--spacing--gap)) !important;
 }
 
 .stack-small > * + * {
-  --space: calc(var(--wp--custom--spacing--gap) * 0.75) !important;
+  --flow-space: calc(var(--wp--custom--spacing--gap) * 0.75) !important;
 }
 
 .stack-large > * + * {
-  --space: calc(var(--wp--custom--spacing--gap) * 2) !important;
+  --flow-space: calc(var(--wp--custom--spacing--gap) * 2) !important;
 }
+
+/*
+Apply larger gaps before AND after via combinator (+ *) 
+.space-large, 
+.space-large + * {
+ --flow-space: var(--wp--custom--spacing--xl);
+ }
+*/
 
 /*
 CLUSTER
@@ -117,19 +125,19 @@ Can be any acceptable flexbox alignment value.
 .cluster {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--gutter, var(--wp--custom--spacing--gap));
   justify-content: var(--cluster-horizontal-alignment, flex-start);
   align-items: var(--cluster-vertical-alignment, center);
+  gap: var(--gutter, var(--wp--custom--spacing--gap));
 }
 
 //Flex push items apart
 .repel, 
 %repel {
-  align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: var(--gap,var(--wp--custom--spacing--md));
   justify-content: space-between;
+  align-items: center;
+  gap: var(--gutter,var(--wp--custom--spacing--md));
 }
 
 //Align full using subgrid

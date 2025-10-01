@@ -1,17 +1,17 @@
 //Share container
 .entry-share {
-    padding: var(--wp--custom--spacing--sm) ;
+    padding: var(--wp--custom--spacing--sm);
 }
 
-//Share buttons
-.dgwltd-share-actions li {
+.dgwltd-share-actions {
+  padding: 0;
+  li {
     position: relative;
     button {
       @extend %dgwltd-button;
     }
   }
-  
-  .dgwltd-share-actions [role='alert'] {
+  [role='alert'] {
     position: absolute;
     inset: 0;
     align-content: center;
@@ -20,7 +20,7 @@
     color: var(--wp--preset--color--light);
     line-height: 1;
   }
-  
-  .dgwltd-share-actions [role='alert']:empty {
+  [role='alert']:empty {
     display: none;
   }
+}

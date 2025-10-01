@@ -60,11 +60,11 @@
         --wp--custom--typography--letter-spacing--heading: -0.02em;
         --wp--custom--typography--letter-spacing--large: 0.01em;
         --wp--custom--typography--letter-spacing--uppercase: 0;
-        --wp--custom--typography--line-height--body: 1.5;
-        --wp--custom--typography--line-height--input: 1.25;
-        
-        --wp--custom--typography--line-height--heading--sm: 1.25;
-        --wp--custom--typography--line-height--heading--lg: 1.05;
+        --wp--custom--typography--line-height--micro: 0.85;
+        --wp--custom--typography--line-height--flat: 1;
+        --wp--custom--typography--line-height--fine: 1.2;
+        --wp--custom--typography--line-height--standard: 1.5;
+        --wp--custom--typography--line-height--loose: 1.7;
         --wp--preset--border-radius--small: 0.25rem;
         --wp--preset--border-radius--medium: 0.5rem;
         --wp--preset--shadow--high: 0 var(--wp--custom--spacing--md) var(--wp--custom--spacing--md) rgba(0, 0, 0, 0.2);
@@ -77,7 +77,7 @@
 }
 
 :root {
-    --wp--style--block-gap: var(--buffer, var(--wp--custom--spacing--gap))
+    --wp--style--block-gap: var(--flow-space, var(--wp--custom--spacing--gap))
 }
 :root :where(.is-layout-flow) > :first-child {
     margin-block-start: 0
@@ -86,7 +86,7 @@
     margin-block-end: 0
 }
 :root :where(.is-layout-flow) > * {
-    margin-block-start: var(--buffer, var(--wp--custom--spacing--gap));
+    margin-block-start: var(--flow-space, var(--wp--custom--spacing--gap));
     margin-block-end: 0
 }
 
@@ -97,7 +97,7 @@ body {
     font-size: var(--wp--preset--font-size--body);
     font-weight: 400;
     letter-spacing: var(--wp--custom--typography--letter-spacing--body);
-    line-height: var(--wp--custom--typography--line-height--body);
+    line-height: var(--wp--custom--typography--line-height--standard);
 }
     button {
     }
@@ -109,42 +109,42 @@ body {
         font-family: var(--wp--preset--font-family--primary);
         font-size: var(--wp--preset--font-size--3-xl);
         font-weight: 800;
-        line-height: var(--wp--custom--typography--line-height--heading--lg);
+        line-height: var(--wp--custom--typography--line-height--flat);
         letter-spacing: var(--wp--custom--typography--letter-spacing--lg);
     }
     h2 {
         font-family: var(--wp--preset--font-family--secondary);
         font-size: var(--wp--preset--font-size--2-xl);
         font-weight: 600;
-        line-height: var(--wp--custom--typography--line-height--heading--lg);
+        line-height: var(--wp--custom--typography--line-height--flat);
         letter-spacing: var(--wp--custom--typography--letter-spacing--lg);
     }
     h3 {
         font-family: var(--wp--preset--font-family--secondary);
         font-size: var(--wp--preset--font-size--xl);
         font-weight: 600;
-        line-height: var(--wp--custom--typography--line-height--heading--lg);
+        line-height: var(--wp--custom--typography--line-height--flat);
         letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
     }
     h4 {
         font-family: var(--wp--preset--font-family--tertiary);
         font-size: var(--wp--preset--font-size--lg);
         font-weight: 500;
-        line-height: var(--wp--custom--typography--line-height--body);
+        line-height: var(--wp--custom--typography--line-height--standard);
         letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
     }
     h5 {
         font-family: var(--wp--preset--font-family--tertiary);
         font-size: var(--wp--preset--font-size--md);
         font-weight: 500;
-        line-height: var(--wp--custom--typography--line-height--body);
+        line-height: var(--wp--custom--typography--line-height--standard);
         letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
     }
     h6 {
         font-family: var(--wp--preset--font-family--tertiary);
         font-size: var(--wp--preset--font-size--md);
         font-weight: 500;
-        line-height: var(--wp--custom--typography--line-height--body);
+        line-height: var(--wp--custom--typography--line-height--standard);
         letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
     }
     link {

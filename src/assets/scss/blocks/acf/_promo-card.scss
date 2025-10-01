@@ -27,7 +27,7 @@
         padding: var(--wp--custom--spacing--md);
         position: relative;
         z-index: 2;
-        --buffer: var(--wp--custom--spacing--sm);
+        --flow-space: var(--wp--custom--spacing--sm);
         @include mq($from: lg) {
             max-width: var(--wp--custom--width--content-small);
             padding-block: var(--wp--custom--spacing--lg);
@@ -40,7 +40,7 @@
             font-weight: bold;
         }
         .wp-block-button {
-            --buffer: var(--wp--custom--spacing--md);
+            --flow-space: var(--wp--custom--spacing--md);
         }
         .wp-element-button {
             color: var(--wp--custom--color--text);

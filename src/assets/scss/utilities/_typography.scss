@@ -1,4 +1,4 @@
-html { font-family: var(--body), Helvetica, Arial, sans-serif; }
+html { font-family: var(--wp--preset--font-family--system-font); }
 
 //Global
 html {
@@ -6,10 +6,11 @@ html {
 }
 
 body {
-  font-family: var(--body);
+  font-family: var(--wp--preset--font-family--system-font);
   font-weight: normal;
   font-size: var(--wp--preset--font-size--body); 
-  line-height: var(--wp--custom--typography--line-height--body);
+  font-size-adjust: from-font;
+  line-height: var(--wp--custom--typography--line-height--standard);
   letter-spacing: 1rem * 0.02;
   word-spacing: 1rem * 0.04;
   text-align: left;
@@ -37,11 +38,11 @@ body, h1, h2, h3, h4, h5, h6, address, p, hr, pre, blockquote, ol, ul, li, dl, d
   //Reset browser defaults - we avoid reseting the top margin as this is coverted by template literals
   margin-block: 0;
   font-variant-numeric: lining-nums;
-  + p:not(.entry-meta) {
-    margin-block-start: var(--wp--custom--spacing--sm);
-  }
 }
 
+:is(h1, h2, h3, h4, h5, h6) + *:not([class]) {
+  --flow-space: var(--wp--custom--spacing--sm);
+}
 
 //For H1, H2, H3, we use 2-up pairs for responsive typography 
 //H1 >> extra-large - massive
@@ -65,7 +66,7 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
   font-family: var(--wp--preset--font-family--primary);
   font-size: var(--wp--preset--font-size--3-xl);
   font-variant-ligatures: discretionary-ligatures; 
-  line-height: var(--wp--custom--typography--line-height--heading--lg);
+  line-height: var(--wp--custom--typography--line-height--flat);
   letter-spacing: var(--wp--custom--typography--letter-spacing--gigantic);
   margin: 0;
 }
@@ -75,7 +76,7 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
 %dgwltd-heading-lg {
   font-family: var(--wp--preset--font-family--secondary);
   font-size: var(--wp--preset--font-size--2-xl);
-  line-height: var(--wp--custom--typography--line-height--heading--lg);
+  line-height: var(--wp--custom--typography--line-height--flat);
   letter-spacing: var(--wp--custom--typography--letter-spacing--gigantic);
   margin: 0;
 }
@@ -85,7 +86,7 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
 %dgwltd-heading-md {
   font-family: var(--wp--preset--font-family--secondary);
   font-size: var(--wp--preset--font-size--xl);
-  line-height: var(--wp--custom--typography--line-height--heading--lg);
+  line-height: var(--wp--custom--typography--line-height--flat);
   letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
   margin: 0;
 }
@@ -95,7 +96,7 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
 %dgwltd-heading-sm {
   font-family: var(--wp--preset--font-family--tertiary);
   font-size: var(--wp--preset--font-size--lg);
-  line-height: var(--wp--custom--typography--line-height--heading--sm);
+  line-height: var(--wp--custom--typography--line-height--fine);
   letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
   margin: 0;
 }
@@ -105,7 +106,7 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
 .dgwltd-heading-xs {
   font-family: var(--wp--preset--font-family--tertiary);
   font-size: var(--wp--preset--font-size--md);
-  line-height: var(--wp--custom--typography--line-height--body);
+  line-height: var(--wp--custom--typography--line-height--standard);
   letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
   margin: 0;
 }
@@ -122,31 +123,31 @@ has-lg-font-size
 .govuk-body {
   font-weight: normal;
   font-size: var(--wp--preset--font-size--body); 
-  line-height: var(--wp--custom--typography--line-height--body);
+  line-height: var(--wp--custom--typography--line-height--standard);
 }
 
 .dgwltd-body-lg, 
 %dgwltd-body-lg {
   font-size: var(--wp--preset--font-size--lg);
-  line-height: var(--wp--custom--typography--line-height--heading--lg);
+  line-height: var(--wp--custom--typography--line-height--flat);
 }
 
 .dgwltd-body-md, 
 %dgwltd-body-md {
   font-size: var(--wp--preset--font-size--md);
-  line-height: var(--wp--custom--typography--line-height--body);
+  line-height: var(--wp--custom--typography--line-height--standard);
 }
 
 .dgwltd-body-sm, 
 %dgwltd-body-sm {
   font-size: var(--wp--preset--font-size--sm);
-  line-height: var(--wp--custom--typography--line-height--body);
+  line-height: var(--wp--custom--typography--line-height--standard);
 }
 
 .dgwltd-body-xs, 
 %dgwltd-body-xs {
   font-size: var(--wp--preset--font-size--xs);
-  line-height: var(--wp--custom--typography--line-height--body);
+  line-height: var(--wp--custom--typography--line-height--standard);
 }
 
 .dgwltd-navigation, 
@@ -156,16 +157,6 @@ has-lg-font-size
   line-height: 1;
 } 
 
-ul,
-ol {
-  padding-left: 0;
-  list-style-position: outside;
-}
-
-blockquote p {
-  hanging-punctuation: first;
-  text-indent: -5px;
-}
 
 //Swiss school
 .swiss-shift {

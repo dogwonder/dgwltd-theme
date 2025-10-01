@@ -10,7 +10,6 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 //Page layout
@@ -64,12 +63,11 @@
   }
 }
 
-
 //Blocks page - add some extra spacing for the stack
 .dgwltd-content-wrapper:has(.dgwltd-hero), 
 .dgwltd-content-wrapper:has(.dgwltd-block-cover) {
-  --buffer: var(--wp--custom--spacing--xl);
+  --flow-space: var(--wp--custom--spacing--xl);
   p {
-    --buffer: var(--wp--custom--spacing--gap);
+    --flow-space: var(--wp--custom--spacing--gap);
   }
 }

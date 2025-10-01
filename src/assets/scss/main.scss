@@ -61,67 +61,57 @@ $govuk-font-family: system-ui, sans-serif;
 // Approximately 15% of the CSS output if you include everything.
 @import "../../../node_modules/govuk-frontend/dist/govuk/overrides/index";
 
-// RESET
-@import "modules/reset";
-
 // MEDIA QUERIES
 @import "vendor/mq";
 
+// RESET
+@import "utilities/reset";
+
 // VARIBLES & FUNCTIONS
-@import "modules/vars";
-@import "modules/functions";
-@import "modules/mixins";
+@import "utilities/vars";
+@import "utilities/functions";
+@import "utilities/mixins";
 
 // BASE
-@import "partials/base";
+@import "utilities/base";
 
 // TYPOGRAPHY
-@import "partials/typography";
+@import "utilities/typography";
 
-// FORMS
-@import "partials/forms";
+// COMPONANTS
+@import "components/buttons";
+@import "components/breadcrumbs";
+@import "components/contentslist";
+@import "components/cards";
+@import "components/forms";
+@import "components/grid";
+@import "components/pagination";
+@import "components/list";
+@import "components/switcher";
 
-// BUTTONS
-@import "partials/buttons";
-
-// PAGINATION & PAGE NAVIGATION
-@import "site/breadcrumbs";
-@import "site/pagination";
-@import "site/contentslist";
-@import "site/switcher";
-
-// LAYOUT
-@import "site/layout";
-@import "site/header";
-@import "site/navigation";
-@import "site/footer";
+// LAYOUTS
+@import "layouts/layout";
+@import "layouts/header";
+@import "layouts/navigation";
+@import "layouts/footer";
 
 // PAGE & POST CONTENT
-@import "site/content";
+@import "layouts/content";
 
 // COMMENTS
-@import "site/comments";
+@import "layouts/comments";
 
 // SHARE
-@import "site/share";
+@import "layouts/share";
 
 // PAGES
-@import "site/page";
-
-// LIST
-@import "site/list";
+@import "layouts/page";
 
 // CALENDAR
-@import "site/calendar";
-
-// CARDS
-@import "site/cards";
-
-// CSS GRID
-@import "site/grid";
+@import "layouts/calendar";
 
 // CHARTS
-@import "site/charts";
+@import "layouts/charts";
 
 // BLOCKS - ACF
 @import "blocks/acf/blocks";
@@ -138,6 +128,5 @@ $govuk-font-family: system-ui, sans-serif;
 @import "vendor/prism";
 
 // UTILITIES
-@import "modules/utilities";
-@import "modules/utilities-wp";
-
+@import "utilities/utilities";
+@import "utilities/utilities-wp";
