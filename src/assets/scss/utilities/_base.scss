@@ -130,7 +130,6 @@ small {
   box-decoration-break: clone;
 }
 
-
 /* This is quite a new property, so we want code styles to at least, not be huge or tiny */
 @supports not (font-size-adjust: from-font) {
   :is(code, kbd, samp) {
@@ -139,7 +138,7 @@ small {
 }
 
 pre:has(code) {
-  width: max-content;
+  width: 100%;
   max-width: 100%;
   overflow-x: auto;
 }
