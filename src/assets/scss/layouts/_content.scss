@@ -97,13 +97,17 @@
     border: 0;
     quotes: "\201C""\201D";
     display: grid;
-    grid-template-columns: 4ch 1fr;
+    grid-template-columns: 5ch 1fr;
     grid-template-rows: auto;
+    --flow-space: var(--wp--custom--spacing--lg);
+    & + * {
+      --flow-space: var(--wp--custom--spacing--lg);
+    }
     &:before {
       font-family: Superclarendon, 'Bookman Old Style', 'URW Bookman', 'URW Bookman L', 'Georgia Pro', Georgia, serif;
       color: var(--wp--custom--color--text);
       content: open-quote;
-      font-size: var(--wp--preset--font-size--3-xl);
+      font-size: 4em;
       line-height: 1;
       grid-column: 1;
     }
@@ -119,9 +123,11 @@
       z-index: 2;
       position: relative;
       text-indent: 0;
-      font-style: normal;
       font-family: var(--wp--preset--font-family--tertiary);
-      @extend %dgwltd-body-md;
+      font-size: var(--wp--preset--font-size--lg);
+      font-style: normal;
+      font-weight: bold;
+      line-height: var(--wp--custom--typography--line-height--fine);
       &:last-child {
         margin: 0;
       }

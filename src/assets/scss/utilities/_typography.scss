@@ -66,7 +66,7 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
   font-family: var(--wp--preset--font-family--primary);
   font-size: var(--wp--preset--font-size--3-xl);
   font-variant-ligatures: discretionary-ligatures; 
-  line-height: var(--wp--custom--typography--line-height--flat);
+  line-height: var(--wp--custom--typography--line-height--fine);
   letter-spacing: var(--wp--custom--typography--letter-spacing--gigantic);
   margin: 0;
 }
@@ -76,7 +76,7 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
 %dgwltd-heading-lg {
   font-family: var(--wp--preset--font-family--secondary);
   font-size: var(--wp--preset--font-size--2-xl);
-  line-height: var(--wp--custom--typography--line-height--flat);
+  line-height: var(--wp--custom--typography--line-height--fine);
   letter-spacing: var(--wp--custom--typography--letter-spacing--gigantic);
   margin: 0;
 }
@@ -86,7 +86,7 @@ I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mi
 %dgwltd-heading-md {
   font-family: var(--wp--preset--font-family--secondary);
   font-size: var(--wp--preset--font-size--xl);
-  line-height: var(--wp--custom--typography--line-height--flat);
+  line-height: var(--wp--custom--typography--line-height--fine);
   letter-spacing: var(--wp--custom--typography--letter-spacing--heading);
   margin: 0;
 }
@@ -129,7 +129,7 @@ has-lg-font-size
 .dgwltd-body-lg, 
 %dgwltd-body-lg {
   font-size: var(--wp--preset--font-size--lg);
-  line-height: var(--wp--custom--typography--line-height--flat);
+  line-height: var(--wp--custom--typography--line-height--fine);
 }
 
 .dgwltd-body-md, 
