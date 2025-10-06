@@ -112,7 +112,7 @@ export class PowerMixComponent {
       ? `${fuel.perc}+` 
       : `${fuel.perc}_${cumulativePerc.toFixed(1)}+`;
 
-    const span = `<span data-fuel="${fuel.fuel}" aria-label="${fuel.fuel}: ${fuel.perc}%" style="--fuel-color: ${fuelColors[fuel.fuel] || '#cccccc'}; --fuel-percentage: ${fuel.perc}; --cumulative-percentage: ${cumulativePerc}">${content}</span>`;
+    const span = `<span data-fuel="${fuel.fuel}" aria-label="${fuel.fuel}: ${fuel.perc}%" style="--chart-color: ${fuelColors[fuel.fuel] || '#cccccc'}; --fuel-percentage: ${fuel.perc}; --cumulative-percentage: ${cumulativePerc}">${content}</span>`;
     
     cumulativePerc += fuel.perc;
     return span;

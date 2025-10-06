@@ -25,7 +25,6 @@ a {
 :is(a, button, input, textarea, summary) {
   --outline-color: transparent;
   --outline-style: solid;
-  --outline-size: .25rem;
   --outline-width: .25rem;
   --background-color: var(--wp--preset--color--focus);
   --box-shadow-color: var(--wp--preset--color--focus);
@@ -35,10 +34,9 @@ a {
 //Set a global default for focus visible styles
 :is(a, button, input, textarea, summary):focus-visible {
   outline:
-    var(--outline-color)
-    var(--outline-style)
     var(--outline-size)
-    var(--outline-width);
+    var(--outline-style)
+    var(--outline-color);
   outline-offset: var(--outline-offset, var(--outline-size));
   background-color: var(--background-color);
   box-shadow: var(--box-shadow);

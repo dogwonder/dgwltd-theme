@@ -27,7 +27,7 @@
         }
         &__item--current {
             .govuk-pagination__link {
-                color: white;
+                color: var(--wp--preset--color--light);
             }
         }
     }

@@ -19,10 +19,14 @@ label {
   border-radius: 0;
   appearance: none;
   &:focus-visible {
-    outline: 0.2em solid var(--wp--preset--color--focus);
-    outline-offset: 0;
-    box-shadow: inset 0 0 0 2px;
-    background-color: transparent;
+    text-decoration: none;
+    --outline-color: var(--wp--preset--color--focus);
+    --outline-style: solid;
+    --outline-size: 0.2em;
+    --outline-offset: 0;
+    --background-color: transparent;
+    --box-shadow: inset 0 0 0 2px var(--wp--preset--color--dark);
+    box-shadow: var(--box-shadow);
   }
   &::placeholder {
     color: var(--wp--custom--color--text, currentColor);
@@ -52,8 +56,12 @@ select {
   -webkit-appearance: menulist;
   appearance: menulist;
   &:focus-visible {
-    outline: 0.15em solid var(--wp--preset--color--focus);
-    box-shadow: 0 0 0.2em var(--wp--preset--color--focus);
+    --outline-color: var(--wp--preset--color--focus);
+    --outline-size: 0.15em;
+    --outline-offset: 0;
+    --background-color: transparent;
+    --box-shadow-color: var(--wp--preset--color--focus);
+    --box-shadow: 0 0 0.2em var(--box-shadow-color);
   }
   &.govuk-select--width-sm {
     width: 4ch;
@@ -284,7 +292,10 @@ input[type="submit"] {
     input, textarea {
       border-color: var(--wp--custom--color--error);
       &:focus-visible {
-        outline: 0.1em solid var(--wp--custom--color--error);
+        --outline-color: var(--wp--custom--color--error);
+        --outline-size: 0.1em;
+        --outline-offset: 0;
+        --background-color: transparent;
       }
     }
 

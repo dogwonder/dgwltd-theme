@@ -40,7 +40,6 @@ export default async function(eleventyConfig) {
   // Add theme settings to Eleventy global data
   eleventyConfig.addGlobalData('theme', themeJSON);
   
-
   //Add bundler bundles
   eleventyConfig.addBundle("css", {
 		toFileDirectory: "dist",

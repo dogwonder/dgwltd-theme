@@ -9,7 +9,7 @@
     -webkit-font-feature-settings: "dlig" on;
     font-feature-settings: "dlig" on;  
     span {
-        color: var(--fuel-color, var(--wp--preset--color--primary));
+        color: var(--chart-color, var(--wp--preset--color--primary));
         &.chart-ring {
             color: white;
         }
