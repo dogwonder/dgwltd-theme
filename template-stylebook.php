@@ -48,6 +48,10 @@ function parseClampToPx($clampValue) {
     ];
 }
 
+function hyphenateSlug($slug) {
+    return preg_replace('/^(\d+)(xs|xl)$/', '$1-$2', $slug);
+}
+
 // Get theme settings
 $color_palette = [];
 $font_families = [];
@@ -286,7 +290,7 @@ code.language-html {
                     $fontSizeMin = getFontSize($size, "min");
                     $fontSizeMax = getFontSize($size, "max");
                     $sizeClass = "size size--{$size["slug"]}";
-                    $slug = str_replace(["2xl", "3xl", "4xl"], ["2-xl", "3-xl", "4-xl"], $size["slug"]);
+                    $slug = hyphenateSlug($size["slug"]); 
                     $fontSizeStyle = "font-size:var(--wp--preset--font-size--{$slug})";
                     $sizeText = "Size {$size["name"]} — Velit gravida aliquet conubia";
                     ?>
@@ -324,7 +328,7 @@ code.language-html {
                     <?php foreach ($fluid_spacing as $key => $value) : ?>
                         <?php if ($key === "gap" || $key === "baseline") continue; ?>
                         <?php
-                        $cssVar = "--wp--custom--spacing--{$key}";
+                        $cssVar = "--wp--custom--spacing--" . hyphenateSlug($key);
                         $clampValues = parseClampToPx($value);
                         ?>
                         <tr>
