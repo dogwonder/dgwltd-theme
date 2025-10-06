@@ -368,7 +368,13 @@ code.language-html {
                             .px-<?php echo esc_html($key); ?><br>
                             .py-<?php echo esc_html($key); ?><br>
                             .p-<?php echo esc_html($key); ?><br>
-                            <span style="opacity: 0.7;">+ margin variants</span>
+                            .mt-<?php echo esc_html($key); ?><br>
+                            .mb-<?php echo esc_html($key); ?><br>
+                            .ml-<?php echo esc_html($key); ?><br>
+                            .mr-<?php echo esc_html($key); ?><br>
+                            .mx-<?php echo esc_html($key); ?><br>
+                            .my-<?php echo esc_html($key); ?><br>
+                            .m-<?php echo esc_html($key); ?><br>
                         </div>
                     </div>
                 <?php endforeach; ?>
