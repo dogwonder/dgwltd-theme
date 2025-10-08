@@ -140,6 +140,7 @@ Can be any acceptable flexbox alignment value.
   gap: var(--gutter,var(--wp--custom--spacing--md));
 }
 
+
 //Align full using subgrid
 .align-full, 
 %align-full {
@@ -153,6 +154,7 @@ Can be any acceptable flexbox alignment value.
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: var(--flex-gap, 0.5ch);
 }
 
 //Sidebar - based on Every Layout
@@ -332,13 +334,13 @@ and from the bottom of the preceding element */
 
   box-shadow:
     /* Bottom and right depth effect */
-    inset -0.75px -0.5px rgba(255, 255, 255, 0.1),
+    inset -0.75px -0.5px rgb(255, 255, 255, 0.1),
     /* Top and left depth effect */
-    inset 0.75px 0.5px rgba(255, 255, 255, 0.025),
+    inset 0.75px 0.5px rgb(255, 255, 255, 0.025),
     /* Shadow effect */
-    3px 2px 10px rgba(0, 0, 0, 0.25),
+    3px 2px 10px rgb(0, 0, 0, 0.25),
     /* Short subsurface effect */
-    inset 0px 0px 10px 5px rgba(255, 255, 255, 0.025),
+    inset 0px 0px 10px 5px rgb(255, 255, 255, 0.025),
     /* Long subsurface effect */
-    inset 0px 0px 40px 5px rgba(255, 255, 255, 0.025);
+    inset 0px 0px 40px 5px rgb(255, 255, 255, 0.025);
 }

@@ -191,7 +191,7 @@
     $scaledAlpha: $alphaOriginal * $startAlpha;
 
     // Create the HSLA color with the scaled alpha
-    $color: hsla($hue, $saturation, $lightness, $scaledAlpha);
+    $color: hsl($hue, $saturation, $lightness, $scaledAlpha);
 
     // Concatenate color and position using interpolation
     $stop: #{$color} #{percentage($position)};

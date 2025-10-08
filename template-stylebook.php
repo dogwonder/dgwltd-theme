@@ -164,7 +164,7 @@ code.language-html {
     left: 50%;
     transform: translate(-50%, -50%);
     color: var(--wp--preset--color--light);
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgb(0,0,0,0.7);
     font-size: var(--wp--preset--font-size--sm);
     padding: 0.4rem;
     text-shadow: none;
