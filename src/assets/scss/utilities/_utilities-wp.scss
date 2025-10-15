@@ -16,6 +16,11 @@
 .mx-xs { margin-inline: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem); }
 .my-xs { margin-block: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem); }
 .m-xs { margin: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem); }
+
+/* CSS Class Utilities - xs */
+.region-space-xs { --region-space: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem); }
+.flow-space-space-xs { --flow-space: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem); }
+.gutter-xs { --gutter: clamp(0.8125rem, 0.7786rem + 0.1695vi, 0.9375rem); }
 /* Padding utilities - sm */
 .pt-sm { padding-block-start: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
 .pb-sm { padding-block-end: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
@@ -33,6 +38,11 @@
 .mx-sm { margin-inline: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
 .my-sm { margin-block: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
 .m-sm { margin: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
+
+/* CSS Class Utilities - sm */
+.region-space-sm { --region-space: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
+.flow-space-space-sm { --flow-space: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
+.gutter-sm { --gutter: clamp(1.0625rem, 1.0117rem + 0.2542vi, 1.25rem); }
 /* Padding utilities - md */
 .pt-md { padding-block-start: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
 .pb-md { padding-block-end: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
@@ -50,6 +60,11 @@
 .mx-md { margin-inline: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
 .my-md { margin-block: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
 .m-md { margin: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
+
+/* CSS Class Utilities - md */
+.region-space-md { --region-space: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
+.flow-space-space-md { --flow-space: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
+.gutter-md { --gutter: clamp(1.625rem, 1.5572rem + 0.339vi, 1.875rem); }
 /* Padding utilities - lg */
 .pt-lg { padding-block-start: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
 .pb-lg { padding-block-end: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
@@ -66,7 +81,12 @@
 .mr-lg { margin-inline-end: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
 .mx-lg { margin-inline: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
 .my-lg { margin-block: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
-.m-lg { margin: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }/* Auto margins */
+.m-lg { margin: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
+
+/* CSS Class Utilities - lg */
+.region-space-lg { --region-space: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
+.flow-space-space-lg { --flow-space: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
+.gutter-lg { --gutter: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }/* Auto margins */
 .mx-auto { margin-inline: auto; }
 .my-auto { margin-block: auto; }
 .m-auto { margin: auto; }

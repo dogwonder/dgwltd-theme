@@ -1,5 +1,5 @@
 ---
-permalink: '../src/assets/scss/modules/_utilities-wp.scss'
+permalink: '../src/assets/scss/utilities/_utilities-wp.scss'
 ---
 
 {%- set spacingSizes = theme.settings.custom.spacing -%}
@@ -28,6 +28,11 @@ permalink: '../src/assets/scss/modules/_utilities-wp.scss'
 .my-{{ key }}-{{ subkey }} { margin-block: {{ subvalue }}; }
 .m-{{ key }}-{{ subkey }} { margin: {{ subvalue }}; }
 
+/* CSS Class Utilities - {{ key }} */
+.region-space-{{ key }}-{{ subkey }} { --region-space: {{ subvalue }}; }
+.flow-space-space-{{ key }}-{{ subkey }} { --flow-space: {{ subvalue }}; }
+.gutter-{{ key }}-{{ subkey }} { --gutter: {{ subvalue }}; }
+
         {%- endfor %}
     {%- else %}
 /* Padding utilities - {{ key }} */
@@ -47,6 +52,13 @@ permalink: '../src/assets/scss/modules/_utilities-wp.scss'
 .mx-{{ key }} { margin-inline: {{ value }}; }
 .my-{{ key }} { margin-block: {{ value }}; }
 .m-{{ key }} { margin: {{ value }}; }
+
+/* CSS Class Utilities - {{ key }} */
+.region-space-{{ key }} { --region-space: {{ value }}; }
+.flow-space-space-{{ key }} { --flow-space: {{ value }}; }
+.gutter-{{ key }} { --gutter: {{ value }}; }
+
+
         {%- endif -%}
     {%- endif -%}
 {%- endfor -%}

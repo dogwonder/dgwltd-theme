@@ -67,9 +67,31 @@
 }
 
 /* 
+REGION UTILITY
+Consistent block padding for page sections
+
+CUSTOM PROPERTIES AND CONFIGURATION
+--region-space: var(--wp--custom--spacing--xl);
+
+CLASS UTILITIES (set in wp-utils.njk)
+.region-space-lg { --region-space: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
+*/
+.region {
+  padding-block: var(--region-space, var(--wp--custom--spacing--gap));
+  position: relative;
+}
+
+/* 
 FLOW COMPOSITION 
 Like the Every Layout stack: https://every-layout.dev/layouts/stack/
 Info about this implementation: https://piccalil.li/quick-tip/flow-utility/ 
+
+CUSTOM PROPERTIES AND CONFIGURATION
+--flow-space: var(--wp--custom--spacing--xl);
+
+CLASS UTILITIES (set in wp-utils.njk)
+.flow-space-lg { --flow-space: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
+
 */
 .stack {
   display: flex;
@@ -83,27 +105,10 @@ Info about this implementation: https://piccalil.li/quick-tip/flow-utility/
   margin-block-end: 0 !important;
 }
 
-//Use line height for spacing 
 .stack > * + * {
   /* ↓ Top margin is only applied to successive elements */
   margin-block-start: var(--flow-space, var(--wp--custom--spacing--gap)) !important;
 }
-
-.stack-small > * + * {
-  --flow-space: calc(var(--wp--custom--spacing--gap) * 0.75) !important;
-}
-
-.stack-large > * + * {
-  --flow-space: calc(var(--wp--custom--spacing--gap) * 2) !important;
-}
-
-/*
-Apply larger gaps before AND after via combinator (+ *) 
-.space-large, 
-.space-large + * {
- --flow-space: var(--wp--custom--spacing--xl);
- }
-*/
 
 /*
 CLUSTER
@@ -120,6 +125,10 @@ horizontally. Can be any acceptable flexbox aligmnent value.
 
 --cluster-vertical-alignment How items should align vertically.
 Can be any acceptable flexbox alignment value.
+
+CLASS UTILITIES (set in wp-utils.njk)
+.gutter-lg { --gutter: clamp(2.125rem, 2.0233rem + 0.5085vi, 2.5rem); }
+
 */
 
 .cluster {
@@ -140,13 +149,12 @@ Can be any acceptable flexbox alignment value.
   gap: var(--gutter,var(--wp--custom--spacing--md));
 }
 
-
 //Align full using subgrid
 .align-full, 
 %align-full {
   display: grid;
   grid-template-columns: subgrid;
-  grid-column: 1 / -1 !important;
+  grid-column: 1 / -1;
 }
 
 .flex-center, 
@@ -154,7 +162,6 @@ Can be any acceptable flexbox alignment value.
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--flex-gap, 0.5ch);
 }
 
 //Sidebar - based on Every Layout
@@ -186,11 +193,10 @@ Can be any acceptable flexbox alignment value.
 //More modern aspect ratio
 %frame, 
 .frame {
-  aspect-ratio: 3 / 2;
   img {
     display: block;
     width: 100%;
-    height: 100%;
+    aspect-ratio: 3 / 2;
     object-fit: cover;
   }
 }
@@ -213,6 +219,7 @@ Can be any acceptable flexbox alignment value.
   font-variant-caps: all-small-caps;
   font-variant-numeric: oldstyle-nums;    
 }
+
 
 /* to remove margin from the top of a subheading,
 and from the bottom of the preceding element */
@@ -333,13 +340,13 @@ and from the bottom of the preceding element */
 
   box-shadow:
     /* Bottom and right depth effect */
-    inset -0.75px -0.5px rgb(255, 255, 255, 0.1),
+    inset -0.75px -0.5px rgba(255, 255, 255, 0.1),
     /* Top and left depth effect */
-    inset 0.75px 0.5px rgb(255, 255, 255, 0.025),
+    inset 0.75px 0.5px rgba(255, 255, 255, 0.025),
     /* Shadow effect */
-    3px 2px 10px rgb(0, 0, 0, 0.25),
+    3px 2px 10px rgba(0, 0, 0, 0.25),
     /* Short subsurface effect */
-    inset 0px 0px 10px 5px rgb(255, 255, 255, 0.025),
+    inset 0px 0px 10px 5px rgba(255, 255, 255, 0.025),
     /* Long subsurface effect */
-    inset 0px 0px 40px 5px rgb(255, 255, 255, 0.025);
+    inset 0px 0px 40px 5px rgba(255, 255, 255, 0.025);
 }

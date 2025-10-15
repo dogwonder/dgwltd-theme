@@ -48,6 +48,14 @@ Consider hed, subhed / dek, lede, copy, kicker
   --flow-space: var(--wp--custom--spacing--sm);
 }
 
+// :is(h1, h2, h3, h4):where(
+//     [class*='dgwltd-heading-xl'],
+//     [class*='dgwltd-heading-lg']
+//   ) {
+//   line-height: var(--wp--custom--typography--line-height--micro);
+//   font-weight: 900;
+// }
+
 //For H1, H2, H3, we use 2-up pairs for responsive typography 
 //H1 >> extra-large - massive
 //H2 >> large - huge

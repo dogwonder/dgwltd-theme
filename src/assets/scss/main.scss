@@ -126,4 +126,6 @@ $govuk-font-family: system-ui, sans-serif;
 
 // UTILITIES
 @import "utilities/utilities";
+
+// Tailwind style utils, margin, padding, flow-space (vertical gaps), gutter (grid gaps) and region-sapce (padding)
 @import "utilities/utilities-wp";
