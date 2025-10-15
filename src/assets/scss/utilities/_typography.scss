@@ -33,6 +33,10 @@ body, h1, h2, h3, h4, h5, h6, address, p, hr, pre, blockquote, ol, ul, li, dl, d
   margin: 0;
 }
 
+/*
+Consider hed, subhed / dek, lede, copy, kicker
+*/
+
 //Margin-block-start approach
 :is( h1, h2, h3, h4, h5, h6 ) {
   //Reset browser defaults - we avoid reseting the top margin as this is coverted by template literals

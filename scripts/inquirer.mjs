@@ -35,8 +35,24 @@ inquirer
           return;
         }
 
-        // Assuming the command returns post types as a newline-separated list
-        const postTypes = stdout.trim().split('\n').filter(type => type.length > 0);
+        // Parse post types from output - extract slug before the parentheses
+        // Input format: "  post (Posts)" or "post (Posts) - public"
+        // Filter to public post types only for better UX
+        const postTypes = stdout.trim().split('\n')
+          .filter(line => line.includes('(') && !line.includes(':') && line.includes('- public')) // Only public types
+          .map(line => {
+            // Extract slug and label for better display
+            const match = line.trim().match(/^(\S+)\s+\(([^)]+)\)/);
+            if (match) {
+              return {
+                name: `${match[2]} (${match[1]})`, // Display as "Posts (post)"
+                value: match[1], // Use slug as value
+                short: match[1]
+              };
+            }
+            return null;
+          })
+          .filter(type => type !== null);
 
         if (postTypes.length === 0) {
           console.error('❌ No post types found. Please check your WordPress installation.');
@@ -70,10 +86,75 @@ inquirer
                   choices: fileTypes,
                 },
               ])
-              .then(fileTypeAnswers => {
+              .then(async (fileTypeAnswers) => {
                 const selectedFileType = fileTypeAnswers.fileType;
 
-                // Step 4: Ask about filtering options
+                // Step 3.5: If CSV is selected, ask about field selection
+                let csvFields = null;
+                if (selectedFileType === 'csv') {
+                  const csvFieldAnswer = await inquirer.prompt([
+                    {
+                      type: 'list',
+                      name: 'fieldSelection',
+                      message: 'CSV field selection:',
+                      choices: [
+                        { name: 'All fields (default)', value: 'all' },
+                        { name: 'Basic fields only', value: 'basic' },
+                        { name: 'Content analysis fields', value: 'analysis' },
+                        { name: 'Custom field list', value: 'custom' }
+                      ]
+                    }
+                  ]);
+
+                  if (csvFieldAnswer.fieldSelection === 'basic') {
+                    csvFields = 'ID,post_title,post_name,post_type,post_status,post_date,author_name';
+                  } else if (csvFieldAnswer.fieldSelection === 'analysis') {
+                    csvFields = 'ID,post_title,word_count,reading_time,category,post_tag';
+                  } else if (csvFieldAnswer.fieldSelection === 'custom') {
+                    const customFieldAnswer = await inquirer.prompt([
+                      {
+                        type: 'input',
+                        name: 'fields',
+                        message: 'Enter comma-separated field names (e.g., "ID,post_title,meta:custom_field"):',
+                        validate: input => input.trim() ? true : 'Fields cannot be empty.'
+                      }
+                    ]);
+                    csvFields = customFieldAnswer.fields;
+                  }
+                }
+
+                // Step 4: Ask about export directory
+                const dirAnswer = await inquirer.prompt([
+                  {
+                    type: 'list',
+                    name: 'dirOption',
+                    message: 'Export directory structure:',
+                    choices: [
+                      { name: `Use post type folder (${selectedPostType})`, value: 'posttype' },
+                      { name: 'Custom subdirectory name', value: 'custom' }
+                    ]
+                  }
+                ]);
+
+                let exportSubdirName = selectedPostType;
+                if (dirAnswer.dirOption === 'custom') {
+                  const customDirAnswer = await inquirer.prompt([
+                    {
+                      type: 'input',
+                      name: 'dirname',
+                      message: 'Enter subdirectory name (e.g., "archive/2024" or "migration"):',
+                      default: selectedPostType,
+                      validate: input => {
+                        if (!input.trim()) return 'Directory name cannot be empty.';
+                        if (input.includes('..')) return 'Invalid directory name (no parent directory references).';
+                        return true;
+                      }
+                    }
+                  ]);
+                  exportSubdirName = customDirAnswer.dirname;
+                }
+
+                // Step 5: Ask about filtering options
                 return inquirer.prompt([
                   {
                     type: 'list',
@@ -87,11 +168,18 @@ inquirer
                       { name: 'Advanced filters', value: 'advanced' }
                     ],
                   }
-                ]).then(modeAnswers => ({ ...fileTypeAnswers, ...modeAnswers }));
+                ]).then(modeAnswers => ({
+                  ...fileTypeAnswers,
+                  ...modeAnswers,
+                  csvFields,
+                  exportSubdirName
+                }));
               })
               .then(async (answers) => {
                 const selectedFileType = answers.fileType;
                 const exportMode = answers.exportMode;
+                const csvFields = answers.csvFields;
+                const exportSubdirName = answers.exportSubdirName;
                 
                 // Build filtering options based on selection
                 let filterOptions = [];
@@ -224,25 +312,38 @@ inquirer
                   filterOptions.push('--dry-run');
                 }
 
-                // Step 5: Construct the wp wptofile command
-                const currentPath = path.resolve();
-                const makeDir = `${currentPath}/src/11ty/import/${selectedMethod}/${selectedPostType || 'posts'}/`;
-                const targetDir = `wp-content/themes/dgwltd-theme/src/11ty/import/${selectedMethod}/${selectedPostType || 'posts'}/`;
-
-                // Check if the directory exists
-                if (!fs.existsSync(makeDir)) {
-                  fs.mkdirSync(makeDir, { recursive: true });
+                // Add CSV fields if specified
+                if (csvFields) {
+                  filterOptions.push(`--fields="${csvFields}"`);
                 }
 
-                // Build the complete command
-                const baseCommand = `ddev wp wptofile ${targetDir} --post_type=${selectedPostType} --file_type=${selectedFileType}`;
-                const command = filterOptions.length > 0 
+                // Step 6: Construct the wp wptofile command
+                // wp-to-file exports to wp-content/export/ by default
+                // Use custom subdirectory name or post type
+                const exportSubdir = exportSubdirName;
+                // From theme directory, go up to wp-content, then into export
+                const fullExportPath = path.resolve('../../export', exportSubdir);
+
+                // Ensure the export directory exists
+                if (!fs.existsSync(fullExportPath)) {
+                  fs.mkdirSync(fullExportPath, { recursive: true });
+                  console.log(`📁 Created export directory: wp-content/export/${exportSubdir}/`);
+                }
+
+                // Build the complete command with properly quoted arguments
+                // Pass just the subdirectory - wp-to-file will prepend wp-content/export/
+                const baseCommand = `ddev wp wptofile "${exportSubdir}" --post_type="${selectedPostType}" --file_type="${selectedFileType}"`;
+                const command = filterOptions.length > 0
                   ? `${baseCommand} ${filterOptions.join(' ')}`
                   : baseCommand;
 
                 console.log(`\n🚀 Running command: ${command}\n`);
+                console.log(`📁 Exporting to: wp-content/export/${exportSubdir}/\n`);
+                if (csvFields) {
+                  console.log(`📊 CSV fields: ${csvFields}\n`);
+                }
 
-                // Step 6: Execute the command
+                // Step 7: Execute the command
                 exec(command, (error, stdout, stderr) => {
                   if (error) {
                     console.error(`❌ Export failed: ${error.message}`);
@@ -261,7 +362,7 @@ inquirer
                     console.log(`🔍 Preview completed:\n${stdout}`);
                   } else {
                     console.log(`💫 Export completed successfully:\n${stdout}`);
-                    console.log(`📁 Files saved to: ${makeDir}`);
+                    console.log(`📁 Files saved to: wp-content/export/${exportSubdir}/`);
                   }
                 });
               })

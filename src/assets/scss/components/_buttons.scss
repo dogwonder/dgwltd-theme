@@ -49,7 +49,7 @@
     --button-bg: var(--wp--preset--color--focus);
     --button-border: var(--wp--preset--color--dark);
     --box-shadow: none;
-    --outline: none;
+    --outline: 3px solid transparent;
   }
   &[disabled] {
     --button-text: var(--wp--custom--color--dark);
