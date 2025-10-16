@@ -70,7 +70,7 @@ select {
 
 textarea {
   line-height: var(--wp--custom--typography--line-height--standard);
-  min-height: 40px;
+  min-height: 10lh;
   height: auto;
 }
 
@@ -253,8 +253,6 @@ input[type="submit"] {
   //Buttons
   .gform_button {
     @extend %dgwltd-button;
-    background-color: var(--wp--preset--color--primary);
-    line-height: 1 !important; //Overrule theme
     &:hover {
       background-color: var(--wp--preset--color--secondary);
     }

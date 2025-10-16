@@ -7,7 +7,10 @@
     gap: 0.5em;
     label {
         position: relative;
-        translate: 0 calc(0.5ex - 0.5cap);
+        // Use CSS custom property to bypass PostCSS calc processing
+        // This preserves the modern cap unit for browsers that support it
+        --vertical-align: calc(0.5ex - 0.5cap);
+        translate: 0 var(--vertical-align);
     }
     input[name="color-theme"] {
         height:1em;

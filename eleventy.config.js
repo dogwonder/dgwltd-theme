@@ -17,10 +17,12 @@ const buildPath = isProduction ? '/wp-content/themes/dgwltd-theme/dist/' : '/';
 export default async function(eleventyConfig) {
 
   // Define the base URL for images
+  // Use environment variable for production URL or fallback to default
+  const siteUrl = process.env.WP_SITE_URL || 'http://wp.dgw.ltd';
   const imageBaseUrl = isProduction
-    ? "http://wp.dgw.ltd/wp-content/themes/dgwltd-theme/dist/"
+    ? `${siteUrl}/wp-content/themes/dgwltd-theme/dist/`
     : "/";
-  
+
   eleventyConfig.addGlobalData("imageBaseUrl", imageBaseUrl);
 
   // Passthrough options
@@ -63,13 +65,13 @@ export default async function(eleventyConfig) {
     globalData: true
   });
   
-  // The Id Attribute plugin adds id attributes to headings on your page 
+  // The Id Attribute plugin adds id attributes to headings on your page
   eleventyConfig.addPlugin(IdAttributePlugin, {
-		// by default we use Eleventy’s built-in `slugify` filter:
+		// by default we use Eleventy's built-in `slugify` filter:
 		// slugify: eleventyConfig.getFilter("slugify"),
 		// selector: "h1,h2,h3,h4,h5,h6", // default
 	});
-  // eleventyConfig.addPlugin(eleventyImageTransformPlugin);
+
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     // which file extensions to process
     extensions: 'md',
@@ -91,9 +93,10 @@ export default async function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginFilters);
   eleventyConfig.addPlugin(pluginShortcodes);
   eleventyConfig.addPlugin(pluginTransform);
-  
-  // Tell 11ty to use the .eleventyignore and ignore our .gitignore file
-  eleventyConfig.setUseGitIgnore(false)
+
+  // Use .eleventyignore exclusively for build control (not .gitignore)
+  // This allows more precise control over what 11ty processes vs what git tracks
+  eleventyConfig.setUseGitIgnore(false);
 
 };
 
@@ -105,8 +108,6 @@ export const config = {
     "html",
     "njk"
   ],
-
-  // baseUrl: isDevelopment ? 'localhost:8080' : 'http://dev.wp.dgw.ltd/wp-content/themes/dgwltd-theme/dist/', 
 
   // Pre-process *.md files with: (default: `liquid`)
   markdownTemplateEngine: "njk",

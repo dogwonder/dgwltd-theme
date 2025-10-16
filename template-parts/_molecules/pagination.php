@@ -6,7 +6,7 @@ $prev_url    = get_previous_posts_page_link();
 $next_url    = get_next_posts_page_link();
 $total_pages = $wp_query->max_num_pages;
 ?>
-<nav class="dgwltd-pagination" aria-label="Pagination">
+<nav class="dgwltd-pagination flex-center" aria-label="Pagination">
 <ul class="dgwltd-pagination__list">
 <?php
 	// If current page is not the first one

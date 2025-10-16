@@ -1,3 +1,6 @@
 .dgwltd-pagination {
   margin: var(--wp--custom--spacing--lg) 0;
+  .govuk-pagination__item--current {
+    background-color: var(--wp--preset--color--primary);
+  }
 }

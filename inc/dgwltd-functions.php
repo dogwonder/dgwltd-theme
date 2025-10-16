@@ -36,6 +36,38 @@ if ( ! function_exists( 'dgwltd_body_classes' ) ) :
 	add_filter( 'body_class', 'dgwltd_body_classes' );
 endif;
 
+/*
+ * Add role="list" to all registered menus
+ *
+ * @access public
+ */
+if ( ! function_exists( 'wcag_nav_menu_add_role_list' ) ) :
+    function wcag_nav_menu_add_role_list( $nav_menu, $args ) {
+        // Get all registered menu locations dynamically
+        $registered_menus = array_keys( get_registered_nav_menus() );
+        
+        // Target only registered menu locations
+        if ( ! isset( $args->theme_location ) || ! in_array( $args->theme_location, $registered_menus ) ) {
+            return $nav_menu;
+        }
+
+        // Bail early if the class doesn't exist (WP < 6.2)
+        if ( ! class_exists( 'WP_HTML_Tag_Processor' ) ) {
+            return $nav_menu;
+        }
+
+        $processor = new WP_HTML_Tag_Processor( $nav_menu );
+
+        // Add 'role="list"' to the first <ul> element
+        if ( $processor->next_tag( 'ul' ) ) {
+            $processor->set_attribute( 'role', 'list' );
+        }
+
+        return (string) $processor;
+    }
+    add_filter( 'wp_nav_menu', 'wcag_nav_menu_add_role_list', 10, 2 );
+endif;
+
 /**
  * WCAG 2.0 Attributes for Dropdown Menus
  *
@@ -58,6 +90,39 @@ if ( ! function_exists( 'wcag_nav_menu_link_attributes' ) ) :
 	}
 	add_filter( 'nav_menu_link_attributes', 'wcag_nav_menu_link_attributes', 10, 4 );
 endif;
+
+/*
+ * Add hidden attribute to submenus
+ *
+ * @access public
+ */
+if ( ! function_exists( 'wcag_nav_menu_add_hidden_to_submenus' ) ) :
+	function wcag_nav_menu_add_hidden_to_submenus( $nav_menu, $args ) {
+		// Target only specific menu locations (optional)
+		if ( ! isset( $args->theme_location ) || $args->theme_location !== 'primary' ) {
+			return $nav_menu;
+		}
+
+		// Bail early if the class doesn't exist (WP < 6.2)
+		if ( ! class_exists( 'WP_HTML_Tag_Processor' ) ) {
+			return $nav_menu;
+		}
+
+		$processor = new WP_HTML_Tag_Processor( $nav_menu );
+
+		// Add 'hidden' to all <ul> elements with the sub-menu class
+		while ( $processor->next_tag( 'ul' ) ) {
+			$class = $processor->get_attribute( 'class' );
+			if ( strpos( $class, 'sub-menu' ) !== false ) {
+				$processor->set_attribute( 'hidden', true );
+			}
+		}
+
+		return (string) $processor;
+	}
+	add_filter( 'wp_nav_menu', 'wcag_nav_menu_add_hidden_to_submenus', 10, 2 );
+endif;
+
 
 /**
  * Add Speculation Rules to the menu - https://csswizardry.com/2024/12/a-layered-approach-to-speculation-rules/
@@ -126,38 +191,6 @@ add_filter(
         return null;
     }
 );
-
-/*
- * Add hidden attribute to submenus
- *
- * @access public
- */
-if ( ! function_exists( 'wcag_nav_menu_add_hidden_to_submenus' ) ) :
-	function wcag_nav_menu_add_hidden_to_submenus( $nav_menu, $args ) {
-		// Target only specific menu locations (optional)
-		if ( ! isset( $args->theme_location ) || $args->theme_location !== 'primary' ) {
-			return $nav_menu;
-		}
-
-		// Bail early if the class doesn't exist (WP < 6.2)
-		if ( ! class_exists( 'WP_HTML_Tag_Processor' ) ) {
-			return $nav_menu;
-		}
-
-		$processor = new WP_HTML_Tag_Processor( $nav_menu );
-
-		// Add 'hidden' to all <ul> elements with the sub-menu class
-		while ( $processor->next_tag( 'ul' ) ) {
-			$class = $processor->get_attribute( 'class' );
-			if ( strpos( $class, 'sub-menu' ) !== false ) {
-				$processor->set_attribute( 'hidden', true );
-			}
-		}
-
-		return (string) $processor;
-	}
-	add_filter( 'wp_nav_menu', 'wcag_nav_menu_add_hidden_to_submenus', 10, 2 );
-endif;
 
 /*
  * Exclude Uncategorized from get_the_category_list function.
