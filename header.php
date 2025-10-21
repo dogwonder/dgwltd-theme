@@ -22,6 +22,7 @@ $pkgVersion = dgwltd_version();
 <link rel="preload" href="<?php echo get_template_directory_uri() ?>/dist/fonts/soehne/soehne-halbfett.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="<?php echo get_template_directory_uri() ?>/dist/fonts/soehne/soehne-kraftig.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="profile" href="https://gmpg.org/xfn/11">
+<?php include(locate_template( 'template-parts/_organisms/obs.php' )) ; ?>
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/dist/css/main.css<?php echo wp_get_environment_type() !== "development"
     ? '?v=' . $pkgVersion
     : ""; ?>">

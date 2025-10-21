@@ -1,6 +1,6 @@
 {
   "name": "dgwltd",
-  "version": "1.2.470",
+  "version": "1.2.471",
   "type": "module",
   "main": "",
   "scripts": {
@@ -23,7 +23,7 @@
     "favicon": "node ./scripts/favicon.js",
     "inquirer": "node ./scripts/inquirer.mjs",
     "utopia:build": "esbuild src/utils/utopia.ts --outfile=src/utils/utopia-compiled.js --format=esm --target=es2020",
-    "build": "cross-env NODE_ENV=production WP_SITE_URL=https://wp.dgw.ltd npm run clean && npm run utopia:build && npm run-s css scripts && npx eleventy && npm run favicon"
+    "build": "cross-env NODE_ENV=production WP_SITE_URL=https://dgw.ltd npm run clean && npm run utopia:build && npm run-s css scripts && npx eleventy && npm run favicon"
   },
   "author": "",
   "license": "ISC",

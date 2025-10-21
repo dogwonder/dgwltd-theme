@@ -1,0 +1,29 @@
+// Via https://github.com/csswizardry/Obs.js?tab=readme-ov-file#installation
+
+//Disable all animations and transitions if a user’s battery is below 5% 
+.has-battery-critical,
+.has-battery-critical * {
+  animation: none !important;
+  transition: none !important;
+}
+
+//And if user's hardware looks weak
+.has-device-capability-weak, 
+.has-device-capability-weak * {
+  animation: none !important;
+  transition: none !important;
+}
+
+//And if user has Low RAM optimization
+.has-ram-very-low,
+.has-ram-very-low * {
+  animation: none !important;
+  transition: none !important;
+}
+
+// Be frugal/lightweight
+.has-delivery-mode-lite, 
+.has-delivery-mode-lite * {
+  // Disable web fonts, use system fonts
+  font-family: var(--wp--preset--font-family--system-font) !important;
+}

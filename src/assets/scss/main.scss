@@ -129,3 +129,6 @@ $govuk-font-family: system-ui, sans-serif;
 
 // Tailwind style utils, margin, padding, flow-space (vertical gaps), gutter (grid gaps) and region-sapce (padding)
 @import "utilities/utilities-wp";
+
+// Obs.js - Context‑aware web performance 
+@import "utilities/obs";
