@@ -149,6 +149,16 @@ CLASS UTILITIES (set in wp-utils.njk)
   gap: var(--gutter,var(--wp--custom--spacing--md));
 }
 
+//Overflow, for things like carousel/galleries on small screens - https://adactio.com/journal/22178
+.overflow, 
+%overflow {
+  display: flex; 
+  overflow-x: auto; 
+  overscroll-behavior-inline: contain; 
+  scroll-snap-type: inline mandatory; 
+  scroll-behavior: smooth;
+} 
+
 //Align full using subgrid
 .align-full, 
 %align-full {

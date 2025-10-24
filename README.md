@@ -109,6 +109,7 @@ Accessible via the Editor: `/wp-admin/site-editor.php?p=%2Fstyles&section=%2Fvar
 npx playwright test
 npx playwright test --ui
 npx playwright test a11y
+npx playwright test tests/pwa.spec.js --workers=1
 
 ## Versioning
 
