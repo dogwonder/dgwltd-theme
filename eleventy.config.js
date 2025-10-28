@@ -1,3 +1,4 @@
+// Core Eleventy plugins
 import { IdAttributePlugin, InputPathToUrlTransformPlugin, HtmlBasePlugin } from "@11ty/eleventy";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginNavigation from "@11ty/eleventy-navigation";
@@ -5,7 +6,7 @@ import fontAwesomePlugin from "@11ty/font-awesome";
 import { eleventyImageTransformPlugin } from '@11ty/eleventy-img';
 import pluginWebc from "@11ty/eleventy-plugin-webc";
 
-//Other plugins and utils
+// Custom configuration modules
 import { readFile } from 'fs/promises';
 import pluginFilters from "./src/11ty/_config/filters.js";
 import pluginShortcodes from "./src/11ty/_config/shortcodes.js";
@@ -16,21 +17,15 @@ const buildPath = isProduction ? '/wp-content/themes/dgwltd-theme/dist/' : '/';
 
 export default async function(eleventyConfig) {
 
-  // Define the base URL for images
-  // Use environment variable for production URL or fallback to default
+  // Image base URL configuration
+  // Production: Uses WordPress site URL + theme path
+  // Development: Uses local root path
   const siteUrl = process.env.WP_SITE_URL || 'http://wp.dgw.ltd';
   const imageBaseUrl = isProduction
     ? `${siteUrl}/wp-content/themes/dgwltd-theme/dist/`
     : "/";
 
   eleventyConfig.addGlobalData("imageBaseUrl", imageBaseUrl);
-
-  // Passthrough options
-  eleventyConfig.addPassthroughCopy({"src/assets/fonts": "fonts"});
-  eleventyConfig.addPassthroughCopy({"src/assets/icons/": "icons"});
-  eleventyConfig.addPassthroughCopy({"src/assets/images/": "images"});
-  eleventyConfig.addPassthroughCopy({"src/vendor/js/": "js"});
-  eleventyConfig.addPassthroughCopy({"src/vendor/css/": "css"});
 
   //Get package version
   const packageJson = JSON.parse(await readFile(new URL('./package.json', import.meta.url)));
@@ -41,8 +36,16 @@ export default async function(eleventyConfig) {
 
   // Add theme settings to Eleventy global data
   eleventyConfig.addGlobalData('theme', themeJSON);
-  
-  //Add bundler bundles
+
+  // Static asset passthrough - copies files directly to output
+  eleventyConfig.addPassthroughCopy({"src/assets/fonts": "fonts"});
+  eleventyConfig.addPassthroughCopy({"src/assets/icons/": "icons"});
+  eleventyConfig.addPassthroughCopy({"src/assets/images/": "images"});
+  eleventyConfig.addPassthroughCopy({"src/vendor/js/": "js"});
+  eleventyConfig.addPassthroughCopy({"src/vendor/css/": "css"});
+
+  // CSS and JS bundling configuration
+  // Combines multiple files into single bundles for performance
   eleventyConfig.addBundle("css", {
 		toFileDirectory: "dist",
 	});
@@ -51,27 +54,38 @@ export default async function(eleventyConfig) {
 		toFileDirectory: "dist",
 	});
 
+   // ===== OFFICIAL ELEVENTY PLUGINS =====
+
   // Official plugins
 	eleventyConfig.addPlugin(pluginSyntaxHighlight, {
 		preAttributes: { tabindex: 0 }
 	});
+  // Navigation plugin for building menus and breadcrumbs
 	eleventyConfig.addPlugin(pluginNavigation);
+
+  // HTML base element support for subdirectory deployments
 	eleventyConfig.addPlugin(HtmlBasePlugin);
+
+  // Transforms relative URLs to absolute based on pathPrefix
   eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
+
+  // Font Awesome icon support
   eleventyConfig.addPlugin(fontAwesomePlugin);
+
+  // WebC component support for reusable HTML components
   eleventyConfig.addPlugin(pluginWebc, {
     components: "src/11ty/_components/**/*.webc",
     useTransform: true,
     globalData: true
   });
   
-  // The Id Attribute plugin adds id attributes to headings on your page
+  // Automatically adds id attributes to headings for anchor links
   eleventyConfig.addPlugin(IdAttributePlugin, {
-		// by default we use Eleventy's built-in `slugify` filter:
-		// slugify: eleventyConfig.getFilter("slugify"),
-		// selector: "h1,h2,h3,h4,h5,h6", // default
-	});
+        // Uses Eleventy's built-in slugify filter for clean URLs
+        // selector: "h1,h2,h3,h4,h5,h6", // default headings
+  });
 
+  // Automatic image optimization and responsive image generation
   eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
     // which file extensions to process
     extensions: 'md',
@@ -89,7 +103,7 @@ export default async function(eleventyConfig) {
     },
   });
 
-  //My plugins
+  // ===== CUSTOM PLUGINS =====
   eleventyConfig.addPlugin(pluginFilters);
   eleventyConfig.addPlugin(pluginShortcodes);
   eleventyConfig.addPlugin(pluginTransform);
