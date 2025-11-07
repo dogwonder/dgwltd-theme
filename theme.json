@@ -147,7 +147,7 @@
 				{
 					"fontFamily": "\"Söhne Kraftig\", sans-serif",
 					"name": "Söhne Kraftig",
-					"slug": "tertertiary", 
+					"slug": "tertiary", 
 					"fontFace": [
 						{
 							"fontFamily": "Söhne Kraftig",
@@ -382,6 +382,14 @@
 					"fontSize": "var(--wp--preset--font-size--body)",
 					"lineHeight": "1",
 					"fontWeight": "bold"
+				},
+				"spacing": {
+					"padding": {
+						"top": "var(--wp--custom--spacing--xs)",
+						"bottom": "var(--wp--custom--spacing--xs)",
+						"left": "var(--wp--custom--spacing--xs)",
+						"right": "var(--wp--custom--spacing--xs)"
+					}
 				}
 			},
 			"textInput": {
@@ -398,9 +406,23 @@
 					"fontFamily": "var(--wp--preset--font-family--system-font)",
 					"fontSize": "var(--wp--preset--font-size--sm)", 
 					"lineHeight": "var(--wp--custom--typography--line-height--fine)"
+				},
+				"spacing": {
+					"padding": {
+						"top": "var(--wp--custom--spacing--xs)",
+						"bottom": "var(--wp--custom--spacing--xs)",
+						"left": "var(--wp--custom--spacing--xs)",
+						"right": "var(--wp--custom--spacing--xs)"
+					}
 				}
 			}, 
 			"select": {
+				"border": {
+					"radius": "0",
+					"style": "solid",
+					"width": "2px",
+					"color": "var(--wp--custom--color--text, currentColor)"
+				},
 				"color": {
 					"text": "var(--wp--custom--color--text)",
 					"background": "transparent"

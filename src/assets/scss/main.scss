@@ -61,6 +61,10 @@ $govuk-font-family: system-ui, sans-serif;
 // Approximately 15% of the CSS output if you include everything.
 @import "../../../node_modules/govuk-frontend/dist/govuk/overrides/index";
 
+// Web Awesome
+// @import '../../../node_modules/@awesome.me/webawesome/dist/styles/webawesome.css';
+// @import '../../../node_modules/@awesome.me/webawesome/dist/styles/themes/default.css';
+
 // MEDIA QUERIES
 @import "vendor/mq";
 

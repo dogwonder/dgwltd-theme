@@ -43,3 +43,4 @@ $pkgVersion = dgwltd_version();
 	<?php include(locate_template( 'template-parts/_layout/masthead.php' )) ; ?>
 	<main id="content" class="dgwltd-body">
         <div x-data="sentinelWatcher()" x-intersect:enter="toggleHeader(false)" x-intersect:leave="toggleHeader(true)" class="sentinel"></div>
+        

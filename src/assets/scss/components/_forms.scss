@@ -46,12 +46,11 @@ select {
   border: 2px solid var(--wp--custom--color--text, currentColor);
   background-color: transparent;
   border-radius: 0;
-  padding: 0 0.2em;
   font: inherit; 
   letter-spacing: inherit;
   word-spacing: inherit;
   margin: 0;
-  padding: 0.2em;
+  padding: var(--wp--custom--spacing--xs);
   -moz-appearance: menulist;
   -webkit-appearance: menulist;
   appearance: menulist;
