@@ -17,6 +17,7 @@
 --wp--preset--color--dark: #0d0f05;
 --wp--preset--color--light: #ffffff;
 --wp--preset--color--alt: #f1f2f0;
+--wp--preset--color--alt-2: #dfe0de;
 --wp--preset--color--focus: #FFDD00;
 --wp--custom--color--background: light-dark(var(--wp--preset--color--alt), var(--wp--preset--color--dark));
 --wp--custom--color--text: light-dark(var(--wp--preset--color--dark), var(--wp--preset--color--light));
@@ -175,6 +176,9 @@ body {
     }
     .has-alt-background-color {
         background-color:#f1f2f0 !important;
+    }
+    .has-alt-2-background-color {
+        background-color:#dfe0de !important;
     }
     .has-focus-background-color {
         background-color:#FFDD00 !important;

@@ -69,7 +69,6 @@ This requires [ACF PRO](https://www.advancedcustomfields.com/pro/). $$ - but it 
 
 These are saved in `wp-plugins/dgwltd-blocks/src/acf-json`
 
-- DGW.ltd Accordion - based on GOV.UK's [accordion pattern](https://design-system.service.gov.uk/components/accordion/)
 - DGW.ltd Banner - text and background image similar to hero but less showy
 - DGW.ltd Breadcrumbs - based on GOV.UK's [breadcrumbs pattern](https://design-system.service.gov.uk/components/breadcrumbs/) 
 - DGW.ltd Cards - grid of featured cards picked from relationship field displaying, title, excerpt and featured image. 
@@ -78,12 +77,17 @@ These are saved in `wp-plugins/dgwltd-blocks/src/acf-json`
 - DGW.ltd Hero Section - hero with big image / video as background - with experimental Focal Point selector
 
 
-## Custom block variations
+## Core block modifiers (WP_HTML_Tag_Processor)
+
+- Accordion - Adds GOV.uk data attributes and classes to WordPress Accordion block
+- Gallery - Adds image and total image count data attributes to the WordPress Gallery block
+- Code - Adds style classes to Code blocks based on Block variation (see below)
+
+## Custom block variations (Block Variations)
 
 These are saved in `wp-plugins/dgwltd-plugin/admin/scripts/dgwltd-plugin-variations.js`
 
 - DGW.ltd Cover - an extenstion of the cover block with H1 and paragraph text. 
-- DGW.ltd Details Accordion - paragraph block followed by 4 details blocks
 - DGW.ltd Code - Ability to set block styles on a code block to allow syntax highlighting via Prism.css
 
 ## Templates

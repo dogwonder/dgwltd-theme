@@ -116,14 +116,16 @@ $govuk-font-family: system-ui, sans-serif;
 
 // BLOCKS - ACF
 @import "blocks/acf/blocks";
-@import "blocks/acf/accordion";
+
 @import "blocks/acf/banner";
 @import "blocks/acf/embed";
 @import "blocks/acf/hero";
 @import "blocks/acf/promo-card";
 
 // BLOCKS - VARIATIONS
+@import "blocks/variations/accordion";
 @import "blocks/variations/cover";
+
 
 // SYTAX HIGHLIGHTING
 @import "vendor/prism";

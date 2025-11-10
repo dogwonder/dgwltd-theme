@@ -26,6 +26,7 @@ $blog_query = new WP_Query( $post_args );
 ?>
 <div id="primary" class="dgwltd-content-wrapper">
 
+
 	<?php
 	while ( have_posts() ) :
 		the_post();
@@ -34,6 +35,7 @@ $blog_query = new WP_Query( $post_args );
 	?>
 	
 	<div class="entry-wrapper">
+		
 		<?php if ( $blog_query->have_posts() ) : ?>
 			<div class="dgwltd-list">
 			<?php

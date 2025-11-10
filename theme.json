@@ -57,6 +57,11 @@
 					"color": "#f1f2f0"
 				},
 				{
+					"name": "Alt 2", 
+					"slug": "alt-2",
+					"color": "#dfe0de"
+				},
+				{
 					"name": "Focus", 
 					"slug": "focus",
 					"color": "#FFDD00"

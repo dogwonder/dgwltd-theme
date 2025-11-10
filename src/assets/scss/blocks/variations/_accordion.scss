@@ -1,0 +1,23 @@
+//Accordion block
+.dgwltd-block-accordion {
+     margin: 0;
+    .govuk-accordion__section-header {
+      border-color: var(--wp--custom--color--border);
+    }
+    .govuk-accordion-nav__chevron, 
+    .govuk-accordion__show-all-text, 
+    .govuk-accordion__section-toggle {
+      color: var(--wp--preset--color--accent-primary);
+    }
+    .govuk-accordion__section-button {
+      @extend %dgwltd-heading-md;
+      flex-direction: column;
+      align-items: flex-start;
+      &:hover {
+        background-color: var(--wp--preset--color--alt-2);
+        .wp-block-accordion-heading__toggle-title {
+          text-decoration: none;
+        }
+      }
+    }
+}
