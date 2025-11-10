@@ -1,6 +1,8 @@
 //Accordion block
 .dgwltd-block-accordion {
-     margin: 0;
+     .govuk-accordion__section {
+        margin: 0;
+     }
     .govuk-accordion__section-header {
       border-color: var(--wp--custom--color--border);
     }
