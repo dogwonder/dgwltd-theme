@@ -1,3 +1,3 @@
 
 
-<carbon-intensity current-intensity="151"></carbon-intensity>
+<carbon-intensity current-intensity="110"></carbon-intensity>

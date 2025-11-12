@@ -1,6 +1,15 @@
 .dgwltd-pagination {
   margin: var(--wp--custom--spacing--lg) 0;
+  width: 100%;
   .govuk-pagination__item--current {
     background-color: var(--wp--preset--color--primary);
+  }
+}
+
+.govuk-pagination--pages {
+  .govuk-pagination__list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
   }
 }
