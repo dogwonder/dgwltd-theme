@@ -19,12 +19,21 @@
           <div class="dgwltd-nav__wrapper">
             {% set navPages = collections.all | eleventyNavigation %}
             {# {{ navPages | dump | safe }} #}
-            <ul class="dgwltd-menu">
-              {% for navPage in navPages %}
-                <li class="menu-item">
-                  <a href="{{ navPage.url }}" class="dgwltd-nav__link">{{ navPage.key }}</a>
+             <ul id="nav-primary" class="cfc-menu">
+            {%- for entry in navPages %}
+                <li class="menu-item{{ ' menu-item-has-children' if entry.children.length else '' }}">
+                    <a href="{{ entry.url }}">{{ entry.title }}</a>
+                    {% if entry.children.length %}
+                        <ul class="sub-menu" hidden="">
+                        {%- for child in entry.children %}
+                            <li class="menu-item{{ ' menu-item-has-children' if child.children.length else '' }}">
+                                <a href="{{ child.url }}">{{ child.title }}</a>
+                            </li>
+                        {%- endfor %}
+                        </ul>
+                    {% endif %}
                 </li>
-              {% endfor %}
+            {%- endfor %}
             </ul>
           </div>
       </nav>
