@@ -41,7 +41,10 @@
       /*# sourceMappingURL=wp.css.map */
     </style>
   </head>
-  <body class="dgwltd">
+  <body class="dgwltd no-js">
+    <script>
+      document.body.className = document.body.className.replace('no-js', 'js-enabled govuk-frontend-supported');
+    </script>
     <div id="page" class="dgwltd-wrapper">
       <header id="masthead" class="dgwltd-masthead">
         <div id="skiplink-container">
@@ -71,7 +74,7 @@
             </button>
 
             <div class="dgwltd-nav__wrapper">
-              <ul id="nav-primary" class="cfc-menu">
+              <ul id="nav-primary" class="dgwltd-menu">
                 <li class="menu-item">
                   <a href="/home.html">Home</a>
                 </li>
@@ -91,16 +94,16 @@
 
             <section class="energy-dashboard">
               <h2 id="uk-grid-status">UK Grid Status</h2>
-              <dgw-gaw-power-mix data-gaw-location="UK" data-gaw-mix="wind:57.2,gas:17.4,nuclear:9.2,imports:8.4,biomass:6.9,solar:0.9" data-renewable-percentage="58">
+              <dgw-gaw-power-mix data-gaw-location="UK" data-gaw-mix="wind:56.9,gas:16.4,imports:9.1,nuclear:8.9,biomass:7.1,solar:1.5" data-renewable-percentage="58">
                 <div class="dgwltd-chart">
-                  <span data-fuel="wind" aria-label="wind: 57.2%" style="--chart-color: #9bdb5e; --fuel-percentage: 57.2; --cumulative-percentage: 0">57.2+</span><span data-fuel="gas" aria-label="gas: 17.4%" style="--chart-color: #ec994d; --fuel-percentage: 17.4; --cumulative-percentage: 57.2">17.4_57.2+</span><span data-fuel="nuclear" aria-label="nuclear: 9.2%" style="--chart-color: #189aca; --fuel-percentage: 9.2; --cumulative-percentage: 74.6">9.2_74.6+</span
-                  ><span data-fuel="imports" aria-label="imports: 8.4%" style="--chart-color: #555555; --fuel-percentage: 8.4; --cumulative-percentage: 83.8">8.4_83.8+</span><span data-fuel="biomass" aria-label="biomass: 6.9%" style="--chart-color: #8b4513; --fuel-percentage: 6.9; --cumulative-percentage: 92.2">6.9_92.2+</span><span data-fuel="solar" aria-label="solar: 0.9%" style="--chart-color: #eedc30; --fuel-percentage: 0.9; --cumulative-percentage: 99.10000000000001">0.9_99.1+</span
+                  <span data-fuel="wind" aria-label="wind: 56.9%" style="--chart-color: #9bdb5e; --fuel-percentage: 56.9; --cumulative-percentage: 0">56.9+</span><span data-fuel="gas" aria-label="gas: 16.4%" style="--chart-color: #ec994d; --fuel-percentage: 16.4; --cumulative-percentage: 56.9">16.4_56.9+</span><span data-fuel="imports" aria-label="imports: 9.1%" style="--chart-color: #555555; --fuel-percentage: 9.1; --cumulative-percentage: 73.3">9.1_73.3+</span
+                  ><span data-fuel="nuclear" aria-label="nuclear: 8.9%" style="--chart-color: #189aca; --fuel-percentage: 8.9; --cumulative-percentage: 82.39999999999999">8.9_82.4+</span><span data-fuel="biomass" aria-label="biomass: 7.1%" style="--chart-color: #8b4513; --fuel-percentage: 7.1; --cumulative-percentage: 91.3">7.1_91.3+</span><span data-fuel="solar" aria-label="solar: 1.5%" style="--chart-color: #eedc30; --fuel-percentage: 1.5; --cumulative-percentage: 98.39999999999999">1.5_98.4+</span
                   ><span class="chart-ring">+x20</span>
                 </div>
                 <span class="dgwltd-body-xs">58% renewable</span>
               </dgw-gaw-power-mix>
-              <dgw-gaw-info-bar data-gaw-level="low" data-gaw-location="GB" data-gaw-intensity="82">
-                <span class="dgwltd-body-xs"> Grid intensity: 82 gCO2/kWh (low) </span>
+              <dgw-gaw-info-bar data-gaw-level="low" data-gaw-location="GB" data-gaw-intensity="78">
+                <span class="dgwltd-body-xs"> Grid intensity: 78 gCO2/kWh (low) </span>
               </dgw-gaw-info-bar>
             </section>
           </div>
@@ -114,7 +117,7 @@
         </div>
       </footer>
     </div>
-    <!-- This page `/home.html` was built on 2025-12-09T11:07:10.179Z -->
+    <!-- This page `/home.html` was built on 2025-12-09T11:44:35.780Z -->
     <script type="module" src="/dist/16mjQhLrpI.js"></script>
     <script type="module" src="./js/app.min.js"></script>
     <svg style="display: none">

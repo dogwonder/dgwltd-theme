@@ -1,6 +1,6 @@
 {
   "name": "dgwltd",
-  "version": "1.2.494",
+  "version": "1.2.495",
   "type": "module",
   "main": "",
   "scripts": {
@@ -12,8 +12,8 @@
     "css:replace": "replace \"Version: v\\d+(\\.\\d+){1,2}\" \"Version: $(npm version patch --no-git-tag-version)\" ./dist/css/main.css",
     "css:postcss": "postcss ./dist/css/**/*.css --no-map --verbose --dir ./dist/css/",
     "css": "run-s css:*",
-    "scripts:dev": "esbuild src/assets/scripts/app.js --bundle --sourcemap=inline --outfile=dist/js/app.min.js --format=iife --target=es2020",
-    "scripts:build:app": "esbuild src/assets/scripts/app.js --bundle --minify --outfile=dist/js/app.min.js --format=iife --target=es2020",
+    "scripts:dev": "node esbuild.config.js",
+    "scripts:build:app": "cross-env NODE_ENV=production node esbuild.config.js",
     "scripts": "npm run-s scripts:build:app",
     "watch:css": "onchange \"./src/assets/scss/**/*.scss\" --exclude \"./src/assets/scss/utilities/_tokens.scss\" --exclude \"./src/assets/scss/wp.scss\" -- npm run css:sass",
     "watch:eleventy": "npx eleventy --serve",

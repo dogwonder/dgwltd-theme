@@ -19,7 +19,7 @@
           <div class="dgwltd-nav__wrapper">
             {% set navPages = collections.all | eleventyNavigation %}
             {# {{ navPages | dump | safe }} #}
-             <ul id="nav-primary" class="cfc-menu">
+             <ul id="nav-primary" class="dgwltd-menu">
             {%- for entry in navPages %}
                 <li class="menu-item{{ ' menu-item-has-children' if entry.children.length else '' }}">
                     <a href="{{ entry.url }}">{{ entry.title }}</a>

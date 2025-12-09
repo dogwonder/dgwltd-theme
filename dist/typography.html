@@ -188,7 +188,10 @@
       /*# sourceMappingURL=wp.css.map */
     </style>
   </head>
-  <body class="dgwltd">
+  <body class="dgwltd no-js">
+    <script>
+      document.body.className = document.body.className.replace('no-js', 'js-enabled govuk-frontend-supported');
+    </script>
     <div id="page" class="dgwltd-wrapper">
       <header id="masthead" class="dgwltd-masthead">
         <div id="skiplink-container">
@@ -218,7 +221,7 @@
             </button>
 
             <div class="dgwltd-nav__wrapper">
-              <ul id="nav-primary" class="cfc-menu">
+              <ul id="nav-primary" class="dgwltd-menu">
                 <li class="menu-item">
                   <a href="/home.html">Home</a>
                 </li>
@@ -274,7 +277,7 @@
         </div>
       </footer>
     </div>
-    <!-- This page `/typography.html` was built on 2025-12-09T11:07:10.180Z -->
+    <!-- This page `/typography.html` was built on 2025-12-09T11:44:35.781Z -->
 
     <script type="module" src="./js/app.min.js"></script>
   </body>
