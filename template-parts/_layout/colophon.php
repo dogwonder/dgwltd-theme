@@ -49,7 +49,7 @@
 				<legend class="visually-hidden">Theme</legend>
 				
 				<?php /* ?>
-				<label for="theme-system">
+				<label for="theme-system" class="visually-hidden"><?php esc_html_e( 'Theme system', 'dgwltd' ); ?>
 				<input type="radio" name="color-theme" value="system" checked id="theme-system">
 				<svg id="icon-system" width="1em" height="1em"  viewBox="0 0 512 512" fill="currentColor" role="img"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
 					<title>System default theme</title>
@@ -58,7 +58,7 @@
 				</label>
 				<?php */ ?>
 
-				<label>
+				<label for="theme-dark"><span class="visually-hidden"><?php esc_html_e( 'Dark theme', 'dgwltd' ); ?></span>
 				<input type="radio" name="color-theme" value="dark" id="theme-dark">
 				<svg id="icon-moon" width="1em" height="1em" viewBox="0 0 384 512" fill="currentColor" role="img"><!--!Font Awesome Pro 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2025 Fonticons, Inc.-->
 					<title>Dark theme</title>
@@ -66,7 +66,7 @@
 				</svg>
 				</label>
 
-				<label for="theme-light">
+				<label for="theme-light"><span class="visually-hidden"><?php esc_html_e( 'Light theme', 'dgwltd' ); ?></span>
 				<input type="radio" name="color-theme" value="light" id="theme-light">
 				<svg id="icon-sun" width="1em" height="1em" viewBox="0 0 512 512" fill="currentColor" role="img"><!--!Font Awesome Pro 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2025 Fonticons, Inc.-->
 					<title>Light theme</title>

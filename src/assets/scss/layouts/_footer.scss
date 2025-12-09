@@ -6,8 +6,6 @@
   background-color: var(--wp--custom--color--text);
   color: var(--wp--custom--color--background);
   text-align: left;
-  content-visibility: auto; //We only place this here as otherwise we might affect screenreaders. 
-
   .dgwltd-container {
     padding-block: var(--wp--custom--spacing--md);
   }
