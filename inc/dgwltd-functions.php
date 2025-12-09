@@ -278,8 +278,6 @@ if ( ! function_exists( 'dgwltd_generate_color_palette_tints' ) ) :
 // add_action('wp_enqueue_scripts', 'dgwltd_generate_color_palette_tints');
 endif;
 
-
-//
 if ( ! function_exists( 'dgwltd_version' ) ) :
 	function dgwltd_version() {
 		//Get version value from package.json
