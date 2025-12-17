@@ -39,22 +39,6 @@ For the Javascript we need to [manually download](https://frontend.design-system
 - [Youtube](https://github.com/paulirish/lite-youtube-embed) and [Vimeo](https://github.com/slightlyoff/lite-vimeo) lite plugins (render the video as a screenshot until a user interacts with the video to save bandwidth) -- note we changed the defulat thumbnail size to 1280px `https://i.ytimg.com/vi/${this.videoId}/maxresdefault.jpg`;
 - [Fontawesome](https://fontawesome.com)
 
-
-## CSS Sorting
-
-This project uses the following sorting standard:
-
-- flexbox properties
-- grid properties
-- positionning properties
-- visibility properties
-- cliping properties
-- box properties
-- animation properties
-- background properties
-- border properties
-- typography properties
-
 ## Custom typeface (optional)
 
 This theme uses the [Söhne typeface](https://klim.co.nz/collections/soehne/) by Klim Type Foundry, this is a licensed font for use on my own url (dgw.ltd). If you wish to use this on your own website then you will need to [purchase a license](https://klim.co.nz/buy/soehne/). You can remove these from fontFamilies[] in theme.json, functions.php and typography.scss. These fonts are not included in the repo. 
@@ -69,12 +53,12 @@ This requires [ACF PRO](https://www.advancedcustomfields.com/pro/). $$ - but it 
 
 These are saved in `wp-plugins/dgwltd-blocks/src/acf-json`
 
-- DGW.ltd Banner - text and background image similar to hero but less showy
-- DGW.ltd Breadcrumbs - based on GOV.UK's [breadcrumbs pattern](https://design-system.service.gov.uk/components/breadcrumbs/) 
-- DGW.ltd Cards - grid of featured cards picked from relationship field displaying, title, excerpt and featured image. 
-- DGW.ltd Embed - lite embed custom element for [Youtube](https://github.com/paulirish/lite-youtube-embed) and [Vimeo](https://github.com/slightlyoff/lite-vimeo)
-- DGW.ltd Promo card - offset image and content block
-- DGW.ltd Hero Section - hero with big image / video as background - with experimental Focal Point selector
+- *Banner* – Text and background image hero
+- *Breadcrumbs* – GOV.UK-pattern navigation breadcrumbs
+- *Cards* – Grid layout for pages with title, excerpt, and featured image
+- *Embed* – Lite YouTube/Vimeo embeds that save bandwidth
+- *Promo card* – Offset image and content layout
+- *Hero Section* – Full-width hero with image or video background
 
 
 ## Core block modifiers (WP_HTML_Tag_Processor)
@@ -120,31 +104,3 @@ npx playwright test tests/pwa.spec.js --workers=1
 To increment the version number (used for asset caching)
 
 `npm version patch`
-
-## 11ty import
-
-Import RSS feed posts
-`npx @11ty/import rss https://fosstodon.org/users/eleventy.rss`
-
-Fediverse
-`npx @11ty/import fediverse dogwonder@mastodon.social`
-
-Bluesky
-`npx @11ty/import bluesky @11ty.dev`
-
-WordPress
-```
-# Import *all* posts from the WordPress API
-# Draft posts available when WORDPRESS_USERNAME and WORDPRESS_PASSWORD environment
-# variables are supplied, read more: https://www.11ty.dev/docs/environment-vars/
-npx @11ty/import wordpress https://blog.fontawesome.com
-```
-
-## Inquirer
-
-`npm run inquirer`
-
-## Updater
-
-https://wp.dgw.ltd/wp-json/git-updater/v1/update-api/?slug=dgwltd-theme
-https://wp.dgw.ltd/wp-json/git-updater/v1/update-api/?slug=dgwltd-plugin
