@@ -4,10 +4,9 @@ permalink: '../../../../sw.js'
 
 const cacheName = 'dgwltd:{% pkgVersion %}';
 const themePath = '/wp-content/themes/dgwltd-theme';
-
-// Assets to precache
+const offlineUrl = `${themePath}/dist/offline.html`;
 const cacheFiles = [
-  `${themePath}/dist/offline.html`,
+  offlineUrl,
   `${themePath}/dist/css/main.css`,
   `${themePath}/dist/js/app.min.js`,
   `${themePath}/dist/js/govuk-frontend-5.11.0.min.js`,
@@ -21,12 +20,11 @@ const cacheFiles = [
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(cacheName).then(async cache => {
-      // Add each file individually so one 404 doesn't abort the whole install
       for (const url of cacheFiles) {
         try {
           await cache.add(url);
         } catch (err) {
-          // swallow the error – optional: console.warn in dev
+          // Continue installing even if a file fails – offline.html remains our fallback.
         }
       }
     })
@@ -34,34 +32,24 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('fetch', event => {
-  // Skip anything we don't want to intercept
+  // Only handle top-level navigations that belong to the public site.
   if (
     event.request.method !== 'GET' ||
+    event.request.mode !== 'navigate' ||
     /\/wp-admin\//.test(event.request.url) ||
-    event.request.url.includes('preview=true') ||
-    event.request.headers.get('X-Requested-With') === 'XMLHttpRequest' ||
-    event.request.url.includes('admin-ajax.php')
+    event.request.url.includes('preview=true')
   ) {
     return;
   }
 
-  // For navigations (HTML page loads): network first, offline fallback
-  if (event.request.mode === 'navigate') {
-    event.respondWith(
-      fetch(event.request).catch(() => {
-        return caches.match(`${themePath}/dist/offline.html`);
-      })
-    );
-    return;
-  }
-
-  // For everything else (CSS/JS/fonts/images/etc.): cache first, then network
   event.respondWith(
-    caches.match(event.request).then(response => {
-      if (response) {
-        return response;
+    fetch(event.request).catch(async () => {
+      const cache = await caches.open(cacheName);
+      const cachedOffline = await cache.match(offlineUrl);
+      if (cachedOffline) {
+        return cachedOffline;
       }
-      return fetch(event.request);
+      return Response.error();
     })
   );
 });

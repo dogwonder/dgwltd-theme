@@ -10,7 +10,6 @@
  */
 $pkgVersion = dgwltd_version();
 $theme = wp_get_theme();
-$theme_slug = $theme->get_template();
 ?>
 	</main>
 	<?php include(locate_template( 'template-parts/_layout/colophon.php')); ?>
@@ -51,36 +50,6 @@ $theme_slug = $theme->get_template();
           "selector_matches": "[data-prefetch]"
         },
         "eagerness": "immediate"
-      },
-      {
-        "where": {
-          "and": [
-            { "href_matches": "^/.*" },
-            { "not": {
-                "href_matches": [
-                  "\/wp-*.php",
-                  "\/wp-admin\/*",
-                  "\/wp-content\/uploads\/*",
-                  "\/wp-content\/*",
-                  "\/wp-content\/plugins\/*",
-                  "\/wp-content\/themes\/<?php echo sanitize_title($theme_slug); ?>\/*",
-                  "\/*\\?(.+)"
-                ]
-              }
-            },
-            {
-            "not": {
-                "selector_matches": "a[rel~=\"nofollow\"]"
-              }
-            },
-            {
-            "not": {
-                "selector_matches": ".no-prefetch, .no-prefetch a"
-              }
-            }
-          ]
-        },
-        "eagerness": "moderate"
       }
     ],
     "prerender": [
@@ -92,7 +61,7 @@ $theme_slug = $theme->get_template();
       },
       {
         "where": {
-          "selector_matches": "[data-prefetch]"
+          "selector_matches": "[data-prefetch]:not([data-prefetch=prerender])"
         },
         "eagerness": "moderate"
       }

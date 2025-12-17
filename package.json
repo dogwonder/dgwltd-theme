@@ -1,11 +1,11 @@
 {
   "name": "dgwltd",
-  "version": "1.2.495",
+  "version": "1.2.497",
   "type": "module",
   "main": "",
   "scripts": {
     "clean": "trash \"./dist/\"",
-    "css:sass:main": "sass  --quiet-deps --silence-deprecation=mixed-decls --silence-deprecation=color-functions --silence-deprecation=global-builtin --silence-deprecation=import ./src/assets/scss/main.scss ./dist/css/main.css",
+    "css:sass:main": "sass  --quiet-deps --silence-deprecation=color-functions --silence-deprecation=global-builtin --silence-deprecation=import ./src/assets/scss/main.scss ./dist/css/main.css",
     "css:sass:print": "sass ./src/assets/scss/print.scss ./dist/css/print.css",
     "css:sass:wp": "sass ./src/assets/scss/wp.scss ./dist/css/wp.css",
     "css:sass": "run-p css:sass:main css:sass:print css:sass:wp",
@@ -19,7 +19,6 @@
     "watch:eleventy": "npx eleventy --serve",
     "watch:scripts": "onchange \"./src/assets/scripts/**/*.js\" -- npm run scripts:dev",
     "watch": "run-p watch:*",
-    "cms": "npx tinacms dev -c \"npm run watch\"",
     "favicon": "node ./scripts/favicon.js",
     "inquirer": "node ./scripts/inquirer.mjs",
     "utopia:build": "esbuild src/utils/utopia.ts --outfile=src/utils/utopia-compiled.js --format=esm --target=es2020",
@@ -58,7 +57,6 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",
     "@playwright/test": "^1.55.0",
-    "@tinacms/cli": "^0.60.5",
     "@types/node": "^24.3.0",
     "cross-env": "^10.0.0",
     "esbuild": "^0.25.9",
@@ -68,8 +66,6 @@
     "postcss-cli": "^11.0.1",
     "prettier": "3.6.2",
     "replace": "^1.2.2",
-    "sass": "^1.91.0",
-    "tinacms": "^2.1.1",
-    "trash-cli": "^6.0.0"
+    "sass": "^1.91.0"
   }
 }
