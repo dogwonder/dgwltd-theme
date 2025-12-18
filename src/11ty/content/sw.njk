@@ -24,7 +24,7 @@ self.addEventListener('install', event => {
         try {
           await cache.add(url);
         } catch (err) {
-          // Continue installing even if a file fails – offline.html remains our fallback.
+          // Ignore individual failures so install isn't blocked.
         }
       }
     })
@@ -32,7 +32,6 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('fetch', event => {
-  // Only handle top-level navigations that belong to the public site.
   if (
     event.request.method !== 'GET' ||
     event.request.mode !== 'navigate' ||
