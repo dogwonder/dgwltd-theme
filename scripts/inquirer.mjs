@@ -59,7 +59,7 @@ inquirer
           return;
         }
         
-        const fileTypes = ['md', 'html', 'json', 'csv', 'asciidoc'];
+        const fileTypes = ['md', 'html', 'json', 'jsonld', 'csv', 'asciidoc'];
 
         // Step 2: Use Inquirer to let the user select a post type
         inquirer
@@ -386,7 +386,7 @@ inquirer
      } else if (selectedMethod === '11ty') {
 
       // Step 2: Select file format
-      const fileTypes = ['md', 'html', 'json'];
+      const fileTypes = ['md', 'html', 'json', 'jsonld'];
 
       inquirer
         .prompt([
