@@ -29,8 +29,7 @@ if ( class_exists( 'acf' ) ) {
 <?php while ( have_posts() ) : the_post(); ?>
 	
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-		
+	
 			<?php
 			// First we need to check where we are in the tree, if the current page is not the parent page then display the title of the parent page
 			if ( ! $parent ) :

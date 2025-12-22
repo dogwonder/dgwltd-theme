@@ -67,10 +67,18 @@ select {
   }
 }
 
-textarea {
+textarea.govuk-textarea {
   line-height: var(--wp--custom--typography--line-height--standard);
   min-height: 10lh;
   height: auto;
+}
+
+input.govuk-file-upload {
+  border: 0;
+  padding: 0;
+  &:focus {
+    border: 0;
+  }
 }
 
 input[type="submit"] {
