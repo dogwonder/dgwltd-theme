@@ -118,16 +118,16 @@ function printSummary(config) {
   console.log('\n┌────────────────────────────────────────┐');
   console.log('│         Export Configuration           │');
   console.log('├────────────────────────────────────────┤');
-  console.log(`│  Post Type:   ${(config.postType || '').padEnd(23)}│`);
-  console.log(`│  Format:      ${(config.fileType || '').padEnd(23)}│`);
-  console.log(`│  Destination: ${exportPath.padEnd(23)}│`);
+  console.log(`│  Post Type:   ${(config.postType || '').padEnd(25)}│`);
+  console.log(`│  Format:      ${(config.fileType || '').padEnd(25)}│`);
+  console.log(`│  Destination: ${exportPath.padEnd(25)}│`);
   if (config.csvFields) {
-    console.log(`│  CSV Fields:  ${(config.csvFields.length > 20 ? config.csvFields.slice(0, 17) + '...' : config.csvFields).padEnd(23)}│`);
+    console.log(`│  CSV Fields:  ${(config.csvFields.length > 20 ? config.csvFields.slice(0, 17) + '...' : config.csvFields).padEnd(25)}│`);
   }
   if (config.filters && config.filters.length > 0) {
-    console.log(`│  Filters:     ${String(config.filters.length + ' active').padEnd(23)}│`);
+    console.log(`│  Filters:     ${String(config.filters.length + ' active').padEnd(25)}│`);
   }
-  console.log(`│  Mode:        ${(config.dryRun ? 'Preview (dry-run)' : 'Export').padEnd(23)}│`);
+  console.log(`│  Mode:        ${(config.dryRun ? 'Preview (dry-run)' : 'Export').padEnd(25)}│`);
   console.log('└────────────────────────────────────────┘\n');
 }
 
