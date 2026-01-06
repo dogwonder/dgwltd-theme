@@ -82,21 +82,21 @@ hr {
   border-block-start: var(--wp--custom--color--dark);
 }
 
-ul:not([class]) {
+ul:not([class]), 
+ol:not([class]) {
   padding-inline-start: 1.7ch;
-  list-style-type: disc;
-  > li {
-    padding-inline-start: var(--wp--custom--spacing--xs);
-  }
+}
+
+ul:not([class]) {
+  list-style-type: disc;  
+}
+
+ol:not([class]) {
+    list-style-type: decimal;
 }
 
 ul ::marker {
   font-size: 0.8lh;
-}
-
-ol:not([class]) {
-    padding-inline-start: 1.7ch;
-    list-style-type: decimal;
 }
 
 ol ::marker {

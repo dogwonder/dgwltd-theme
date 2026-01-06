@@ -388,13 +388,15 @@ code.language-html {
         <!-- Lists Section -->
         <div class="section stack">
             <h2 id="lists">Lists</h2>
-            <div style="max-width: 40rem">
+            <div style="max-width: 40rem; --flow-space: 0;">
+                <div class="my-md">
                 <ol>
                     <li>Ordered list item - Eiusmod eu mollit cillum.</li>
                     <li>Ordered list item - Deserunt pariatur ea ad enim pariatur non minim anim adipiscing ea laborum eu commodo deserunt id culpa ipsum laborum eu</li>
                     <li>Ordered list item - Voluptate cupidatat lorem, aliquip in.</li>
                     <li>Ordered list item - Non amet voluptate tempor nostrud sunt.</li>
                 </ol>
+                </div>
                 <ul>
                     <li>Unordered list item - Nisi veniam ex sint.</li>
                     <li>Unordered list item - Irure officia sed, quis lorem.</li>
