@@ -1,27 +1,22 @@
 import sharp from 'sharp';
-import ico from 'svg-to-ico';
+import fs from 'fs';
 
-const sizes = [128, 180, 192, 512];
-const inputSVG = './src/assets/icons/logo.svg'; // Replace with your actual path
+const sizes = [16, 32, 180, 192, 512];
+const inputSVG = './src/assets/icons/logo.svg';
+const outDir = './src/assets/icons/fav';
+
+// ensure folder exists
+fs.mkdirSync(outDir, { recursive: true });
 
 sizes.forEach(size => {
   sharp(inputSVG)
     .resize(size, size)
-    .toFile(`./src/assets/icons/fav/favicon-${size}x${size}.png`, (err, info) => {
-      if (err) {
-        console.error(err);
-      } else {
-        console.log(`Generated favicon-${size}x${size}.png`);
-      }
-    });
+    .toFile(`${outDir}/favicon-${size}x${size}.png`)
+    .then(() => console.log(`Generated favicon-${size}x${size}.png`))
+    .catch(console.error);
 });
 
-ico({
-  input_name: inputSVG,
-  output_name: './src/assets/icons/fav/favicon.ico',
-  sizes: [ 32 ]
-}).then(() => {
-  console.log('file converted');
-}).catch((error) => {
-  console.error(`file conversion failed: ${error}`);
-});
+fs.copyFileSync(
+  './src/assets/icons/logo.svg',
+  './src/assets/icons/fav/favicon.svg'
+);

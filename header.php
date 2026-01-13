@@ -27,14 +27,17 @@ $pkgVersion = dgwltd_version();
     ? '?v=' . $pkgVersion
     : ""; ?>">
 <?php wp_head(); ?>
-<link rel="shortcut icon" sizes="16x16 32x32 48x48" href="<?php echo get_template_directory_uri(); ?>/dist/icons/fav/favicon-128x128.png" type="image/x-icon">
-<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/dist/icons/fav/favicon-128x128.png">
+<link rel="icon" type="image/svg+xml" href="<?php echo get_template_directory_uri(); ?>/dist/icons/fav/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="<?php echo get_template_directory_uri(); ?>/dist/icons/fav/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="<?php echo get_template_directory_uri(); ?>/dist/icons/fav/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/dist/icons/fav/favicon-180x180.png">
+<link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/dist/icons/fav/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-<meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#000000">
 <meta name="view-transition" content="same-origin" />
-<link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/dist/icons/fav/manifest.json">
-<?php include(locate_template( 'template-parts/_organisms/meta-tags.php' )) ; ?>
+<?php include(locate_template( 'template-parts/_organisms/meta.php' )) ; ?>
+<?php include(locate_template( 'template-parts/_organisms/schema.php' )) ; ?>
 <script defer data-domain="dgw.ltd" src="https://plausible.io/js/script.js"></script>
 </head>
 <body <?php body_class( 'no-js' ); ?>>
