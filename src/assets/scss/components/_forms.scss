@@ -36,6 +36,12 @@ label {
     border: 0.2em solid var(--wp--custom--color--error);
     outline: 0;
   }
+  &.small {
+    max-width: 20.5em;
+  }
+  &.medium {
+    max-width: 40.5em;
+  }
 }
 
 // Selects
@@ -67,7 +73,7 @@ select {
   }
 }
 
-textarea.govuk-textarea {
+textarea {
   line-height: var(--wp--custom--typography--line-height--standard);
   min-height: 10lh;
   height: auto;
@@ -411,32 +417,6 @@ input[type="submit"] {
   .delete_list_item {
     &:before {
       content: "-";
-    }
-  }
-}
-
-//Progress bar
-.dgwltd-progress {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  --bar-height: 1.5rem;
-  &__bar {
-    width: 100%;
-    height: var(--bar-height);
-    border: 2px solid var(--wp--custom--color--text);
-    background-color: transparent;
-    position: relative;
-    margin-block: var(--wp--custom--spacing--xs);
-    padding-inline: calc(var(--bar-height) / 3);
-    border-radius: calc(var(--bar-height) / 2);
-    display: flex;
-    align-items: center;
-    span {
-      display: inline-block;
-      height: calc(var(--bar-height) / 2);
-      background-color: var(--wp--custom--color--text);
-      border-radius: calc(var(--bar-height) / 3);
     }
   }
 }

@@ -64,7 +64,6 @@ These are saved in `wp-plugins/dgwltd-blocks/src/acf-json`
 ## Core block modifiers (WP_HTML_Tag_Processor)
 
 - Accordion - Adds GOV.uk data attributes and classes to WordPress Accordion block
-- Gallery - Adds image and total image count data attributes to the WordPress Gallery block
 - Code - Adds style classes to Code blocks based on Block variation (see below)
 
 ## Custom block variations (Block Variations)
