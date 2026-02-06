@@ -3,16 +3,16 @@ permalink: '../src/assets/scss/utilities/_tokens.scss'
 ---
 
 {% set minWidth = 320 %}
-{% set maxWidth = 1400 %}
+{% set maxWidth = 1500 %}
 
 
 :root {
 
-  --logo: {% calculateClamp 384, 1280, minWidth, maxWidth %}
-  --title: {% calculateClamp 28, 44, minWidth, maxWidth %}
-  --text: {% calculateClamp 32, 48, minWidth, maxWidth %}
-  --image {% calculateClamp 120, 220, minWidth, maxWidth %}
-  --spacer: {% calculateClamp 24, 64, minWidth, maxWidth, false, 'container' %}
+  --logo: {% calculateClamp 384, 1280, minWidth, maxWidth %};
+  --title: {% calculateClamp 28, 44, minWidth, maxWidth %};
+  --text: {% calculateClamp 32, 48, minWidth, maxWidth %};
+  --image: {% calculateClamp 120, 220, minWidth, maxWidth %};
+  --spacer: {% calculateClamp 24, 64, minWidth, maxWidth, false, 'container' %};
 
   /*Utopia generated tokens*/
   {%- for size in utopia.resultsSpace %}

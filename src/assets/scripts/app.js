@@ -31,13 +31,13 @@ export const toggleNav = (button, elem, masthead) => {
   const menu = document.querySelector(elem);
   const header = document.querySelector(masthead);
 
-  window.subscribers = [];
+  const subscribers = [];
   const defaultState = { status: 'closed', enabled: false };
   const state = new Proxy(defaultState, {
     set(state, key, value) {
       const oldState = { ...state };
       state[key] = value;
-      window.subscribers.forEach(callback => callback(state, oldState));
+      subscribers.forEach(callback => callback(state, oldState));
       return state;
     }
   });

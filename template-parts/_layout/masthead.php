@@ -1,5 +1,5 @@
 
-<header id="masthead" class="dgwltd-masthead" data-enabled="false" x-data="sentinelWatcher" x-init>
+<header id="masthead" class="dgwltd-masthead" data-enabled="false" x-data="sentinelWatcher">
 
     <div id="skiplink-container">
         <a href="#content" class="govuk-skip-link" data-module="govuk-skip-link"><?php esc_html_e( 'Skip to main content', 'dgwltd' ); ?></a>

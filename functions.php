@@ -60,6 +60,14 @@ if ( ! function_exists( 'dgwltd_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+		/*
+		 * Let WordPress manage the document title.
+		 * By adding theme support, we declare that this theme does not use a
+		 * hard-coded <title> tag in the document head, and expect WordPress to
+		 * provide it for us.
+		 */
+		add_theme_support( 'title-tag' );
+
 		// Image sizes;
 		add_image_size( 'dgwltd-tiny', 16, 0, false ); // For Low quality image placeholders (LQIP)
 		add_image_size( 'dgwltd-small', 320, 0, false );

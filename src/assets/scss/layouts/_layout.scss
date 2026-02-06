@@ -13,6 +13,11 @@
 }
 
 //Page layout
+/*
+[gutter][content (max 70rem)][gutter]
+All child elemements of our main layout sections defaults into [content]
+.align-full breaks out to span the entire grid while inheriting the same column structure via subgrid.
+*/
 .dgwltd-masthead, 
 .entry-header, 
 .entry-content, 

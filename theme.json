@@ -375,14 +375,6 @@
 					"background": "var(--wp--custom--color--background)",
 					"text": "var(--wp--custom--color--text)"
 				},
-				"spacing": {
-					"padding": {
-						"top": "1rem",
-						"right": "1.6rem",
-						"bottom": "1rem",
-						"left": "1.6rem"
-					}
-				},
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--body)",
 					"lineHeight": "1",

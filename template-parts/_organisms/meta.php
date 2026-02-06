@@ -1,17 +1,17 @@
 <?php
 $dgwltd_meta = [];
-$dgwltd_meta['title'] = 'DGW.ltd - ' . ( $post->post_title ?? '' );
+$dgwltd_meta['title'] = 'DGW.ltd - ' . get_the_title();
 $dgwltd_meta['description'] = wp_strip_all_tags(
-	wp_trim_words( get_post_field( 'post_content', $post ), 20, '' )
+	wp_trim_words( get_post_field( 'post_content', get_the_ID() ), 20, '' )
 );
 if ( has_post_thumbnail() ) {
-	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'dgwltd-social-image' );
+	$image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'dgwltd-social-image' );
 	if ( $image && ! is_wp_error( $image ) ) {
 		$dgwltd_meta['image'] = $image[0];
 	}
 }
 if ( ! is_single() || empty( $dgwltd_meta['image'] ) ) {
-	$dgwltd_meta['image'] = get_template_directory_uri() . '/dist/assets/icons/og/og-image.png';
+	$dgwltd_meta['image'] = get_template_directory_uri() . '/dist/icons/og/og-image.png';
 }
 if ( ( ! is_single() && ! is_page() ) || empty( $dgwltd_meta['title'] ) ) {
 	$dgwltd_meta['title'] = esc_attr( get_bloginfo( 'name' ) );
@@ -22,7 +22,7 @@ if ( ( ! is_single() && ! is_page() ) || empty( $dgwltd_meta['description'] ) ) 
 if ( is_search() || is_404() ) {
 	$dgwltd_meta['url'] = esc_url( site_url() );
 } else {
-	$dgwltd_meta['url'] = esc_url( get_permalink( $post->ID ) );
+	$dgwltd_meta['url'] = esc_url( get_the_permalink() );
 }
 ?>
 <meta name="description" content="<?php echo esc_attr( $dgwltd_meta['description'] ); ?>">
