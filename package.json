@@ -1,6 +1,6 @@
 {
   "name": "dgwltd",
-  "version": "1.2.512",
+  "version": "1.2.513",
   "type": "module",
   "main": "",
   "scripts": {
@@ -22,7 +22,12 @@
     "favicon": "node ./scripts/favicon.js",
     "inquirer": "node ./scripts/inquirer.mjs",
     "utopia:build": "esbuild src/utils/utopia.ts --outfile=src/utils/utopia-compiled.js --format=esm --target=es2020",
-    "build": "cross-env NODE_ENV=production WP_SITE_URL=https://dgw.ltd npm run clean && npm run utopia:build && npm run-s css scripts && npx eleventy && npm run favicon"
+    "build": "cross-env NODE_ENV=production WP_SITE_URL=https://dgw.ltd npm run clean && npm run utopia:build && npm run-s css scripts && npx eleventy && npm run favicon",
+    "test": "npx playwright test",
+    "test:a11y": "npx playwright test a11y",
+    "test:lighthouse": "npx playwright test lighthouse --workers=1",
+    "test:pwa": "npx playwright test pwa --workers=1",
+    "test:results": "npx eleventy && open dist/test-results.html"
   },
   "author": "",
   "license": "ISC",

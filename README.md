@@ -91,12 +91,84 @@ Blog / posts list template
 
 Accessible via the Editor: `/wp-admin/site-editor.php?p=%2Fstyles&section=%2Fvariations`
 
-## Tests
+## Eleventy
 
-npx playwright test
-npx playwright test --ui
-npx playwright test a11y
-npx playwright test tests/pwa.spec.js --workers=1
+Eleventy generates standalone utility pages, PWA assets, and dynamic PHP components alongside the WordPress theme.
+
+**Source:** `src/11ty/` | **Output:** `dist/`
+
+| Page | Source | Output |
+|------|--------|--------|
+| Home | `content/home.njk` | `dist/home.html` |
+| Typography | `content/utils/typography.njk` | `dist/typography.html` |
+| Offline fallback | `content/offline.njk` | `dist/offline.html` |
+| Social media cropper | `content/tools/social-media-cropper.njk` | `dist/social-media-cropper.html` |
+| Image map | `content/random/image-map.njk` | `dist/image-map.html` |
+| Modal | `content/random/modal.njk` | `dist/modal.html` |
+| Carbon intensity | `content/carbon/carbon-intensity.njk` | `dist/carbon-intensity.php` |
+| Power mix | `content/carbon/power-mix.njk` | `dist/power-mix.php` |
+| Lighthouse dashboard | `content/utils/test-results.njk` | `dist/test-results.html` |
+| Service worker | `content/sw.njk` | `sw.js` (theme root) |
+
+## Testing
+
+Tests use [Playwright](https://playwright.dev/) and run against the DDEV site.
+
+### Commands
+
+```bash
+npm test                # Run all tests
+npm run test:a11y       # Accessibility only (parallel)
+npm run test:lighthouse # Lighthouse audits (serial, generates reports)
+npm run test:pwa        # PWA / service worker (serial)
+npx playwright test --ui  # Interactive UI mode
+```
+
+### Test suites
+
+| Suite | File | What it checks |
+|-------|------|----------------|
+| Accessibility | `tests/a11y.spec.js` | WCAG 2.1 AA via axe-core across 5 pages |
+| Lighthouse | `tests/lighthouse.spec.js` | Performance, a11y, best practices, SEO scores |
+| PWA | `tests/pwa.spec.js` | Service worker registration, offline fallback, cache behaviour |
+
+### Page matrix
+
+Tests run against these pages, defined in `tests/pages.js`:
+
+- `/` — Homepage
+- `/stylebook/` — Stylebook (custom template)
+
+Add a page to the matrix by editing `tests/pages.js`.
+
+### Lighthouse reports and history
+
+Each Lighthouse run saves HTML + JSON reports to `lighthouse-reports/` (gitignored) and appends scores to `lighthouse-history.jsonl`. Thresholds: performance 90, accessibility 90, best practices 90, SEO 90.
+
+### Lighthouse dashboard
+
+View score history as an HTML page:
+
+```bash
+npm run test:results   # Rebuilds Eleventy and opens dist/test-results.html
+```
+
+The dashboard shows summary cards per page with colour-coded scores and trend arrows, plus a history table of the last 20 runs. To clear history: `rm lighthouse-history.jsonl`.
+
+### Testing against other environments
+
+Override `BASE_URL` to point tests at any environment:
+
+```bash
+BASE_URL=https://dgw.ltd npm run test:lighthouse
+```
+
+### Playwright config
+
+Two browser projects in `playwright.config.js`:
+
+- **chromium** — a11y, PWA, and general tests (parallel-safe, no debug port)
+- **lighthouse** — Lighthouse tests only (serial, port 9222 for CDP)
 
 ## Versioning
 

@@ -65,7 +65,23 @@
 					"name": "Focus", 
 					"slug": "focus",
 					"color": "#FFDD00"
+				}, 
+				{
+					"name": "Success", 
+					"slug": "success",
+					"color": "#00703c"
+				}, 
+				{
+					"name": "Error", 
+					"slug": "error",
+					"color": "#d4351c"
+				}, 
+				{
+					"name": "Disabled", 
+					"slug": "Disabled",
+					"color": "#b1b4b6"
 				}
+
 			]
 		},
 		"layout": {

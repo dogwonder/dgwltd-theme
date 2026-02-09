@@ -44,7 +44,7 @@ const PRESETS = {
   }
 };
 
-const FILE_TYPES = ['md', 'html', 'json', 'jsonld', 'csv', 'asciidoc'];
+const FILE_TYPES = ['md', 'html', 'json', 'jsonld', 'csv'];
 const ELEVENTY_FILE_TYPES = ['md', 'html', 'json', 'jsonld'];
 
 // ─────────────────────────────────────────────────
@@ -106,6 +106,93 @@ async function getPostTypes() {
     spinner.fail('Failed to fetch post types');
     console.error(`  ${error.message}`);
     return null;
+  }
+}
+
+// ─────────────────────────────────────────────────
+// EXPORT PROFILES LOADER
+// ─────────────────────────────────────────────────
+async function getProfiles() {
+  const spinner = ora('Fetching export profiles...').start();
+
+  try {
+    const { stdout } = await execAsync('ddev wp wptofile-profiles');
+    const lines = stdout.trim().split('\n');
+    const profiles = [];
+    let current = null;
+
+    for (const line of lines) {
+      // Strip ANSI escape codes
+      const clean = line.replace(/\x1b\[[0-9;]*m/g, '');
+      const trimmed = clean.trim();
+
+      if (!trimmed || trimmed.startsWith('Available') || trimmed.startsWith('Usage:') || trimmed.startsWith('No profiles')) {
+        continue;
+      }
+
+      const configMatch = trimmed.match(/^post_type:\s*(\S+),?\s*file_type:\s*(\S+)/);
+      if (configMatch && current) {
+        current.postType = configMatch[1].replace(/,$/, '');
+        current.fileType = configMatch[2];
+        profiles.push(current);
+        current = null;
+        continue;
+      }
+
+      const indent = clean.length - clean.trimStart().length;
+      if (indent <= 2 && !configMatch) {
+        current = { name: trimmed, description: '', postType: 'post', fileType: 'md' };
+      } else if (indent >= 4 && current && !current.description) {
+        current.description = trimmed;
+      }
+    }
+
+    if (current) profiles.push(current);
+
+    if (profiles.length === 0) {
+      spinner.fail('No export profiles found');
+      console.log('\n  Add profiles to config/export-profiles.yaml in the wp-to-file plugin\n');
+      return null;
+    }
+
+    spinner.succeed(`Found ${profiles.length} export profiles`);
+    return profiles;
+  } catch (error) {
+    spinner.fail('Failed to fetch profiles');
+    console.error(`  ${error.message}`);
+    return null;
+  }
+}
+
+// ─────────────────────────────────────────────────
+// FORMAT LISTING
+// ─────────────────────────────────────────────────
+async function listFormats() {
+  const spinner = ora('Fetching available formats...').start();
+
+  try {
+    const { stdout } = await execAsync('ddev wp wptofile-formats');
+    spinner.succeed('Available export formats');
+    console.log(`\n${stdout}`);
+  } catch (error) {
+    spinner.fail('Failed to fetch formats');
+    console.error(`  ${error.message}`);
+  }
+}
+
+// ─────────────────────────────────────────────────
+// PROFILE LISTING
+// ─────────────────────────────────────────────────
+async function listProfiles() {
+  const spinner = ora('Fetching export profiles...').start();
+
+  try {
+    const { stdout } = await execAsync('ddev wp wptofile-profiles');
+    spinner.succeed('Available export profiles');
+    console.log(`\n${stdout}`);
+  } catch (error) {
+    spinner.fail('Failed to fetch profiles');
+    console.error(`  ${error.message}`);
   }
 }
 
@@ -447,13 +534,29 @@ async function runWpToFile(presetConfig = null) {
       default: true
     }]);
 
+    const { withLlmstxt } = await inquirer.prompt([{
+      type: 'confirm',
+      name: 'withLlmstxt',
+      message: 'Generate llms.txt index after export?',
+      default: false
+    }]);
+
+    const { incremental } = await inquirer.prompt([{
+      type: 'confirm',
+      name: 'incremental',
+      message: 'Incremental export (only changed documents)?',
+      default: false
+    }]);
+
     config = {
       postType,
       fileType,
       csvFields,
       exportPath,
       filters,
-      dryRun
+      dryRun,
+      withLlmstxt,
+      incremental
     };
   }
 
@@ -464,6 +567,12 @@ async function runWpToFile(presetConfig = null) {
   }
   if (config.csvFields) {
     filterOptions.push(`--fields="${config.csvFields}"`);
+  }
+  if (config.withLlmstxt) {
+    filterOptions.push('--with-llmstxt');
+  }
+  if (config.incremental) {
+    filterOptions.push('--incremental');
   }
 
   const baseCommand = `ddev wp wptofile "${config.exportPath}" --post_type="${config.postType}" --file_type="${config.fileType}"`;
@@ -495,6 +604,70 @@ async function runPreset() {
   console.log(`\n  Using preset: ${preset.name}`);
 
   await runWpToFile(preset);
+}
+
+// ─────────────────────────────────────────────────
+// PROFILE-BASED EXPORT FLOW
+// ─────────────────────────────────────────────────
+async function runProfile() {
+  const profiles = await getProfiles();
+  if (!profiles) return;
+
+  const profileChoices = profiles.map(p => ({
+    name: `${p.name} — ${p.description} (${p.postType} → ${p.fileType})`,
+    value: p.name,
+    short: p.name
+  }));
+
+  const { profileName } = await inquirer.prompt([{
+    type: 'list',
+    name: 'profileName',
+    message: 'Select an export profile:',
+    choices: profileChoices
+  }]);
+
+  const profile = profiles.find(p => p.name === profileName);
+  const exportPath = await configureExportDirectory(profile.postType || 'export');
+
+  const options = await inquirer.prompt([
+    {
+      type: 'confirm',
+      name: 'dryRun',
+      message: 'Run in preview mode (no files created)?',
+      default: true
+    },
+    {
+      type: 'confirm',
+      name: 'withLlmstxt',
+      message: 'Generate llms.txt index after export?',
+      default: false
+    },
+    {
+      type: 'confirm',
+      name: 'incremental',
+      message: 'Incremental export (only changed documents)?',
+      default: false
+    }
+  ]);
+
+  const flags = [];
+  if (options.dryRun) flags.push('--dry-run');
+  if (options.withLlmstxt) flags.push('--with-llmstxt');
+  if (options.incremental) flags.push('--incremental');
+
+  const baseCommand = `ddev wp wptofile "${exportPath}" --profile="${profileName}"`;
+  const command = flags.length > 0
+    ? `${baseCommand} ${flags.join(' ')}`
+    : baseCommand;
+
+  const config = {
+    postType: profile.postType,
+    fileType: profile.fileType,
+    exportPath,
+    dryRun: options.dryRun
+  };
+
+  await executeExport(command, config);
 }
 
 // ─────────────────────────────────────────────────
@@ -549,9 +722,13 @@ async function selectMethod() {
     message: 'What would you like to do?',
     choices: [
       { name: 'Use saved preset (quick export)', value: 'preset' },
+      { name: 'Use export profile (from YAML config)', value: 'profile' },
       new Separator('─── Export Methods ───'),
       { name: 'Custom wp-to-file export', value: 'wptofile' },
-      { name: 'Import to 11ty', value: '11ty' }
+      { name: 'Import to 11ty', value: '11ty' },
+      new Separator('─── Info ───'),
+      { name: 'List available formats', value: 'formats' },
+      { name: 'List export profiles', value: 'profiles' }
     ]
   }]);
 
@@ -572,10 +749,16 @@ async function main() {
 
   if (method === 'preset') {
     await runPreset();
+  } else if (method === 'profile') {
+    await runProfile();
   } else if (method === 'wptofile') {
     await runWpToFile();
   } else if (method === '11ty') {
     await run11ty();
+  } else if (method === 'formats') {
+    await listFormats();
+  } else if (method === 'profiles') {
+    await listProfiles();
   }
 
   console.log('\n  Done!\n');

@@ -1,0 +1,210 @@
+---
+title: 'Lighthouse Results'
+layout: 'layouts/base.njk'
+permalink: './test-results.html'
+---
+
+{%- css %}
+.lh-dashboard {
+}
+.lh-dashboard__subtitle {
+  color: var(--wp--custom--color--disabled);
+  margin-block-end: var(--wp--custom--spacing--lg);
+}
+.lh-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: var(--wp--custom--spacing--md);
+  margin-block-end: var(--wp--custom--spacing--xl);
+}
+.lh-card {
+  background: var(--wp--preset--color--alt);
+  border: 1px solid var(--wp--preset--color--secondary);
+  padding: var(--wp--custom--spacing--md);
+}
+.lh-card__title {
+  font-size: var(--wp--preset--font-size--lg);
+  margin: 0 0 var(--wp--custom--spacing--3xs);
+}
+.lh-card__url {
+  font-size: var(--wp--preset--font-size--xs);
+  color: var(--wp--custom--color--disabled);
+  margin: 0 0 var(--wp--custom--spacing--sm);
+  font-family: var(--wp--preset--font-family--monospace);
+}
+.lh-card__scores {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--wp--custom--spacing--xs);
+}
+.lh-score {
+  display: flex;
+  align-items: center;
+  gap: var(--wp--custom--spacing--xs);
+  font-size: var(--wp--preset--font-size--sm);
+}
+.lh-score__label {
+  display: flex;
+  flex-direction: column;
+  line-height: var(--wp--custom--typography--line-height--fine);
+}
+.lh-score__trend {
+  font-size: var(--wp--preset--font-size--xs);
+  color: var(--wp--custom--color--disabled);
+}
+.lh-score__trend--up { color: var(--wp--custom--color--success); }
+.lh-score__trend--down { color: var(--wp--custom--color--error); }
+.lh-card__timestamp {
+  font-size: var(--wp--preset--font-size--xs);
+  color: var(--wp--custom--color--disabled);
+  margin-block-start: var(--wp--custom--spacing--sm);
+  padding-block-start: var(--wp--custom--spacing--sm);
+  border-top: 1px solid var(--wp--preset--color--secondary);
+}
+.lh-empty {
+  text-align: center;
+  padding: var(--wp--custom--spacing--xl) var(--wp--custom--spacing--md);
+  background: var(--wp--preset--color--alt);
+  border: 1px solid var(--wp--preset--color--secondary);
+}
+.lh-empty code {
+  background: var(--wp--preset--color--alt-2);
+  padding: var(--wp--custom--spacing--3xs) var(--wp--custom--spacing--xs);
+  font-size: var(--wp--preset--font-size--sm);
+}
+{% endcss %}
+
+<div class="lh-dashboard">
+
+  <h1>Lighthouse Results</h1>
+
+  {% if not lighthouseHistory.hasData %}
+
+    <div class="lh-empty">
+      <h2>No results yet</h2>
+      <p>Run a Lighthouse audit to generate score history:</p>
+      <p><code>npm run test:lighthouse</code></p>
+      <p>Then rebuild the dashboard:</p>
+      <p><code>npm run test:results</code></p>
+    </div>
+
+  {% else %}
+
+    {# ── Summary cards ─────────────────────────── #}
+
+    {% set categories = [
+      { key: "performance", label: "Performance" },
+      { key: "accessibility", label: "Accessibility" },
+      { key: "bestPractices", label: "Best Practices" },
+      { key: "seo", label: "SEO" }
+    ] %}
+
+    <p class="lh-dashboard__subtitle">
+      {{ lighthouseHistory.pages | length }} page{% if lighthouseHistory.pages | length != 1 %}s{% endif %} tested &middot;
+      {{ lighthouseHistory.runs | length }} total run{% if lighthouseHistory.runs | length != 1 %}s{% endif %}
+    </p>
+
+    <div class="lh-cards">
+      {% for pageName in lighthouseHistory.pages %}
+        {% set run = lighthouseHistory.latest[pageName] %}
+        {% set prev = lighthouseHistory.previous[pageName] %}
+
+        <div class="lh-card">
+          <h2 class="lh-card__title">{{ pageName }}</h2>
+          <p class="lh-card__url">{{ run.url }}</p>
+
+          <div class="lh-card__scores">
+            {% for cat in categories %}
+              {% set score = run[cat.key] %}
+              {% set threshold = lighthouseHistory.thresholds[cat.key] %}
+
+              {# GOV.UK tag colour: green (pass), orange (warning), red (fail) #}
+              {% if score >= threshold %}
+                {% set tagColour = "green" %}
+              {% elif score >= threshold - 10 %}
+                {% set tagColour = "orange" %}
+              {% else %}
+                {% set tagColour = "red" %}
+              {% endif %}
+
+              {# Trend comparing latest to previous run #}
+              {% set trendClass = "" %}
+              {% set trendText = "" %}
+              {% if prev %}
+                {% set prevScore = prev[cat.key] %}
+                {% if score > prevScore %}
+                  {% set trendClass = "lh-score__trend--up" %}
+                  {% set trendText = "+" + (score - prevScore) + "" %}
+                {% elif score < prevScore %}
+                  {% set trendClass = "lh-score__trend--down" %}
+                  {% set trendText = (score - prevScore) + "" %}
+                {% else %}
+                  {% set trendText = "—" %}
+                {% endif %}
+              {% endif %}
+
+              <div class="lh-score">
+                <strong class="govuk-tag govuk-tag--{{ tagColour }}">{{ score }}</strong>
+                <span class="lh-score__label">
+                  {{ cat.label }}
+                  {% if trendText %}
+                    <span class="lh-score__trend {{ trendClass }}">{{ trendText }}</span>
+                  {% endif %}
+                </span>
+              </div>
+            {% endfor %}
+          </div>
+
+          <p class="lh-card__timestamp">{{ run.timestamp }}</p>
+        </div>
+      {% endfor %}
+    </div>
+
+    {# ── History table ─────────────────────────── #}
+
+    <h2>History</h2>
+
+    <div style="overflow-x: auto;">
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Timestamp</th>
+            <th scope="col" class="govuk-table__header">Page</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Perf</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">A11y</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">BP</th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">SEO</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% set historyRuns = lighthouseHistory.runs %}
+          {% for run in historyRuns %}
+            {% if loop.index0 < 20 %}
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">{{ run.timestamp }}</td>
+                <td class="govuk-table__cell">{{ run.page }}</td>
+
+                {% for cat in categories %}
+                  {% set score = run[cat.key] %}
+                  {% set threshold = lighthouseHistory.thresholds[cat.key] %}
+                  {% if score >= threshold %}
+                    {% set tagColour = "green" %}
+                  {% elif score >= threshold - 10 %}
+                    {% set tagColour = "orange" %}
+                  {% else %}
+                    {% set tagColour = "red" %}
+                  {% endif %}
+                  <td class="govuk-table__cell govuk-table__cell--numeric">
+                    <strong class="govuk-tag govuk-tag--{{ tagColour }}">{{ score }}</strong>
+                  </td>
+                {% endfor %}
+              </tr>
+            {% endif %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+  {% endif %}
+
+</div>

@@ -5,9 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
     <meta name="generator" content="Eleventy v3.1.2" />
-    <title>DGW.ltd</title>
+    <title>Lighthouse Results</title>
     <meta name="description" content />
     <style>
+      .lh-dashboard {
+      }
+      .lh-dashboard__subtitle {
+        color: var(--wp--custom--color--disabled);
+        margin-block-end: var(--wp--custom--spacing--lg);
+      }
+      .lh-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+        gap: var(--wp--custom--spacing--md);
+        margin-block-end: var(--wp--custom--spacing--xl);
+      }
+      .lh-card {
+        background: var(--wp--preset--color--alt);
+        border: 1px solid var(--wp--preset--color--secondary);
+        padding: var(--wp--custom--spacing--md);
+      }
+      .lh-card__title {
+        font-size: var(--wp--preset--font-size--lg);
+        margin: 0 0 var(--wp--custom--spacing--3xs);
+      }
+      .lh-card__url {
+        font-size: var(--wp--preset--font-size--xs);
+        color: var(--wp--custom--color--disabled);
+        margin: 0 0 var(--wp--custom--spacing--sm);
+        font-family: var(--wp--preset--font-family--monospace);
+      }
+      .lh-card__scores {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--wp--custom--spacing--xs);
+      }
+      .lh-score {
+        display: flex;
+        align-items: center;
+        gap: var(--wp--custom--spacing--xs);
+        font-size: var(--wp--preset--font-size--sm);
+      }
+      .lh-score__label {
+        display: flex;
+        flex-direction: column;
+        line-height: var(--wp--custom--typography--line-height--fine);
+      }
+      .lh-score__trend {
+        font-size: var(--wp--preset--font-size--xs);
+        color: var(--wp--custom--color--disabled);
+      }
+      .lh-score__trend--up { color: var(--wp--custom--color--success); }
+      .lh-score__trend--down { color: var(--wp--custom--color--error); }
+      .lh-card__timestamp {
+        font-size: var(--wp--preset--font-size--xs);
+        color: var(--wp--custom--color--disabled);
+        margin-block-start: var(--wp--custom--spacing--sm);
+        padding-block-start: var(--wp--custom--spacing--sm);
+        border-top: 1px solid var(--wp--preset--color--secondary);
+      }
+      .lh-empty {
+        text-align: center;
+        padding: var(--wp--custom--spacing--xl) var(--wp--custom--spacing--md);
+        background: var(--wp--preset--color--alt);
+        border: 1px solid var(--wp--preset--color--secondary);
+      }
+      .lh-empty code {
+        background: var(--wp--preset--color--alt-2);
+        padding: var(--wp--custom--spacing--3xs) var(--wp--custom--spacing--xs);
+        font-size: var(--wp--preset--font-size--sm);
+      }
       @font-face {
               font-family: 'Söhne Dreiviertelfett';
               font-style: normal;
@@ -9963,100 +10030,131 @@
       <main id="content" tabindex="-1" class="dgwltd-body">
         <div id="primary" class="dgwltd-content-wrapper">
           <div class="entry-content wp-block-post-content is-layout-flow">
-            <h1 id="image-map">Image Map</h1>
+            <div class="lh-dashboard">
+              <h1 id="lighthouse-results">Lighthouse Results</h1>
 
-            <svg viewBox="0 0 1024 1024" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-              <title id="title">Radial menu with five linked circles</title>
-              <desc id="desc">A large central circle surrounded by five smaller circles. Hover or focus the outer circles to follow their links.</desc>
+              <p class="lh-dashboard__subtitle">2 pages tested · 2 total runs</p>
 
-              <style>
-                .center { fill: #ECECEC; stroke: #222; stroke-width: 4; }
-                .node   { stroke: #222; stroke-width: 4; }
-                .label  {
-                    font-size: 16px;
-                    fill: #111;
-                    text-anchor: middle;
-                    dominant-baseline: middle;
-                    text-wrap: wrap;
-                    display: inline-block;
-                    max-width: 10ch;
-                }
+              <div class="lh-cards">
+                <div class="lh-card">
+                  <h2 id="stylebook" class="lh-card__title">Stylebook</h2>
+                  <p class="lh-card__url">/stylebook/</p>
 
-                /* Clickable overlay styling per the article */
-                #links a { cursor: pointer; }
-                #links a .hotspot {
-                  opacity: 0;
-                  transition: opacity .25s ease-in-out;
-                  pointer-events: all;
-                }
-                #links a:hover .hotspot,
-                #links a:focus .hotspot {
-                  opacity: .35;
-                }
+                  <div class="lh-card__scores">
+                    <div class="lh-score">
+                      <strong class="govuk-tag govuk-tag--green">93</strong>
+                      <span class="lh-score__label"> Performance </span>
+                    </div>
 
-                /* Visible focus ring for keyboard users */
-                #links a:focus .hotspot {
-                  stroke: #000;
-                  stroke-width: 4;
-                  stroke-dasharray: 6 6;
-                  outline: none;
-                }
-              </style>
+                    <div class="lh-score">
+                      <strong class="govuk-tag govuk-tag--green">100</strong>
+                      <span class="lh-score__label"> Accessibility </span>
+                    </div>
 
-              <!-- Geometry helpers -->
-              <!-- Layout: center at (512,512). Outer nodes sit on a radius of 360px, spaced by 72° -->
-              <!-- Precomputed positions (x,y): 
-       N: (512.0,152.0) | NE: (854.4,400.8) | SE: (723.6,803.2) | SW: (300.4,803.2) | NW: (169.6,400.8) -->
+                    <div class="lh-score">
+                      <strong class="govuk-tag govuk-tag--green">100</strong>
+                      <span class="lh-score__label"> Best Practices </span>
+                    </div>
 
-              <!-- Visible content -->
-              <g id="visible">
-                <!-- Central large circle -->
-                <circle cx="512" cy="512" r="180" class="center"></circle>
+                    <div class="lh-score">
+                      <strong class="govuk-tag govuk-tag--green">100</strong>
+                      <span class="lh-score__label"> SEO </span>
+                    </div>
+                  </div>
 
-                <!-- Five visible outer circles (non-clickable visuals) -->
-                <circle cx="512.0" cy="152.0" r="110" fill="#007bff" class="node"></circle>
-                <circle cx="854.4" cy="400.8" r="110" fill="#e83e8c" class="node"></circle>
-                <circle cx="723.6" cy="803.2" r="110" fill="#fd7e14" class="node"></circle>
-                <circle cx="300.4" cy="803.2" r="110" fill="#28a745" class="node"></circle>
-                <circle cx="169.6" cy="400.8" r="110" fill="#6f42c1" class="node"></circle>
+                  <p class="lh-card__timestamp">2026-02-08T19:01:38.769Z</p>
+                </div>
 
-                <!-- Optional labels -->
-                <text x="512.0" y="152.0" class="label">Equity and Inclusion</text>
-                <text x="854.4" y="400.8" class="label">Trust and Data Protection</text>
-                <text x="723.6" y="803.2" class="label">AI and Emerging Tech</text>
-                <text x="300.4" y="803.2" class="label">Financing and Investment</text>
-                <text x="169.6" y="400.8" class="label">Policy and Governance</text>
-              </g>
+                <div class="lh-card">
+                  <h2 id="homepage" class="lh-card__title">Homepage</h2>
+                  <p class="lh-card__url">/</p>
 
-              <!-- Clickable areas (placed after visible content) -->
-              <g id="links">
-                <!-- Slightly larger invisible circles improve the hit area (r=140) -->
-                <a href="/theme#equity-and-inclusion" tabindex="0" role="link" aria-label="Go to Equity and Inclusion">
-                  <title>Equity and Inclusion</title>
-                  <circle cx="512.0" cy="152.0" r="140" fill="#007bff" class="hotspot"></circle>
-                </a>
+                  <div class="lh-card__scores">
+                    <div class="lh-score">
+                      <strong class="govuk-tag govuk-tag--green">95</strong>
+                      <span class="lh-score__label"> Performance </span>
+                    </div>
 
-                <a href="/theme#trust-and-data-protection" tabindex="0" role="link" aria-label="Go to Trust and Data Protection">
-                  <title>Trust and Data Protection</title>
-                  <circle cx="854.4" cy="400.8" r="140" fill="#e83e8c" class="hotspot"></circle>
-                </a>
+                    <div class="lh-score">
+                      <strong class="govuk-tag govuk-tag--green">100</strong>
+                      <span class="lh-score__label"> Accessibility </span>
+                    </div>
 
-                <a href="/theme#ai-and-emerging-tech" tabindex="0" role="link" aria-label="Go to AI and Emerging Tech">
-                  <title>AI and Emerging Tech</title>
-                  <circle cx="723.6" cy="803.2" r="140" fill="#fd7e14" class="hotspot"></circle>
-                </a>
+                    <div class="lh-score">
+                      <strong class="govuk-tag govuk-tag--green">100</strong>
+                      <span class="lh-score__label"> Best Practices </span>
+                    </div>
 
-                <a href="/theme#financing-and-investment" tabindex="0" role="link" aria-label="Go to Financing and Investment">
-                  <title>Financing and Investment</title>
-                  <circle cx="300.4" cy="803.2" r="140" fill="#28a745" class="hotspot"></circle>
-                </a>
+                    <div class="lh-score">
+                      <strong class="govuk-tag govuk-tag--green">100</strong>
+                      <span class="lh-score__label"> SEO </span>
+                    </div>
+                  </div>
 
-                <a href="/theme#policy-and-governance" tabindex="0" role="link" aria-label="Go to Policy and Governance">
-                  <title>Policy and Governance</title>
-                  <circle cx="169.6" cy="400.8" r="140" fill="#6f42c1" class="hotspot"></circle>
-                </a>
-              </g>
-            </svg>
+                  <p class="lh-card__timestamp">2026-02-08T19:01:31.571Z</p>
+                </div>
+              </div>
+
+              <h2 id="history">History</h2>
+
+              <div style="overflow-x: auto">
+                <table class="govuk-table">
+                  <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                      <th scope="col" class="govuk-table__header">Timestamp</th>
+                      <th scope="col" class="govuk-table__header">Page</th>
+                      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Perf</th>
+                      <th scope="col" class="govuk-table__header govuk-table__header--numeric">A11y</th>
+                      <th scope="col" class="govuk-table__header govuk-table__header--numeric">BP</th>
+                      <th scope="col" class="govuk-table__header govuk-table__header--numeric">SEO</th>
+                    </tr>
+                  </thead>
+                  <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">2026-02-08T19:01:38.769Z</td>
+                      <td class="govuk-table__cell">Stylebook</td>
+
+                      <td class="govuk-table__cell govuk-table__cell--numeric">
+                        <strong class="govuk-tag govuk-tag--green">93</strong>
+                      </td>
+
+                      <td class="govuk-table__cell govuk-table__cell--numeric">
+                        <strong class="govuk-tag govuk-tag--green">100</strong>
+                      </td>
+
+                      <td class="govuk-table__cell govuk-table__cell--numeric">
+                        <strong class="govuk-tag govuk-tag--green">100</strong>
+                      </td>
+
+                      <td class="govuk-table__cell govuk-table__cell--numeric">
+                        <strong class="govuk-tag govuk-tag--green">100</strong>
+                      </td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                      <td class="govuk-table__cell">2026-02-08T19:01:31.571Z</td>
+                      <td class="govuk-table__cell">Homepage</td>
+
+                      <td class="govuk-table__cell govuk-table__cell--numeric">
+                        <strong class="govuk-tag govuk-tag--green">95</strong>
+                      </td>
+
+                      <td class="govuk-table__cell govuk-table__cell--numeric">
+                        <strong class="govuk-tag govuk-tag--green">100</strong>
+                      </td>
+
+                      <td class="govuk-table__cell govuk-table__cell--numeric">
+                        <strong class="govuk-tag govuk-tag--green">100</strong>
+                      </td>
+
+                      <td class="govuk-table__cell govuk-table__cell--numeric">
+                        <strong class="govuk-tag govuk-tag--green">100</strong>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </main>
@@ -10068,7 +10166,7 @@
         </div>
       </footer>
     </div>
-    <!-- This page `/image-map.html` was built on 2026-02-08T19:01:52.785Z -->
+    <!-- This page `/test-results.html` was built on 2026-02-08T19:01:52.785Z -->
 
     <script type="module" src="./js/app.min.js"></script>
   </body>

@@ -22,7 +22,7 @@ export default defineConfig({
 		]
 	],
   use: {
-    baseURL: 'https://dev.dgw.ltd.ddev.site:8443',
+    baseURL: process.env.BASE_URL || 'https://dev.dgw.ltd.ddev.site:8443',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
@@ -31,35 +31,19 @@ export default defineConfig({
   projects: [
 		{
 			name: 'chromium',
-			use: { 
-				...devices['Desktop Chrome'],
-				 // Add Chrome debugging args for Lighthouse tests
-				launchOptions: {
-					args: ['--remote-debugging-port=9222']
-				}
-			 },
+			use: { ...devices['Desktop Chrome'] },
+			testIgnore: /lighthouse/,
 		},
-
-		// {
-		// 	name: 'firefox',
-		// 	use: { ...devices['Desktop Firefox'] },
-		// },
-
-		// {
-		// 	name: 'webkit',
-		// 	use: { ...devices['Desktop Safari'] },
-		// },
-
-		// Test against mobile viewports
-		// {
-		// 	name: 'Mobile Chrome',
-		// 	use: { ...devices['Pixel 7'] },
-		// },
-		// {
-		// 	name: 'Mobile Safari',
-		// 	use: { ...devices['iPhone 13'] },
-		// },
-
+		{
+			name: 'lighthouse',
+			use: {
+				...devices['Desktop Chrome'],
+				launchOptions: {
+					args: ['--remote-debugging-port=9222'],
+				},
+			},
+			testMatch: /lighthouse/,
+		},
 	],
   
 });

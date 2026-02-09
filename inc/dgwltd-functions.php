@@ -134,38 +134,9 @@ if ( ! function_exists( 'dgwltd_speculation_rules' ) ) :
 
 			$tags = new WP_HTML_Tag_Processor( $item_output );
 
-			// Add data-prefetch=prerender to top-level menu links
-			
-			// Top-level menu items are immediately prerendered
-			// Sub-menu items are immediately prefetched but prerendered on demand (hover for 200ms)
-
-			/*
-			"prefetch": [
-				//immediately pay TTFB costs for any link we’ve opted into
-				{
-				"where": {"selector_matches": "[data-prefetch]"},
-				"eagerness": "immediate"
-				},
-				//on demand (hover for 200ms), pay TTFB costs for any other internal links:
-				{
-				"where": {"href_matches": "/*"}
-				"eagerness": "moderate"
-				}
-			],
-			"prerender": [
-				//immediately pay LCP costs for any link we’ve opted into:
-				{
-				"where": {"selector_matches": "[data-prefetch=prerender]"},
-				"eagerness": "immediate"
-				},
-				//on demand (hover for 200ms), pay LCP costs for any link we’ve already paid TTFB costs for
-				{
-				"where": {"selector_matches": "[data-prefetch]"},
-				"eagerness": "moderate"
-				}
-			]
-			*/
-			
+			// Top-level links: data-prefetch="prerender" → immediate prefetch + immediate prerender
+			// Sub-menu links: data-prefetch="" → immediate prefetch + moderate prerender (hover ~200ms)
+			// Speculation rules JSON lives in footer.php
 			if ( $item->menu_item_parent == 0 ) {
 				$tags->next_tag( 'a' );
 				$tags->set_attribute( 'data-prefetch', 'prerender' );

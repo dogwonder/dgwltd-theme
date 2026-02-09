@@ -1,14 +1,28 @@
 import { test, expect } from '@playwright/test';
 import { AxeBuilder } from '@axe-core/playwright';
+import { testPages } from './pages.js';
 
-test.describe('homepage', () => { 
+test.describe('Accessibility', () => {
 
-  test('should not have any automatically detectable accessibility issues', async ({ page }) => {
-    await page.goto('/'); 
+  for (const { name, path } of testPages) {
+    test(`${name} should have no WCAG 2.1 AA violations`, async ({ page }) => {
+      await page.goto(path);
 
-    const accessibilityScanResults = await new AxeBuilder({ page }).analyze(); 
+      const results = await new AxeBuilder({ page })
+        .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
+        .analyze();
 
-    expect(accessibilityScanResults.violations).toEqual([]); 
-  });
-  
+      if (results.violations.length > 0) {
+        const summary = results.violations.map((v) => {
+          const nodes = v.nodes.map((n) => `  - ${n.target.join(', ')}`).join('\n');
+          return `[${v.impact}] ${v.id}: ${v.help}\n${nodes}`;
+        }).join('\n\n');
+
+        console.log(`\nAccessibility violations on ${name} (${path}):\n\n${summary}\n`);
+      }
+
+      expect(results.violations).toEqual([]);
+    });
+  }
+
 });
