@@ -1,7 +1,9 @@
+@use '../../utilities/helpers' as h;
+
 //Banner block
 .dgwltd-banner {
 
-    @extend %align-full;
+    @include h.align-full();
 
     &.has-background, 
     &.has-image {

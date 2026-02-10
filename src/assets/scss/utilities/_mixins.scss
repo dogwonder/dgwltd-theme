@@ -1,3 +1,8 @@
+@use 'sass:math';
+@use 'sass:color';
+@use 'functions' as *;
+@use 'mq' as *;
+
 // Fluid Responsive Typography
 // For when you need to set a font size at a specific breakpoint or between specific breakpoints and then scale it up or down from there
 // Usage
@@ -211,6 +216,13 @@
 background-color: var(--bg);
 @include color-contrast(var(--bg));
 */
+// Align full — breaks out of the content column to span the entire grid
+@mixin align-full() {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+}
+
 @mixin color-contrast(
     $background: var(--bg, #000)
 ) {

@@ -1,0 +1,49 @@
+// GOV.UK Frontend - https://frontend.design-system.service.gov.uk/
+// All GOV.UK loading in one barrel to preserve shared variable scope.
+// GOV.UK internally uses @import — variables must be global for cross-module access.
+
+// Variables - must be declared here for @import visibility
+$govuk-include-default-font-face: false;
+$govuk-focus-colour: #FFDD00;
+$govuk-font-family: system-ui, sans-serif;
+
+// Base (settings, tools, helpers — no CSS output)
+@import "../../../../node_modules/govuk-frontend/dist/govuk/base";
+
+// Core (typography, links — ~10% CSS)
+@import "../../../../node_modules/govuk-frontend/dist/govuk/core/index";
+
+// Objects (page template, grid — ~5% CSS)
+@import "../../../../node_modules/govuk-frontend/dist/govuk/objects/index";
+
+// Components (~70% CSS)
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/accordion/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/breadcrumbs/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/button/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/checkboxes/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/cookie-banner/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/date-input/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/details/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/error-message/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/error-summary/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/fieldset/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/inset-text/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/input/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/label/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/notification-banner/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/pagination/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/phase-banner/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/radios/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/select/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/skip-link/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/summary-list/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/table/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/tag/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/textarea/index";
+@import "../../../../node_modules/govuk-frontend/dist/govuk/components/warning-text/index";
+
+// Utilities (~1% CSS)
+@import "../../../../node_modules/govuk-frontend/dist/govuk/utilities/index";
+
+// Overrides (~15% CSS)
+@import "../../../../node_modules/govuk-frontend/dist/govuk/overrides/index";

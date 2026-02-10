@@ -1,0 +1,3 @@
+@forward '../vendor/mq' with (
+  $mq-breakpoints: (sm: 320px, md: 760px, lg: 940px, xl: 1350px)
+);

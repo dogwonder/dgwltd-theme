@@ -59,15 +59,6 @@ Consider hed, subhed / dek, lede, copy, kicker
 
 //Line heights are unitless, e.g. 1.5
 
-/*Note: 
-I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mixins-better-for-performance/) but gov.uk uses silent classes ( https://csswizardry.com/2014/01/extending-silent-classes-in-sass/) for things like typography and that's pretty performant
-*/
-
-// .dgwltd-heading-stepper {
-//   font-family: var(--wp--preset--font-family--primary);
-//   @include clamp-calc-step('font-size', (sm: $type-2, lg: $type-6, xxl: $type-10));
-// }
-
 // H1
 .dgwltd-heading-xl, 
 %dgwltd-heading-xl {

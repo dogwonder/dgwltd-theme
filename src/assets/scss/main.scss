@@ -1,142 +1,50 @@
 @charset 'utf-8';
-@use 'sass:math';
-@use 'sass:color';
 
-////
-/// GOV.UK Frontend - https://frontend.design-system.service.gov.uk/
-////
+// GOV.UK Frontend (base, core, objects, components, utilities, overrides)
+@use 'vendor/govuk';
 
-//Variables - need to be declared here to take effect
-$govuk-include-default-font-face: false;
-$govuk-focus-colour: #FFDD00;
-$govuk-font-family: system-ui, sans-serif;
+// Foundation
+@use 'utilities/reset';
+@use 'utilities/base';
+@use 'utilities/typography';
 
-// Custom build
+// Components
+@use 'components/buttons';
+@use 'components/breadcrumbs';
+@use 'components/contentslist';
+@use 'components/cards';
+@use 'components/forms';
+@use 'components/grid';
+@use 'components/pagination';
+@use 'components/list';
+@use 'components/switcher';
 
-// 'Base' includes everything from settings, tools and helpers. Nothing
-// in the base outputs any CSS.
-@import "../../../node_modules/govuk-frontend/dist/govuk/base";
+// Layouts
+@use 'layouts/layout';
+@use 'layouts/header';
+@use 'layouts/navigation';
+@use 'layouts/footer';
+@use 'layouts/content';
+@use 'layouts/comments';
+@use 'layouts/share';
+@use 'layouts/page';
+@use 'layouts/charts';
 
-// Basic content styles for typography, links etc. Approximately 10% of
-// the CSS output if you include everything.
-@import "../../../node_modules/govuk-frontend/dist/govuk/core/index";
+// Blocks - ACF
+@use 'blocks/acf/blocks';
+@use 'blocks/acf/banner';
+@use 'blocks/acf/embed';
+@use 'blocks/acf/hero';
+@use 'blocks/acf/promo-card';
 
-// Objects include things like the page template, grid and form groups.
-// Approximately 5% of the CSS output if you include everything.
-@import "../../../node_modules/govuk-frontend/dist/govuk/objects/index";
+// Blocks - Variations
+@use 'blocks/variations/accordion';
+@use 'blocks/variations/cover';
 
-// The components themselves - try to only include the components you
-// are using in your project. Approximately 70% of the CSS output if
-// you include everything.
+// Syntax highlighting
+@use 'vendor/prism';
 
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/accordion/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/breadcrumbs/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/button/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/checkboxes/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/cookie-banner/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/date-input/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/details/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/error-message/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/error-summary/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/fieldset/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/inset-text/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/input/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/label/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/notification-banner/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/pagination/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/phase-banner/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/radios/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/select/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/skip-link/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/summary-list/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/table/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/tag/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/textarea/index";
-@import "../../../node_modules/govuk-frontend/dist/govuk/components/warning-text/index";
-
-// Utilities, for example govuk-clearfix or govuk-visually-hidden.
-// Approximately 1% of the CSS output if you include everything.
-@import "../../../node_modules/govuk-frontend/dist/govuk/utilities/index";
-
-// Overrides, used to adjust things like the amount of spacing on an
-// element. Override classes always include `-!-` in the class name.
-// Approximately 15% of the CSS output if you include everything.
-@import "../../../node_modules/govuk-frontend/dist/govuk/overrides/index";
-
-// Web Awesome
-// @import '../../../node_modules/@awesome.me/webawesome/dist/styles/webawesome.css';
-// @import '../../../node_modules/@awesome.me/webawesome/dist/styles/themes/default.css';
-
-// MEDIA QUERIES
-@import "vendor/mq";
-
-// RESET
-@import "utilities/reset";
-
-// VARIBLES & FUNCTIONS
-@import "utilities/vars";
-@import "utilities/functions";
-@import "utilities/mixins";
-
-// BASE
-@import "utilities/base";
-
-// TYPOGRAPHY
-@import "utilities/typography";
-
-// COMPONANTS
-@import "components/buttons";
-@import "components/breadcrumbs";
-@import "components/contentslist";
-@import "components/cards";
-@import "components/forms";
-@import "components/grid";
-@import "components/pagination";
-@import "components/list";
-@import "components/switcher";
-
-// LAYOUTS
-@import "layouts/layout";
-@import "layouts/header";
-@import "layouts/navigation";
-@import "layouts/footer";
-
-// PAGE & POST CONTENT
-@import "layouts/content";
-
-// COMMENTS
-@import "layouts/comments";
-
-// SHARE
-@import "layouts/share";
-
-// PAGES
-@import "layouts/page";
-
-// CHARTS
-@import "layouts/charts";
-
-// BLOCKS - ACF
-@import "blocks/acf/blocks";
-
-@import "blocks/acf/banner";
-@import "blocks/acf/embed";
-@import "blocks/acf/hero";
-@import "blocks/acf/promo-card";
-
-// BLOCKS - VARIATIONS
-@import "blocks/variations/accordion";
-@import "blocks/variations/cover";
-
-
-// SYTAX HIGHLIGHTING
-@import "vendor/prism";
-
-// UTILITIES
-@import "utilities/utilities";
-
-// Tailwind style utils, margin, padding, flow-space (vertical gaps), gutter (grid gaps) and region-sapce (padding)
-@import "utilities/utilities-wp";
-
-// Obs.js - Context‑aware web performance 
-@import "utilities/obs";
+// Utilities (last for specificity)
+@use 'utilities/utilities';
+@use 'utilities/utilities-wp';
+@use 'utilities/obs';

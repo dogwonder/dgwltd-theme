@@ -1,3 +1,5 @@
+@use '../utilities/helpers' as h;
+
 //Fallback for forms
 label {
   line-height: var(--wp--custom--typography--line-height--fine);
@@ -99,7 +101,7 @@ input[type="submit"] {
 //Gravity forms
 .gform_wrapper {
 
-  @include stack($gap);
+  @include h.stack(h.$gap);
 
   //General styles and resets - (needs ul due to inheritance over .entry-content)
   .gform_fields {

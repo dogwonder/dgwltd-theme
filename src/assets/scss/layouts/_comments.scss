@@ -1,3 +1,5 @@
+@use '../utilities/helpers' as h;
+
 .entry-comments {
     padding: var(--wp--custom--spacing--lg);
     background-color: light-dark(var(--wp--preset--color--light), #000000);
@@ -13,11 +15,11 @@
         gap: 0.5ch;
     }
     .comment-body {
-        @include stack($gap-sm);
+        @include h.stack(h.$gap-sm);
     }
 }
 
 .comment-respond, 
 .comment-form {
-    @include stack($gap-sm);
+    @include h.stack(h.$gap-sm);
 }

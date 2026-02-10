@@ -1,3 +1,5 @@
+@use '../utilities/helpers' as h;
+
 //For lists blogs / team etc
 .dgwltd-list {
   &__item {
@@ -12,7 +14,7 @@
   &__content {
     flex: 1;
     order: 2;
-    @include mq($from: lg) {
+    @include h.mq($from: lg) {
       order: 1;
     }
   }
@@ -20,7 +22,7 @@
     flex: 0 1 100%;
     order: 1;
     margin: 0 0 var(--wp--custom--spacing--gap) 0;
-    @include mq($from: lg) {
+    @include h.mq($from: lg) {
       order: 2;
       flex: 0 1 30%;
       margin: var(--wp--custom--spacing--gap) 0 0 var(--wp--custom--spacing--gap);

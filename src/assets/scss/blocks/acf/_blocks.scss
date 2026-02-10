@@ -1,3 +1,5 @@
+@use '../../utilities/helpers' as h;
+
 //Add some space around blocks
 :where(body .is-layout-flow) > [class^="dgwltd-block"], 
 :where(body .is-layout-flow) > [class^="dgwltd-pattern"] {
@@ -9,7 +11,7 @@
 .dgwltd-block__background {
     width: 100%;
     height: 100%;
-    z-index: $z-lowest;
+    z-index: h.$z-lowest;
     position: absolute;
     top: 0;
     right: 0;

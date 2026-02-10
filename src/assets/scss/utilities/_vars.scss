@@ -24,13 +24,8 @@ $gap-lg: 2rem;
 //Fluid container for grid layout
 $fluid-container: minmax(var(--wp--custom--spacing--md), 1fr) minmax(min-content, var(--wp--custom--width--container)) minmax(var(--wp--custom--spacing--md), 1fr);
 
-//Redeclare from vendor/_mq.scss -- https://github.com/sass-mq/sass-mq
-$mq-breakpoints: (
-  sm: 320px,
-  md: 760px,
-  lg: 940px, 
-  xl: 1350px
-);
+//Nav height (static value: 60/16 = 3.75rem — avoids circular dep with functions)
+$nav-height: 3.75rem;
 
 $colors: (
     primary: #FA008A,

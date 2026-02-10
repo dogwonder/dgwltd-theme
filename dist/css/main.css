@@ -6491,32 +6491,6 @@ textarea:not([rows]) {
   scroll-margin-block: 5ex;
 }
 
-:root {
-  color-scheme: light;
-}
-:root[data-color-scheme=light] {
-  color-scheme: light;
-}
-:root[data-color-scheme=dark] {
-  color-scheme: dark;
-}
-:root {
-  /* Opt-in the whole page to interpolate sizes to/from keywords - allows transitions from `height: 0` to `height: auto` */
-  interpolate-size: allow-keywords; /* 👈 */
-  --sentinel-margin: -1px 0px 0px 0px;
-  --baseline: calc(var(--wp--preset--font-size--body) * var(--wp--custom--typography--line-height--standard));
-  --baseline-multiplier: 1;
-  --submenu-offset: 0;
-  --highlight: color(from var(--wp--preset--color--primary) oklch l c h);
-  --opentype-case: "case" off;
-  --opentype-sinf: "sinf" off;
-}
-
-/*
---bg: black;
-background-color: var(--bg);
-@include color-contrast(var(--bg));
-*/
 a {
   color: var(--wp--custom--color--text, inherit);
   text-decoration: underline;
@@ -6707,9 +6681,6 @@ Consider hed, subhed / dek, lede, copy, kicker
   font-variant-numeric: lining-nums;
 }
 
-/*Note: 
-I know in general @extend shouldn't be used (https: //csswizardry.com/2016/02/mixins-better-for-performance/) but gov.uk uses silent classes ( https://csswizardry.com/2014/01/extending-silent-classes-in-sass/) for things like typography and that's pretty performant
-*/
 .dgwltd-heading-xl,
 .dgwltd-hero h1,
 .dgwltd-hero h2 {
@@ -6783,11 +6754,11 @@ has-lg-font-size
 }
 
 .dgwltd-body-sm,
-.entry-meta,
 .entry-content .wp-block-quote cite,
-.dgwltd-footer__list .menu-item,
+.entry-meta,
 .dgwltd-footer ul li,
-.dgwltd-footer p:not([class*=dgwltd-heading]) {
+.dgwltd-footer p:not([class*=dgwltd-heading]),
+.dgwltd-footer__list .menu-item {
   font-size: var(--wp--preset--font-size--sm);
   line-height: var(--wp--custom--typography--line-height--standard);
 }
@@ -6821,8 +6792,8 @@ has-lg-font-size
 .search-results .site-search__form .govuk-button,
 .search-no-results .site-search__form .govuk-button,
 .dgwltd-share-actions li button,
-.gform_wrapper .gform_button,
 input[type=submit],
+.gform_wrapper .gform_button,
 .wp-block-button__link {
   --button-text: var(--wp--custom--color--background);
   --button-border: var(--wp--custom--color--text);
@@ -6854,8 +6825,8 @@ input[type=submit],
 .search-results .site-search__form .govuk-button:hover,
 .search-no-results .site-search__form .govuk-button:hover,
 .dgwltd-share-actions li button:hover,
-.gform_wrapper .gform_button:hover,
 input[type=submit]:hover,
+.gform_wrapper .gform_button:hover,
 .wp-block-button__link:hover {
   --button-text: var(--wp--preset--color--dark);
   --button-border: var(--wp--preset--color--secondary);
@@ -6865,8 +6836,8 @@ input[type=submit]:hover,
 .search-results .site-search__form .govuk-button:active,
 .search-no-results .site-search__form .govuk-button:active,
 .dgwltd-share-actions li button:active,
-.gform_wrapper .gform_button:active,
 input[type=submit]:active,
+.gform_wrapper .gform_button:active,
 .wp-block-button__link:active {
   transform: scale(99%);
 }
@@ -6874,23 +6845,23 @@ input[type=submit]:active,
 .search-results .site-search__form .govuk-button:link,
 .search-no-results .site-search__form .govuk-button:link,
 .dgwltd-share-actions li button:link,
-.gform_wrapper .gform_button:link,
 input[type=submit]:link,
+.gform_wrapper .gform_button:link,
 .search-results .site-search__form .govuk-button:visited,
 .search-no-results .site-search__form .govuk-button:visited,
 .dgwltd-share-actions li button:visited,
-.gform_wrapper .gform_button:visited,
 input[type=submit]:visited,
+.gform_wrapper .gform_button:visited,
 .search-results .site-search__form .govuk-button:focus,
 .search-no-results .site-search__form .govuk-button:focus,
 .dgwltd-share-actions li button:focus,
-.gform_wrapper .gform_button:focus,
 input[type=submit]:focus,
+.gform_wrapper .gform_button:focus,
 .search-results .site-search__form .govuk-button:active,
 .search-no-results .site-search__form .govuk-button:active,
 .dgwltd-share-actions li button:active,
-.gform_wrapper .gform_button:active,
 input[type=submit]:active,
+.gform_wrapper .gform_button:active,
 .wp-block-button__link:link,
 .wp-block-button__link:visited,
 .wp-block-button__link:focus,
@@ -6901,8 +6872,8 @@ input[type=submit]:active,
 .search-results .site-search__form .govuk-button:focus-visible,
 .search-no-results .site-search__form .govuk-button:focus-visible,
 .dgwltd-share-actions li button:focus-visible,
-.gform_wrapper .gform_button:focus-visible,
 input[type=submit]:focus-visible,
+.gform_wrapper .gform_button:focus-visible,
 .wp-block-button__link:focus-visible {
   --button-text: var(--wp--preset--color--dark);
   --button-bg: var(--wp--preset--color--focus);
@@ -6914,8 +6885,8 @@ input[type=submit]:focus-visible,
 .search-results .site-search__form [disabled].govuk-button,
 .search-no-results .site-search__form [disabled].govuk-button,
 .dgwltd-share-actions li button[disabled],
-.gform_wrapper [disabled].gform_button,
 input[disabled][type=submit],
+.gform_wrapper [disabled].gform_button,
 .wp-block-button__link[disabled] {
   --button-text: var(--wp--custom--color--dark);
   --button-bg: var(--wp--custom--color--disabled);
@@ -6987,6 +6958,32 @@ input[disabled][type=submit],
   padding: 0;
 }
 
+:root {
+  color-scheme: light;
+}
+:root[data-color-scheme=light] {
+  color-scheme: light;
+}
+:root[data-color-scheme=dark] {
+  color-scheme: dark;
+}
+:root {
+  /* Opt-in the whole page to interpolate sizes to/from keywords - allows transitions from `height: 0` to `height: auto` */
+  interpolate-size: allow-keywords; /* 👈 */
+  --sentinel-margin: -1px 0px 0px 0px;
+  --baseline: calc(var(--wp--preset--font-size--body) * var(--wp--custom--typography--line-height--standard));
+  --baseline-multiplier: 1;
+  --submenu-offset: 0;
+  --highlight: color(from var(--wp--preset--color--primary) oklch l c h);
+  --opentype-case: "case" off;
+  --opentype-sinf: "sinf" off;
+}
+
+/*
+--bg: black;
+background-color: var(--bg);
+@include color-contrast(var(--bg));
+*/
 .dgwltd-cards__content {
   margin-block-end: var(--wp--custom--spacing--md);
 }
@@ -8473,6 +8470,11 @@ All child elemements of our main layout sections defaults into [content]
   margin: 0;
 }
 
+.dgwltd-banner {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1/-1;
+}
 .dgwltd-banner.has-background, .dgwltd-banner.has-image {
   justify-content: center;
   align-items: center;
@@ -8595,6 +8597,9 @@ lite-youtube.lyt-activated > .lty-playbtn {
 }
 
 .dgwltd-hero {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1/-1;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -8728,6 +8733,11 @@ lite-youtube.lyt-activated > .lty-playbtn {
   height: calc(100% - 90px);
 }
 
+.dgwltd-promo-card {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: 1/-1;
+}
 .dgwltd-promo-card__wrapper {
   position: relative;
   grid-column: 2/span 1;
@@ -8995,8 +9005,7 @@ pre[class*=language-] {
   cursor: help;
 }
 
-.visually-hidden,
-.visually-hidden-focusable {
+.visually-hidden, .visually-hidden-focusable {
   position: absolute !important;
   height: 1px;
   width: 1px;
@@ -9137,10 +9146,7 @@ CLASS UTILITIES (set in wp-utils.njk)
   scroll-behavior: smooth;
 }
 
-.align-full,
-.dgwltd-banner,
-.dgwltd-hero,
-.dgwltd-promo-card {
+.align-full {
   display: grid;
   grid-template-columns: subgrid;
   grid-column: 1/-1;

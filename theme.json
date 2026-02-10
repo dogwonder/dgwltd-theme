@@ -69,17 +69,17 @@
 				{
 					"name": "Success", 
 					"slug": "success",
-					"color": "#00703c"
+					"color": "#0f7a52"
 				}, 
 				{
 					"name": "Error", 
 					"slug": "error",
-					"color": "#d4351c"
+					"color": "#ca3535"
 				}, 
 				{
 					"name": "Disabled", 
 					"slug": "Disabled",
-					"color": "#b1b4b6"
+					"color": "#cecece"
 				}
 
 			]

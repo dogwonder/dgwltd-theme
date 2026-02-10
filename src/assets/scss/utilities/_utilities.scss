@@ -1,8 +1,7 @@
 //Accessibility
 
 //Text meant only for screen readers
-.visually-hidden, 
-%visually-hidden {
+.visually-hidden {
   position: absolute !important;
   height: 1px;
   width: 1px;
@@ -18,9 +17,8 @@
   white-space: nowrap;
 }
 
-.visually-hidden-focusable, 
-%visually-hidden-focusable {
-  @extend %visually-hidden;
+.visually-hidden-focusable {
+  @extend .visually-hidden;
   &:active,
   &:focus {
     position: static !important;
@@ -56,8 +54,7 @@
 
 //Container
 //Wrapper utility https://piccalil.li/quick-tip/use-css-clamp-to-create-a-more-flexible-wrapper-utility
-//Include the padding on the clamp ideal value so we always have that buffer
-%dgwltd-container, 
+//Include the padding on the clamp ideal value so we always have that buffer 
 .dgwltd-container {
   width: 100%;
   max-width: clamp(16rem,calc(var(--wp--custom--width--container) + calc(var(--wp--custom--spacing--md) * 2)),100vw);
@@ -140,8 +137,7 @@ CLASS UTILITIES (set in wp-utils.njk)
 }
 
 //Flex push items apart
-.repel, 
-%repel {
+.repel {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -150,8 +146,7 @@ CLASS UTILITIES (set in wp-utils.njk)
 }
 
 //Overflow, for things like carousel/galleries on small screens - https://adactio.com/journal/22178
-.overflow, 
-%overflow {
+.overflow {
   display: flex; 
   overflow-x: auto; 
   overscroll-behavior-inline: contain; 
@@ -160,15 +155,13 @@ CLASS UTILITIES (set in wp-utils.njk)
 } 
 
 //Align full using subgrid
-.align-full, 
-%align-full {
+.align-full {
   display: grid;
   grid-template-columns: subgrid;
   grid-column: 1 / -1;
 }
 
-.flex-center, 
-%flex-center {
+.flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -201,7 +194,6 @@ CLASS UTILITIES (set in wp-utils.njk)
 }
 
 //More modern aspect ratio
-%frame, 
 .frame {
   img {
     display: block;
@@ -212,19 +204,16 @@ CLASS UTILITIES (set in wp-utils.njk)
 }
 
 //Typography
-%centered, 
 .centered {
   text-align: center;
   text-wrap: balance;
 }
 
-%uppercase, 
 .uppercase {
   text-transform: uppercase;
   --opentype-case: "case" on;
 }
 
-%smallcaps, 
 .smallcaps {
   font-variant-caps: all-small-caps;
   font-variant-numeric: oldstyle-nums;    
@@ -233,7 +222,6 @@ CLASS UTILITIES (set in wp-utils.njk)
 
 /* to remove margin from the top of a subheading,
 and from the bottom of the preceding element */
-%subheading, 
 .subheading {
 	margin-block-start: 0;
 	*:has(+ &) {
@@ -242,13 +230,11 @@ and from the bottom of the preceding element */
 }
 
 //Based on .govuk-\!-text-break-word
-%break-word, 
 .break-word {
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
 }
 
-%prose, 
 .prose {
   text-wrap: pretty;
   font-variant-numeric: oldstyle-nums proportional-nums;
@@ -272,7 +258,6 @@ and from the bottom of the preceding element */
 }
 
 //Alerts
-%alert, 
 .alert {
   padding:1rem;
   border-radius: 0.5rem;
@@ -306,7 +291,6 @@ and from the bottom of the preceding element */
 }
 
 //Badge
-%dgwltd-tag,
 .dgwltd-tag {
   width: fit-content;
   border-radius: 9999px;
@@ -343,7 +327,6 @@ and from the bottom of the preceding element */
 }
 
 //Glass effect https://www.tyleo.com/html-glass.html
-%glass,
 .glass {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);

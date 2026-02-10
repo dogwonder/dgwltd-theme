@@ -1,6 +1,9 @@
+@use 'sass:math';
+@use 'mq';
+
 ///
 /// Functions
-/// 
+///
 
 /// Remove the unit of a length
 /// @param {Number} $number - Number to remove unit from
@@ -34,9 +37,9 @@ $max-value: strip-unit(map-get($space-scale, $max-key));
 $minViewport: null;
 $maxViewport: null;
 
-//Reuse $mq-breakpoints from _vars.scss and convert into unitless rems
+//Reuse mq.$mq-breakpoints from _vars.scss and convert into unitless rems
 $breakpoints: ();
-@each $breakpoint, $value in $mq-breakpoints {
+@each $breakpoint, $value in mq.$mq-breakpoints {
   $value-in-rem: math.div(strip-unit($value), 16);
   $breakpoints: map-merge($breakpoints, ($breakpoint: $value-in-rem));
 }

@@ -1,8 +1,9 @@
+@use '../../utilities/helpers' as h;
 
 //Promo card block
 .dgwltd-promo-card {
 
-    @extend %align-full;
+    @include h.align-full();
 
     &__wrapper {
         position: relative;
@@ -17,7 +18,7 @@
         flex-direction: column;
         align-items: center;
         position: relative;
-        @include mq($from: lg) {
+        @include h.mq($from: lg) {
             flex-direction: row;
         }
     }
@@ -28,13 +29,13 @@
         position: relative;
         z-index: 2;
         --flow-space: var(--wp--custom--spacing--sm);
-        @include mq($from: lg) {
+        @include h.mq($from: lg) {
             max-width: var(--wp--custom--width--content-small);
             padding-block: var(--wp--custom--spacing--lg);
             position: relative; 
         }
         .acf-innerblocks-container {
-            @include stack($gap-sm);
+            @include h.stack(h.$gap-sm);
         }
         .dgwltd-promo-card__kicker {
             font-weight: bold;
@@ -51,7 +52,7 @@
     }
 
     &__image {
-        @include mq($from: lg) {
+        @include h.mq($from: lg) {
             flex: 1;   
             position: relative; 
             z-index: 1;
@@ -66,7 +67,7 @@
 
     &__video {
         width: 100%;
-        @include mq($from: lg) {
+        @include h.mq($from: lg) {
             flex: 1;   
             position: relative; 
             z-index: 1;
@@ -83,17 +84,17 @@
     //Block options
     &[data-state='reversed'] {
         .dgwltd-promo-card__inner {
-          @include mq($from: lg) {
+          @include h.mq($from: lg) {
             flex-direction: row-reverse;
           }
         }
         .dgwltd-promo-card__image {
-            @include mq($from: lg) {
+            @include h.mq($from: lg) {
                 margin-inline: 0 calc(var(--wp--custom--spacing--xl) * -1);
             }
         }
         .dgwltd-promo-card__video {
-            @include mq($from: lg) {
+            @include h.mq($from: lg) {
                 margin-inline: 0 calc(var(--wp--custom--spacing--xl) * -1);
             }
         }

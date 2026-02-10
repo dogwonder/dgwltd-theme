@@ -1,4 +1,4 @@
-$nav-height: toRem(60);
+@use '../utilities/helpers' as h;
 
 //Skip link
 .govuk-skip-link:link, 
@@ -25,7 +25,7 @@ $nav-height: toRem(60);
   &:before {
     content: "";
     position: absolute;
-    z-index: $z-highest-1; 
+    z-index: h.$z-highest-1; 
     width: 100%;
     height: 100%;
     inset: 0;
@@ -33,7 +33,7 @@ $nav-height: toRem(60);
     opacity: 0;
     transition: visibility .25s cubic-bezier(.24,.26,.2,1),opacity .25s cubic-bezier(.24,.26,.2,1);
 
-    @include mq($until: lg) {
+    @include h.mq($until: lg) {
       background-color: rgb(0,0,0,.9);
     }
 
@@ -56,7 +56,7 @@ $nav-height: toRem(60);
   //Logo
   .dgwltd-masthead__logo {
     line-height: 1;
-    @include mq($until: lg) {
+    @include h.mq($until: lg) {
       flex: 1;
     }
     > a {
@@ -80,7 +80,7 @@ $nav-height: toRem(60);
     }
 
     svg {
-      width: $nav-height;
+      width: h.$nav-height;
       height: auto;
       margin:0 var(--wp--custom--spacing--sm) 0 0;
       &:hover {

@@ -1,5 +1,7 @@
+@use '../utilities/helpers' as h;
+@use 'sass:math';
+
 //WP entry-content e.g. posts
-@use "sass:math";
 
 .entry-content {
    p:empty {
@@ -7,7 +9,7 @@
   }
   //Headings
   :is(h1, h2, h3) {
-      @include mq($from: lg) {
+      @include h.mq($from: lg) {
         overflow-wrap: anywhere;
         hyphens: auto;
       }

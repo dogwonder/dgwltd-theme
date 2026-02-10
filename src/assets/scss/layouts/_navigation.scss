@@ -1,3 +1,5 @@
+@use '../utilities/helpers' as h;
+
 // -----------------------
 // Utilities / tokens
 // -----------------------
@@ -36,7 +38,7 @@
 // Nav
 // -----------------------
 .dgwltd-nav {
-  z-index: $z-low;
+  z-index: h.$z-low;
   display: flex;
 
   .dgwltd-menu {
@@ -46,7 +48,7 @@
     flex-direction: column;
     gap: var(--wp--custom--spacing--sm);
 
-    @include mq($from: lg) {
+    @include h.mq($from: lg) {
       flex: 1;
       flex-direction: row;
       align-items: center;
@@ -59,7 +61,7 @@
       @extend %nav-item;
 
       a {
-        @include mq($from: lg) {
+        @include h.mq($from: lg) {
           &:focus-visible {
             color: var(--wp--custom--color--text) !important;
             text-decoration-color: var(--wp--preset--color--primary) !important;
@@ -67,7 +69,7 @@
         }
       }
 
-      @include mq($until: lg) {
+      @include h.mq($until: lg) {
         font-size: var(--wp--preset--font-size--xl);
         line-height: var(--button-height);
 
@@ -77,8 +79,8 @@
         }
       }
 
-      @include mq($from: lg) {
-        line-height: $nav-height;
+      @include h.mq($from: lg) {
+        line-height: h.$nav-height;
 
         &.menu-item-has-children {
           display: flex;
@@ -92,7 +94,7 @@
             margin-inline-end: 0;
 
             &:after {
-              @include chevron(1ex, 3px, var(--wp--preset--color--dark), down);
+              @include h.chevron(1ex, 3px, var(--wp--preset--color--dark), down);
               margin-inline-start: var(--wp--custom--spacing--sm);
               margin-block-start: -0.4ex;
             }
@@ -127,15 +129,15 @@
         height: 2.5rem;
 
         &:after {
-          @include chevron(1ex, 3px, var(--wp--preset--color--light), down);
+          @include h.chevron(1ex, 3px, var(--wp--preset--color--light), down);
           margin: 0 auto;
         }
 
         &[aria-expanded="true"]::after {
-          @include chevron(1ex, 3px, var(--wp--preset--color--light), up);
+          @include h.chevron(1ex, 3px, var(--wp--preset--color--light), up);
         }
 
-        @include mq($until: lg) {
+        @include h.mq($until: lg) {
           justify-content: center;
 
           &:before {
@@ -153,7 +155,7 @@
 
         span { display: none; }
 
-        @include mq($from: lg) {
+        @include h.mq($from: lg) {
           display: none;
         }
       }
@@ -163,7 +165,7 @@
     .sub-menu {
       display: none;
 
-      @include mq($until: lg) {
+      @include h.mq($until: lg) {
         margin: var(--wp--custom--spacing--sm) 0 0;
         padding: 0;
 
@@ -176,7 +178,7 @@
         }
       }
 
-      @include mq($from: lg) {
+      @include h.mq($from: lg) {
         display: flex;
         flex-direction: column;
         gap: var(--wp--custom--spacing--sm);
@@ -184,7 +186,7 @@
         visibility: hidden;
         transition: visibility .25s cubic-bezier(.24,.26,.2,1), opacity .25s cubic-bezier(.24,.26,.2,1);
         box-shadow: var(--wp--preset--shadow--low);
-        z-index: $z-high;
+        z-index: h.$z-high;
         position: absolute;
         inset-inline-end: 0;
         inset-inline-start: auto;
@@ -214,7 +216,7 @@
     } 
 
     //Sub menu open states
-    @include mq($from: lg) {
+    @include h.mq($from: lg) {
       .menu-item-has-children:focus-within > .sub-menu,
       .menu-item-has-children:hover        > .sub-menu {
         opacity: 1;
@@ -235,8 +237,8 @@
   background: transparent;
   border: 0;
   box-shadow: none;
-  width: toRem(44);
-  height: toRem(44);
+  width: h.toRem(44);
+  height: h.toRem(44);
 
   &:focus-visible {
     background: transparent;
@@ -246,7 +248,7 @@
 
   svg {
     fill: var(--wp--custom--color--text);
-    height: toRem(44);
+    height: h.toRem(44);
 
     &.close { fill: var(--wp--preset--color--light); }
   }
@@ -264,7 +266,7 @@
   .dgwltd-nav__wrapper {
     display: none;
 
-    @include mq($from: lg) {
+    @include h.mq($from: lg) {
       display: flex;
       width: 100%;
     }
@@ -312,7 +314,7 @@
     }
 
     &.masthead-is-open {
-      z-index: $z-highest;
+      z-index: h.$z-highest;
       position: relative;
       background: var(--wp--custom--color--dark);
 
@@ -330,7 +332,7 @@
 
       .nav-toggle {
         position: relative;
-        z-index: $z-highest;
+        z-index: h.$z-highest;
         display: flex;
         justify-content: flex-end;
 

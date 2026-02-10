@@ -1,3 +1,5 @@
+@use '../utilities/helpers' as h;
+
 //Footer
 .dgwltd-footer {
   padding: 0;
@@ -18,7 +20,7 @@
   &__section {
     display: flex;
     flex-direction: column;
-    @include mq($from: lg) {
+    @include h.mq($from: lg) {
       flex-direction: row;
     }
   }
@@ -28,7 +30,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    @include mq($from: lg) {
+    @include h.mq($from: lg) {
       flex-direction: row;
     }
     gap: var(--wp--custom--spacing--lg);
@@ -65,8 +67,8 @@
       }
     }
     .icon-social {
-      width: toRem(44);
-      width: toRem(44);
+      width: h.toRem(44);
+      width: h.toRem(44);
       margin:0;
       display: block;
       fill: var(--wp--custom--color--background);
@@ -82,7 +84,7 @@
     .menu-item {
       @extend %dgwltd-body-sm;
       display: block;
-      @include mq($from: lg) {
+      @include h.mq($from: lg) {
         display: inline-block;
       }
       > a {
@@ -103,7 +105,7 @@
     display: flex;
     flex-direction: row;
     list-style-type: none;
-    @include mq($until: lg) {
+    @include h.mq($until: lg) {
       flex-direction: column;
     }
     li {
@@ -117,7 +119,7 @@
     display: flex;
     flex-direction: row;
     margin-block-start: var(--wp--custom--spacing--lg);
-    @include mq($until: lg) {
+    @include h.mq($until: lg) {
       flex-direction: column;
       text-align: center;
     }
