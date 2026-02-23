@@ -26,7 +26,7 @@ if ( ! function_exists( 'dgwltd_acf_color_palette' ) ) :
 				args.palettes = [
 					<?php
 					foreach ( $color_palette as $color ) {
-						echo '"' . $color['color'] . '",';
+						echo '"' . esc_js( $color['color'] ) . '",';
 					}
 					?>
 				]

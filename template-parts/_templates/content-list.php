@@ -25,7 +25,7 @@
 		if ( $categories_list ) {
 			echo '<span>' . esc_html__( 'Categories: ', 'dgwltd' ) . '</span>';
 			/* translators: 1: list of categories. */
-			printf( '<span class="tag">' . esc_html__( '%1$s', 'dgwltd' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			printf( '<span class="tag">%s</span>', wp_kses_post( $categories_list ) );
 		}
 		?><!-- .entry-footer -->
 	</div><!-- /content-->   

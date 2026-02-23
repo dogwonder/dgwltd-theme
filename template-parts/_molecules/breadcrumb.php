@@ -37,9 +37,9 @@ $parent = wp_get_post_parent_id( $currentpost_id );
 			<?php elseif ( is_404() ) : ?>
 				<?php esc_html_e( '404, page not found', 'dgwltd' ); ?>
 			<?php elseif ( is_category() ) : ?>
-				<?php single_cat_title(); ?>
+				<?php echo esc_html( single_cat_title( '', false ) ); ?>
 			<?php elseif ( is_tag() ) : ?>
-				<?php single_tag_title(); ?>
+				<?php echo esc_html( single_tag_title( '', false ) ); ?>
 			<?php elseif ( is_page() || is_single() ) : ?>
 				<?php echo esc_html( get_the_title( $post->ID ) ); ?>
 			<?php endif; ?>

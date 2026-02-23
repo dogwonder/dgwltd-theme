@@ -251,15 +251,24 @@ endif;
 
 if ( ! function_exists( 'dgwltd_version' ) ) :
 	function dgwltd_version() {
-		//Get version value from package.json
-		$versionData = wp_remote_get(get_template_directory_uri() . '/dist/version.json');
-		if (is_wp_error($versionData)) {
-			$pkgVersion = '0.0.1';
-		} else {
-			$versionContents = wp_remote_retrieve_body($versionData);
-			$package = json_decode($versionContents, true);
-			$pkgVersion = $package['version'] ?? '0.0.1';
+		static $pkgVersion = null;
+
+		if ( null !== $pkgVersion ) {
+			return $pkgVersion;
 		}
+
+		// Read version from the local file instead of making an HTTP request
+		$version_file = get_template_directory() . '/dist/version.json';
+
+		if ( ! file_exists( $version_file ) ) {
+			$pkgVersion = '0.0.1';
+			return $pkgVersion;
+		}
+
+		$versionContents = file_get_contents( $version_file );
+		$package         = json_decode( $versionContents, true );
+		$pkgVersion      = $package['version'] ?? '0.0.1';
+
 		return $pkgVersion;
 	}
 endif;

@@ -14,6 +14,7 @@ global $post;
 $paged = get_query_var("paged") ? get_query_var("paged") : 1;
 
 // Function to parse clamp values and convert to pixels
+if ( ! function_exists( 'parseClampToPx' ) ) :
 function parseClampToPx($clampValue) {
     // Extract min and max values from clamp(min, preferred, max)
     if (preg_match('/clamp\((.*?)\)/', $clampValue, $matches)) {
@@ -47,10 +48,13 @@ function parseClampToPx($clampValue) {
         'max' => $clampValue
     ];
 }
+endif;
 
+if ( ! function_exists( 'hyphenateSlug' ) ) :
 function hyphenateSlug($slug) {
     return preg_replace('/^(\d+)(xs|xl)$/', '$1-$2', $slug);
 }
+endif;
 
 // Get theme settings
 $color_palette = [];
@@ -88,14 +92,16 @@ if (class_exists("WP_Theme_JSON_Resolver")) {
     }
 }
 
+if ( ! function_exists( 'getFontSize' ) ) :
 function getFontSize($size, $key) {
-    $fontSize = $size["fluid"] ? $size["fluid"][$key] : $size["size"];
+    $fontSize = ! empty( $size["fluid"] ) && isset( $size["fluid"][$key] ) ? $size["fluid"][$key] : $size["size"];
     $fontSize = str_replace("rem", "", $fontSize);
     return $fontSize * 16;
 }
+endif;
 ?>
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/dist/js/prism/prism.css">
+<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() . '/dist/js/prism/prism.css' ); ?>">
 
 <style>
 .section {
@@ -234,7 +240,7 @@ code.language-html {
             <?php endwhile; ?>
 
             <nav class="dgwltd-contents-list">
-                <h2 class="dgwltd-contents-list__title"><?php esc_html_e("Contents", "cfc"); ?></h2>
+                <h2 class="dgwltd-contents-list__title"><?php esc_html_e( 'Contents', 'dgwltd' ); ?></h2>
                 <ol class="dgwltd-contents-list__list"></ol>
             </nav>
         </div>
@@ -537,6 +543,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-<script src="<?php echo get_template_directory_uri(); ?>/dist/js/prism/prism.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() . '/dist/js/prism/prism.js' ); ?>"></script>
 
 <?php get_footer(); ?>

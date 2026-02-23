@@ -214,7 +214,7 @@
 				},
 				{
 					"name": "Body",
-					"size": "1.0625rem",
+					"size": "1.25rem",
 					"fluid": {
 						"min": "1.0625rem",
 						"max": "1.25rem"
@@ -223,7 +223,7 @@
 				},
 				{
 					"name": "Medium",
-					"size": "1.0625rem",
+					"size": "1.25rem",
 					"fluid": {
 						"min": "1.0625rem",
 						"max": "1.25rem"

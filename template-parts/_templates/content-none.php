@@ -13,7 +13,7 @@
 	<h2>
 		<?php
 		/* translators: %s: search query. */
-		printf( esc_html__( 'No results found for %s', 'dgwltd' ), '<span>' . get_search_query() . '</span>' );
+		printf( esc_html__( 'No results found for %s', 'dgwltd' ), '<span>' . esc_html( get_search_query( false ) ) . '</span>' );
 		?>
 	</h2>
 	<?php else : ?>

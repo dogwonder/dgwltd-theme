@@ -39,7 +39,7 @@ if ( class_exists( 'acf' ) ) {
 	$categories_list = get_the_category_list( esc_html__( ', ', 'dgwltd' ) );
 	if ( $categories_list ) {
 		/* translators: 1: list of categories. */
-		printf( '<span class="tag">' . esc_html__( '%1$s', 'dgwltd' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+		printf( '<span class="tag">%s</span>', wp_kses_post( $categories_list ) );
 	}
 	?>
 	</div><!-- .entry-content -->

@@ -29,7 +29,7 @@
 		<div class="dgwltd-footer__section repel">
 
 			<div class="dgwltd-footer__legal">
-				<span class="dgwltd-footer__copyright">© Dogwonder Ltd, <?php echo date( 'Y' ); ?></span>
+				<span class="dgwltd-footer__copyright">© Dogwonder Ltd, <?php echo esc_html( wp_date( 'Y' ) ); ?></span>
 				<?php
 				if ( has_nav_menu( 'legal' ) ) {
 					wp_nav_menu(

@@ -8,7 +8,7 @@
     <div class="dgwltd-masthead-container">
 
             <div class="dgwltd-masthead__logo">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" title="Go to the homepage for <?php bloginfo( 'name' ); ?>">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" title="Go to the homepage for <?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
                 <?php get_template_part( 'template-parts/_atoms/logo' ); ?>
                 <span class="visually-hidden"><?php esc_html_e( 'DGW.ltd', 'dgwltd' ); ?></span>
                 </a>

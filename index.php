@@ -19,7 +19,7 @@ get_header();
 
 		<div class="entry-header">
 			<h1 class="wp-block-post-title swiss-shift">
-				<span class="background">Ola</span> <span class="foreground"><?php echo esc_attr( get_bloginfo( 'name' ) ); ?></span>
+				<span class="background">Ola</span> <span class="foreground"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
 			</h1>
 		</div>
 

@@ -16,10 +16,10 @@ $theme = wp_get_theme();
 </div>
 <?php include(locate_template( 'template-parts/_molecules/sprite.php' )); ?>
 <?php wp_footer(); ?>
-<script type="module" src="<?php echo get_template_directory_uri(); ?>/dist/js/app.min.js"></script>
+<script type="module" src="<?php echo esc_url( get_template_directory_uri() . '/dist/js/app.min.js' ); ?>"></script>
 <script type="module">
   if (!window._govukFrontendInitialized) {
-    import('<?php echo get_template_directory_uri(); ?>/dist/js/govuk-frontend-6.0.0.min.js')
+    import('<?php echo esc_url( get_template_directory_uri() . '/dist/js/govuk-frontend-6.0.0.min.js' ); ?>')
       .then(({ initAll }) => {
         initAll();
         window._govukFrontendInitialized = true;
@@ -32,7 +32,7 @@ $theme = wp_get_theme();
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
-      navigator.serviceWorker.register('/sw.js?<?php echo $pkgVersion ?>').then(function(registration) {
+      navigator.serviceWorker.register('/sw.js?<?php echo esc_js( $pkgVersion ); ?>').then(function(registration) {
         // Successfully registered the Service Worker
         //console.log('Service Worker registration successful with scope: ', registration.scope);
       }).catch(function(err) {

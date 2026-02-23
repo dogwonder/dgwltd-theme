@@ -12,7 +12,7 @@
 get_header();
 
 // Post parent ID (which can be 0 if there is no parent)
-$parent = wp_get_post_parent_id( $id );
+$parent = wp_get_post_parent_id( $post->ID );
 
 // Check the page template so we can ignore stray parents
 $page_template = get_page_template_slug( $parent );
@@ -59,7 +59,7 @@ if ( class_exists( 'acf' ) ) {
 					<?php if ( ! empty( $overridden_title ) ) : ?>
 					<h2 class="govuk-heading-l<?php echo ( $hidden_title ? ' visually-hidden' : '' ); ?>"><?php echo $overridden_title; ?></h2>
 					<?php else : ?>
-					<h2 class="govuk-heading-l<?php echo ( $hidden_title ? ' visually-hidden' : '' ); ?>"><?php echo get_the_title( $post->ID ); ?></h2>
+					<h2 class="govuk-heading-l<?php echo ( $hidden_title ? ' visually-hidden' : '' ); ?>"><?php echo esc_html( get_the_title( $post->ID ) ); ?></h2>
 					<?php endif; ?>
 				<?php endif; ?>
 					

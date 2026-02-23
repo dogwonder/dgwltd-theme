@@ -27,7 +27,7 @@ $envs = array(
 				}
 		break;
 		default:
-			'prod';
+			return false;
 		break;
 		}
 	}
@@ -80,7 +80,7 @@ if ( ! function_exists( 'dgwltd_setup' ) ) :
 		register_nav_menus(
 			array(
 				'primary' => esc_html__( 'Primary', 'dgwltd' ),
-				'footer-links' => __( 'Footer', 'dgwltd' ), 
+				'footer-links' => esc_html__( 'Footer', 'dgwltd' ),
 				'legal'   => esc_html__( 'Legal', 'dgwltd' )
 			)
 		);
