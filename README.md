@@ -28,7 +28,7 @@ In `vendor.scss` we need to overide the default font family.
 
 ```
 $govuk-include-default-font-face: false;
-$govuk-focus-colour: #00FFD9;
+$govuk-functional-colours: (focus: #FFDD00);
 $govuk-font-family: system-ui, sans-serif;
 @import "../../node_modules/govuk-frontend/govuk/all.scss";
 ```

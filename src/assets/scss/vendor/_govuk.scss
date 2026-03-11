@@ -4,7 +4,7 @@
 
 // Variables - must be declared here for @import visibility
 $govuk-include-default-font-face: false;
-$govuk-focus-colour: #FFDD00;
+$govuk-functional-colours: (focus: #FFDD00);
 $govuk-font-family: system-ui, sans-serif;
 
 // Base (settings, tools, helpers — no CSS output)
