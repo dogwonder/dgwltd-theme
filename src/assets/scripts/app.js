@@ -1,7 +1,6 @@
 import "invokers-polyfill";
 import "./share.js"; 
 import Konami from 'konami';
-// import { initializeCarbonComponents } from './components/carbon-components.js';
 
 const desktopWidth = 992;
 
@@ -239,5 +238,4 @@ document.addEventListener("DOMContentLoaded", () => {
   cardClick('.dgwltd-card');
   new TextareaHandler('textarea');
   konami();
-  // initializeCarbonComponents();
 });

@@ -105,8 +105,6 @@ Eleventy generates standalone utility pages, PWA assets, and dynamic PHP compone
 | Social media cropper | `content/tools/social-media-cropper.njk` | `dist/social-media-cropper.html` |
 | Image map | `content/random/image-map.njk` | `dist/image-map.html` |
 | Modal | `content/random/modal.njk` | `dist/modal.html` |
-| Carbon intensity | `content/carbon/carbon-intensity.njk` | `dist/carbon-intensity.php` |
-| Power mix | `content/carbon/power-mix.njk` | `dist/power-mix.php` |
 | Lighthouse dashboard | `content/utils/test-results.njk` | `dist/test-results.html` |
 | Service worker | `content/sw.njk` | `sw.js` (theme root) |
 

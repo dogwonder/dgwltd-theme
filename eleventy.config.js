@@ -71,13 +71,6 @@ export default async function(eleventyConfig) {
 
   // Font Awesome icon support
   eleventyConfig.addPlugin(fontAwesomePlugin);
-
-  // WebC component support for reusable HTML components
-  eleventyConfig.addPlugin(pluginWebc, {
-    components: "src/11ty/_components/**/*.webc",
-    useTransform: true,
-    globalData: true
-  });
   
   // Automatically adds id attributes to headings for anchor links
   eleventyConfig.addPlugin(IdAttributePlugin, {

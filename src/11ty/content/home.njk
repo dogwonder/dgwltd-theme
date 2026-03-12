@@ -18,13 +18,3 @@ console.log('Hello world!');
 
 <i class="fa-solid fa-wind"></i>
 <i class="fa-solid fa-camera-retro"></i>
-
-{% set intensityValue = carbonData.intensity.data[0].intensity.actual or carbonData.intensity.data[0].intensity.forecast or 150 %}
-{% set generationMix = carbonData.generation.data.generationmix or [] %}
-
-
-<section class="energy-dashboard">
-  <h2>UK Grid Status</h2>
-  <power-mix generation-data="{{ generationMix | dump }}"></power-mix>
-  <carbon-intensity current-intensity="{{ intensityValue }}"></carbon-intensity>
-</section>
